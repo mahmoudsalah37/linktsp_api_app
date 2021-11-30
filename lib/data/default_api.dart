@@ -39,8 +39,9 @@ class DefaultApi {
     return response;
   }
 
-  Future<Response> postData(dynamic data,
-      {String? path,
+  Future<Response> postData(
+      {dynamic data,
+      String? path,
       Map<String, dynamic>? queryParameters,
       Map<String, dynamic>? headers}) async {
     dio.options.headers = headers ?? _defaultHeaders;

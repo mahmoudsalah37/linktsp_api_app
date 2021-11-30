@@ -1,6 +1,4 @@
-// ignore_for_file: constant_identifier_names
-
-import 'package:linktsp_api/data/apis/Account/models/cities_model.dart';
+import 'package:linktsp_api/data/Account/models/cities_model.dart';
 
 class UserModel {
   UserModel({
