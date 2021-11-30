@@ -1,7 +1,8 @@
-import 'package:linktsp_api/data/apis/Menu/models/menu_model.dart';
-import 'package:linktsp_api/data/apis/default_api.dart';
-import 'package:linktsp_api/data/apis/exception_api.dart';
-import 'package:linktsp_api/data/apis/result_model.dart';
+import 'package:linktsp_api/data/Menu/models/menu_model.dart';
+
+import '../../default_api.dart';
+import '../../exception_api.dart';
+import '../../result_model.dart';
 
 class MenuWebServicesImp extends DefaultApi implements MenuWebServices {
   MenuWebServicesImp({String defaultPath = ''}) : super(defaultPath);
@@ -36,7 +37,7 @@ class MenuWebServicesImp extends DefaultApi implements MenuWebServices {
   }
 
   @override
-  Future getPreOrderPolicy() async {
+  Future<List<ContactInfoModel>> getPreOrderPolicy() async {
     final respose = await getData(
       path: 'home/PreOrderPolicy',
     );
@@ -54,5 +55,5 @@ abstract class MenuWebServices {
   Future<MenuModel> getMenu({required int customerID});
   Future<List<ContactInfoModel>> getContactInfo();
 
-  Future getPreOrderPolicy();
+  Future<List<ContactInfoModel>> getPreOrderPolicy();
 }
