@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 
 class DefaultApi {
@@ -47,7 +49,7 @@ class DefaultApi {
     final response = dio.post('/${path ?? defaultPath}',
         queryParameters: _defaultQueryParameters
           ?..addAll(queryParameters ?? <String, dynamic>{}),
-        data: data);
+        data: JsonEncoder(data));
     return response;
   }
 
@@ -59,7 +61,7 @@ class DefaultApi {
     final response = dio.put('/${path ?? defaultPath}',
         queryParameters: _defaultQueryParameters
           ?..addAll(queryParameters ?? <String, dynamic>{}),
-        data: data);
+        data: JsonEncoder(data));
     return response;
   }
 
