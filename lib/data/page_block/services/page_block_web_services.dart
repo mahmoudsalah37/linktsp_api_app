@@ -10,9 +10,8 @@ class PageBlockWebServicesImp extends DefaultApi
 
   @override
   Future<PageBlockModel> getPageBlock() async {
-    final respose = await getData(
-      path: 'home',
-    );
+    final respose =
+        await getData(path: 'home', queryParameters: {'language': 1});
     final result = ApiReturnResult.fromJSON(respose.data);
     if (result.code == 200) {
       return PageBlockModel.fromJson(result.data);
