@@ -17,8 +17,8 @@ class MultiStoreServiceImp extends DefaultApi implements MultiStoreService {
       path: 'multiStore/cart/remove',
       queryParameters: {
         'customerID': customerID,
-        'SKUID': addressId,
-        'addressID': skuid,
+        'SKUID': skuid,
+        'addressID': addressId,
       },
     );
     final result = ApiReturnResult.fromJSON(respose.data);

@@ -1,4 +1,4 @@
-import 'dart:convert';
+import 'package:linktsp_api/data/Account/models/activation_code_model.dart';
 import 'package:linktsp_api/data/Account/models/cart_summary_model.dart';
 import 'package:linktsp_api/data/Account/models/register_model.dart';
 import 'package:linktsp_api/data/Account/models/user_model.dart';
@@ -85,6 +85,150 @@ class AccountServicesImp extends DefaultApi implements AccountService {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
   }
+
+  @override
+  Future<bool> verify(
+      {required ActivationCodeModel activationCodeModel}) async {
+    final response =
+        await postData(data: activationCodeModel, path: 'account/verfiy');
+    final result = ApiReturnResult.fromJSON(response.data);
+    if (result.code == 200) {
+      return result.data;
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
+  }
+
+  @override
+  Future<bool> resendCode(
+      {required ActivationCodeModel activationCodeModel}) async {
+    final response = await postData(
+        data: activationCodeModel, path: 'account/resendverificationcode');
+    final result = ApiReturnResult.fromJSON(response.data);
+    if (result.code == 200) {
+      return result.data;
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
+  }
+
+  @override
+  Future<bool> changePassword(
+      {required int customId,
+      required String oldPassword,
+      required String newPassword}) async {
+    final response =
+        await getData(path: 'account/changepassword', queryParameters: {
+      "customerID": customId,
+      "OldPassword": oldPassword,
+      "NewPassword": newPassword,
+    });
+    final result = ApiReturnResult.fromJSON(response.data);
+    if (result.code == 200) {
+      return result.data;
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
+  }
+
+  @override
+  Future<bool> forgetPassword(
+      {required String data, required int verifyType}) async {
+    final response = await getData(
+        path: 'account/forgetpassword',
+        queryParameters: {"data": data, "verifyType": verifyType});
+    final result = ApiReturnResult.fromJSON(response.data);
+    if (result.code == 200) {
+      return result.data;
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
+  }
+
+  @override
+  Future<bool> resendPassword(
+      {required String data, required int verifyType}) async {
+    final response = await getData(
+        path: 'account/resendpassword',
+        queryParameters: {"data": data, "verifyType": verifyType});
+    final result = ApiReturnResult.fromJSON(response.data);
+    if (result.code == 200) {
+      return result.data;
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
+  }
+
+  @override
+  Future<int> confirmPassword(
+      {required String data,
+      required int verifyType,
+      required String password}) async {
+    final response = await getData(
+        path: 'account/confirmpassword',
+        queryParameters: {
+          "data": data,
+          "verifyType": verifyType,
+          "password": password
+        });
+    final result = ApiReturnResult.fromJSON(response.data);
+    if (result.code == 200) {
+      return result.data;
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
+  }
+
+  @override
+  Future<bool> resetPassword(
+      {required int customerId, required String password}) async {
+    final response = await getData(
+        path: 'account/resetpassword',
+        queryParameters: {"cutomerId": customerId, "password": password});
+    final result = ApiReturnResult.fromJSON(response.data);
+    if (result.code == 200) {
+      return result.data;
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
+  }
+
+  @override
+  Future<bool> subscribe({required String email}) async {
+    final response = await getData(
+        path: 'account/Subscribe', queryParameters: {"email": email});
+    final result = ApiReturnResult.fromJSON(response.data);
+    if (result.code == 200) {
+      return result.data;
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
+  }
+
+  @override
+  Future<bool> unSubscribe({required String email}) async {
+    final response = await getData(
+        path: 'account/Unsubscribe', queryParameters: {"email": email});
+    final result = ApiReturnResult.fromJSON(response.data);
+    if (result.code == 200) {
+      return result.data;
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
+  }
+
+  @override
+  Future<bool> notificationsToken({required String deviceToken}) async {
+    final response = await getData(
+        path: 'Notification/Token',
+        queryParameters: {"deviceToken": deviceToken});
+    final result = ApiReturnResult.fromJSON(response.data);
+    if (result.code == 200) {
+      return result.data;
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
+  }
 }
 
 abstract class AccountService {
@@ -94,4 +238,21 @@ abstract class AccountService {
   Future<UserModel> getProfileDetails(
       {required UserModel userModel, required int customerId});
   Future<CustomerSummaryModel> customerSummary({required int customerId});
+  Future<bool> verify({required ActivationCodeModel activationCodeModel});
+  Future<bool> resendCode({required ActivationCodeModel activationCodeModel});
+  Future<bool> changePassword(
+      {required int customId,
+      required String oldPassword,
+      required String newPassword});
+  Future<bool> forgetPassword({required String data, required int verifyType});
+  Future<bool> resendPassword({required String data, required int verifyType});
+  Future<int> confirmPassword(
+      {required String data,
+      required int verifyType,
+      required String password});
+  Future<bool> resetPassword(
+      {required int customerId, required String password});
+  Future<bool> subscribe({required String email});
+  Future<bool> unSubscribe({required String email});
+  Future<bool> notificationsToken({required String deviceToken});
 }
