@@ -25,7 +25,7 @@ class MenuWebServiceImp extends DefaultApi implements MenuWebService {
   @override
   Future<List<ContactInfoModel>> getContactInfo() async {
     final respose = await getData(
-      path: 'home/menu',
+      path: 'home/contactInfo',
     );
     final result = ApiReturnResult.fromJSON(respose.data);
     if (result.code == 200) {
