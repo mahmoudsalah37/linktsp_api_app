@@ -14,7 +14,11 @@ class ReviewWebServicesImp extends DefaultApi implements ReviewWebServices {
       required int customerId}) async {
     final response = await postData(
       path: 'product/rate/add',
-      queryParameters: {'ProductCode': productCode, 'customerID': customerId},
+      queryParameters: {
+        'ProductCode': productCode,
+        'customerID': customerId,
+        'rate': rate,
+      },
     );
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
