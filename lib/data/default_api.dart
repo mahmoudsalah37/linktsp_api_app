@@ -32,49 +32,54 @@ class DefaultApi {
 
   Future<Response> getData(
       {String? path,
-      Map<String, dynamic>? queryParameters,
+      Map<String, dynamic> queryParameters = const {},
       Map<String, dynamic>? headers}) async {
     dio.options.headers = headers ?? _defaultHeaders;
-    final response = dio.get('/${path ?? defaultPath}',
-        queryParameters: _defaultQueryParameters
-          ?..addAll(queryParameters ?? <String, dynamic>{}));
+    final response = dio.get(
+      '/${path ?? defaultPath}',
+      queryParameters: Map<String, dynamic>.from(
+          _defaultQueryParameters ?? <String, dynamic>{})
+        ..addAll(queryParameters),
+    );
     return response;
   }
 
   Future<Response> postData(
       {dynamic data,
       String? path,
-      Map<String, dynamic>? queryParameters,
+      Map<String, dynamic> queryParameters = const {},
       Map<String, dynamic>? headers}) async {
     dio.options.headers = headers ?? _defaultHeaders;
     final response = dio.post('/${path ?? defaultPath}',
-        queryParameters: _defaultQueryParameters
-          ?..addAll(queryParameters ?? <String, dynamic>{}),
+        queryParameters:
+            Map<String, dynamic>.from(_defaultQueryParameters ?? {})
+              ..addAll(queryParameters),
         data: JsonEncoder(data));
     return response;
   }
 
   Future<Response> putData(dynamic data,
       {String? path,
-      Map<String, dynamic>? queryParameters,
+      Map<String, dynamic> queryParameters = const {},
       Map<String, dynamic>? headers}) async {
     dio.options.headers = headers ?? _defaultHeaders;
     final response = dio.put('/${path ?? defaultPath}',
-        queryParameters: _defaultQueryParameters
-          ?..addAll(queryParameters ?? <String, dynamic>{}),
+        queryParameters:
+            Map<String, dynamic>.from(_defaultQueryParameters ?? {})
+              ..addAll(queryParameters),
         data: JsonEncoder(data));
     return response;
   }
 
   Future<Response> deleteData(
       {String? path,
-      Map<String, dynamic>? queryParameters,
+      Map<String, dynamic> queryParameters = const {},
       Map<String, dynamic>? headers}) async {
     dio.options.headers = headers ?? _defaultHeaders;
     final response = dio.delete(
       '/${path ?? defaultPath}',
-      queryParameters: _defaultQueryParameters
-        ?..addAll(queryParameters ?? <String, dynamic>{}),
+      queryParameters: Map<String, dynamic>.from(_defaultQueryParameters ?? {})
+        ..addAll(queryParameters),
     );
     return response;
   }

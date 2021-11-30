@@ -8,7 +8,7 @@ class ContentPageServiceImp extends DefaultApi implements ContentPageService {
   ContentPageServiceImp({String defaultPath = ''}) : super(defaultPath);
   @override
   Future<ContentPageModel> getContentPage({required int id}) async {
-    final respose = await getData(
+    final respose = await postData(
       path: 'ContentPage',
       queryParameters: {
         'id': id,
