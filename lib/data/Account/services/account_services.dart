@@ -6,7 +6,7 @@ import 'package:linktsp_api/data/default_api.dart';
 import 'package:linktsp_api/data/exception_api.dart';
 import 'package:linktsp_api/data/result_model.dart';
 
-class AccountServicesImp extends DefaultApi implements AccountServices {
+class AccountServicesImp extends DefaultApi implements AccountService {
   AccountServicesImp({String defaultPath = ''}) : super(defaultPath);
   @override
   Future<UserModel> login(
@@ -87,7 +87,7 @@ class AccountServicesImp extends DefaultApi implements AccountServices {
   }
 }
 
-abstract class AccountServices {
+abstract class AccountService {
   Future<UserModel> login({required String password, required String email});
   Future<UserModel> register({required RegisterModel registerModel});
   Future<UserModel> updateProfile({required UserModel userModel});

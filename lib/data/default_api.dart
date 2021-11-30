@@ -16,13 +16,13 @@ class DefaultApi {
     dio.options.baseUrl = _domin;
     dio.options.headers = _defaultHeaders;
   }
-  static init(
+  static void init(
       {required String domin,
       int version = 1,
       required String token,
       int lang = 1,
       int? zoneid}) {
-    _domin = '$domin/api/v$version';
+    _domin = '$domin/api/v$version/';
     _token = token;
     _defaultQueryParameters = {
       'lang': lang,
@@ -36,7 +36,7 @@ class DefaultApi {
       Map<String, dynamic>? headers}) async {
     dio.options.headers = headers ?? _defaultHeaders;
     final response = dio.get(
-      '/${path ?? defaultPath}',
+      path ?? defaultPath,
       queryParameters: Map<String, dynamic>.from(
           _defaultQueryParameters ?? <String, dynamic>{})
         ..addAll(queryParameters),
@@ -54,7 +54,7 @@ class DefaultApi {
         queryParameters:
             Map<String, dynamic>.from(_defaultQueryParameters ?? {})
               ..addAll(queryParameters),
-        data: JsonEncoder(data));
+        data: jsonEncode(data));
     return response;
   }
 
@@ -67,7 +67,7 @@ class DefaultApi {
         queryParameters:
             Map<String, dynamic>.from(_defaultQueryParameters ?? {})
               ..addAll(queryParameters),
-        data: JsonEncoder(data));
+        data: jsonEncode(data));
     return response;
   }
 

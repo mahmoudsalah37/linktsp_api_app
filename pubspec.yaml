@@ -14,7 +14,6 @@ dependencies:
 
 dev_dependencies:
   flutter_lints: ^1.0.0
-  equatable: ^2.0.3
   flutter_test:
     sdk: flutter
 
@@ -34,8 +33,6 @@ flutter:
         pluginClass: LinktspApiPlugin
       ios:
         pluginClass: LinktspApiPlugin
-      windows:
-        dartPluginClass: LinktspApiPluginWindows
         # web:
         # pluginClass: LinktspApiPlugin
         # fileName: linktsp_api_web.dart

@@ -1,6 +1,4 @@
-import 'package:equatable/equatable.dart';
-
-class CityModel extends Equatable {
+class CityModel {
   const CityModel({
     this.id,
     this.name,
@@ -18,7 +16,4 @@ class CityModel extends Equatable {
         "id": id,
         "name": name,
       };
-
-  @override
-  List<Object?> get props => [id, name];
 }
