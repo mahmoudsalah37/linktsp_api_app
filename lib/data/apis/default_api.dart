@@ -3,27 +3,39 @@ import 'package:dio/dio.dart';
 class DefaultApi {
   static String _domin = '', _token = '';
   final String defaultPath;
-  Map<String, dynamic> defaultHeaders = {
+
+  static Map<String, dynamic>? _defaultQueryParameters;
+  final Map<String, dynamic> _defaultHeaders = {
     "requiresToken": true,
     'authorization': 'Bearer $_token',
   };
   final dio = Dio();
   DefaultApi(this.defaultPath) {
     dio.options.baseUrl = _domin;
-    dio.options.headers = defaultHeaders;
+    dio.options.headers = _defaultHeaders;
   }
-  static init({required String domin, int version = 1, required String token}) {
+  static init(
+      {required String domin,
+      int version = 1,
+      required String token,
+      int lang = 1,
+      int? zoneid}) {
     _domin = '$domin/api/v$version';
     _token = token;
+    _defaultQueryParameters = {
+      'lang': lang,
+      'ZoneID': zoneid,
+    };
   }
 
   Future<Response> getData(
       {String? path,
       Map<String, dynamic>? queryParameters,
       Map<String, dynamic>? headers}) async {
-    dio.options.headers = headers ?? defaultHeaders;
-    final response =
-        dio.get('/${path ?? defaultPath}', queryParameters: queryParameters);
+    dio.options.headers = headers ?? _defaultHeaders;
+    final response = dio.get('/${path ?? defaultPath}',
+        queryParameters: _defaultQueryParameters
+          ?..addAll(queryParameters ?? <String, dynamic>{}));
     return response;
   }
 
@@ -31,9 +43,11 @@ class DefaultApi {
       {String? path,
       Map<String, dynamic>? queryParameters,
       Map<String, dynamic>? headers}) async {
-    dio.options.headers = headers ?? defaultHeaders;
+    dio.options.headers = headers ?? _defaultHeaders;
     final response = dio.post('/${path ?? defaultPath}',
-        queryParameters: queryParameters, data: data);
+        queryParameters: _defaultQueryParameters
+          ?..addAll(queryParameters ?? <String, dynamic>{}),
+        data: data);
     return response;
   }
 
@@ -41,9 +55,11 @@ class DefaultApi {
       {String? path,
       Map<String, dynamic>? queryParameters,
       Map<String, dynamic>? headers}) async {
-    dio.options.headers = headers ?? defaultHeaders;
+    dio.options.headers = headers ?? _defaultHeaders;
     final response = dio.put('/${path ?? defaultPath}',
-        queryParameters: queryParameters, data: data);
+        queryParameters: _defaultQueryParameters
+          ?..addAll(queryParameters ?? <String, dynamic>{}),
+        data: data);
     return response;
   }
 
@@ -51,9 +67,12 @@ class DefaultApi {
       {String? path,
       Map<String, dynamic>? queryParameters,
       Map<String, dynamic>? headers}) async {
-    dio.options.headers = headers ?? defaultHeaders;
-    final response =
-        dio.delete('/${path ?? defaultPath}', queryParameters: queryParameters);
+    dio.options.headers = headers ?? _defaultHeaders;
+    final response = dio.delete(
+      '/${path ?? defaultPath}',
+      queryParameters: _defaultQueryParameters
+        ?..addAll(queryParameters ?? <String, dynamic>{}),
+    );
     return response;
   }
 }
