@@ -1,6 +1,7 @@
 import 'package:linktsp_api/data/list/models/list_model.dart';
 
 import '../../default_api.dart';
+import '../../exception_api.dart';
 import '../../result_model.dart';
 
 class ServiceImp extends DefaultApi implements Service {
@@ -9,28 +10,61 @@ class ServiceImp extends DefaultApi implements Service {
   @override
   Future<FilterDataModel> getFilterOptionsData(
       {required ListModel listModel}) async {
-    // TODO: implement getListingWithCategory
-    throw UnimplementedError();
+    final respose = await postData(
+      path: 'filter',
+      data: listModel,
+    );
+    final result = ApiReturnResult.fromJSON(respose.data);
+    if (result.code == 200) {
+      return FilterDataModel.fromJson(result.data);
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
   }
 
   @override
   Future<ListingDataModel> getListingWithCategory(
-      {required ListModel listModel}) {
-    // TODO: implement getListingWithCategory
-    throw UnimplementedError();
+      {required ListModel listModel}) async {
+    final respose = await postData(
+      path: 'list',
+      data: listModel,
+    );
+    final result = ApiReturnResult.fromJSON(respose.data);
+    if (result.code == 200) {
+      return ListingDataModel.fromJson(result.data);
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
   }
 
   @override
   Future<ListingDataModel> getListingWithFilter(
-      {required ListModel listModel}) {
-    // TODO: implement getListingWithFilter
-    throw UnimplementedError();
+      {required ListModel listModel}) async {
+    final respose = await postData(
+      path: 'Search',
+      data: listModel,
+    );
+    final result = ApiReturnResult.fromJSON(respose.data);
+    if (result.code == 200) {
+      return ListingDataModel.fromJson(result.data);
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
   }
 
   @override
-  Future<ListingDataModel> getListingWithSort({required ListModel listModel}) {
-    // TODO: implement getListingWithSort
-    throw UnimplementedError();
+  Future<ListingDataModel> getListingWithSort(
+      {required ListModel listModel}) async {
+    final respose = await postData(
+      path: 'List',
+      data: listModel,
+    );
+    final result = ApiReturnResult.fromJSON(respose.data);
+    if (result.code == 200) {
+      return ListingDataModel.fromJson(result.data);
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
   }
 }
 
