@@ -25,7 +25,7 @@ class WishlistWebServicesImp extends DefaultApi implements WishlistWebServices {
   @override
   Future<List<WishlistProductsModel>> getWishlist(
       {required int customerId}) async {
-    final response = await postData(path: 'profile/wishList', queryParameters: {
+    final response = await getData(path: 'profile/wishList', queryParameters: {
       'CustomerID': customerId,
     });
     final result = ApiReturnResult.fromJSON(response.data);
