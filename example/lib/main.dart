@@ -6,7 +6,8 @@ void main() async {
   await LinkTspApi.init(domin: domin);
   final linktspApi = LinkTspApi();
   final x = await linktspApi.account
-      .login(password: 'M123456d', email: 'mahmoudsalah37@gmail.com');
+      .login(password: 'Oasdfghjkl@123', email: 'Omarzz@gmail.com');
+  // ignore: avoid_print
   print(x);
   runApp(const MyApp());
 }
@@ -20,7 +21,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   @override
-  void initState() async {
+  void initState() {
     super.initState();
   }
 

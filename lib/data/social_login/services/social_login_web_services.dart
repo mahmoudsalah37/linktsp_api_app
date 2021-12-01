@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:linktsp_api/data/default_api.dart';
 import 'package:linktsp_api/data/social_login/models/social_login_model.dart';
 
@@ -10,9 +12,9 @@ class SocialLoginWebServicesImp extends DefaultApi
 
   @override
   Future<List<SocialLoginModel>> getSocialLoginKeys() async {
-    final response = await getData(
-      path: 'social/Keys',
-    );
+    final response = await getData(path: 'social/Keys', queryParameters: {
+      "mobileType": Platform.isAndroid ? "Android" : "IOS"
+    });
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
       return List<SocialLoginModel>.from(
