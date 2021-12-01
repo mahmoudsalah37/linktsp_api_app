@@ -1,5 +1,5 @@
 //services
-export 'data/Account/services/account_services.dart';
+export 'data/account/services/account_services.dart';
 export 'data/address/services/address_services.dart';
 export 'data/cancel_order/services/cancel_order_services.dart';
 export 'data/cart/services/cart_services.dart';
