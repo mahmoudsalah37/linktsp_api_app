@@ -33,10 +33,10 @@ class MultiStoreServiceImp extends DefaultApi implements MultiStoreService {
   Future<CartValidateModel> cartUpdate(
       {required int customerID,
       required int addressId,
-      required List<CartSkuModel> cartSkuModel}) async {
+      required List<CartSkuModel> carts}) async {
     final respose = await postData(
       path: 'multiStore/cart/update',
-      data: cartSkuModel,
+      data: carts,
       queryParameters: {
         'customerID': customerID,
         'addressID': addressId,
@@ -72,7 +72,7 @@ abstract class MultiStoreService {
   Future<CartValidateModel> cartUpdate(
       {required int customerID,
       required int addressId,
-      required List<CartSkuModel> cartSkuModel});
+      required List<CartSkuModel> carts});
   Future<CartValidateModel> cartItemRemove(
       {required int customerID, required int addressId, required int skuid});
 }
