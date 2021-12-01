@@ -1,7 +1,7 @@
-import 'package:linktsp_api/data/Account/models/activation_code_model.dart';
-import 'package:linktsp_api/data/Account/models/cart_summary_model.dart';
-import 'package:linktsp_api/data/Account/models/register_model.dart';
-import 'package:linktsp_api/data/Account/models/user_model.dart';
+import 'package:linktsp_api/data/account/models/activation_code_model.dart';
+import 'package:linktsp_api/data/account/models/cart_summary_model.dart';
+import 'package:linktsp_api/data/account/models/register_model.dart';
+import 'package:linktsp_api/data/account/models/user_model.dart';
 import 'package:linktsp_api/data/default_api.dart';
 import 'package:linktsp_api/data/exception_api.dart';
 import 'package:linktsp_api/data/result_model.dart';
@@ -45,7 +45,7 @@ class AccountServicesImp extends DefaultApi implements AccountService {
     final map = userModel.toJson();
     map['gender'] = userModel.gender?.index;
     final response = await postData(
-      data: userModel,
+      data: map,
       path: 'profile/update',
     );
     final result = ApiReturnResult.fromJSON(response.data);
@@ -100,7 +100,7 @@ class AccountServicesImp extends DefaultApi implements AccountService {
   }
 
   @override
-  Future<bool> resendCode(
+  Future<bool> resendVerificationCode(
       {required ActivationCodeModel activationCodeModel}) async {
     final response = await postData(
         data: activationCodeModel, path: 'account/resendverificationcode');
@@ -239,7 +239,8 @@ abstract class AccountService {
       {required UserModel userModel, required int customerId});
   Future<CustomerSummaryModel> customerSummary({required int customerId});
   Future<bool> verify({required ActivationCodeModel activationCodeModel});
-  Future<bool> resendCode({required ActivationCodeModel activationCodeModel});
+  Future<bool> resendVerificationCode(
+      {required ActivationCodeModel activationCodeModel});
   Future<bool> changePassword(
       {required int customId,
       required String oldPassword,
