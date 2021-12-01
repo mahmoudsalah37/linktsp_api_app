@@ -27,7 +27,7 @@ class CartServiceImp extends DefaultApi implements CartService {
 
   @override
   Future<List<CartItemModel>> getCartList({required int customerId}) async {
-    final response = await postData(
+    final response = await getData(
         path: 'Profile/cart', queryParameters: {"CustomerID": customerId});
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
@@ -42,7 +42,7 @@ class CartServiceImp extends DefaultApi implements CartService {
   Future<List<CartItemModel>> guestCartUpdate(
       {required List<CartSkuModel> cartSkuModel}) async {
     final response =
-        await postData(data: cartSkuModel, path: 'Profile/cart/update');
+        await postData(data: cartSkuModel, path: 'guest/cart/update');
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
       return List<CartItemModel>.from(

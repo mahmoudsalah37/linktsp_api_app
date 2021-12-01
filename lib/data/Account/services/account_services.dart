@@ -8,6 +8,7 @@ import 'package:linktsp_api/data/result_model.dart';
 
 class AccountServicesImp extends DefaultApi implements AccountService {
   AccountServicesImp({String defaultPath = ''}) : super(defaultPath);
+
   @override
   Future<UserModel> login(
       {required String password, required String email}) async {
@@ -87,33 +88,33 @@ class AccountServicesImp extends DefaultApi implements AccountService {
   }
 
   @override
-  Future<bool> verify(
+  Future<bool?> verify(
       {required ActivationCodeModel activationCodeModel}) async {
     final response =
         await postData(data: activationCodeModel, path: 'account/verfiy');
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
-      return result.data;
+      return result.data ?? true;
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
   }
 
   @override
-  Future<bool> resendVerificationCode(
+  Future<bool?> resendVerificationCode(
       {required ActivationCodeModel activationCodeModel}) async {
     final response = await postData(
         data: activationCodeModel, path: 'account/resendverificationcode');
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
-      return result.data;
+      return result.data ?? true;
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
   }
 
   @override
-  Future<bool> changePassword(
+  Future<bool?> changePassword(
       {required int customId,
       required String oldPassword,
       required String newPassword}) async {
@@ -125,35 +126,35 @@ class AccountServicesImp extends DefaultApi implements AccountService {
     });
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
-      return result.data;
+      return result.data ?? true;
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
   }
 
   @override
-  Future<bool> forgetPassword(
+  Future<bool?> forgetPassword(
       {required String data, required int verifyType}) async {
     final response = await getData(
         path: 'account/forgetpassword',
         queryParameters: {"data": data, "verifyType": verifyType});
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
-      return result.data;
+      return result.data ?? true;
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
   }
 
   @override
-  Future<bool> resendPassword(
+  Future<bool?> resendPassword(
       {required String data, required int verifyType}) async {
     final response = await getData(
         path: 'account/resendpassword',
         queryParameters: {"data": data, "verifyType": verifyType});
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
-      return result.data;
+      return result.data ?? true;
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
@@ -173,58 +174,58 @@ class AccountServicesImp extends DefaultApi implements AccountService {
         });
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
-      return result.data;
+      return result.data ?? true;
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
   }
 
   @override
-  Future<bool> resetPassword(
+  Future<bool?> resetPassword(
       {required int customerId, required String password}) async {
     final response = await getData(
         path: 'account/resetpassword',
         queryParameters: {"cutomerId": customerId, "password": password});
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
-      return result.data;
+      return result.data ?? true;
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
   }
 
   @override
-  Future<bool> subscribe({required String email}) async {
-    final response = await getData(
+  Future<bool?> subscribe({required String email}) async {
+    final response = await postData(
         path: 'account/Subscribe', queryParameters: {"email": email});
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
-      return result.data;
+      return result.data ?? true;
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
   }
 
   @override
-  Future<bool> unSubscribe({required String email}) async {
-    final response = await getData(
+  Future<bool?> unSubscribe({required String email}) async {
+    final response = await postData(
         path: 'account/Unsubscribe', queryParameters: {"email": email});
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
-      return result.data;
+      return result.data ?? true;
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
   }
 
   @override
-  Future<bool> notificationsToken({required String deviceToken}) async {
+  Future<bool?> notificationsToken({required String deviceToken}) async {
     final response = await getData(
         path: 'Notification/Token',
         queryParameters: {"deviceToken": deviceToken});
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
-      return result.data;
+      return result.data ?? true;
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
@@ -232,28 +233,40 @@ class AccountServicesImp extends DefaultApi implements AccountService {
 }
 
 abstract class AccountService {
+  /// Password must be more than 8 chacracters
   Future<UserModel> login({required String password, required String email});
+
   Future<UserModel> register({required RegisterModel registerModel});
   Future<UserModel> updateProfile({required UserModel userModel});
   Future<UserModel> getProfileDetails(
       {required UserModel userModel, required int customerId});
+
+  /// Use it to get user's profile points and wishlist number
   Future<CustomerSummaryModel> customerSummary({required int customerId});
-  Future<bool> verify({required ActivationCodeModel activationCodeModel});
-  Future<bool> resendVerificationCode(
+  Future<bool?> verify({required ActivationCodeModel activationCodeModel});
+
+  /// Used for resend only verification code
+  Future<bool?> resendVerificationCode(
       {required ActivationCodeModel activationCodeModel});
-  Future<bool> changePassword(
+  Future<bool?> changePassword(
       {required int customId,
       required String oldPassword,
       required String newPassword});
-  Future<bool> forgetPassword({required String data, required int verifyType});
-  Future<bool> resendPassword({required String data, required int verifyType});
+  Future<bool?> forgetPassword({required String data, required int verifyType});
+  Future<bool?> resendPassword({required String data, required int verifyType});
   Future<int> confirmPassword(
       {required String data,
       required int verifyType,
       required String password});
-  Future<bool> resetPassword(
+  Future<bool?> resetPassword(
       {required int customerId, required String password});
-  Future<bool> subscribe({required String email});
-  Future<bool> unSubscribe({required String email});
-  Future<bool> notificationsToken({required String deviceToken});
+
+  /// Get any updates or news via your mail
+  Future<bool?> subscribe({required String email});
+
+  /// Cancel subscription for getting updates or news via your mail
+  Future<bool?> unSubscribe({required String email});
+
+  /// Send firebase device token to server
+  Future<bool?> notificationsToken({required String deviceToken});
 }
