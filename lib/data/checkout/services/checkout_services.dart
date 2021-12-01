@@ -355,4 +355,9 @@ abstract class CheckOutService {
       required int addressId,
       required int loyaltyPoints,
       int? storeId});
+  Future<CheckouCartSummaryModel> loyaltyPointsRedeem(
+      {required int customerId,
+      required int addressId,
+      required int loyaltyPoints,
+      int? storeId});
 }

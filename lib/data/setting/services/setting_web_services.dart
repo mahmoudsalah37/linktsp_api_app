@@ -23,7 +23,7 @@ class SettingWebServicesImp extends DefaultApi implements SettingWebService {
     final response = await getData(path: 'setting/SupportedVersions');
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
-      return result.data;
+      return SettingModel.fromJson(result.data);
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
