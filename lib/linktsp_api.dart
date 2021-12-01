@@ -1,6 +1,6 @@
 import 'linktsp_api_exports.dart';
 
-class LinkTspApiImp implements LinkTspApi {
+class LinkTspApi implements _LinkTspApiAbstract {
   static Future<void> init(
       {required String domin,
       int version = 1,
@@ -57,7 +57,7 @@ class LinkTspApiImp implements LinkTspApi {
   WishlistWebServices get wishlist => WishlistWebServicesImp();
 }
 
-abstract class LinkTspApi {
+abstract class _LinkTspApiAbstract {
   TokenService get token;
 
   AccountService get account;
