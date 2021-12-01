@@ -1,7 +1,7 @@
-import 'package:linktsp_api/data/Account/models/activation_code_model.dart';
-import 'package:linktsp_api/data/Account/models/cart_summary_model.dart';
-import 'package:linktsp_api/data/Account/models/register_model.dart';
-import 'package:linktsp_api/data/Account/models/user_model.dart';
+import 'package:linktsp_api/data/account/models/activation_code_model.dart';
+import 'package:linktsp_api/data/account/models/cart_summary_model.dart';
+import 'package:linktsp_api/data/account/models/register_model.dart';
+import 'package:linktsp_api/data/account/models/user_model.dart';
 import 'package:linktsp_api/data/default_api.dart';
 import 'package:linktsp_api/data/exception_api.dart';
 import 'package:linktsp_api/data/result_model.dart';
