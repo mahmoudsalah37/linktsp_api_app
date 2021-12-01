@@ -24,16 +24,16 @@ void main() async {
       }
     });
 
-    test('check add review success', () async {
-      try {
-        final result =
-            await linkTspApi.review.addReview(itemReview: itemReview);
+    // test('check add review success', () async {
+    //   try {
+    //     final result =
+    //         await linkTspApi.review.addReview(itemReview: itemReview);
 
-        expect(true, result);
-      } catch (e) {
-        expect(true, false);
-      }
-    });
+    //     expect(true, result);
+    //   } catch (e) {
+    //     expect(true, false);
+    //   }
+    // });
 
     test('check get product rate success', () async {
       final result =
