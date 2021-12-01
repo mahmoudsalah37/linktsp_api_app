@@ -3,8 +3,8 @@ import 'package:linktsp_api/data/default_api.dart';
 import 'package:linktsp_api/data/exception_api.dart';
 import 'package:linktsp_api/data/result_model.dart';
 
-class ComplaintServicesImp extends DefaultApi implements ComplaintServices {
-  ComplaintServicesImp({String defaultPath = ''}) : super(defaultPath);
+class ComplaintServiceImp extends DefaultApi implements ComplaintService {
+  ComplaintServiceImp({String defaultPath = ''}) : super(defaultPath);
 
   @override
   Future<bool> saveComplaint({required ComplaintModel complaintModel}) async {
@@ -19,6 +19,6 @@ class ComplaintServicesImp extends DefaultApi implements ComplaintServices {
   }
 }
 
-abstract class ComplaintServices {
+abstract class ComplaintService {
   Future<bool> saveComplaint({required ComplaintModel complaintModel});
 }

@@ -4,8 +4,8 @@ import '../../default_api.dart';
 import '../../exception_api.dart';
 import '../../result_model.dart';
 
-class ServiceImp extends DefaultApi implements Service {
-  ServiceImp({String defaultPath = ''}) : super(defaultPath);
+class ListServiceImp extends DefaultApi implements ListService {
+  ListServiceImp({String defaultPath = ''}) : super(defaultPath);
 
   @override
   Future<FilterDataModel> getFilterOptionsData(
@@ -68,7 +68,7 @@ class ServiceImp extends DefaultApi implements Service {
   }
 }
 
-abstract class Service {
+abstract class ListService {
   Future<ListingDataModel> getListingWithCategory(
       {required ListModel listModel});
   Future<ListingDataModel> getListingWithFilter({required ListModel listModel});

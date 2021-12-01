@@ -3,9 +3,9 @@ import 'package:linktsp_api/linktsp_api.dart';
 
 void main() async {
   const String domin = "http://52.142.214.213:9093";
-  await LinkTspApi.init(domin: domin);
-  final v = LinkTspApi();
-  final x = await v.account
+  await LinkTspApiImp.init(domin: domin);
+  final linktspApi = LinkTspApiImp();
+  final x = await linktspApi.account
       .login(password: 'M123456d', email: 'mahmoudsalah37@gmail.com');
   print(x);
   runApp(const MyApp());

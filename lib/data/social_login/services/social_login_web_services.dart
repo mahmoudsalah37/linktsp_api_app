@@ -5,7 +5,7 @@ import '../../exception_api.dart';
 import '../../result_model.dart';
 
 class SocialLoginWebServicesImp extends DefaultApi
-    implements SocialLoginWebServices {
+    implements SocialLoginWebService {
   SocialLoginWebServicesImp({String defaultPath = ''}) : super(defaultPath);
 
   @override
@@ -36,7 +36,7 @@ class SocialLoginWebServicesImp extends DefaultApi
   }
 }
 
-abstract class SocialLoginWebServices {
+abstract class SocialLoginWebService {
   Future<List<SocialLoginModel>> getSocialLoginKeys();
   Future<SocialLoginUserModel> socialLogin(
       {required SocialLoginUserModel socialLoginUserModel});

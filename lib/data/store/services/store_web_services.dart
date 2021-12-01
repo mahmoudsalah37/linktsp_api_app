@@ -4,7 +4,7 @@ import 'package:linktsp_api/data/store/models/store_model.dart';
 
 import '../../exception_api.dart';
 
-class StoreWebServicesImp extends DefaultApi implements StoreWebServices {
+class StoreWebServicesImp extends DefaultApi implements StoreWebService {
   StoreWebServicesImp({String defaultPath = ''}) : super(defaultPath);
 
   @override
@@ -22,7 +22,7 @@ class StoreWebServicesImp extends DefaultApi implements StoreWebServices {
   }
 }
 
-abstract class StoreWebServices {
+abstract class StoreWebService {
   Future<List<StoreModel>> storesFilter(
       {required StoreFilterModel storeFilterModel});
 }

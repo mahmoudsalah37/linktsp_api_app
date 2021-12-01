@@ -4,9 +4,8 @@ import 'package:linktsp_api/data/page_block/models/page_block_model.dart';
 import '../../exception_api.dart';
 import '../../result_model.dart';
 
-class PageBlockWebServicesImp extends DefaultApi
-    implements PageBlockWebServices {
-  PageBlockWebServicesImp({String defaultPath = ''}) : super(defaultPath);
+class PageBlockWebServiceImp extends DefaultApi implements PageBlockWebService {
+  PageBlockWebServiceImp({String defaultPath = ''}) : super(defaultPath);
 
   @override
   Future<PageBlockModel> getPageBlock() async {
@@ -21,6 +20,6 @@ class PageBlockWebServicesImp extends DefaultApi
   }
 }
 
-abstract class PageBlockWebServices {
+abstract class PageBlockWebService {
   Future<PageBlockModel> getPageBlock();
 }

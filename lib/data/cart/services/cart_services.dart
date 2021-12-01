@@ -3,8 +3,8 @@ import 'package:linktsp_api/data/default_api.dart';
 import 'package:linktsp_api/data/exception_api.dart';
 import 'package:linktsp_api/data/result_model.dart';
 
-class CartServicesImp extends DefaultApi implements CartServices {
-  CartServicesImp({String defaultPath = ''}) : super(defaultPath);
+class CartServiceImp extends DefaultApi implements CartService {
+  CartServiceImp({String defaultPath = ''}) : super(defaultPath);
 
   @override
   Future<bool> addToCart(
@@ -131,7 +131,7 @@ class CartServicesImp extends DefaultApi implements CartServices {
   }
 }
 
-abstract class CartServices {
+abstract class CartService {
   Future<bool> addToCart(
       {required List<CartSkuModel> cartSkuModel, required int customerId});
   Future<List<CartItemModel>> getCartList({required int customerId});
