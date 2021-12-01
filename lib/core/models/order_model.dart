@@ -1,37 +1,5 @@
-import 'package:linktsp_api/data/address/models/address_model.dart';
-
-class CancelReasonModel {
-  CancelReasonModel({
-    this.reasonId,
-    this.customerId,
-    this.orderId,
-    this.content,
-    this.zoneId,
-  });
-
-  int? reasonId;
-  int? customerId;
-  int? orderId;
-  String? content;
-  int? zoneId;
-
-  factory CancelReasonModel.fromJson(Map<String, dynamic> json) =>
-      CancelReasonModel(
-        reasonId: json["reasonID"],
-        customerId: json["customerID"],
-        orderId: json["orderID"],
-        content: json["content"],
-        zoneId: json["zoneID"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "reasonID": reasonId,
-        "customerID": customerId,
-        "orderID": orderId,
-        "content": content,
-        "zoneID": zoneId,
-      };
-}
+import 'address_model.dart';
+import 'store_model.dart';
 
 class OrderModel {
   OrderModel({
@@ -242,46 +210,6 @@ class OrderItem {
       };
 }
 
-class Store {
-  Store({
-    this.id,
-    this.name,
-    this.latitude,
-    this.longitude,
-    this.description,
-    this.mobile,
-    this.telephone,
-  });
-
-  int? id;
-  String? name;
-  double? latitude;
-  double? longitude;
-  String? description;
-  String? mobile;
-  String? telephone;
-
-  factory Store.fromJson(Map<String, dynamic> json) => Store(
-        id: json["id"],
-        name: json["name"],
-        latitude: json["latitude"],
-        longitude: json["longitude"],
-        description: json["description"],
-        mobile: json["mobile"],
-        telephone: json["telephone"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-        "latitude": latitude,
-        "longitude": longitude,
-        "description": description,
-        "mobile": mobile,
-        "telephone": telephone,
-      };
-}
-
 class TrackOrderModel {
   TrackOrderModel({
     this.length,
@@ -326,37 +254,5 @@ class TrackOrderItemModel {
   Map<String, dynamic> toJson() => {
         "date": date == null ? null : date!.toIso8601String(),
         "status": status,
-      };
-}
-
-class ComplaintModel {
-  ComplaintModel({
-    this.complaintReasonId,
-    this.customerId,
-    this.orderId,
-    this.content,
-    this.zoneId,
-  });
-
-  int? complaintReasonId;
-  int? customerId;
-  int? orderId;
-  String? content;
-  int? zoneId;
-
-  factory ComplaintModel.fromJson(Map<String, dynamic> json) => ComplaintModel(
-        complaintReasonId: json["complaintReasonID"],
-        customerId: json["customerID"],
-        orderId: json["orderID"],
-        content: json["content"],
-        zoneId: json["zoneID"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "complaintReasonID": complaintReasonId,
-        "customerID": customerId,
-        "orderID": orderId,
-        "content": content,
-        "zoneID": zoneId,
       };
 }

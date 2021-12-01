@@ -1,6 +1,6 @@
 import 'package:linktsp_api/data/default_api.dart';
 import 'package:linktsp_api/data/result_model.dart';
-import 'package:linktsp_api/data/store/models/store_model.dart';
+import 'package:linktsp_api/core/models/store.dart';
 
 import '../../exception_api.dart';
 

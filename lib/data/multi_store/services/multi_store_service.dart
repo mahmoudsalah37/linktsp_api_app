@@ -1,4 +1,4 @@
-import 'package:linktsp_api/data/multi_store/models/cart_model.dart';
+import 'package:linktsp_api/core/models/cart_sku_model.dart';
 import 'package:linktsp_api/data/multi_store/models/cart_validate_model.dart';
 
 import '../../default_api.dart';

@@ -1,5 +1,6 @@
-import 'package:linktsp_api/data/list/models/color_model.dart';
-import 'package:linktsp_api/data/list/models/size_model.dart';
+import 'package:linktsp_api/core/models/color_model.dart';
+import 'package:linktsp_api/core/models/feature_model.dart';
+import 'package:linktsp_api/core/models/size_model.dart';
 
 class ProductDetailsModel {
   ProductDetailsModel({
@@ -235,29 +236,5 @@ class Brand {
   Map<String, dynamic> toJson() => {
         "id": id,
         "name": name,
-      };
-}
-
-class Feature {
-  Feature({
-    this.name,
-    this.value,
-    this.imageUrl,
-  });
-
-  String? name;
-  String? value;
-  String? imageUrl;
-
-  factory Feature.fromJson(Map<String, dynamic> json) => Feature(
-        name: json["name"],
-        value: json["value"],
-        imageUrl: json["imageURL"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "name": name,
-        "value": value,
-        "imageURL": imageUrl,
       };
 }

@@ -1,4 +1,4 @@
-import 'package:linktsp_api/data/order/models/order_model.dart';
+import 'package:linktsp_api/core/models/order_model.dart';
 
 import '../../default_api.dart';
 import '../../exception_api.dart';

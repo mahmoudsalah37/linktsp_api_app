@@ -1,4 +1,4 @@
-import 'package:linktsp_api/data/address/models/address_model.dart';
+import 'package:linktsp_api/core/models/address_model.dart';
 import 'package:linktsp_api/data/checkout/models.dart/checkout_cart_summary_model.dart';
 import 'package:linktsp_api/data/default_api.dart';
 import 'package:linktsp_api/data/exception_api.dart';

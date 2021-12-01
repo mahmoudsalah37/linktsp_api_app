@@ -1,5 +1,7 @@
-import 'color_model.dart';
-import 'size_model.dart';
+import 'package:linktsp_api/core/models/feature_model.dart';
+
+import '../../../core/models/color_model.dart';
+import '../../../core/models/size_model.dart';
 
 class ListModel {
   ListModel({
@@ -407,34 +409,6 @@ class BreadCrumb {
             ? null
             : List<dynamic>.from(children!.map((x) => x.toJson())),
         "hexaCode": hexaCode,
-      };
-}
-
-class Feature {
-  Feature({
-    this.id,
-    this.name,
-    this.values,
-  });
-
-  int? id;
-  String? name;
-  List<Value>? values;
-
-  factory Feature.fromJson(Map<String, dynamic> json) => Feature(
-        id: json["id"],
-        name: json["name"],
-        values: json["values"] == null
-            ? null
-            : List<Value>.from(json["values"].map((x) => Value.fromJson(x))),
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-        "values": values == null
-            ? null
-            : List<dynamic>.from(values!.map((x) => x.toJson())),
       };
 }
 

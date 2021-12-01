@@ -1,4 +1,4 @@
-import 'package:linktsp_api/data/Account/models/cities_model.dart';
+import 'package:linktsp_api/core/models/city_model.dart';
 
 class UserModel {
   UserModel({

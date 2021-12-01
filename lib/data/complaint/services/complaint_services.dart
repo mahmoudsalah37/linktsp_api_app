@@ -1,4 +1,4 @@
-import 'package:linktsp_api/data/cancel_order/models/cancel_order_model.dart';
+import 'package:linktsp_api/core/models/complaint_model.dart';
 import 'package:linktsp_api/data/default_api.dart';
 import 'package:linktsp_api/data/exception_api.dart';
 import 'package:linktsp_api/data/result_model.dart';

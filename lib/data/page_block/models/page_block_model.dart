@@ -1,3 +1,6 @@
+import 'package:linktsp_api/core/models/color_model.dart';
+import 'package:linktsp_api/core/models/size_model.dart';
+
 class PageBlockModel {
   PageBlockModel({
     this.length,
@@ -221,61 +224,5 @@ class Product {
         "colors": colors == null
             ? null
             : List<dynamic>.from(colors!.map((x) => x.toJson())),
-      };
-}
-
-class ColorModel {
-  ColorModel({
-    this.id,
-    this.name,
-    this.title,
-    this.hexa,
-    this.isOutOfStock,
-  });
-
-  int? id;
-  String? name;
-  String? title;
-  String? hexa;
-  bool? isOutOfStock;
-
-  factory ColorModel.fromJson(Map<String, dynamic> json) => ColorModel(
-        id: json["id"],
-        name: json["name"],
-        title: json["title"],
-        hexa: json["hexa"],
-        isOutOfStock: json["isOutOfStock"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-        "title": title,
-        "hexa": hexa,
-        "isOutOfStock": isOutOfStock,
-      };
-}
-
-class Size {
-  Size({
-    this.id,
-    this.name,
-    this.isOutOfStock,
-  });
-
-  int? id;
-  String? name;
-  bool? isOutOfStock;
-
-  factory Size.fromJson(Map<String, dynamic> json) => Size(
-        id: json["id"],
-        name: json["name"],
-        isOutOfStock: json["isOutOfStock"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-        "isOutOfStock": isOutOfStock,
       };
 }

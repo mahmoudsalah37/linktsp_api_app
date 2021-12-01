@@ -1,5 +1,7 @@
-import 'package:linktsp_api/data/address/models/address_model.dart';
-import 'package:linktsp_api/data/cart/models/cart_sku_model.dart';
+import 'package:linktsp_api/core/models/address_model.dart';
+import 'package:linktsp_api/core/models/cart_item_model.dart';
+import 'package:linktsp_api/core/models/config_delivery_period_model.dart';
+import 'package:linktsp_api/core/models/summary_model.dart';
 
 class CheckouCartSummaryModel {
   CheckouCartSummaryModel({
@@ -44,47 +46,6 @@ class CheckouCartSummaryModel {
             ? null
             : configDeliveryPeriod!.toJson(),
         "total": total,
-      };
-}
-
-class ConfigDeliveryPeriod {
-  ConfigDeliveryPeriod({
-    this.min,
-    this.max,
-    this.unit,
-    this.periodName,
-    this.preOrder,
-    this.availabilityDate,
-    this.deliveryNote,
-  });
-
-  int? min;
-  int? max;
-  dynamic unit;
-  String? periodName;
-  bool? preOrder;
-  DateTime? availabilityDate;
-  String? deliveryNote;
-
-  factory ConfigDeliveryPeriod.fromJson(Map<String, dynamic> json) =>
-      ConfigDeliveryPeriod(
-        min: json["min"],
-        max: json["max"],
-        unit: json["unit"],
-        periodName: json["periodName"],
-        preOrder: json["preOrder"],
-        availabilityDate: json["availabilityDate"],
-        deliveryNote: json["deliveryNote"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "min": min,
-        "max": max,
-        "unit": unit,
-        "periodName": periodName,
-        "preOrder": preOrder,
-        "availabilityDate": availabilityDate,
-        "deliveryNote": deliveryNote,
       };
 }
 
@@ -155,34 +116,6 @@ class LoyaltyPoints {
         "hasLoyaltyPoints": hasLoyaltyPoints,
         "loyaltyEnabled": loyaltyEnabled,
         "configLoyaltyPointsToMoney": configLoyaltyPointsToMoney,
-      };
-}
-
-class Summary {
-  Summary({
-    this.title,
-    this.value,
-    this.additionalInfo,
-    this.currencySymbol,
-  });
-
-  String? title;
-  String? value;
-  String? additionalInfo;
-  String? currencySymbol;
-
-  factory Summary.fromJson(Map<String, dynamic> json) => Summary(
-        title: json["title"],
-        value: json["value"],
-        additionalInfo: json["additionalInfo"],
-        currencySymbol: json["currencySymbol"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "title": title,
-        "value": value,
-        "additionalInfo": additionalInfo,
-        "currencySymbol": currencySymbol,
       };
 }
 
