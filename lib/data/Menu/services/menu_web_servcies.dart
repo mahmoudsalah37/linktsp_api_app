@@ -37,14 +37,13 @@ class MenuWebServiceImp extends DefaultApi implements MenuWebService {
   }
 
   @override
-  Future<List<ContactInfoModel>> getPreOrderPolicy() async {
+  Future<String> getPreOrderPolicy() async {
     final respose = await getData(
       path: 'home/PreOrderPolicy',
     );
     final result = ApiReturnResult.fromJSON(respose.data);
     if (result.code == 200) {
-      return List<ContactInfoModel>.from(
-          result.data.map((model) => ContactInfoModel.fromJson(model)));
+      return result.data;
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
@@ -55,5 +54,5 @@ abstract class MenuWebService {
   Future<MenuModel> getMenu({required int customerID});
   Future<List<ContactInfoModel>> getContactInfo();
 
-  Future<List<ContactInfoModel>> getPreOrderPolicy();
+  Future<String> getPreOrderPolicy();
 }
