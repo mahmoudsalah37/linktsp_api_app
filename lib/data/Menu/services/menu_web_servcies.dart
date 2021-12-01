@@ -1,4 +1,4 @@
-import 'package:linktsp_api/data/Menu/models/menu_model.dart';
+import 'package:linktsp_api/data/menu/models/menu_model.dart';
 
 import '../../default_api.dart';
 import '../../exception_api.dart';

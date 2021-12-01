@@ -1,4 +1,4 @@
-import 'package:linktsp_api/data/Reviews/models/review_model.dart';
+import 'package:linktsp_api/data/reviews/models/review_model.dart';
 import 'package:linktsp_api/data/default_api.dart';
 
 import '../../exception_api.dart';
