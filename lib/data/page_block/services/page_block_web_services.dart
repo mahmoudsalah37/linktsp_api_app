@@ -21,5 +21,7 @@ class PageBlockWebServiceImp extends DefaultApi implements PageBlockWebService {
 }
 
 abstract class PageBlockWebService {
+  /// Creates home screen data ( Ex: banners, sliders and posters ).
+  /// It's return [PageBlockModel]
   Future<PageBlockModel> getPageBlock();
 }

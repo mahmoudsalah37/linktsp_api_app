@@ -23,6 +23,11 @@ class StoreWebServicesImp extends DefaultApi implements StoreWebService {
 }
 
 abstract class StoreWebService {
+  /// It's used to make filter on stores.
+  ///
+  /// If you send city id it will filter stores with city.
+  ///
+  /// If you send ( longitude, latitude and distance),it will filter stores by your location.
   Future<List<StoreModel>> storesFilter(
       {required StoreFilterModel storeFilterModel});
 }

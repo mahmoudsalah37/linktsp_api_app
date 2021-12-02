@@ -304,29 +304,50 @@ class CheckOutServicesImp extends DefaultApi implements CheckOutService {
 }
 
 abstract class CheckOutService {
+  /// It's return the default address of the user.
   Future<AddressModel> getDefaultAddress({required int customerId});
+
+  /// It's return user shipmentAddresses.
+  ///
+  /// It's used when user make checkout when app use multi stores
   Future<List<AddressModel>> getShipmentAddresses({required int customerId});
+
+  /// It's return checkout summary (total - sub total - discount value)
   Future<CheckouCartSummaryModel> chehckoutCartSummary(
       {required int customerId, required int storeId, required int addressId});
+
+  /// It's return all Payment options available (COD - CC - Apple pay)
+  ///
+  /// [Note] you should remove (Apple pay) option if the device is android.
   Future<List<PaymentOptionsModel>> getPaymentOptions();
+
+  /// It's used to apply coupon value
   Future<CheckouCartSummaryModel> couponRedeem(
       {required String couponCode,
       required int addressId,
       required int loyaltyPoints,
       required int customerId,
       int? storeId});
+
+  /// It's used to remove coupon value
   Future<CheckouCartSummaryModel> couponClear(
       {required String couponCode,
       required int addressId,
       required int loyaltyPoints,
       required int customerId,
       int? storeId});
+
+  /// It's used to get final stage in checkout cycle, It's just a review contains [order Items - selected payment - selected address]
   Future<CheckoutReviewModel> checkoutReview(
       {required int customerId,
       int? paymentOptionId,
       int? addressId,
       int? loyaltyPoints,
       int? pickStoreID});
+
+  /// It's used to confirm the order if the payment is [Cash on delivery].
+  ///
+  /// It will return the Order Code.
   Future<String> confirm(
       {required int customerId,
       int? paymentOptionId,
@@ -334,6 +355,10 @@ abstract class CheckOutService {
       required int loyaltyPoints,
       required double finalAmount,
       int? storeId});
+
+  /// It's used to confirm the order if the payment is [Credit card].
+  ///
+  /// It will return the data of the payment gatway.
   Future<PaymentFrameModel> confirmOrder(
       {required int customerId,
       int? paymentOptionId,
@@ -341,20 +366,32 @@ abstract class CheckOutService {
       required int loyaltyPoints,
       required double finalAmount,
       int? storeId});
+
+  /// It's used to confirm the order with one click.
+  ///
+  /// You can use it in product page.
   Future<String> confirmOneClickOrder(
       {required int customerId,
       int? addressId,
       required int qty,
       required int skuId});
+
+  /// It's used to return details like [default address - total - shipment fees] to use when making one click order.
   Future<OneClickOrderDetailsModel> oneClickOrderDetails(
       {required int customerId, required int qty, required int skuId});
+
+  /// It will notify the user if he will have a discount while making one click order.
   Future<OneClickOrderDetailsModel> oneClickOrderTriggeredDiscount(
       {required int customerId, required int qty, required int skuId});
+
+  /// It's used to remove points
   Future<CheckouCartSummaryModel> loyaltyPointsClear(
       {required int customerId,
       required int addressId,
       required int loyaltyPoints,
       int? storeId});
+
+  /// It's used to apply points
   Future<CheckouCartSummaryModel> loyaltyPointsRedeem(
       {required int customerId,
       required int addressId,
