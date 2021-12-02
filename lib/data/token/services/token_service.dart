@@ -30,6 +30,7 @@ class TokenServiceImp extends DefaultApi implements TokenService {
 }
 
 abstract class TokenService {
+  /// Api collection needs token to be used and authorized and this service gets this token
   Future<String> getToken(
       {required String domin, required int version, required AdminModel admin});
 }

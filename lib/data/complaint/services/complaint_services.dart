@@ -7,12 +7,12 @@ class ComplaintServiceImp extends DefaultApi implements ComplaintService {
   ComplaintServiceImp({String defaultPath = ''}) : super(defaultPath);
 
   @override
-  Future<bool> saveComplaint({required ComplaintModel complaintModel}) async {
+  Future<bool?> saveComplaint({required ComplaintModel complaintModel}) async {
     final response =
         await postData(data: complaintModel, path: 'order/complaint/save');
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
-      return result.data;
+      return result.data ?? true;
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
@@ -20,5 +20,5 @@ class ComplaintServiceImp extends DefaultApi implements ComplaintService {
 }
 
 abstract class ComplaintService {
-  Future<bool> saveComplaint({required ComplaintModel complaintModel});
+  Future<bool?> saveComplaint({required ComplaintModel complaintModel});
 }

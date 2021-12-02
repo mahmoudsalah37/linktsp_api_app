@@ -69,9 +69,12 @@ class ListServiceImp extends DefaultApi implements ListService {
 }
 
 abstract class ListService {
+  /// Get list of products by category id
   Future<ListingDataModel> getListingWithCategory(
       {required ListModel listModel});
   Future<ListingDataModel> getListingWithFilter({required ListModel listModel});
   Future<ListingDataModel> getListingWithSort({required ListModel listModel});
+
+  /// Get filter options to use in filter
   Future<FilterDataModel> getFilterOptionsData({required ListModel listModel});
 }

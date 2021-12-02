@@ -8,7 +8,7 @@ class ReviewWebServiceImp extends DefaultApi implements ReviewWebService {
   ReviewWebServiceImp({String defaultPath = ''}) : super(defaultPath);
 
   @override
-  Future<bool> addRate(
+  Future<bool?> addRate(
       {required String productCode,
       required double rate,
       required int customerId}) async {
@@ -22,21 +22,21 @@ class ReviewWebServiceImp extends DefaultApi implements ReviewWebService {
     );
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
-      return result.data;
+      return result.data ?? true;
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
   }
 
   @override
-  Future<bool> addReview({required ItemReview itemReview}) async {
+  Future<bool?> addReview({required ItemReview itemReview}) async {
     final response = await postData(
       path: 'product/review/add',
       data: itemReview,
     );
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
-      return result.data;
+      return result.data ?? true;
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
@@ -71,9 +71,9 @@ class ReviewWebServiceImp extends DefaultApi implements ReviewWebService {
 
 abstract class ReviewWebService {
   Future<ReviewModel> getProductReviews({required String productCode});
-  Future<bool> addReview({required ItemReview itemReview});
+  Future<bool?> addReview({required ItemReview itemReview});
   Future<ReviewRateModel> getProductRate({required String productCode});
-  Future<bool> addRate(
+  Future<bool?> addRate(
       {required String productCode,
       required double rate,
       required int customerId});

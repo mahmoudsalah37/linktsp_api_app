@@ -3,7 +3,7 @@ import 'package:linktsp_api/linktsp_api.dart';
 import '../../const.dart';
 
 void main() async {
-  await LinkTspApi.init(domin: domin, admin: admin);
+  await LinkTspApi.init(domain: domain, admin: admin);
   final LinkTspApi linkTspApi = LinkTspApi();
   group('account services: ', () {
     test('check login', () async {

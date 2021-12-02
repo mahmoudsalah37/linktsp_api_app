@@ -7,13 +7,13 @@ class CancelOrderServicesImp extends DefaultApi implements CancelOrderServices {
   CancelOrderServicesImp({String defaultPath = ''}) : super(defaultPath);
 
   @override
-  Future<bool> cancelOrder(
+  Future<bool?> cancelOrder(
       {required CancelReasonModel cancelReasonModel}) async {
     final response =
         await postData(data: cancelReasonModel, path: 'order/cancel');
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
-      return result.data;
+      return result.data ?? true;
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
@@ -21,5 +21,5 @@ class CancelOrderServicesImp extends DefaultApi implements CancelOrderServices {
 }
 
 abstract class CancelOrderServices {
-  Future<bool> cancelOrder({required CancelReasonModel cancelReasonModel});
+  Future<bool?> cancelOrder({required CancelReasonModel cancelReasonModel});
 }

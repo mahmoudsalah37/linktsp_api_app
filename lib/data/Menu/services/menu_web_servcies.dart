@@ -53,5 +53,7 @@ class MenuWebServiceImp extends DefaultApi implements MenuWebService {
 abstract class MenuWebService {
   Future<MenuModel> getMenu({required int customerID});
   Future<List<ContactInfoModel>> getContactInfo();
+
+  /// User it in checkout page to notify the user about pre-order products policy if he has one
   Future<String> getPreOrderPolicy();
 }

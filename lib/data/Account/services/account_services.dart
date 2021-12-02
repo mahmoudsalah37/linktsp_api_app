@@ -233,6 +233,8 @@ class AccountServicesImp extends DefaultApi implements AccountService {
 }
 
 abstract class AccountService {
+  /// Send user model with email and password data for login
+  ///
   /// Password must be more than 8 chacracters
   Future<UserModel> login({required String password, required String email});
 

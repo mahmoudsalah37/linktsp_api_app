@@ -24,5 +24,20 @@ class ContentPageServiceImp extends DefaultApi implements ContentPageService {
 }
 
 abstract class ContentPageService {
+  /// Use the id "2" to get history
+  ///
+  /// Use the id "3" to get about us
+  ///
+  /// Use the id "4" to get terms and conditions
+  ///
+  /// Use the id "5" to get content
+  ///
+  /// Use the id "6" to get privacy policy
+  ///
+  /// Use the id "7" to get sizes
+  ///
+  /// Use the id "9" to get shipping policy
+  ///
+  /// Use the id "3" to get our brands
   Future<ContentPageModel> getContentPage({required int id});
 }

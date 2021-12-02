@@ -52,5 +52,7 @@ class OrderServiceImp extends DefaultApi implements OrderService {
 abstract class OrderService {
   Future<List<OrderModel>> getOrders({required int customerId});
   Future<OrderDetailsModel> getOrderDetails({required String orderCode});
+
+  /// Track order to see it's current status
   Future<TrackOrderModel> trackOrder({required String orderCode});
 }

@@ -67,6 +67,7 @@ class MultiStoreServiceImp extends DefaultApi implements MultiStoreService {
 }
 
 abstract class MultiStoreService {
+  /// Validate cart to make sure that all user's cart item still exist in his zone
   Future<CartValidateModel> cartValidate(
       {required int addressId, required int customerID});
   Future<CartValidateModel> cartUpdate(

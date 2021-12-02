@@ -47,17 +47,17 @@ export 'core/models/admin_model.dart';
 
 class LinkTspApi implements _LinkTspApiAbstract {
   static Future<void> init(
-      {required String domin,
+      {required String domain,
       required AdminModel admin,
       int version = 1,
       int lang = 1,
       int? zoneid}) async {
     final token = await TokenServiceImp()
-        .getToken(domin: domin, version: version, admin: admin);
+        .getToken(domin: domain, version: version, admin: admin);
     // ignore: avoid_print
     print(token);
     DefaultApi.init(
-        domin: domin,
+        domin: domain,
         token: token,
         version: version,
         lang: lang,

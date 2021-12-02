@@ -304,10 +304,7 @@ class CheckOutServicesImp extends DefaultApi implements CheckOutService {
 }
 
 abstract class CheckOutService {
-  /// Get user's default address
   Future<AddressModel> getDefaultAddress({required int customerId});
-
-  /// Use it in determine the users's location zone by getting all his addresses in this zone
   Future<List<AddressModel>> getShipmentAddresses({required int customerId});
   Future<CheckouCartSummaryModel> chehckoutCartSummary(
       {required int customerId, required int storeId, required int addressId});

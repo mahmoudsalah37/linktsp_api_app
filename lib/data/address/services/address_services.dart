@@ -58,13 +58,13 @@ class AddressServicesImp extends DefaultApi implements AddressServices {
   }
 
   @override
-  Future<bool> deleteAddress({required int addressId}) async {
+  Future<bool?> deleteAddress({required int addressId}) async {
     final response = await postData(
         path: 'profile/address/delete',
         queryParameters: {"AddressID": addressId});
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
-      return result.data;
+      return result.data ?? true;
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
@@ -77,7 +77,11 @@ abstract class AddressServices {
 
   /// Use it in determine the users's location zone by getting all his addresses in this zone
   Future<List<AddressModel>> getShipmentAddresses({required int customId});
+
+  /// Use it for adding new address or editing an existing address
+  ///
+  /// In case of editing an existing address don't send Id to address model
   Future<AddressModel> saveAddress({required AddressModel addressModel});
   Future<AddressModel> getAddressDetails({required int addressId});
-  Future<bool> deleteAddress({required int addressId});
+  Future<bool?> deleteAddress({required int addressId});
 }

@@ -10,7 +10,7 @@ class CartServiceImp extends DefaultApi implements CartService {
   CartServiceImp({String defaultPath = ''}) : super(defaultPath);
 
   @override
-  Future<bool> addToCart(
+  Future<bool?> addToCart(
       {required List<CartSkuModel> cartSkuModel,
       required int customerId}) async {
     final response = await postData(
@@ -19,7 +19,7 @@ class CartServiceImp extends DefaultApi implements CartService {
         queryParameters: {"CustomerID": customerId});
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
-      return result.data;
+      return result.data ?? true;
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
@@ -80,14 +80,14 @@ class CartServiceImp extends DefaultApi implements CartService {
   }
 
   @override
-  Future<bool> removeFromCart(
+  Future<bool?> removeFromCart(
       {required int skuId, required int customerId}) async {
     final response = await postData(
         path: 'Profile/cart/remove',
         queryParameters: {"CustomerID": customerId, "SKUID": skuId});
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
-      return result.data;
+      return result.data ?? true;
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
@@ -135,7 +135,7 @@ class CartServiceImp extends DefaultApi implements CartService {
 }
 
 abstract class CartService {
-  Future<bool> addToCart(
+  Future<bool?> addToCart(
       {required List<CartSkuModel> cartSkuModel, required int customerId});
   Future<List<CartItemModel>> getCartList({required int customerId});
 
@@ -148,7 +148,7 @@ abstract class CartService {
   /// Use it in cart page
   Future<PreOrderMessageModel> preOrderMessage({required int customerId});
   Future<int> getCartCounter({required int customerId});
-  Future<bool> removeFromCart({required int skuId, required int customerId});
+  Future<bool?> removeFromCart({required int skuId, required int customerId});
 
   /// Get all the information about cart for checkout
   Future<CartSummaryModel> getCartSummary({required int customerId});
