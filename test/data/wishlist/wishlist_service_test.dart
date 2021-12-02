@@ -4,7 +4,7 @@ import 'package:linktsp_api/linktsp_api.dart';
 import '../../const.dart';
 
 void main() async {
-  await LinkTspApi.init(domin: domin);
+  await LinkTspApi.init(domin: domin, admin: admin);
   final LinkTspApi linkTspApi = LinkTspApi();
   const String productCode = 'ERJZT05137';
   const int customerId = 31;

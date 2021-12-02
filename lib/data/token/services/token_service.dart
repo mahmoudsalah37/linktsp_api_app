@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:linktsp_api/linktsp_api.dart';
 
 import '../../default_api.dart';
 import '../../exception_api.dart';
@@ -8,12 +9,15 @@ class TokenServiceImp extends DefaultApi implements TokenService {
   TokenServiceImp({String defaultPath = ''}) : super(defaultPath);
 
   @override
-  Future<String> getToken(String domin, int version) async {
+  Future<String> getToken(
+      {required String domin,
+      required int version,
+      required AdminModel admin}) async {
     final respose = await Dio().get(
       '$domin/api/v$version/account/token',
       queryParameters: {
-        '_UserName': '69A4788C-2E32-4CB5-A00A-477DD3B3FC72',
-        '_Password': 'C19BCDBD-1A8E-4F8F-B30E-B721582E64EC',
+        '_UserName': admin.email,
+        '_Password': admin.password,
       },
     );
     final result = ApiReturnResult.fromJSON(respose.data);
@@ -26,5 +30,6 @@ class TokenServiceImp extends DefaultApi implements TokenService {
 }
 
 abstract class TokenService {
-  Future<String> getToken(String domin, int version);
+  Future<String> getToken(
+      {required String domin, required int version, required AdminModel admin});
 }

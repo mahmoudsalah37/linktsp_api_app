@@ -1,14 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:linktsp_api/linktsp_api.dart';
 
 void main() async {
-  const String domin = "http://52.142.214.213:9093";
-  await LinkTspApi.init(domin: domin);
-  final linktspApi = LinkTspApi();
-  final x = await linktspApi.account
-      .login(password: 'Oasdfghjkl@123', email: 'Omarzz@gmail.com');
-  // ignore: avoid_print
-  print(x);
   runApp(const MyApp());
 }
 
