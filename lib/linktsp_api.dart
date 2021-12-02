@@ -54,6 +54,7 @@ class LinkTspApi implements _LinkTspApiAbstract {
       int? zoneid}) async {
     final token = await TokenServiceImp()
         .getToken(domin: domin, version: version, admin: admin);
+    // ignore: avoid_print
     print(token);
     DefaultApi.init(
         domin: domin,

@@ -72,7 +72,10 @@ class AddressServicesImp extends DefaultApi implements AddressServices {
 }
 
 abstract class AddressServices {
+  /// Get all client addresses
   Future<List<AddressModel>> getAddressBook({required int customId});
+
+  /// Use it in determine the users's location zone by getting all his addresses in this zone
   Future<List<AddressModel>> getShipmentAddresses({required int customId});
   Future<AddressModel> saveAddress({required AddressModel addressModel});
   Future<AddressModel> getAddressDetails({required int addressId});

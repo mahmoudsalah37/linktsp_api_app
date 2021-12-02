@@ -111,7 +111,6 @@ void main() async {
             .resendVerificationCode(activationCodeModel: activationModel);
         expect(true, true);
       } catch (e) {
-        print("model: ${activationModel.toJson()}");
         expect(true, false);
       }
     });

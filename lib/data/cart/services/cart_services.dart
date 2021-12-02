@@ -138,13 +138,25 @@ abstract class CartService {
   Future<bool> addToCart(
       {required List<CartSkuModel> cartSkuModel, required int customerId});
   Future<List<CartItemModel>> getCartList({required int customerId});
+
+  /// Update cart in guest user case
   Future<List<CartItemModel>> guestCartUpdate(
       {required List<CartSkuModel> cartSkuModel});
+
+  /// Notify user when booking pre-order product
+  ///
+  /// Use it in cart page
   Future<PreOrderMessageModel> preOrderMessage({required int customerId});
   Future<int> getCartCounter({required int customerId});
   Future<bool> removeFromCart({required int skuId, required int customerId});
+
+  /// Get all the information about cart for checkout
   Future<CartSummaryModel> getCartSummary({required int customerId});
+
+  /// Called first thing in cart page to get all client's discounts
   Future<String> cartDiscountNotification({required int customerId});
+
+  /// Called first thing in cart page to get all guest's discounts
   Future<String> visitorDiscountNotification(
       {required List<CartSkuModel> cartSkuModel});
 }
