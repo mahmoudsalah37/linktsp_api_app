@@ -4,7 +4,7 @@ import 'package:linktsp_api/linktsp_api.dart';
 import '../../const.dart';
 
 void main() async {
-  await LinkTspApi.init(domin: domin);
+  await LinkTspApi.init(domin: domin, admin: admin);
   final LinkTspApi linkTspApi = LinkTspApi();
   StoreFilterModel storeFilterModel = StoreFilterModel(
       cityId: 0, distance: 20, latitude: 31.27207, longitude: 30.034274);

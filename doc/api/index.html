@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="generator" content="made with love by dartdoc 4.1.0">
+  <meta name="description" content="linktsp_api API docs, for the Dart programming language.">
+  <title>linktsp_api - Dart API docs</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href=""
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="none">linktsp_api package</a></li>
+  </ol>
+  <div class="self-name">linktsp_api</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      
+<section class="desc markdown">
+  <h1 id="linktsp_api">linktsp_api</h1>
+<p>A new flutter plugin project.</p>
+<h2 id="services">Services</h2>
+<ul>
+<li>Account
+-- Future<usermodel> login({required String password, required String email});
+-- Future<usermodel> register({required RegisterModel registerModel});
+-- Future<usermodel> updateProfile({required UserModel userModel});
+-- Future<usermodel> getProfileDetails(
+{required UserModel userModel, required int customerId});
+-- Future<customersummarymodel> customerSummary({required int customerId});
+-- Future<bool> verify({required ActivationCodeModel activationCodeModel});
+-- Future<bool> resendVerificationCode(
+{required ActivationCodeModel activationCodeModel});
+-- Future<bool> changePassword(
+{required int customId,
+required String oldPassword,
+required String newPassword});
+-- Future<bool> forgetPassword({required String data, required int verifyType});
+-- Future<bool> resendPassword({required String data, required int verifyType});
+-- Future<int> confirmPassword(
+{required String data,
+required int verifyType,
+required String password});
+-- Future<bool> resetPassword(
+{required int customerId, required String password});
+-- Future<bool> subscribe({required String email});
+-- Future<bool> unSubscribe({required String email});
+-- Future<bool> notificationsToken({required String deviceToken});</bool></bool></bool></bool></int></bool></bool></bool></bool></bool></customersummarymodel></usermodel></usermodel></usermodel></usermodel></li>
+<li>Address
+-- Future&lt;List<addressmodel>&gt; getAddressBook({required int customId});
+-- Future&lt;List<addressmodel>&gt; getShipmentAddresses({required int customId});
+-- Future<addressmodel> saveAddress({required AddressModel addressModel});
+-- Future<addressmodel> getAddressDetails({required int addressId});
+-- Future<bool> deleteAddress({required int addressId});</bool></addressmodel></addressmodel></addressmodel></addressmodel></li>
+<li>Cancel Order
+-- Future<bool> cancelOrder({required CancelReasonModel cancelReasonModel});</bool></li>
+<li>Cart
+-- Future<bool> addToCart({required List<cartskumodel> cartSkuModel, required int customerId});
+-- Future&lt;List<cartitemmodel>&gt; getCartList({required int customerId});
+-- Future&lt;List<cartitemmodel>&gt; guestCartUpdate({required List<cartskumodel> cartSkuModel});
+-- Future<preordermessagemodel> preOrderMessage({required int customerId});
+-- Future<int> getCartCounter({required int customerId});
+-- Future<bool> removeFromCart({required int skuId, required int customerId});
+-- Future<cartsummarymodel> getCartSummary({required int customerId});
+-- Future<string> cartDiscountNotification({required int customerId});
+-- Future<string> visitorDiscountNotification({required List<cartskumodel> cartSkuModel});</cartskumodel></string></string></cartsummarymodel></bool></int></preordermessagemodel></cartskumodel></cartitemmodel></cartitemmodel></cartskumodel></bool></li>
+<li>Checkout
+-- Future<addressmodel> getDefaultAddress({required int customerId});
+-- Future&lt;List<addressmodel>&gt; getShipmentAddresses({required int customerId});
+-- Future<checkoucartsummarymodel> chehckoutCartSummary(
+{required int customerId, required int storeId, required int addressId});
+-- Future&lt;List<paymentoptionsmodel>&gt; getPaymentOptions();
+-- Future<checkoucartsummarymodel> couponRedeem(
+{required String couponCode,
+required int addressId,
+required int loyaltyPoints,
+required int customerId,
+int? storeId});
+-- Future<checkoucartsummarymodel> couponClear(
+{required String couponCode,
+required int addressId,
+required int loyaltyPoints,
+required int customerId,
+int? storeId});
+-- Future<checkoutreviewmodel> checkoutReview(
+{required int customerId,
+int? paymentOptionId,
+int? addressId,
+int? loyaltyPoints,
+int? pickStoreID});
+-- Future<string> confirm(
+{required int customerId,
+int? paymentOptionId,
+int? addressId,
+required int loyaltyPoints,
+required double finalAmount,
+int? storeId});
+-- Future<paymentframemodel> confirmOrder(
+{required int customerId,
+int? paymentOptionId,
+int? addressId,
+required int loyaltyPoints,
+required double finalAmount,
+int? storeId});
+-- Future<string> confirmOneClickOrder(
+{required int customerId,
+int? addressId,
+required int qty,
+required int skuId});
+-- Future<oneclickorderdetailsmodel> oneClickOrderDetails(
+{required int customerId, required int qty, required int skuId});
+-- Future<oneclickorderdetailsmodel> oneClickOrderTriggeredDiscount(
+{required int customerId, required int qty, required int skuId});
+-- Future<checkoucartsummarymodel> loyaltyPointsClear(
+{required int customerId,
+required int addressId,
+required int loyaltyPoints,
+int? storeId});
+-- Future<checkoucartsummarymodel> loyaltyPointsRedeem(
+{required int customerId,
+required int addressId,
+required int loyaltyPoints,
+int? storeId});</checkoucartsummarymodel></checkoucartsummarymodel></oneclickorderdetailsmodel></oneclickorderdetailsmodel></string></paymentframemodel></string></checkoutreviewmodel></checkoucartsummarymodel></checkoucartsummarymodel></paymentoptionsmodel></checkoucartsummarymodel></addressmodel></addressmodel></li>
+<li>Complaint
+-- Future<bool> saveComplaint({required ComplaintModel complaintModel});</bool></li>
+<li>Content Page
+-- Future<contentpagemodel> getContentPage({required int id});</contentpagemodel></li>
+<li>List
+-- Future<listingdatamodel> getListingWithCategory({required ListModel listModel});
+-- Future<listingdatamodel> getListingWithFilter({required ListModel listModel});
+-- Future<listingdatamodel> getListingWithSort({required ListModel listModel});
+-- Future<filterdatamodel> getFilterOptionsData({required ListModel listModel});</filterdatamodel></listingdatamodel></listingdatamodel></listingdatamodel></li>
+<li>Lookup
+-- Future&lt;List<citymodel>&gt; getCities();
+-- Future&lt;List<storemodel>&gt; getStores();
+-- Future&lt;List<complaintlookupmodel>&gt; getComplaintLookup();
+-- Future&lt;List<cancelreasonlookupmodel>&gt; getCancelReasonLookup();
+-- Future&lt;List<citymodel>&gt; getZoneLookup();
+-- Future&lt;List<citymodel>&gt; getStoreCityLookup();
+-- Future&lt;List<citymodel>&gt; getCityPerZoneLookup();
+-- Future&lt;List<feedbackreasonslookupmodel>&gt; getFeedbackReasonsLookup();</feedbackreasonslookupmodel></citymodel></citymodel></citymodel></cancelreasonlookupmodel></complaintlookupmodel></storemodel></citymodel></li>
+<li>Menu
+-- Future<menumodel> getMenu({required int customerID});
+-- Future&lt;List<contactinfomodel>&gt; getContactInfo();
+-- Future<string> getPreOrderPolicy();</string></contactinfomodel></menumodel></li>
+<li>Multi Store
+-- Future<cartvalidatemodel> cartValidate(
+{required int addressId, required int customerID});
+-- Future<cartvalidatemodel> cartUpdate(
+{required int customerID,
+required int addressId,
+required List<cartskumodel> carts});
+-- Future<cartvalidatemodel> cartItemRemove(
+{required int customerID, required int addressId, required int skuid});</cartvalidatemodel></cartskumodel></cartvalidatemodel></cartvalidatemodel></li>
+<li>Order
+-- Future&lt;List<ordermodel>&gt; getOrders({required int customerId});
+-- Future<orderdetailsmodel> getOrderDetails({required String orderCode});
+-- Future<trackordermodel> trackOrder({required String orderCode});</trackordermodel></orderdetailsmodel></ordermodel></li>
+<li>Page Block
+-- Future<pageblockmodel> getPageBlock();</pageblockmodel></li>
+<li>Reviews
+-- Future<reviewmodel> getProductReviews({required String productCode});
+-- Future<bool> addReview({required ItemReview itemReview});
+-- Future<reviewratemodel> getProductRate({required String productCode});
+-- Future<bool> addRate(
+{required String productCode,
+required double rate,
+required int customerId});</bool></reviewratemodel></bool></reviewmodel></li>
+<li>Setting
+-- Future<settingmodel> getVersions();
+-- Future<string> getServiceAgreement();</string></settingmodel></li>
+<li>Sku
+-- Future<productdetailsmodel> getProductDetails({
+required int skuid,
+required int customerId,
+});
+-- Future<productdetailsmodel> getProductDetailsScanner(
+{required String skuCode, required int customerId});
+-- Future<productdetailsmodel> getSkuDetails(
+{required String productCode,
+required int colorId,
+required int sizeId,
+required String switchType,
+required int customerId});
+-- Future&lt;List<productdetailsmodel>&gt; getInnerProductSliders({
+required String productCode,
+required String relatedItemsEnum,
+required int customerId,
+});</productdetailsmodel></productdetailsmodel></productdetailsmodel></productdetailsmodel></li>
+<li>Social Login
+-- Future&lt;List<socialloginmodel>&gt; getSocialLoginKeys();
+-- Future<socialloginusermodel> socialLogin(
+{required SocialLoginUserModel socialLoginUserModel});</socialloginusermodel></socialloginmodel></li>
+<li>Store
+-- Future&lt;List<storemodel>&gt; storesFilter(
+{required StoreFilterModel storeFilterModel});</storemodel></li>
+<li>Token
+-- Future<string> getToken(String domin, int version);</string></li>
+<li>Wishlist
+-- Future&lt;List<wishlistproductsmodel>&gt; getWishlist({required int customerId});
+-- Future<bool> addToWishlist({required int customerId, required int skuid});
+-- Future<bool> removeFromWishlist(
+{required int customerId, required int skuid});
+-- Future<bool> removeAllFromWishlist({required int customerId});
+-- Future<bool> moveToCart({required int customerId, required int skuid});</bool></bool></bool></bool></wishlistproductsmodel></li>
+</ul>
+<h2 id="getting-started">Getting Started</h2>
+<p>This project is a starting point for a Flutter
+<a href="https://flutter.dev/developing-packages/">plug-in package</a>,
+a specialized package that includes platform-specific implementation code for
+Android and/or iOS.</p>
+<p>For help getting started with Flutter, view our
+<a href="https://flutter.dev/docs">online documentation</a>, which offers tutorials,
+samples, guidance on mobile development, and a full API reference.</p>
+</section>
+
+
+      <section class="summary">
+          <h2>Libraries</h2>
+        <dl>
+          <dt id="account_services">
+  <span class="name"><a href="data_account_services_account_services/data_account_services_account_services-library.html">account_services</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="account_services">
+  <span class="name"><a href="data_Account_services_account_services/data_Account_services_account_services-library.html">account_services</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="activation_code_model">
+  <span class="name"><a href="data_Account_models_activation_code_model/data_Account_models_activation_code_model-library.html">activation_code_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="activation_code_model">
+  <span class="name"><a href="data_account_models_activation_code_model/data_account_models_activation_code_model-library.html">activation_code_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="address_model">
+  <span class="name"><a href="core_models_address_model/core_models_address_model-library.html">address_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="address_services">
+  <span class="name"><a href="data_address_services_address_services/data_address_services_address_services-library.html">address_services</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="admin_model">
+  <span class="name"><a href="core_models_admin_model/core_models_admin_model-library.html">admin_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="cancel_order_services">
+  <span class="name"><a href="data_cancel_order_services_cancel_order_services/data_cancel_order_services_cancel_order_services-library.html">cancel_order_services</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="cancel_reason_model">
+  <span class="name"><a href="core_models_cancel_reason_model/core_models_cancel_reason_model-library.html">cancel_reason_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="cart_item_model">
+  <span class="name"><a href="core_models_cart_item_model/core_models_cart_item_model-library.html">cart_item_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="cart_services">
+  <span class="name"><a href="data_cart_services_cart_services/data_cart_services_cart_services-library.html">cart_services</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="cart_sku_model">
+  <span class="name"><a href="core_models_cart_sku_model/core_models_cart_sku_model-library.html">cart_sku_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="cart_summary_model">
+  <span class="name"><a href="data_account_models_cart_summary_model/data_account_models_cart_summary_model-library.html">cart_summary_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="cart_summary_model">
+  <span class="name"><a href="core_models_cart_summary_model/core_models_cart_summary_model-library.html">cart_summary_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="cart_summary_model">
+  <span class="name"><a href="data_Account_models_cart_summary_model/data_Account_models_cart_summary_model-library.html">cart_summary_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="cart_validate_model">
+  <span class="name"><a href="data_multi_store_models_cart_validate_model/data_multi_store_models_cart_validate_model-library.html">cart_validate_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="checkout_cart_summary_model">
+  <span class="name"><a href="data_checkout_models_checkout_cart_summary_model/data_checkout_models_checkout_cart_summary_model-library.html">checkout_cart_summary_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="checkout_services">
+  <span class="name"><a href="data_checkout_services_checkout_services/data_checkout_services_checkout_services-library.html">checkout_services</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="city_model">
+  <span class="name"><a href="core_models_city_model/core_models_city_model-library.html">city_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="color_model">
+  <span class="name"><a href="core_models_color_model/core_models_color_model-library.html">color_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="complaint_model">
+  <span class="name"><a href="core_models_complaint_model/core_models_complaint_model-library.html">complaint_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="complaint_services">
+  <span class="name"><a href="data_complaint_services_complaint_services/data_complaint_services_complaint_services-library.html">complaint_services</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="config_delivery_period_model">
+  <span class="name"><a href="core_models_config_delivery_period_model/core_models_config_delivery_period_model-library.html">config_delivery_period_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="content_page_model">
+  <span class="name"><a href="data_content_page_models_content_page_model/data_content_page_models_content_page_model-library.html">content_page_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="content_page_service">
+  <span class="name"><a href="data_content_page_services_content_page_service/data_content_page_services_content_page_service-library.html">content_page_service</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="default_api">
+  <span class="name"><a href="data_default_api/data_default_api-library.html">default_api</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="exception_api">
+  <span class="name"><a href="data_exception_api/data_exception_api-library.html">exception_api</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="feature_model">
+  <span class="name"><a href="core_models_feature_model/core_models_feature_model-library.html">feature_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="linktsp_api">
+  <span class="name"><a href="linktsp_api/linktsp_api-library.html">linktsp_api</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="linktsp_api_exports">
+  <span class="name"><a href="linktsp_api_exports/linktsp_api_exports-library.html">linktsp_api_exports</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="list_model">
+  <span class="name"><a href="data_list_models_list_model/data_list_models_list_model-library.html">list_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="list_service">
+  <span class="name"><a href="data_list_services_list_service/data_list_services_list_service-library.html">list_service</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="lookup_model">
+  <span class="name"><a href="data_lookup_models_lookup_model/data_lookup_models_lookup_model-library.html">lookup_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="lookup_service">
+  <span class="name"><a href="data_lookup_services_lookup_service/data_lookup_services_lookup_service-library.html">lookup_service</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="menu_model">
+  <span class="name"><a href="data_Menu_models_menu_model/data_Menu_models_menu_model-library.html">menu_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="menu_model">
+  <span class="name"><a href="data_menu_models_menu_model/data_menu_models_menu_model-library.html">menu_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="menu_web_servcies">
+  <span class="name"><a href="data_Menu_services_menu_web_servcies/data_Menu_services_menu_web_servcies-library.html">menu_web_servcies</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="menu_web_servcies">
+  <span class="name"><a href="data_menu_services_menu_web_servcies/data_menu_services_menu_web_servcies-library.html">menu_web_servcies</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="multi_store_service">
+  <span class="name"><a href="data_multi_store_services_multi_store_service/data_multi_store_services_multi_store_service-library.html">multi_store_service</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="order_model">
+  <span class="name"><a href="core_models_order_model/core_models_order_model-library.html">order_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="page_block_model">
+  <span class="name"><a href="data_page_block_models_page_block_model/data_page_block_models_page_block_model-library.html">page_block_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="page_block_web_services">
+  <span class="name"><a href="data_page_block_services_page_block_web_services/data_page_block_services_page_block_web_services-library.html">page_block_web_services</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="preorder_message_model">
+  <span class="name"><a href="core_models_preorder_message_model/core_models_preorder_message_model-library.html">preorder_message_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="register_model">
+  <span class="name"><a href="data_Account_models_register_model/data_Account_models_register_model-library.html">register_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="register_model">
+  <span class="name"><a href="data_account_models_register_model/data_account_models_register_model-library.html">register_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="result_model">
+  <span class="name"><a href="data_result_model/data_result_model-library.html">result_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="review_model">
+  <span class="name"><a href="data_reviews_models_review_model/data_reviews_models_review_model-library.html">review_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="review_web_services">
+  <span class="name"><a href="data_reviews_services_review_web_services/data_reviews_services_review_web_services-library.html">review_web_services</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="service">
+  <span class="name"><a href="data_order_services_service/data_order_services_service-library.html">service</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="setting_model">
+  <span class="name"><a href="data_Setting_models_setting_model/data_Setting_models_setting_model-library.html">setting_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="setting_model">
+  <span class="name"><a href="data_setting_models_setting_model/data_setting_models_setting_model-library.html">setting_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="setting_web_services">
+  <span class="name"><a href="data_setting_services_setting_web_services/data_setting_services_setting_web_services-library.html">setting_web_services</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="size_model">
+  <span class="name"><a href="core_models_size_model/core_models_size_model-library.html">size_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="sku_model">
+  <span class="name"><a href="data_sku_models_sku_model/data_sku_models_sku_model-library.html">sku_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="sku_web_services">
+  <span class="name"><a href="data_sku_services_sku_web_services/data_sku_services_sku_web_services-library.html">sku_web_services</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="social_login_model">
+  <span class="name"><a href="data_social_login_models_social_login_model/data_social_login_models_social_login_model-library.html">social_login_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="social_login_web_services">
+  <span class="name"><a href="data_social_login_services_social_login_web_services/data_social_login_services_social_login_web_services-library.html">social_login_web_services</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="store">
+  <span class="name"><a href="core_models_store/core_models_store-library.html">store</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="store_model">
+  <span class="name"><a href="core_models_store_model/core_models_store_model-library.html">store_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="store_web_services">
+  <span class="name"><a href="data_store_services_store_web_services/data_store_services_store_web_services-library.html">store_web_services</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="summary_model">
+  <span class="name"><a href="core_models_summary_model/core_models_summary_model-library.html">summary_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="token_service">
+  <span class="name"><a href="data_token_services_token_service/data_token_services_token_service-library.html">token_service</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="user_model">
+  <span class="name"><a href="data_Account_models_user_model/data_Account_models_user_model-library.html">user_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="user_model">
+  <span class="name"><a href="data_account_models_user_model/data_account_models_user_model-library.html">user_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="wishlist_model">
+  <span class="name"><a href="data_wishlist_models_wishlist_model/data_wishlist_models_wishlist_model-library.html">wishlist_model</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="wishlist_web_services">
+  <span class="name"><a href="data_wishlist_services_wishlist_web_services/data_wishlist_services_wishlist_web_services-library.html">wishlist_web_services</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+        </dl>
+      </section>
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="none">linktsp_api package</a></li>
+</ol>
+
+
+    <h5 class="hidden-xs"><span class="package-name">linktsp_api</span> <span class="package-kind">package</span></h5>
+    <ol>
+      <li class="section-title">Libraries</li>
+      <li><a href="data_account_services_account_services/data_account_services_account_services-library.html">account_services</a></li>
+      <li><a href="data_Account_services_account_services/data_Account_services_account_services-library.html">account_services</a></li>
+      <li><a href="data_Account_models_activation_code_model/data_Account_models_activation_code_model-library.html">activation_code_model</a></li>
+      <li><a href="data_account_models_activation_code_model/data_account_models_activation_code_model-library.html">activation_code_model</a></li>
+      <li><a href="core_models_address_model/core_models_address_model-library.html">address_model</a></li>
+      <li><a href="data_address_services_address_services/data_address_services_address_services-library.html">address_services</a></li>
+      <li><a href="core_models_admin_model/core_models_admin_model-library.html">admin_model</a></li>
+      <li><a href="data_cancel_order_services_cancel_order_services/data_cancel_order_services_cancel_order_services-library.html">cancel_order_services</a></li>
+      <li><a href="core_models_cancel_reason_model/core_models_cancel_reason_model-library.html">cancel_reason_model</a></li>
+      <li><a href="core_models_cart_item_model/core_models_cart_item_model-library.html">cart_item_model</a></li>
+      <li><a href="data_cart_services_cart_services/data_cart_services_cart_services-library.html">cart_services</a></li>
+      <li><a href="core_models_cart_sku_model/core_models_cart_sku_model-library.html">cart_sku_model</a></li>
+      <li><a href="data_account_models_cart_summary_model/data_account_models_cart_summary_model-library.html">cart_summary_model</a></li>
+      <li><a href="core_models_cart_summary_model/core_models_cart_summary_model-library.html">cart_summary_model</a></li>
+      <li><a href="data_Account_models_cart_summary_model/data_Account_models_cart_summary_model-library.html">cart_summary_model</a></li>
+      <li><a href="data_multi_store_models_cart_validate_model/data_multi_store_models_cart_validate_model-library.html">cart_validate_model</a></li>
+      <li><a href="data_checkout_models_checkout_cart_summary_model/data_checkout_models_checkout_cart_summary_model-library.html">checkout_cart_summary_model</a></li>
+      <li><a href="data_checkout_services_checkout_services/data_checkout_services_checkout_services-library.html">checkout_services</a></li>
+      <li><a href="core_models_city_model/core_models_city_model-library.html">city_model</a></li>
+      <li><a href="core_models_color_model/core_models_color_model-library.html">color_model</a></li>
+      <li><a href="core_models_complaint_model/core_models_complaint_model-library.html">complaint_model</a></li>
+      <li><a href="data_complaint_services_complaint_services/data_complaint_services_complaint_services-library.html">complaint_services</a></li>
+      <li><a href="core_models_config_delivery_period_model/core_models_config_delivery_period_model-library.html">config_delivery_period_model</a></li>
+      <li><a href="data_content_page_models_content_page_model/data_content_page_models_content_page_model-library.html">content_page_model</a></li>
+      <li><a href="data_content_page_services_content_page_service/data_content_page_services_content_page_service-library.html">content_page_service</a></li>
+      <li><a href="data_default_api/data_default_api-library.html">default_api</a></li>
+      <li><a href="data_exception_api/data_exception_api-library.html">exception_api</a></li>
+      <li><a href="core_models_feature_model/core_models_feature_model-library.html">feature_model</a></li>
+      <li><a href="linktsp_api/linktsp_api-library.html">linktsp_api</a></li>
+      <li><a href="linktsp_api_exports/linktsp_api_exports-library.html">linktsp_api_exports</a></li>
+      <li><a href="data_list_models_list_model/data_list_models_list_model-library.html">list_model</a></li>
+      <li><a href="data_list_services_list_service/data_list_services_list_service-library.html">list_service</a></li>
+      <li><a href="data_lookup_models_lookup_model/data_lookup_models_lookup_model-library.html">lookup_model</a></li>
+      <li><a href="data_lookup_services_lookup_service/data_lookup_services_lookup_service-library.html">lookup_service</a></li>
+      <li><a href="data_Menu_models_menu_model/data_Menu_models_menu_model-library.html">menu_model</a></li>
+      <li><a href="data_menu_models_menu_model/data_menu_models_menu_model-library.html">menu_model</a></li>
+      <li><a href="data_Menu_services_menu_web_servcies/data_Menu_services_menu_web_servcies-library.html">menu_web_servcies</a></li>
+      <li><a href="data_menu_services_menu_web_servcies/data_menu_services_menu_web_servcies-library.html">menu_web_servcies</a></li>
+      <li><a href="data_multi_store_services_multi_store_service/data_multi_store_services_multi_store_service-library.html">multi_store_service</a></li>
+      <li><a href="core_models_order_model/core_models_order_model-library.html">order_model</a></li>
+      <li><a href="data_page_block_models_page_block_model/data_page_block_models_page_block_model-library.html">page_block_model</a></li>
+      <li><a href="data_page_block_services_page_block_web_services/data_page_block_services_page_block_web_services-library.html">page_block_web_services</a></li>
+      <li><a href="core_models_preorder_message_model/core_models_preorder_message_model-library.html">preorder_message_model</a></li>
+      <li><a href="data_Account_models_register_model/data_Account_models_register_model-library.html">register_model</a></li>
+      <li><a href="data_account_models_register_model/data_account_models_register_model-library.html">register_model</a></li>
+      <li><a href="data_result_model/data_result_model-library.html">result_model</a></li>
+      <li><a href="data_reviews_models_review_model/data_reviews_models_review_model-library.html">review_model</a></li>
+      <li><a href="data_reviews_services_review_web_services/data_reviews_services_review_web_services-library.html">review_web_services</a></li>
+      <li><a href="data_order_services_service/data_order_services_service-library.html">service</a></li>
+      <li><a href="data_Setting_models_setting_model/data_Setting_models_setting_model-library.html">setting_model</a></li>
+      <li><a href="data_setting_models_setting_model/data_setting_models_setting_model-library.html">setting_model</a></li>
+      <li><a href="data_setting_services_setting_web_services/data_setting_services_setting_web_services-library.html">setting_web_services</a></li>
+      <li><a href="core_models_size_model/core_models_size_model-library.html">size_model</a></li>
+      <li><a href="data_sku_models_sku_model/data_sku_models_sku_model-library.html">sku_model</a></li>
+      <li><a href="data_sku_services_sku_web_services/data_sku_services_sku_web_services-library.html">sku_web_services</a></li>
+      <li><a href="data_social_login_models_social_login_model/data_social_login_models_social_login_model-library.html">social_login_model</a></li>
+      <li><a href="data_social_login_services_social_login_web_services/data_social_login_services_social_login_web_services-library.html">social_login_web_services</a></li>
+      <li><a href="core_models_store/core_models_store-library.html">store</a></li>
+      <li><a href="core_models_store_model/core_models_store_model-library.html">store_model</a></li>
+      <li><a href="data_store_services_store_web_services/data_store_services_store_web_services-library.html">store_web_services</a></li>
+      <li><a href="core_models_summary_model/core_models_summary_model-library.html">summary_model</a></li>
+      <li><a href="data_token_services_token_service/data_token_services_token_service-library.html">token_service</a></li>
+      <li><a href="data_Account_models_user_model/data_Account_models_user_model-library.html">user_model</a></li>
+      <li><a href="data_account_models_user_model/data_account_models_user_model-library.html">user_model</a></li>
+      <li><a href="data_wishlist_models_wishlist_model/data_wishlist_models_wishlist_model-library.html">wishlist_model</a></li>
+      <li><a href="data_wishlist_services_wishlist_web_services/data_wishlist_services_wishlist_web_services-library.html">wishlist_web_services</a></li>
+</ol>
+
+  </div>
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div>
+
+</main>
+
+<footer>
+  <span class="no-break">
+    linktsp_api
+      0.0.1
+  </span>
+
+  
+</footer>
+
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+

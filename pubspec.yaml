@@ -1,7 +1,7 @@
 name: linktsp_api
 description: A new flutter plugin project.
 version: 0.0.1
-homepage: none
+# homepage: none
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -10,6 +10,8 @@ environment:
 dependencies:
   dio: ^4.0.4
   flutter:
+    sdk: flutter
+  flutter_web_plugins:
     sdk: flutter
 
 dev_dependencies:
@@ -33,6 +35,13 @@ flutter:
         pluginClass: LinktspApiPlugin
       ios:
         pluginClass: LinktspApiPlugin
+      windows:
+        pluginClass: LinktspApiPlugin
+      macos:
+        pluginClass: LinktspApiPlugin
+      web:
+        pluginClass: LinktspApiWeb
+        fileName: linktsp_api_web.dart
         # web:
         # pluginClass: LinktspApiPlugin
         # fileName: linktsp_api_web.dart

@@ -1,3 +1,5 @@
+import 'package:linktsp_api/core/models/admin_model.dart';
+
 import 'linktsp_api_exports.dart';
 
 //models
@@ -5,7 +7,7 @@ export 'data/account/models/activation_code_model.dart';
 export 'data/account/models/cart_summary_model.dart';
 export 'data/account/models/register_model.dart';
 export 'data/account/models/user_model.dart';
-export 'data/checkout/models.dart/checkout_cart_summary_model.dart';
+export 'data/checkout/models/checkout_cart_summary_model.dart';
 
 export 'data/content_page/models/content_page_model.dart';
 
@@ -41,14 +43,18 @@ export 'core/models/size_model.dart';
 export 'core/models/store_model.dart';
 export 'core/models/store.dart';
 export 'core/models/summary_model.dart';
+export 'core/models/admin_model.dart';
 
 class LinkTspApi implements _LinkTspApiAbstract {
   static Future<void> init(
       {required String domin,
+      required AdminModel admin,
       int version = 1,
       int lang = 1,
       int? zoneid}) async {
-    final token = await TokenServiceImp().getToken(domin, version);
+    final token = await TokenServiceImp()
+        .getToken(domin: domin, version: version, admin: admin);
+    print(token);
     DefaultApi.init(
         domin: domin,
         token: token,

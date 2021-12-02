@@ -4,7 +4,7 @@ import 'package:linktsp_api/linktsp_api.dart';
 import '../../const.dart';
 
 void main() async {
-  await LinkTspApi.init(domin: domin, version: 1);
+  await LinkTspApi.init(domin: domin, admin: admin);
   LinkTspApi linkTspApi = LinkTspApi();
 
   group('cart', () {
