@@ -74,13 +74,13 @@ abstract class ReviewWebService {
   Future<ReviewModel> getProductReviews({required String productCode});
 
   /// It's used to add review on product. User can make only one review on the same product. User must have an account to use this feature.
-  Future<bool> addReview({required ItemReview itemReview});
+  Future<bool?> addReview({required ItemReview itemReview});
 
   /// It's return product rate. It  must take [product code].
   Future<ReviewRateModel> getProductRate({required String productCode});
 
   /// It's used for only adding rate on product,User must have an account to use this feature.
-  Future<bool> addRate(
+  Future<bool?> addRate(
       {required String productCode,
       required double rate,
       required int customerId});
