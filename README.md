@@ -155,20 +155,20 @@ A new flutter plugin project.
 - Sku
   -- Future<ProductDetailsModel> getProductDetails({
   required int skuid,
-  required int customerId,
+  int customerId,
   });
   -- Future<ProductDetailsModel> getProductDetailsScanner(
-  {required String skuCode, required int customerId});
+  {required String skuCode, int customerId});
   -- Future<ProductDetailsModel> getSkuDetails(
   {required String productCode,
   required int colorId,
   required int sizeId,
   required String switchType,
-  required int customerId});
+  int customerId});
   -- Future<List<ProductDetailsModel>> getInnerProductSliders({
   required String productCode,
   required String relatedItemsEnum,
-  required int customerId,
+  int customerId,
   });
 - Social Login
   -- Future<List<SocialLoginModel>> getSocialLoginKeys();

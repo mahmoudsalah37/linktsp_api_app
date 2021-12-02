@@ -11,7 +11,7 @@ class SkuWebServicesImp extends DefaultApi implements SkuWebServices {
   Future<List<ProductDetailsModel>> getInnerProductSliders(
       {required String productCode,
       required String relatedItemsEnum,
-      required int customerId}) async {
+      int? customerId}) async {
     final response = await postData(
         path: 'sku/ReleatedItem/$productCode',
         queryParameters: {
@@ -29,7 +29,7 @@ class SkuWebServicesImp extends DefaultApi implements SkuWebServices {
 
   @override
   Future<ProductDetailsModel> getProductDetails(
-      {required int skuid, required int customerId}) async {
+      {required int skuid, int? customerId}) async {
     final response = await postData(
         path: 'sku/$skuid', queryParameters: {'CustomerId': customerId});
     final result = ApiReturnResult.fromJSON(response.data);
@@ -42,7 +42,7 @@ class SkuWebServicesImp extends DefaultApi implements SkuWebServices {
 
   @override
   Future<ProductDetailsModel> getProductDetailsScanner(
-      {required String skuCode, required int customerId}) async {
+      {required String skuCode, int? customerId}) async {
     final response = await postData(
         path: 'sku/0',
         queryParameters: {'CustomerId': customerId, 'SKUCode': skuCode});
@@ -60,7 +60,7 @@ class SkuWebServicesImp extends DefaultApi implements SkuWebServices {
       required int colorId,
       required int sizeId,
       required String switchType,
-      required int customerId}) async {
+      int? customerId}) async {
     final response = await postData(path: 'sku/$productCode', queryParameters: {
       'CustomerId': customerId,
       'colorID': colorId,
@@ -77,21 +77,32 @@ class SkuWebServicesImp extends DefaultApi implements SkuWebServices {
 }
 
 abstract class SkuWebServices {
+  /// It's used to get all product details. It must take product [skuid]
   Future<ProductDetailsModel> getProductDetails({
     required int skuid,
-    required int customerId,
+    int customerId,
   });
+
+  /// It's used to get all produt details. It must take product [sku code]
   Future<ProductDetailsModel> getProductDetailsScanner(
-      {required String skuCode, required int customerId});
+      {required String skuCode, int customerId});
+
+  /// It's used when changing the product color or product size.
+  ///
+  /// [ SwitchType : SwitchColor, SwitchSize ]
   Future<ProductDetailsModel> getSkuDetails(
       {required String productCode,
       required int colorId,
       required int sizeId,
       required String switchType,
-      required int customerId});
+      int customerId});
+
+  /// It's used to return related products list
+  ///
+  /// [RelatedItemsEnum : WhoViewedThisViewedThat, WhoBoughtThisBoughtThat, CurrCustRecentskus, RelatedItems]
   Future<List<ProductDetailsModel>> getInnerProductSliders({
     required String productCode,
     required String relatedItemsEnum,
-    required int customerId,
+    int customerId,
   });
 }

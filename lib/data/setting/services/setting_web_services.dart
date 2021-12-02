@@ -31,6 +31,11 @@ class SettingWebServicesImp extends DefaultApi implements SettingWebService {
 }
 
 abstract class SettingWebService {
+  /// It's return all versions of the app.
+  ///
+  /// It can help if you want to force user to update the app or notify user that there is an update on store.
   Future<SettingModel> getVersions();
+
+  /// It's return terms and conditions of the app.
   Future<String> getServiceAgreement();
 }
