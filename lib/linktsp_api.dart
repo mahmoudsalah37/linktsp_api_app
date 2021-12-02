@@ -7,7 +7,7 @@ export 'data/account/models/activation_code_model.dart';
 export 'data/account/models/cart_summary_model.dart';
 export 'data/account/models/register_model.dart';
 export 'data/account/models/user_model.dart';
-export 'data/checkout/models.dart/checkout_cart_summary_model.dart';
+export 'data/checkout/models/checkout_cart_summary_model.dart';
 
 export 'data/content_page/models/content_page_model.dart';
 
