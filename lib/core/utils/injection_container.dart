@@ -9,7 +9,7 @@ class InjectionContainer {
     sl.registerLazySingleton<AccountService>(
         () => AccountServicesImp(defaultApi: sl()));
 
-    sl.registerLazySingleton<AddressServices>(
+    sl.registerLazySingleton<AddressService>(
         () => AddressServicesImp(defaultApi: sl()));
 
     sl.registerLazySingleton<CancelOrderService>(
@@ -51,8 +51,8 @@ class InjectionContainer {
     sl.registerLazySingleton<SettingWebService>(
         () => SettingWebServicesImp(defaultApi: sl()));
 
-    sl.registerLazySingleton<SkuWebServices>(
-        () => SkuWebServicesImp(defaultApi: sl()));
+    sl.registerLazySingleton<SkuWebService>(
+        () => SkuWebServiceImp(defaultApi: sl()));
 
     sl.registerLazySingleton<SocialLoginWebService>(
         () => SocialLoginWebServiceImp(defaultApi: sl()));

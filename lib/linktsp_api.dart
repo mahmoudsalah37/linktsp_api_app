@@ -1,4 +1,3 @@
-import 'package:get_it/get_it.dart';
 import 'package:linktsp_api/core/models/admin_model.dart';
 import 'package:linktsp_api/core/utils/injection_container.dart';
 
@@ -69,45 +68,45 @@ class LinkTspApi implements _LinkTspApiAbstract {
   }
 
   @override
-  TokenService get token => TokenServiceImp();
+  TokenService get token => sl<TokenService>();
   @override
   AccountService get account => sl<AccountService>();
   @override
-  AddressServices get address => sl<AddressServicesImp>();
+  AddressService get address => sl<AddressService>();
   @override
-  CancelOrderService get cancelOrder => sl<CancelOrderServiceImp>();
+  CancelOrderService get cancelOrder => sl<CancelOrderService>();
   @override
-  CartService get cart => sl<CartServiceImp>();
+  CartService get cart => sl<CartService>();
   @override
-  CheckOutService get checkOut => sl<CheckOutServicesImp>();
+  CheckOutService get checkOut => sl<CheckOutService>();
   @override
-  ComplaintService get complaint => sl<ComplaintServiceImp>();
+  ComplaintService get complaint => sl<ComplaintService>();
   @override
-  ContentPageService get contentPage => sl<ContentPageServiceImp>();
+  ContentPageService get contentPage => sl<ContentPageService>();
   @override
-  ListService get list => sl<ListServiceImp>();
+  ListService get list => sl<ListService>();
   @override
-  LookUpService get lookUp => sl<LookUpServiceImp>();
+  LookUpService get lookUp => sl<LookUpService>();
   @override
-  MenuWebService get menu => sl<MenuWebServiceImp>();
+  MenuWebService get menu => sl<MenuWebService>();
   @override
-  MultiStoreService get multiStore => sl<MultiStoreServiceImp>();
+  MultiStoreService get multiStore => sl<MultiStoreService>();
   @override
-  OrderService get order => sl<OrderServiceImp>();
+  OrderService get order => sl<OrderService>();
   @override
-  PageBlockWebService get pageBlock => sl<PageBlockWebServiceImp>();
+  PageBlockWebService get pageBlock => sl<PageBlockWebService>();
   @override
-  ReviewWebService get review => sl<ReviewWebServiceImp>();
+  ReviewWebService get review => sl<ReviewWebService>();
   @override
-  SettingWebService get setting => sl<SettingWebServicesImp>();
+  SettingWebService get setting => sl<SettingWebService>();
   @override
-  SkuWebServices get sku => sl<SkuWebServicesImp>();
+  SkuWebService get sku => sl<SkuWebService>();
   @override
-  SocialLoginWebService get socialLogin => sl<SocialLoginWebServiceImp>();
+  SocialLoginWebService get socialLogin => sl<SocialLoginWebService>();
   @override
-  StoreWebService get store => sl<StoreWebServiceImp>();
+  StoreWebService get store => sl<StoreWebService>();
   @override
-  WishlistWebService get wishlist => sl<WishlistWebServiceImp>();
+  WishlistWebService get wishlist => sl<WishlistWebService>();
 }
 
 abstract class _LinkTspApiAbstract {
@@ -115,7 +114,7 @@ abstract class _LinkTspApiAbstract {
 
   AccountService get account;
 
-  AddressServices get address;
+  AddressService get address;
 
   CancelOrderService get cancelOrder;
 
@@ -143,7 +142,7 @@ abstract class _LinkTspApiAbstract {
 
   SettingWebService get setting;
 
-  SkuWebServices get sku;
+  SkuWebService get sku;
 
   SocialLoginWebService get socialLogin;
 

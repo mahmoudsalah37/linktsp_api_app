@@ -3,7 +3,7 @@ import 'package:linktsp_api/data/default_api.dart';
 import 'package:linktsp_api/data/exception_api.dart';
 import 'package:linktsp_api/data/result_model.dart';
 
-class AddressServicesImp implements AddressServices {
+class AddressServicesImp implements AddressService {
   AddressServicesImp({required this.defaultApi});
   final DefaultApi defaultApi;
 
@@ -73,7 +73,7 @@ class AddressServicesImp implements AddressServices {
   }
 }
 
-abstract class AddressServices {
+abstract class AddressService {
   /// Get all client addresses
   Future<List<AddressModel>> getAddressBook({required int customId});
 

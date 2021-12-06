@@ -4,8 +4,8 @@ import 'package:linktsp_api/data/sku/models/sku_model.dart';
 import '../../exception_api.dart';
 import '../../result_model.dart';
 
-class SkuWebServicesImp implements SkuWebServices {
-  SkuWebServicesImp({required this.defaultApi});
+class SkuWebServiceImp implements SkuWebService {
+  SkuWebServiceImp({required this.defaultApi});
   final DefaultApi defaultApi;
 
   @override
@@ -78,7 +78,7 @@ class SkuWebServicesImp implements SkuWebServices {
   }
 }
 
-abstract class SkuWebServices {
+abstract class SkuWebService {
   /// It's used to get all product details. It must take product (skuid)
   Future<ProductDetailsModel> getProductDetails({
     required int skuid,
