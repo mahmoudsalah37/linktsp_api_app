@@ -52,7 +52,7 @@
     <section class="multi-line-signature">
       
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>&gt;</span></span>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span>&gt;</span></span>
 <span class="name ">addRate</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="addRate-param-productCode">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">productCode</span>, </span></li>
 <li><span class="parameter" id="addRate-param-rate"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">rate</span>, </span></li>
 <li><span class="parameter" id="addRate-param-customerId"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">customerId</span>}</span></li>
@@ -62,12 +62,15 @@
 
     </section>
     
+<section class="desc markdown">
+  <p>It's used for only adding rate on product,User must have an account to use this feature.</p>
+</section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;bool&gt; addRate(
+  <pre class="language-dart"><code class="language-dart">Future&lt;bool?&gt; addRate(
     {required String productCode,
     required double rate,
     required int customerId});</code></pre>

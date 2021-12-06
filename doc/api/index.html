@@ -30,7 +30,7 @@
 <header id="title">
   <button id="sidenav-left-toggle" type="button">&nbsp;</button>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
-    <li><a href="none">linktsp_api package</a></li>
+    <li class="self-crumb">linktsp_api package</li>
   </ol>
   <div class="self-name">linktsp_api</div>
   <form class="search navbar-right" role="search">
@@ -199,20 +199,20 @@ required int customerId});</bool></reviewratemodel></bool></reviewmodel></li>
 <li>Sku
 -- Future<productdetailsmodel> getProductDetails({
 required int skuid,
-required int customerId,
+int customerId,
 });
 -- Future<productdetailsmodel> getProductDetailsScanner(
-{required String skuCode, required int customerId});
+{required String skuCode, int customerId});
 -- Future<productdetailsmodel> getSkuDetails(
 {required String productCode,
 required int colorId,
 required int sizeId,
 required String switchType,
-required int customerId});
+int customerId});
 -- Future&lt;List<productdetailsmodel>&gt; getInnerProductSliders({
 required String productCode,
 required String relatedItemsEnum,
-required int customerId,
+int customerId,
 });</productdetailsmodel></productdetailsmodel></productdetailsmodel></productdetailsmodel></li>
 <li>Social Login
 -- Future&lt;List<socialloginmodel>&gt; getSocialLoginKeys();
@@ -247,20 +247,6 @@ samples, guidance on mobile development, and a full API reference.</p>
         <dl>
           <dt id="account_services">
   <span class="name"><a href="data_account_services_account_services/data_account_services_account_services-library.html">account_services</a></span> 
-
-</dt>
-<dd> 
-</dd>
-
-          <dt id="account_services">
-  <span class="name"><a href="data_Account_services_account_services/data_Account_services_account_services-library.html">account_services</a></span> 
-
-</dt>
-<dd> 
-</dd>
-
-          <dt id="activation_code_model">
-  <span class="name"><a href="data_Account_models_activation_code_model/data_Account_models_activation_code_model-library.html">activation_code_model</a></span> 
 
 </dt>
 <dd> 
@@ -338,13 +324,6 @@ samples, guidance on mobile development, and a full API reference.</p>
 
           <dt id="cart_summary_model">
   <span class="name"><a href="core_models_cart_summary_model/core_models_cart_summary_model-library.html">cart_summary_model</a></span> 
-
-</dt>
-<dd> 
-</dd>
-
-          <dt id="cart_summary_model">
-  <span class="name"><a href="data_Account_models_cart_summary_model/data_Account_models_cart_summary_model-library.html">cart_summary_model</a></span> 
 
 </dt>
 <dd> 
@@ -455,6 +434,13 @@ samples, guidance on mobile development, and a full API reference.</p>
 <dd> 
 </dd>
 
+          <dt id="linktsp_api_web">
+  <span class="name"><a href="linktsp_api_web/linktsp_api_web-library.html">linktsp_api_web</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
           <dt id="list_model">
   <span class="name"><a href="data_list_models_list_model/data_list_models_list_model-library.html">list_model</a></span> 
 
@@ -484,21 +470,7 @@ samples, guidance on mobile development, and a full API reference.</p>
 </dd>
 
           <dt id="menu_model">
-  <span class="name"><a href="data_Menu_models_menu_model/data_Menu_models_menu_model-library.html">menu_model</a></span> 
-
-</dt>
-<dd> 
-</dd>
-
-          <dt id="menu_model">
   <span class="name"><a href="data_menu_models_menu_model/data_menu_models_menu_model-library.html">menu_model</a></span> 
-
-</dt>
-<dd> 
-</dd>
-
-          <dt id="menu_web_servcies">
-  <span class="name"><a href="data_Menu_services_menu_web_servcies/data_Menu_services_menu_web_servcies-library.html">menu_web_servcies</a></span> 
 
 </dt>
 <dd> 
@@ -541,13 +513,6 @@ samples, guidance on mobile development, and a full API reference.</p>
 
           <dt id="preorder_message_model">
   <span class="name"><a href="core_models_preorder_message_model/core_models_preorder_message_model-library.html">preorder_message_model</a></span> 
-
-</dt>
-<dd> 
-</dd>
-
-          <dt id="register_model">
-  <span class="name"><a href="data_Account_models_register_model/data_Account_models_register_model-library.html">register_model</a></span> 
 
 </dt>
 <dd> 
@@ -680,13 +645,6 @@ samples, guidance on mobile development, and a full API reference.</p>
 </dd>
 
           <dt id="user_model">
-  <span class="name"><a href="data_Account_models_user_model/data_Account_models_user_model-library.html">user_model</a></span> 
-
-</dt>
-<dd> 
-</dd>
-
-          <dt id="user_model">
   <span class="name"><a href="data_account_models_user_model/data_account_models_user_model-library.html">user_model</a></span> 
 
 </dt>
@@ -720,7 +678,7 @@ samples, guidance on mobile development, and a full API reference.</p>
 </header>
 
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
-  <li><a href="none">linktsp_api package</a></li>
+  <li class="self-crumb">linktsp_api package</li>
 </ol>
 
 
@@ -728,8 +686,6 @@ samples, guidance on mobile development, and a full API reference.</p>
     <ol>
       <li class="section-title">Libraries</li>
       <li><a href="data_account_services_account_services/data_account_services_account_services-library.html">account_services</a></li>
-      <li><a href="data_Account_services_account_services/data_Account_services_account_services-library.html">account_services</a></li>
-      <li><a href="data_Account_models_activation_code_model/data_Account_models_activation_code_model-library.html">activation_code_model</a></li>
       <li><a href="data_account_models_activation_code_model/data_account_models_activation_code_model-library.html">activation_code_model</a></li>
       <li><a href="core_models_address_model/core_models_address_model-library.html">address_model</a></li>
       <li><a href="data_address_services_address_services/data_address_services_address_services-library.html">address_services</a></li>
@@ -741,7 +697,6 @@ samples, guidance on mobile development, and a full API reference.</p>
       <li><a href="core_models_cart_sku_model/core_models_cart_sku_model-library.html">cart_sku_model</a></li>
       <li><a href="data_account_models_cart_summary_model/data_account_models_cart_summary_model-library.html">cart_summary_model</a></li>
       <li><a href="core_models_cart_summary_model/core_models_cart_summary_model-library.html">cart_summary_model</a></li>
-      <li><a href="data_Account_models_cart_summary_model/data_Account_models_cart_summary_model-library.html">cart_summary_model</a></li>
       <li><a href="data_multi_store_models_cart_validate_model/data_multi_store_models_cart_validate_model-library.html">cart_validate_model</a></li>
       <li><a href="data_checkout_models_checkout_cart_summary_model/data_checkout_models_checkout_cart_summary_model-library.html">checkout_cart_summary_model</a></li>
       <li><a href="data_checkout_services_checkout_services/data_checkout_services_checkout_services-library.html">checkout_services</a></li>
@@ -757,20 +712,18 @@ samples, guidance on mobile development, and a full API reference.</p>
       <li><a href="core_models_feature_model/core_models_feature_model-library.html">feature_model</a></li>
       <li><a href="linktsp_api/linktsp_api-library.html">linktsp_api</a></li>
       <li><a href="linktsp_api_exports/linktsp_api_exports-library.html">linktsp_api_exports</a></li>
+      <li><a href="linktsp_api_web/linktsp_api_web-library.html">linktsp_api_web</a></li>
       <li><a href="data_list_models_list_model/data_list_models_list_model-library.html">list_model</a></li>
       <li><a href="data_list_services_list_service/data_list_services_list_service-library.html">list_service</a></li>
       <li><a href="data_lookup_models_lookup_model/data_lookup_models_lookup_model-library.html">lookup_model</a></li>
       <li><a href="data_lookup_services_lookup_service/data_lookup_services_lookup_service-library.html">lookup_service</a></li>
-      <li><a href="data_Menu_models_menu_model/data_Menu_models_menu_model-library.html">menu_model</a></li>
       <li><a href="data_menu_models_menu_model/data_menu_models_menu_model-library.html">menu_model</a></li>
-      <li><a href="data_Menu_services_menu_web_servcies/data_Menu_services_menu_web_servcies-library.html">menu_web_servcies</a></li>
       <li><a href="data_menu_services_menu_web_servcies/data_menu_services_menu_web_servcies-library.html">menu_web_servcies</a></li>
       <li><a href="data_multi_store_services_multi_store_service/data_multi_store_services_multi_store_service-library.html">multi_store_service</a></li>
       <li><a href="core_models_order_model/core_models_order_model-library.html">order_model</a></li>
       <li><a href="data_page_block_models_page_block_model/data_page_block_models_page_block_model-library.html">page_block_model</a></li>
       <li><a href="data_page_block_services_page_block_web_services/data_page_block_services_page_block_web_services-library.html">page_block_web_services</a></li>
       <li><a href="core_models_preorder_message_model/core_models_preorder_message_model-library.html">preorder_message_model</a></li>
-      <li><a href="data_Account_models_register_model/data_Account_models_register_model-library.html">register_model</a></li>
       <li><a href="data_account_models_register_model/data_account_models_register_model-library.html">register_model</a></li>
       <li><a href="data_result_model/data_result_model-library.html">result_model</a></li>
       <li><a href="data_reviews_models_review_model/data_reviews_models_review_model-library.html">review_model</a></li>
@@ -789,7 +742,6 @@ samples, guidance on mobile development, and a full API reference.</p>
       <li><a href="data_store_services_store_web_services/data_store_services_store_web_services-library.html">store_web_services</a></li>
       <li><a href="core_models_summary_model/core_models_summary_model-library.html">summary_model</a></li>
       <li><a href="data_token_services_token_service/data_token_services_token_service-library.html">token_service</a></li>
-      <li><a href="data_Account_models_user_model/data_Account_models_user_model-library.html">user_model</a></li>
       <li><a href="data_account_models_user_model/data_account_models_user_model-library.html">user_model</a></li>
       <li><a href="data_wishlist_models_wishlist_model/data_wishlist_models_wishlist_model-library.html">wishlist_model</a></li>
       <li><a href="data_wishlist_services_wishlist_web_services/data_wishlist_services_wishlist_web_services-library.html">wishlist_web_services</a></li>

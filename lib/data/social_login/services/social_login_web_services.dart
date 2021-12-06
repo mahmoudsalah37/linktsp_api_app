@@ -46,9 +46,9 @@ abstract class SocialLoginWebService {
 
   /// It's used to make login with social.
   ///
-  /// [SocialType: Facebook=1, Twitter=2, Apple Id=7, Instgram=3]
+  /// (SocialType: Facebook=1, Twitter=2, Apple Id=7, Instgram=3)
   ///
-  /// You should pass the id that returns from social authentication to [SocialCode].
+  /// You should pass the id that returns from social authentication to (SocialCode).
   Future<SocialLoginUserModel> socialLogin(
       {required SocialLoginUserModel socialLoginUserModel});
 }

@@ -318,7 +318,7 @@ abstract class CheckOutService {
 
   /// It's return all Payment options available (COD - CC - Apple pay)
   ///
-  /// [Note] you should remove (Apple pay) option if the device is android.
+  /// (Note) you should remove (Apple pay) option if the device is android.
   Future<List<PaymentOptionsModel>> getPaymentOptions();
 
   /// It's used to apply coupon value
@@ -337,7 +337,7 @@ abstract class CheckOutService {
       required int customerId,
       int? storeId});
 
-  /// It's used to get final stage in checkout cycle, It's just a review contains [order Items - selected payment - selected address]
+  /// It's used to get final stage in checkout cycle, It's just a review contains (order Items - selected payment - selected address)
   Future<CheckoutReviewModel> checkoutReview(
       {required int customerId,
       int? paymentOptionId,
@@ -345,7 +345,7 @@ abstract class CheckOutService {
       int? loyaltyPoints,
       int? pickStoreID});
 
-  /// It's used to confirm the order if the payment is [Cash on delivery].
+  /// It's used to confirm the order if the payment is (Cash on delivery).
   ///
   /// It will return the Order Code.
   Future<String> confirm(
@@ -356,7 +356,7 @@ abstract class CheckOutService {
       required double finalAmount,
       int? storeId});
 
-  /// It's used to confirm the order if the payment is [Credit card].
+  /// It's used to confirm the order if the payment is (Credit card).
   ///
   /// It will return the data of the payment gatway.
   Future<PaymentFrameModel> confirmOrder(
@@ -376,7 +376,7 @@ abstract class CheckOutService {
       required int qty,
       required int skuId});
 
-  /// It's used to return details like [default address - total - shipment fees] to use when making one click order.
+  /// It's used to return details like (default address - total - shipment fees) to use when making one click order.
   Future<OneClickOrderDetailsModel> oneClickOrderDetails(
       {required int customerId, required int qty, required int skuId});
 

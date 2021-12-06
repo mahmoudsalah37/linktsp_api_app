@@ -59,13 +59,16 @@
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../data_sku_models_sku_model/ProductDetailsModel-class.html">ProductDetailsModel</a></span>&gt;</span></span>
 <span class="name ">getProductDetails</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getProductDetails-param-skuid">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">skuid</span>, </span></li>
-<li><span class="parameter" id="getProductDetails-param-customerId"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">customerId</span>}</span></li>
+<li><span class="parameter" id="getProductDetails-param-customerId"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">customerId</span>}</span></li>
 </ol>)
 
       <div class="features">override</div>
 
     </section>
     
+<section class="desc markdown">
+  <p>It's used to get all product details. It must take product (skuid)</p>
+</section>
 
 
     
@@ -73,7 +76,7 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Future&lt;ProductDetailsModel&gt; getProductDetails(
-    {required int skuid, required int customerId}) async {
+    {required int skuid, int? customerId}) async {
   final response = await postData(
       path: &#39;sku&#47;$skuid&#39;, queryParameters: {&#39;CustomerId&#39;: customerId});
   final result = ApiReturnResult.fromJSON(response.data);

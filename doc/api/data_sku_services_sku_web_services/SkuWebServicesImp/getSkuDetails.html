@@ -62,13 +62,17 @@
 <li><span class="parameter" id="getSkuDetails-param-colorId"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">colorId</span>, </span></li>
 <li><span class="parameter" id="getSkuDetails-param-sizeId"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">sizeId</span>, </span></li>
 <li><span class="parameter" id="getSkuDetails-param-switchType"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">switchType</span>, </span></li>
-<li><span class="parameter" id="getSkuDetails-param-customerId"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">customerId</span>}</span></li>
+<li><span class="parameter" id="getSkuDetails-param-customerId"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">customerId</span>}</span></li>
 </ol>)
 
       <div class="features">override</div>
 
     </section>
     
+<section class="desc markdown">
+  <p>It's used when changing the product color or product size.</p>
+<p>( SwitchType : SwitchColor, SwitchSize )</p>
+</section>
 
 
     
@@ -80,7 +84,7 @@ Future&lt;ProductDetailsModel&gt; getSkuDetails(
     required int colorId,
     required int sizeId,
     required String switchType,
-    required int customerId}) async {
+    int? customerId}) async {
   final response = await postData(path: &#39;sku&#47;$productCode&#39;, queryParameters: {
     &#39;CustomerId&#39;: customerId,
     &#39;colorID&#39;: colorId,

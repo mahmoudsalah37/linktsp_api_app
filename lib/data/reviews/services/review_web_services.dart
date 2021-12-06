@@ -70,13 +70,13 @@ class ReviewWebServiceImp extends DefaultApi implements ReviewWebService {
 }
 
 abstract class ReviewWebService {
-  /// It's return all product reviews.It must take [product code].
+  /// It's return all product reviews.It must take (product code).
   Future<ReviewModel> getProductReviews({required String productCode});
 
   /// It's used to add review on product. User can make only one review on the same product. User must have an account to use this feature.
   Future<bool?> addReview({required ItemReview itemReview});
 
-  /// It's return product rate. It  must take [product code].
+  /// It's return product rate. It  must take (product code).
   Future<ReviewRateModel> getProductRate({required String productCode});
 
   /// It's used for only adding rate on product,User must have an account to use this feature.

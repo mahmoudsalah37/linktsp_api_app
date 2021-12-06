@@ -57,7 +57,7 @@
   </ol>
 </div>
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>&gt;</span></span>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span>&gt;</span></span>
 <span class="name ">cancelOrder</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="cancelOrder-param-cancelReasonModel">{<span>required</span> <span class="type-annotation"><a href="../../core_models_cancel_reason_model/CancelReasonModel-class.html">CancelReasonModel</a></span> <span class="parameter-name">cancelReasonModel</span>}</span></li>
 </ol>)
 
@@ -71,13 +71,13 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
-Future&lt;bool&gt; cancelOrder(
+Future&lt;bool?&gt; cancelOrder(
     {required CancelReasonModel cancelReasonModel}) async {
   final response =
       await postData(data: cancelReasonModel, path: &#39;order&#47;cancel&#39;);
   final result = ApiReturnResult.fromJSON(response.data);
   if (result.code == 200) {
-    return result.data;
+    return result.data ?? true;
   } else {
     throw ExceptionApi(code: result.code, message: result.error?.first);
   }

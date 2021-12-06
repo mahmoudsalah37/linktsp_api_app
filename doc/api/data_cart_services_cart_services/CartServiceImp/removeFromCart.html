@@ -57,7 +57,7 @@
   </ol>
 </div>
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>&gt;</span></span>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span>&gt;</span></span>
 <span class="name ">removeFromCart</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="removeFromCart-param-skuId">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">skuId</span>, </span></li>
 <li><span class="parameter" id="removeFromCart-param-customerId"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">customerId</span>}</span></li>
 </ol>)
@@ -72,14 +72,14 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
-Future&lt;bool&gt; removeFromCart(
+Future&lt;bool?&gt; removeFromCart(
     {required int skuId, required int customerId}) async {
   final response = await postData(
       path: &#39;Profile&#47;cart&#47;remove&#39;,
       queryParameters: {&quot;CustomerID&quot;: customerId, &quot;SKUID&quot;: skuId});
   final result = ApiReturnResult.fromJSON(response.data);
   if (result.code == 200) {
-    return result.data;
+    return result.data ?? true;
   } else {
     throw ExceptionApi(code: result.code, message: result.error?.first);
   }
