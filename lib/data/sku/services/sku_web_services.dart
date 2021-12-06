@@ -4,15 +4,16 @@ import 'package:linktsp_api/data/sku/models/sku_model.dart';
 import '../../exception_api.dart';
 import '../../result_model.dart';
 
-class SkuWebServicesImp extends DefaultApiImp implements SkuWebServices {
-  SkuWebServicesImp();
+class SkuWebServicesImp implements SkuWebServices {
+  SkuWebServicesImp({required this.defaultApi});
+  final DefaultApi defaultApi;
 
   @override
   Future<List<ProductDetailsModel>> getInnerProductSliders(
       {required String productCode,
       required String relatedItemsEnum,
       int? customerId}) async {
-    final response = await postData(
+    final response = await defaultApi.postData(
         path: 'sku/ReleatedItem/$productCode',
         queryParameters: {
           'relatedItemsEnum': relatedItemsEnum,
@@ -30,7 +31,7 @@ class SkuWebServicesImp extends DefaultApiImp implements SkuWebServices {
   @override
   Future<ProductDetailsModel> getProductDetails(
       {required int skuid, int? customerId}) async {
-    final response = await postData(
+    final response = await defaultApi.postData(
         path: 'sku/$skuid', queryParameters: {'CustomerId': customerId});
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
@@ -43,7 +44,7 @@ class SkuWebServicesImp extends DefaultApiImp implements SkuWebServices {
   @override
   Future<ProductDetailsModel> getProductDetailsScanner(
       {required String skuCode, int? customerId}) async {
-    final response = await postData(
+    final response = await defaultApi.postData(
         path: 'sku/0',
         queryParameters: {'CustomerId': customerId, 'SKUCode': skuCode});
     final result = ApiReturnResult.fromJSON(response.data);
@@ -61,7 +62,8 @@ class SkuWebServicesImp extends DefaultApiImp implements SkuWebServices {
       required int sizeId,
       required String switchType,
       int? customerId}) async {
-    final response = await postData(path: 'sku/$productCode', queryParameters: {
+    final response =
+        await defaultApi.postData(path: 'sku/$productCode', queryParameters: {
       'CustomerId': customerId,
       'colorID': colorId,
       'SizeID': sizeId,

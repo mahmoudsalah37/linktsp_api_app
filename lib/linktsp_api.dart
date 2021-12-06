@@ -73,41 +73,41 @@ class LinkTspApi implements _LinkTspApiAbstract {
   @override
   AccountService get account => sl<AccountService>();
   @override
-  AddressServices get address => AddressServicesImp();
+  AddressServices get address => sl<AddressServicesImp>();
   @override
-  CancelOrderServices get cancelOrder => CancelOrderServicesImp();
+  CancelOrderServices get cancelOrder => sl<CancelOrderServicesImp>();
   @override
-  CartService get cart => CartServiceImp();
+  CartService get cart => sl<CartServiceImp>();
   @override
-  CheckOutService get checkOut => CheckOutServicesImp();
+  CheckOutService get checkOut => sl<CheckOutServicesImp>();
   @override
-  ComplaintService get complaint => ComplaintServiceImp();
+  ComplaintService get complaint => sl<ComplaintServiceImp>();
   @override
-  ContentPageService get contentPage => ContentPageServiceImp();
+  ContentPageService get contentPage => sl<ContentPageServiceImp>();
   @override
-  ListService get list => ListServiceImp();
+  ListService get list => sl<ListServiceImp>();
   @override
-  LookUpService get lookUp => LookUpServiceImp();
+  LookUpService get lookUp => sl<LookUpServiceImp>();
   @override
-  MenuWebService get menu => MenuWebServiceImp();
+  MenuWebService get menu => sl<MenuWebServiceImp>();
   @override
-  MultiStoreService get multiStore => MultiStoreServiceImp();
+  MultiStoreService get multiStore => sl<MultiStoreServiceImp>();
   @override
-  OrderService get order => OrderServiceImp();
+  OrderService get order => sl<OrderServiceImp>();
   @override
-  PageBlockWebService get pageBlock => PageBlockWebServiceImp();
+  PageBlockWebService get pageBlock => sl<PageBlockWebServiceImp>();
   @override
-  ReviewWebService get review => ReviewWebServiceImp();
+  ReviewWebService get review => sl<ReviewWebServiceImp>();
   @override
-  SettingWebService get setting => SettingWebServicesImp();
+  SettingWebService get setting => sl<SettingWebServicesImp>();
   @override
-  SkuWebServices get sku => SkuWebServicesImp();
+  SkuWebServices get sku => sl<SkuWebServicesImp>();
   @override
-  SocialLoginWebService get socialLogin => SocialLoginWebServicesImp();
+  SocialLoginWebService get socialLogin => sl<SocialLoginWebServicesImp>();
   @override
-  StoreWebService get store => StoreWebServicesImp();
+  StoreWebService get store => sl<StoreWebServicesImp>();
   @override
-  WishlistWebServices get wishlist => WishlistWebServicesImp();
+  WishlistWebServices get wishlist => sl<WishlistWebServicesImp>();
 }
 
 abstract class _LinkTspApiAbstract {

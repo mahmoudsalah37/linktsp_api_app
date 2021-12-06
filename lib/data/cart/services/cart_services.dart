@@ -6,14 +6,15 @@ import 'package:linktsp_api/data/default_api.dart';
 import 'package:linktsp_api/data/exception_api.dart';
 import 'package:linktsp_api/data/result_model.dart';
 
-class CartServiceImp extends DefaultApiImp implements CartService {
-  CartServiceImp();
+class CartServiceImp implements CartService {
+  CartServiceImp({required this.defaultApi});
+  final DefaultApi defaultApi;
 
   @override
   Future<bool?> addToCart(
       {required List<CartSkuModel> cartSkuModel,
       required int customerId}) async {
-    final response = await postData(
+    final response = await defaultApi.postData(
         data: cartSkuModel.map((e) => e.toJson()).toList(),
         path: 'Profile/cart/Add',
         queryParameters: {"CustomerID": customerId});
@@ -27,7 +28,7 @@ class CartServiceImp extends DefaultApiImp implements CartService {
 
   @override
   Future<List<CartItemModel>> getCartList({required int customerId}) async {
-    final response = await getData(
+    final response = await defaultApi.getData(
         path: 'Profile/cart', queryParameters: {"CustomerID": customerId});
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
@@ -41,8 +42,8 @@ class CartServiceImp extends DefaultApiImp implements CartService {
   @override
   Future<List<CartItemModel>> guestCartUpdate(
       {required List<CartSkuModel> cartSkuModel}) async {
-    final response =
-        await postData(data: cartSkuModel, path: 'guest/cart/update');
+    final response = await defaultApi.postData(
+        data: cartSkuModel, path: 'guest/cart/update');
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
       return List<CartItemModel>.from(
@@ -55,7 +56,7 @@ class CartServiceImp extends DefaultApiImp implements CartService {
   @override
   Future<PreOrderMessageModel> preOrderMessage(
       {required int customerId}) async {
-    final response = await getData(
+    final response = await defaultApi.getData(
         path: 'profile/preOrederCart',
         queryParameters: {"CustomerID": customerId});
     final result = ApiReturnResult.fromJSON(response.data);
@@ -68,7 +69,7 @@ class CartServiceImp extends DefaultApiImp implements CartService {
 
   @override
   Future<int> getCartCounter({required int customerId}) async {
-    final response = await getData(
+    final response = await defaultApi.getData(
         path: 'profile/cart/Count',
         queryParameters: {"CustomerID": customerId});
     final result = ApiReturnResult.fromJSON(response.data);
@@ -82,7 +83,7 @@ class CartServiceImp extends DefaultApiImp implements CartService {
   @override
   Future<bool?> removeFromCart(
       {required int skuId, required int customerId}) async {
-    final response = await postData(
+    final response = await defaultApi.postData(
         path: 'Profile/cart/remove',
         queryParameters: {"CustomerID": customerId, "SKUID": skuId});
     final result = ApiReturnResult.fromJSON(response.data);
@@ -95,7 +96,7 @@ class CartServiceImp extends DefaultApiImp implements CartService {
 
   @override
   Future<CartSummaryModel> getCartSummary({required int customerId}) async {
-    final response = await getData(
+    final response = await defaultApi.getData(
         path: 'profile/cart/summary',
         queryParameters: {"CustomerID": customerId});
     final result = ApiReturnResult.fromJSON(response.data);
@@ -108,7 +109,7 @@ class CartServiceImp extends DefaultApiImp implements CartService {
 
   @override
   Future<String> cartDiscountNotification({required int customerId}) async {
-    final response = await getData(
+    final response = await defaultApi.getData(
         path: 'TriggeredCart/cartDiscountNotification',
         queryParameters: {"CustomerID": customerId});
     final result = ApiReturnResult.fromJSON(response.data);
@@ -122,7 +123,7 @@ class CartServiceImp extends DefaultApiImp implements CartService {
   @override
   Future<String> visitorDiscountNotification(
       {required List<CartSkuModel> cartSkuModel}) async {
-    final response = await postData(
+    final response = await defaultApi.postData(
         data: cartSkuModel,
         path: 'TriggeredCart/visitorCartDiscountNotification');
     final result = ApiReturnResult.fromJSON(response.data);

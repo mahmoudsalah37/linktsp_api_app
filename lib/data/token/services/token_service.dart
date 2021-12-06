@@ -1,11 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:linktsp_api/linktsp_api.dart';
-
-import '../../default_api.dart';
 import '../../exception_api.dart';
 import '../../result_model.dart';
 
-class TokenServiceImp extends DefaultApiImp implements TokenService {
+class TokenServiceImp implements TokenService {
   TokenServiceImp();
 
   @override

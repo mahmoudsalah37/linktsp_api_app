@@ -3,12 +3,13 @@ import 'package:linktsp_api/data/default_api.dart';
 import 'package:linktsp_api/data/exception_api.dart';
 import 'package:linktsp_api/data/result_model.dart';
 
-class AddressServicesImp extends DefaultApiImp implements AddressServices {
-  AddressServicesImp();
+class AddressServicesImp implements AddressServices {
+  AddressServicesImp({required this.defaultApi});
+  final DefaultApi defaultApi;
 
   @override
   Future<List<AddressModel>> getAddressBook({required int customId}) async {
-    final response = await getData(
+    final response = await defaultApi.getData(
         path: 'profile/address', queryParameters: {"CustomerID": customId});
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
@@ -22,7 +23,7 @@ class AddressServicesImp extends DefaultApiImp implements AddressServices {
   @override
   Future<List<AddressModel>> getShipmentAddresses(
       {required int customId}) async {
-    final response = await getData(
+    final response = await defaultApi.getData(
         path: 'profile/shipmentaddresses',
         queryParameters: {"CustomerID": customId});
     final result = ApiReturnResult.fromJSON(response.data);
@@ -36,8 +37,8 @@ class AddressServicesImp extends DefaultApiImp implements AddressServices {
 
   @override
   Future<AddressModel> saveAddress({required AddressModel addressModel}) async {
-    final response =
-        await postData(data: addressModel, path: 'profile/address/save');
+    final response = await defaultApi.postData(
+        data: addressModel, path: 'profile/address/save');
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
       return AddressModel.fromJson(result.data);
@@ -48,7 +49,8 @@ class AddressServicesImp extends DefaultApiImp implements AddressServices {
 
   @override
   Future<AddressModel> getAddressDetails({required int addressId}) async {
-    final response = await getData(path: 'profile/address/$addressId');
+    final response =
+        await defaultApi.getData(path: 'profile/address/$addressId');
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
       return AddressModel.fromJson(result.data);
@@ -59,7 +61,7 @@ class AddressServicesImp extends DefaultApiImp implements AddressServices {
 
   @override
   Future<bool?> deleteAddress({required int addressId}) async {
-    final response = await postData(
+    final response = await defaultApi.postData(
         path: 'profile/address/delete',
         queryParameters: {"AddressID": addressId});
     final result = ApiReturnResult.fromJSON(response.data);
