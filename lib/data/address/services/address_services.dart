@@ -3,8 +3,8 @@ import 'package:linktsp_api/data/default_api.dart';
 import 'package:linktsp_api/data/exception_api.dart';
 import 'package:linktsp_api/data/result_model.dart';
 
-class AddressServicesImp extends DefaultApi implements AddressServices {
-  AddressServicesImp({String defaultPath = ''}) : super(defaultPath);
+class AddressServicesImp extends DefaultApiImp implements AddressServices {
+  AddressServicesImp();
 
   @override
   Future<List<AddressModel>> getAddressBook({required int customId}) async {

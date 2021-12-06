@@ -4,8 +4,9 @@ import '../../default_api.dart';
 import '../../exception_api.dart';
 import '../../result_model.dart';
 
-class ContentPageServiceImp extends DefaultApi implements ContentPageService {
-  ContentPageServiceImp({String defaultPath = ''}) : super(defaultPath);
+class ContentPageServiceImp extends DefaultApiImp
+    implements ContentPageService {
+  ContentPageServiceImp();
   @override
   Future<ContentPageModel> getContentPage({required int id}) async {
     final respose = await postData(

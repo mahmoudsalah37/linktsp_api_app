@@ -6,13 +6,13 @@ import 'package:linktsp_api/data/default_api.dart';
 import 'package:linktsp_api/data/exception_api.dart';
 import 'package:linktsp_api/data/result_model.dart';
 
-class AccountServicesImp extends DefaultApi implements AccountService {
-  AccountServicesImp({String defaultPath = ''}) : super(defaultPath);
-
+class AccountServicesImp implements AccountService {
+  AccountServicesImp({required this.defaultApi});
+  final DefaultApi defaultApi;
   @override
   Future<UserModel> login(
       {required String password, required String email}) async {
-    final response = await postData(
+    final response = await defaultApi.postData(
       data: {
         "password": password.trim(),
         "email": email.trim(),
@@ -29,7 +29,7 @@ class AccountServicesImp extends DefaultApi implements AccountService {
 
   @override
   Future<UserModel> register({required RegisterModel registerModel}) async {
-    final response = await postData(
+    final response = await defaultApi.postData(
       data: registerModel,
       path: 'account/register',
     );
@@ -45,7 +45,7 @@ class AccountServicesImp extends DefaultApi implements AccountService {
   Future<UserModel> updateProfile({required UserModel userModel}) async {
     final map = userModel.toJson();
     map['gender'] = userModel.gender?.index;
-    final response = await postData(
+    final response = await defaultApi.postData(
       data: map,
       path: 'profile/update',
     );
@@ -60,7 +60,7 @@ class AccountServicesImp extends DefaultApi implements AccountService {
   @override
   Future<UserModel> getProfileDetails(
       {required UserModel userModel, required int customerId}) async {
-    final response = await postData(
+    final response = await defaultApi.postData(
         data: userModel,
         path: 'profile/details',
         queryParameters: {"CustomerID": customerId});
@@ -75,7 +75,7 @@ class AccountServicesImp extends DefaultApi implements AccountService {
   @override
   Future<CustomerSummaryModel> customerSummary(
       {required int customerId}) async {
-    final response = await postData(
+    final response = await defaultApi.postData(
       path: 'profile/customerSummary',
       queryParameters: {"CustomerID": customerId},
     );
@@ -90,8 +90,8 @@ class AccountServicesImp extends DefaultApi implements AccountService {
   @override
   Future<bool?> verify(
       {required ActivationCodeModel activationCodeModel}) async {
-    final response =
-        await postData(data: activationCodeModel, path: 'account/verfiy');
+    final response = await defaultApi.postData(
+        data: activationCodeModel, path: 'account/verfiy');
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
       return result.data ?? true;
@@ -103,7 +103,7 @@ class AccountServicesImp extends DefaultApi implements AccountService {
   @override
   Future<bool?> resendVerificationCode(
       {required ActivationCodeModel activationCodeModel}) async {
-    final response = await postData(
+    final response = await defaultApi.postData(
         data: activationCodeModel, path: 'account/resendverificationcode');
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
@@ -118,8 +118,8 @@ class AccountServicesImp extends DefaultApi implements AccountService {
       {required int customId,
       required String oldPassword,
       required String newPassword}) async {
-    final response =
-        await getData(path: 'account/changepassword', queryParameters: {
+    final response = await defaultApi
+        .getData(path: 'account/changepassword', queryParameters: {
       "customerID": customId,
       "OldPassword": oldPassword,
       "NewPassword": newPassword,
@@ -135,7 +135,7 @@ class AccountServicesImp extends DefaultApi implements AccountService {
   @override
   Future<bool?> forgetPassword(
       {required String data, required int verifyType}) async {
-    final response = await getData(
+    final response = await defaultApi.getData(
         path: 'account/forgetpassword',
         queryParameters: {"data": data, "verifyType": verifyType});
     final result = ApiReturnResult.fromJSON(response.data);
@@ -149,7 +149,7 @@ class AccountServicesImp extends DefaultApi implements AccountService {
   @override
   Future<bool?> resendPassword(
       {required String data, required int verifyType}) async {
-    final response = await getData(
+    final response = await defaultApi.getData(
         path: 'account/resendpassword',
         queryParameters: {"data": data, "verifyType": verifyType});
     final result = ApiReturnResult.fromJSON(response.data);
@@ -165,7 +165,7 @@ class AccountServicesImp extends DefaultApi implements AccountService {
       {required String data,
       required int verifyType,
       required String password}) async {
-    final response = await getData(
+    final response = await defaultApi.getData(
         path: 'account/confirmpassword',
         queryParameters: {
           "data": data,
@@ -183,7 +183,7 @@ class AccountServicesImp extends DefaultApi implements AccountService {
   @override
   Future<bool?> resetPassword(
       {required int customerId, required String password}) async {
-    final response = await getData(
+    final response = await defaultApi.getData(
         path: 'account/resetpassword',
         queryParameters: {"cutomerId": customerId, "password": password});
     final result = ApiReturnResult.fromJSON(response.data);
@@ -196,8 +196,8 @@ class AccountServicesImp extends DefaultApi implements AccountService {
 
   @override
   Future<bool?> subscribe({required String email}) async {
-    final response = await postData(
-        path: 'account/Subscribe', queryParameters: {"email": email});
+    final response = await defaultApi
+        .postData(path: 'account/Subscribe', queryParameters: {"email": email});
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
       return result.data ?? true;
@@ -208,7 +208,7 @@ class AccountServicesImp extends DefaultApi implements AccountService {
 
   @override
   Future<bool?> unSubscribe({required String email}) async {
-    final response = await postData(
+    final response = await defaultApi.postData(
         path: 'account/Unsubscribe', queryParameters: {"email": email});
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
@@ -220,7 +220,7 @@ class AccountServicesImp extends DefaultApi implements AccountService {
 
   @override
   Future<bool?> notificationsToken({required String deviceToken}) async {
-    final response = await getData(
+    final response = await defaultApi.getData(
         path: 'Notification/Token',
         queryParameters: {"deviceToken": deviceToken});
     final result = ApiReturnResult.fromJSON(response.data);

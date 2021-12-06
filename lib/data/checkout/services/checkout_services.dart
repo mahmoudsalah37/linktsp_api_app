@@ -4,8 +4,8 @@ import 'package:linktsp_api/data/default_api.dart';
 import 'package:linktsp_api/data/exception_api.dart';
 import 'package:linktsp_api/data/result_model.dart';
 
-class CheckOutServicesImp extends DefaultApi implements CheckOutService {
-  CheckOutServicesImp({String defaultPath = ''}) : super(defaultPath);
+class CheckOutServicesImp extends DefaultApiImp implements CheckOutService {
+  CheckOutServicesImp();
 
   @override
   Future<AddressModel> getDefaultAddress({required int customerId}) async {

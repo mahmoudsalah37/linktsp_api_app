@@ -1,7 +1,7 @@
 name: linktsp_api
 description: A new flutter plugin project.
-version: 0.0.1
-# homepage: none
+version: 0.0.6
+homepage: "https://github.com/mahmoudsalah37/linktsp_api"
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -13,6 +13,7 @@ dependencies:
     sdk: flutter
   flutter_web_plugins:
     sdk: flutter
+  get_it: ^7.2.0
 
 dev_dependencies:
   flutter_lints: ^1.0.0

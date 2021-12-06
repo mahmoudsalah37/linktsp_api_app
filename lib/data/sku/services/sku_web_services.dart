@@ -4,8 +4,8 @@ import 'package:linktsp_api/data/sku/models/sku_model.dart';
 import '../../exception_api.dart';
 import '../../result_model.dart';
 
-class SkuWebServicesImp extends DefaultApi implements SkuWebServices {
-  SkuWebServicesImp({String defaultPath = ''}) : super(defaultPath);
+class SkuWebServicesImp extends DefaultApiImp implements SkuWebServices {
+  SkuWebServicesImp();
 
   @override
   Future<List<ProductDetailsModel>> getInnerProductSliders(

@@ -5,8 +5,8 @@ import '../../default_api.dart';
 import '../../exception_api.dart';
 import '../../result_model.dart';
 
-class MultiStoreServiceImp extends DefaultApi implements MultiStoreService {
-  MultiStoreServiceImp({String defaultPath = ''}) : super(defaultPath);
+class MultiStoreServiceImp extends DefaultApiImp implements MultiStoreService {
+  MultiStoreServiceImp();
 
   @override
   Future<CartValidateModel> cartItemRemove(

@@ -4,8 +4,8 @@ import 'package:linktsp_api/data/default_api.dart';
 import '../../exception_api.dart';
 import '../../result_model.dart';
 
-class ReviewWebServiceImp extends DefaultApi implements ReviewWebService {
-  ReviewWebServiceImp({String defaultPath = ''}) : super(defaultPath);
+class ReviewWebServiceImp extends DefaultApiImp implements ReviewWebService {
+  ReviewWebServiceImp();
 
   @override
   Future<bool?> addRate(

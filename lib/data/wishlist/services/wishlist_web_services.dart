@@ -4,8 +4,9 @@ import 'package:linktsp_api/data/wishlist/models/wishlist_model.dart';
 import '../../exception_api.dart';
 import '../../result_model.dart';
 
-class WishlistWebServicesImp extends DefaultApi implements WishlistWebServices {
-  WishlistWebServicesImp({String defaultPath = ''}) : super(defaultPath);
+class WishlistWebServicesImp extends DefaultApiImp
+    implements WishlistWebServices {
+  WishlistWebServicesImp();
 
   @override
   Future<bool?> addToWishlist(

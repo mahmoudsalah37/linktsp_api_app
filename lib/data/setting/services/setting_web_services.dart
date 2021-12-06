@@ -4,8 +4,8 @@ import 'package:linktsp_api/data/default_api.dart';
 import '../../exception_api.dart';
 import '../../result_model.dart';
 
-class SettingWebServicesImp extends DefaultApi implements SettingWebService {
-  SettingWebServicesImp({String defaultPath = ''}) : super(defaultPath);
+class SettingWebServicesImp extends DefaultApiImp implements SettingWebService {
+  SettingWebServicesImp();
 
   @override
   Future<String> getServiceAgreement() async {

@@ -6,9 +6,9 @@ import 'package:linktsp_api/data/social_login/models/social_login_model.dart';
 import '../../exception_api.dart';
 import '../../result_model.dart';
 
-class SocialLoginWebServicesImp extends DefaultApi
+class SocialLoginWebServicesImp extends DefaultApiImp
     implements SocialLoginWebService {
-  SocialLoginWebServicesImp({String defaultPath = ''}) : super(defaultPath);
+  SocialLoginWebServicesImp();
 
   @override
   Future<List<SocialLoginModel>> getSocialLoginKeys() async {

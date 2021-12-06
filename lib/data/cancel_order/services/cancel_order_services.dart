@@ -3,8 +3,9 @@ import 'package:linktsp_api/data/default_api.dart';
 import 'package:linktsp_api/data/exception_api.dart';
 import 'package:linktsp_api/data/result_model.dart';
 
-class CancelOrderServicesImp extends DefaultApi implements CancelOrderServices {
-  CancelOrderServicesImp({String defaultPath = ''}) : super(defaultPath);
+class CancelOrderServicesImp extends DefaultApiImp
+    implements CancelOrderServices {
+  CancelOrderServicesImp();
 
   @override
   Future<bool?> cancelOrder(

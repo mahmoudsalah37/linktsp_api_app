@@ -4,8 +4,8 @@ import '../../default_api.dart';
 import '../../exception_api.dart';
 import '../../result_model.dart';
 
-class OrderServiceImp extends DefaultApi implements OrderService {
-  OrderServiceImp({String defaultPath = ''}) : super(defaultPath);
+class OrderServiceImp extends DefaultApiImp implements OrderService {
+  OrderServiceImp();
 
   @override
   Future<OrderDetailsModel> getOrderDetails({required String orderCode}) async {

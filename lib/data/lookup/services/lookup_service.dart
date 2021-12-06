@@ -6,8 +6,8 @@ import '../../default_api.dart';
 import '../../exception_api.dart';
 import '../../result_model.dart';
 
-class LookUpServiceImp extends DefaultApi implements LookUpService {
-  LookUpServiceImp({String defaultPath = ''}) : super(defaultPath);
+class LookUpServiceImp extends DefaultApiImp implements LookUpService {
+  LookUpServiceImp();
 
   @override
   Future<List<CancelReasonLookupModel>> getCancelReasonLookup() async {

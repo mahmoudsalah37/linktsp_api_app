@@ -4,8 +4,8 @@ import '../../default_api.dart';
 import '../../exception_api.dart';
 import '../../result_model.dart';
 
-class MenuWebServiceImp extends DefaultApi implements MenuWebService {
-  MenuWebServiceImp({String defaultPath = ''}) : super(defaultPath);
+class MenuWebServiceImp extends DefaultApiImp implements MenuWebService {
+  MenuWebServiceImp();
   @override
   Future<MenuModel> getMenu({required int customerID}) async {
     final respose = await getData(

@@ -1,4 +1,6 @@
+import 'package:get_it/get_it.dart';
 import 'package:linktsp_api/core/models/admin_model.dart';
+import 'package:linktsp_api/core/utils/injection_container.dart';
 
 import 'linktsp_api_exports.dart';
 
@@ -46,17 +48,19 @@ export 'core/models/summary_model.dart';
 export 'core/models/admin_model.dart';
 
 class LinkTspApi implements _LinkTspApiAbstract {
+  static final LinkTspApi instance = LinkTspApi();
+  final sl = InjectionContainer.sl;
   static Future<void> init(
       {required String domain,
       required AdminModel admin,
       int version = 1,
       int lang = 1,
       int? zoneid}) async {
+    await InjectionContainer.init();
     final token = await TokenServiceImp()
         .getToken(domin: domain, version: version, admin: admin);
-    // ignore: avoid_print
-    print(token);
-    DefaultApi.init(
+
+    DefaultApiImp.init(
         domin: domain,
         token: token,
         version: version,
@@ -67,7 +71,7 @@ class LinkTspApi implements _LinkTspApiAbstract {
   @override
   TokenService get token => TokenServiceImp();
   @override
-  AccountService get account => AccountServicesImp();
+  AccountService get account => sl<AccountService>();
   @override
   AddressServices get address => AddressServicesImp();
   @override

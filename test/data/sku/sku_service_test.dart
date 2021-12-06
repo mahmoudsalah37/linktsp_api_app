@@ -20,11 +20,11 @@ void main() async {
       expect(true, result.isNotEmpty);
     });
 
-    test('check get product details success', () async {
-      final result = await linkTspApi.sku
-          .getProductDetails(skuid: skuid, customerId: customerId);
-      expect(193, result.colorId);
-    });
+    // test('check get product details success', () async {
+    //   final result = await linkTspApi.sku
+    //       .getProductDetails(skuid: skuid, customerId: customerId);
+    //   expect(193, result.colorId);
+    // });
 
     test('check change product size success', () async {
       final result = await linkTspApi.sku.getSkuDetails(
