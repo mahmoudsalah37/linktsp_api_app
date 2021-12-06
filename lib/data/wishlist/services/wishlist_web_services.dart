@@ -4,8 +4,8 @@ import 'package:linktsp_api/data/wishlist/models/wishlist_model.dart';
 import '../../exception_api.dart';
 import '../../result_model.dart';
 
-class WishlistWebServicesImp implements WishlistWebServices {
-  WishlistWebServicesImp({required this.defaultApi});
+class WishlistWebServiceImp implements WishlistWebService {
+  WishlistWebServiceImp({required this.defaultApi});
   final DefaultApi defaultApi;
 
   @override
@@ -84,7 +84,7 @@ class WishlistWebServicesImp implements WishlistWebServices {
   }
 }
 
-abstract class WishlistWebServices {
+abstract class WishlistWebService {
   Future<List<WishlistProductsModel>> getWishlist({required int customerId});
   Future<bool?> addToWishlist({required int customerId, required int skuid});
   Future<bool?> removeFromWishlist(

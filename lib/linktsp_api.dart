@@ -75,7 +75,7 @@ class LinkTspApi implements _LinkTspApiAbstract {
   @override
   AddressServices get address => sl<AddressServicesImp>();
   @override
-  CancelOrderServices get cancelOrder => sl<CancelOrderServicesImp>();
+  CancelOrderService get cancelOrder => sl<CancelOrderServiceImp>();
   @override
   CartService get cart => sl<CartServiceImp>();
   @override
@@ -103,11 +103,11 @@ class LinkTspApi implements _LinkTspApiAbstract {
   @override
   SkuWebServices get sku => sl<SkuWebServicesImp>();
   @override
-  SocialLoginWebService get socialLogin => sl<SocialLoginWebServicesImp>();
+  SocialLoginWebService get socialLogin => sl<SocialLoginWebServiceImp>();
   @override
-  StoreWebService get store => sl<StoreWebServicesImp>();
+  StoreWebService get store => sl<StoreWebServiceImp>();
   @override
-  WishlistWebServices get wishlist => sl<WishlistWebServicesImp>();
+  WishlistWebService get wishlist => sl<WishlistWebServiceImp>();
 }
 
 abstract class _LinkTspApiAbstract {
@@ -117,7 +117,7 @@ abstract class _LinkTspApiAbstract {
 
   AddressServices get address;
 
-  CancelOrderServices get cancelOrder;
+  CancelOrderService get cancelOrder;
 
   CartService get cart;
 
@@ -149,5 +149,5 @@ abstract class _LinkTspApiAbstract {
 
   StoreWebService get store;
 
-  WishlistWebServices get wishlist;
+  WishlistWebService get wishlist;
 }

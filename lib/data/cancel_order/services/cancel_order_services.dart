@@ -3,8 +3,8 @@ import 'package:linktsp_api/data/default_api.dart';
 import 'package:linktsp_api/data/exception_api.dart';
 import 'package:linktsp_api/data/result_model.dart';
 
-class CancelOrderServicesImp implements CancelOrderServices {
-  CancelOrderServicesImp({required this.defaultApi});
+class CancelOrderServiceImp implements CancelOrderService {
+  CancelOrderServiceImp({required this.defaultApi});
 
   final DefaultApi defaultApi;
 
@@ -22,6 +22,6 @@ class CancelOrderServicesImp implements CancelOrderServices {
   }
 }
 
-abstract class CancelOrderServices {
+abstract class CancelOrderService {
   Future<bool?> cancelOrder({required CancelReasonModel cancelReasonModel});
 }

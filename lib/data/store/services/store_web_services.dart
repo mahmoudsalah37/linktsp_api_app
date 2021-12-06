@@ -4,8 +4,8 @@ import 'package:linktsp_api/core/models/store.dart';
 
 import '../../exception_api.dart';
 
-class StoreWebServicesImp implements StoreWebService {
-  StoreWebServicesImp({required this.defaultApi});
+class StoreWebServiceImp implements StoreWebService {
+  StoreWebServiceImp({required this.defaultApi});
   final DefaultApi defaultApi;
 
   @override
