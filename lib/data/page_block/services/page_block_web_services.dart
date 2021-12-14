@@ -26,7 +26,9 @@ class PageBlockWebServiceImp implements PageBlockWebService {
         .getData(path: 'GetBrands', queryParameters: {'language': 1});
     final result = ApiReturnResult.fromJSON(respose.data);
     if (result.code == 200) {
-      return (result.data as List).map((e) => BrandsModel.fromJson(e)).toList();
+      return (result.data["brands"] as List)
+          .map((e) => BrandsModel.fromJson(e))
+          .toList();
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
