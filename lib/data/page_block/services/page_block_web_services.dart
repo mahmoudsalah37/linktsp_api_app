@@ -22,8 +22,8 @@ class PageBlockWebServiceImp implements PageBlockWebService {
 
   @override
   Future<List<BrandsModel>> getBrands() async {
-    final respose =
-        await getData(path: 'GetBrands', queryParameters: {'language': 1});
+    final respose = await defaultApi
+        .getData(path: 'GetBrands', queryParameters: {'language': 1});
     final result = ApiReturnResult.fromJSON(respose.data);
     if (result.code == 200) {
       return (result.data as List).map((e) => BrandsModel.fromJson(e)).toList();
