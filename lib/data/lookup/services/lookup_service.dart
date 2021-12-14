@@ -6,12 +6,13 @@ import '../../default_api.dart';
 import '../../exception_api.dart';
 import '../../result_model.dart';
 
-class LookUpServiceImp extends DefaultApiImp implements LookUpService {
-  LookUpServiceImp();
+class LookUpServiceImp implements LookUpService {
+  LookUpServiceImp({required this.defaultApi});
+  final DefaultApi defaultApi;
 
   @override
   Future<List<CancelReasonLookupModel>> getCancelReasonLookup() async {
-    final respose = await getData(
+    final respose = await defaultApi.getData(
       path: 'lookup/CancelReason',
     );
     final result = ApiReturnResult.fromJSON(respose.data);
@@ -25,7 +26,7 @@ class LookUpServiceImp extends DefaultApiImp implements LookUpService {
 
   @override
   Future<List<CityModel>> getCities() async {
-    final respose = await getData(
+    final respose = await defaultApi.getData(
       path: 'lookup/city',
     );
     final result = ApiReturnResult.fromJSON(respose.data);
@@ -39,7 +40,7 @@ class LookUpServiceImp extends DefaultApiImp implements LookUpService {
 
   @override
   Future<List<CityModel>> getCityPerZoneLookup() async {
-    final respose = await getData(
+    final respose = await defaultApi.getData(
       path: 'lookup/CityPerZone',
     );
     final result = ApiReturnResult.fromJSON(respose.data);
@@ -53,7 +54,7 @@ class LookUpServiceImp extends DefaultApiImp implements LookUpService {
 
   @override
   Future<List<ComplaintLookupModel>> getComplaintLookup() async {
-    final respose = await getData(
+    final respose = await defaultApi.getData(
       path: 'lookup/ComplaintReason',
     );
     final result = ApiReturnResult.fromJSON(respose.data);
@@ -67,7 +68,7 @@ class LookUpServiceImp extends DefaultApiImp implements LookUpService {
 
   @override
   Future<List<FeedbackReasonsLookupModel>> getFeedbackReasonsLookup() async {
-    final respose = await getData(
+    final respose = await defaultApi.getData(
       path: 'lookup/feedbackreasons',
     );
     final result = ApiReturnResult.fromJSON(respose.data);
@@ -81,7 +82,7 @@ class LookUpServiceImp extends DefaultApiImp implements LookUpService {
 
   @override
   Future<List<CityModel>> getStoreCityLookup() async {
-    final respose = await getData(
+    final respose = await defaultApi.getData(
       path: 'lookup/StoreCity',
     );
     final result = ApiReturnResult.fromJSON(respose.data);
@@ -95,7 +96,7 @@ class LookUpServiceImp extends DefaultApiImp implements LookUpService {
 
   @override
   Future<List<StoreModel>> getStores() async {
-    final respose = await getData(
+    final respose = await defaultApi.getData(
       path: 'lookup/store',
     );
     final result = ApiReturnResult.fromJSON(respose.data);
@@ -109,7 +110,7 @@ class LookUpServiceImp extends DefaultApiImp implements LookUpService {
 
   @override
   Future<List<CityModel>> getZoneLookup() async {
-    final respose = await getData(
+    final respose = await defaultApi.getData(
       path: 'lookup/Zone',
     );
     final result = ApiReturnResult.fromJSON(respose.data);

@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 
+import 'exception_api.dart';
+
 class DefaultApiImp implements DefaultApi {
   static String _domin = '', _token = '';
 
@@ -35,13 +37,17 @@ class DefaultApiImp implements DefaultApi {
       Map<String, dynamic> queryParameters = const {},
       Map<String, dynamic>? headers}) async {
     dio.options.headers = headers ?? _defaultHeaders;
-    final response = dio.get(
-      path,
-      queryParameters: Map<String, dynamic>.from(
-          _defaultQueryParameters ?? <String, dynamic>{})
-        ..addAll(queryParameters),
-    );
-    return response;
+    try {
+      final response = dio.get(
+        path,
+        queryParameters: Map<String, dynamic>.from(
+            _defaultQueryParameters ?? <String, dynamic>{})
+          ..addAll(queryParameters),
+      );
+      return response;
+    } on DioError catch (e) {
+      throw ExceptionApi(code: null, message: e.message);
+    }
   }
 
   @override
@@ -51,12 +57,16 @@ class DefaultApiImp implements DefaultApi {
       Map<String, dynamic> queryParameters = const {},
       Map<String, dynamic>? headers}) async {
     dio.options.headers = headers ?? _defaultHeaders;
-    final response = dio.post(path,
-        queryParameters:
-            Map<String, dynamic>.from(_defaultQueryParameters ?? {})
-              ..addAll(queryParameters),
-        data: jsonEncode(data));
-    return response;
+    try {
+      final response = dio.post(path,
+          queryParameters:
+              Map<String, dynamic>.from(_defaultQueryParameters ?? {})
+                ..addAll(queryParameters),
+          data: jsonEncode(data));
+      return response;
+    } on DioError catch (e) {
+      throw ExceptionApi(code: null, message: e.message);
+    }
   }
 
   @override
@@ -65,12 +75,16 @@ class DefaultApiImp implements DefaultApi {
       Map<String, dynamic> queryParameters = const {},
       Map<String, dynamic>? headers}) async {
     dio.options.headers = headers ?? _defaultHeaders;
-    final response = dio.put(path,
-        queryParameters:
-            Map<String, dynamic>.from(_defaultQueryParameters ?? {})
-              ..addAll(queryParameters),
-        data: jsonEncode(data));
-    return response;
+    try {
+      final response = dio.put(path,
+          queryParameters:
+              Map<String, dynamic>.from(_defaultQueryParameters ?? {})
+                ..addAll(queryParameters),
+          data: jsonEncode(data));
+      return response;
+    } on DioError catch (e) {
+      throw ExceptionApi(code: null, message: e.message);
+    }
   }
 
   @override
@@ -79,12 +93,17 @@ class DefaultApiImp implements DefaultApi {
       Map<String, dynamic> queryParameters = const {},
       Map<String, dynamic>? headers}) async {
     dio.options.headers = headers ?? _defaultHeaders;
-    final response = dio.delete(
-      path,
-      queryParameters: Map<String, dynamic>.from(_defaultQueryParameters ?? {})
-        ..addAll(queryParameters),
-    );
-    return response;
+    try {
+      final response = dio.delete(
+        path,
+        queryParameters:
+            Map<String, dynamic>.from(_defaultQueryParameters ?? {})
+              ..addAll(queryParameters),
+      );
+      return response;
+    } on DioError catch (e) {
+      throw ExceptionApi(code: null, message: e.message);
+    }
   }
 }
 

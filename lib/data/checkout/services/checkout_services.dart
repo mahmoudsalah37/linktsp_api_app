@@ -4,12 +4,13 @@ import 'package:linktsp_api/data/default_api.dart';
 import 'package:linktsp_api/data/exception_api.dart';
 import 'package:linktsp_api/data/result_model.dart';
 
-class CheckOutServicesImp extends DefaultApiImp implements CheckOutService {
-  CheckOutServicesImp();
+class CheckOutServicesImp implements CheckOutService {
+  CheckOutServicesImp({required this.defaultApi});
+  final DefaultApi defaultApi;
 
   @override
   Future<AddressModel> getDefaultAddress({required int customerId}) async {
-    final response = await getData(
+    final response = await defaultApi.getData(
         path: 'checkout/address', queryParameters: {"CustomerID": customerId});
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
@@ -22,7 +23,7 @@ class CheckOutServicesImp extends DefaultApiImp implements CheckOutService {
   @override
   Future<List<AddressModel>> getShipmentAddresses(
       {required int customerId}) async {
-    final response = await getData(
+    final response = await defaultApi.getData(
         path: 'profile/shipmentaddresses',
         queryParameters: {"CustomerID": customerId});
     final result = ApiReturnResult.fromJSON(response.data);
@@ -39,7 +40,7 @@ class CheckOutServicesImp extends DefaultApiImp implements CheckOutService {
       {required int customerId,
       required int storeId,
       required int addressId}) async {
-    final response = await getData(
+    final response = await defaultApi.getData(
         path: 'checkout/cartsummary',
         queryParameters: {
           "CustomerID": customerId,
@@ -56,7 +57,7 @@ class CheckOutServicesImp extends DefaultApiImp implements CheckOutService {
 
   @override
   Future<List<PaymentOptionsModel>> getPaymentOptions() async {
-    final response = await getData(path: 'checkout/paymentoptions');
+    final response = await defaultApi.getData(path: 'checkout/paymentoptions');
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
       return List<PaymentOptionsModel>.from(
@@ -73,7 +74,7 @@ class CheckOutServicesImp extends DefaultApiImp implements CheckOutService {
       required int loyaltyPoints,
       required int customerId,
       int? storeId}) async {
-    final response = await postData(
+    final response = await defaultApi.postData(
       path: 'checkout/coupon/redeem',
       queryParameters: {
         "CouponCode": couponCode,
@@ -98,7 +99,7 @@ class CheckOutServicesImp extends DefaultApiImp implements CheckOutService {
       required int loyaltyPoints,
       required int customerId,
       int? storeId}) async {
-    final response = await postData(
+    final response = await defaultApi.postData(
       path: 'checkout/coupon/clear',
       queryParameters: {
         "CouponCode": couponCode,
@@ -123,7 +124,7 @@ class CheckOutServicesImp extends DefaultApiImp implements CheckOutService {
       int? addressId,
       int? loyaltyPoints,
       int? pickStoreID}) async {
-    final response = await getData(
+    final response = await defaultApi.getData(
       path: 'checkout/review',
       queryParameters: {
         "PaymentOptionID": paymentOptionId,
@@ -149,7 +150,7 @@ class CheckOutServicesImp extends DefaultApiImp implements CheckOutService {
       required int loyaltyPoints,
       required double finalAmount,
       int? storeId}) async {
-    final response = await postData(
+    final response = await defaultApi.postData(
       path: 'checkout/confirm',
       queryParameters: {
         "PaymentOptionID": paymentOptionId,
@@ -176,7 +177,7 @@ class CheckOutServicesImp extends DefaultApiImp implements CheckOutService {
       required int loyaltyPoints,
       required double finalAmount,
       int? storeId}) async {
-    final response = await postData(
+    final response = await defaultApi.postData(
       path: 'checkout/confirmorder',
       queryParameters: {
         "PaymentOptionID": paymentOptionId,
@@ -201,7 +202,7 @@ class CheckOutServicesImp extends DefaultApiImp implements CheckOutService {
       int? addressId,
       required int qty,
       required int skuId}) async {
-    final response = await postData(
+    final response = await defaultApi.postData(
       path: 'oneclickorder/confirm',
       queryParameters: {
         "CustomerID": customerId,
@@ -221,7 +222,7 @@ class CheckOutServicesImp extends DefaultApiImp implements CheckOutService {
   @override
   Future<OneClickOrderDetailsModel> oneClickOrderDetails(
       {required int customerId, required int qty, required int skuId}) async {
-    final response = await getData(
+    final response = await defaultApi.getData(
       path: 'oneclickorder/details',
       queryParameters: {
         "CustomerID": customerId,
@@ -240,7 +241,7 @@ class CheckOutServicesImp extends DefaultApiImp implements CheckOutService {
   @override
   Future<OneClickOrderDetailsModel> oneClickOrderTriggeredDiscount(
       {required int customerId, required int qty, required int skuId}) async {
-    final response = await getData(
+    final response = await defaultApi.getData(
       path: 'notification/oneClickOrderTriggeredDiscount',
       queryParameters: {
         "CustomerID": customerId,
@@ -262,7 +263,7 @@ class CheckOutServicesImp extends DefaultApiImp implements CheckOutService {
       required int addressId,
       required int loyaltyPoints,
       int? storeId}) async {
-    final response = await postData(
+    final response = await defaultApi.postData(
       path: 'LoyaltyPoints/Redeem',
       queryParameters: {
         "CustomerID": customerId,
@@ -285,7 +286,7 @@ class CheckOutServicesImp extends DefaultApiImp implements CheckOutService {
       required int addressId,
       required int loyaltyPoints,
       int? storeId}) async {
-    final response = await postData(
+    final response = await defaultApi.postData(
       path: 'LoyaltyPoints/Unredeem',
       queryParameters: {
         "CustomerID": customerId,

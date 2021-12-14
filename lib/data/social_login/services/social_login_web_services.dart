@@ -6,15 +6,17 @@ import 'package:linktsp_api/data/social_login/models/social_login_model.dart';
 import '../../exception_api.dart';
 import '../../result_model.dart';
 
-class SocialLoginWebServicesImp extends DefaultApiImp
-    implements SocialLoginWebService {
-  SocialLoginWebServicesImp();
+class SocialLoginWebServiceImp implements SocialLoginWebService {
+  SocialLoginWebServiceImp({required this.defaultApi});
+  final DefaultApi defaultApi;
 
   @override
   Future<List<SocialLoginModel>> getSocialLoginKeys() async {
-    final response = await getData(path: 'social/Keys', queryParameters: {
-      "mobileType": Platform.isAndroid ? "Android" : "IOS"
-    });
+    final response = await defaultApi.getData(
+        path: 'social/Keys',
+        queryParameters: {
+          "mobileType": Platform.isAndroid ? "Android" : "IOS"
+        });
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
       return List<SocialLoginModel>.from(
@@ -27,8 +29,8 @@ class SocialLoginWebServicesImp extends DefaultApiImp
   @override
   Future<SocialLoginUserModel> socialLogin(
       {required SocialLoginUserModel socialLoginUserModel}) async {
-    final response =
-        await postData(path: 'social/Login', data: socialLoginUserModel);
+    final response = await defaultApi.postData(
+        path: 'social/Login', data: socialLoginUserModel);
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
       return SocialLoginUserModel.fromJson(result.data);

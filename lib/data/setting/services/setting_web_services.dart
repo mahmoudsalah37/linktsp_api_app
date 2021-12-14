@@ -4,12 +4,13 @@ import 'package:linktsp_api/data/default_api.dart';
 import '../../exception_api.dart';
 import '../../result_model.dart';
 
-class SettingWebServicesImp extends DefaultApiImp implements SettingWebService {
-  SettingWebServicesImp();
+class SettingWebServicesImp implements SettingWebService {
+  SettingWebServicesImp({required this.defaultApi});
+  final DefaultApi defaultApi;
 
   @override
   Future<String> getServiceAgreement() async {
-    final response = await getData(path: 'setting/ServiceAgreement');
+    final response = await defaultApi.getData(path: 'setting/ServiceAgreement');
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
       return result.data;
@@ -20,7 +21,8 @@ class SettingWebServicesImp extends DefaultApiImp implements SettingWebService {
 
   @override
   Future<SettingModel> getVersions() async {
-    final response = await getData(path: 'setting/SupportedVersions');
+    final response =
+        await defaultApi.getData(path: 'setting/SupportedVersions');
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
       return SettingModel.fromJson(result.data);

@@ -4,12 +4,12 @@ import '../../default_api.dart';
 import '../../exception_api.dart';
 import '../../result_model.dart';
 
-class ContentPageServiceImp extends DefaultApiImp
-    implements ContentPageService {
-  ContentPageServiceImp();
+class ContentPageServiceImp implements ContentPageService {
+  ContentPageServiceImp({required this.defaultApi});
+  final DefaultApi defaultApi;
   @override
   Future<ContentPageModel> getContentPage({required int id}) async {
-    final respose = await postData(
+    final respose = await defaultApi.postData(
       path: 'ContentPage',
       queryParameters: {
         'id': id,
