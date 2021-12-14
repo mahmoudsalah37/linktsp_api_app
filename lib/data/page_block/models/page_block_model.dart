@@ -226,3 +226,27 @@ class Product {
             : List<dynamic>.from(colors!.map((x) => x.toJson())),
       };
 }
+
+class BrandsModel {
+  BrandsModel({
+    this.id,
+    this.title = '',
+    this.imageUrl,
+  });
+
+  int? id;
+  String title;
+  String? imageUrl;
+
+  factory BrandsModel.fromJson(Map<String, dynamic> json) => BrandsModel(
+        id: json["id"],
+        title: json["title"] ?? '',
+        imageUrl: json["imageUrl"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "title": title,
+        "imageUrl": imageUrl,
+      };
+}

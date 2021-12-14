@@ -1,6 +1,19 @@
+// To parse this JSON data, do
+//
+//     final productDetailsModel = productDetailsModelFromJson(jsonString);
+
+import 'dart:convert';
+
 import 'package:linktsp_api/core/models/color_model.dart';
 import 'package:linktsp_api/core/models/feature_model.dart';
 import 'package:linktsp_api/core/models/size_model.dart';
+import 'package:linktsp_api/data/reviews/models/review_model.dart';
+
+ProductDetailsModel productDetailsModelFromJson(String str) =>
+    ProductDetailsModel.fromJson(json.decode(str));
+
+String productDetailsModelToJson(ProductDetailsModel data) =>
+    json.encode(data.toJson());
 
 class ProductDetailsModel {
   ProductDetailsModel({
@@ -24,6 +37,7 @@ class ProductDetailsModel {
     this.skuCode,
     this.colorOptions,
     this.features,
+    this.productRecentTwoReview,
     this.rating,
     this.sizes,
     this.colors,
@@ -50,50 +64,51 @@ class ProductDetailsModel {
     this.color,
   });
 
-  String? details;
-  String? shortDescription;
-  int? colorId;
-  int? sizeId;
-  List<Brand>? categories;
-  Brand? brand;
-  bool? isAddedtoWishlist;
-  List<String>? imageList;
-  int? maxQty;
-  bool? reviewVisibility;
-  bool? showOneClickOrder;
-  int? minDeliveryPeriod;
-  int? maxDeliveryPeriod;
-  String? periodName;
-  String? deliveryNote;
-  int? remaining;
-  String? productCode;
-  String? skuCode;
-  int? colorOptions;
-  List<Feature>? features;
-  double? rating;
-  List<Size>? sizes;
-  List<ColorModel>? colors;
-  bool? preOrder;
-  DateTime? availabilityDate;
-  int? id;
-  int? productId;
-  String? imageUrl;
-  String? imageThumbUrl;
-  String? title;
-  String? seoTitle;
-  bool? isOutOfStock;
-  double? price;
-  double? finalPrice;
-  bool? hasDiscount;
-  double? discountValue;
-  int? discountType;
-  String? promoText;
-  String? bogoPromoText;
-  String? croppedImageUrl;
-  bool? enableCropping;
-  String? size;
-  String? colorHexaCode;
-  String? color;
+  final String? details;
+  final String? shortDescription;
+  final int? colorId;
+  final int? sizeId;
+  final List<Brand>? categories;
+  final Brand? brand;
+  final bool? isAddedtoWishlist;
+  final List<String>? imageList;
+  final int? maxQty;
+  final bool? reviewVisibility;
+  final bool? showOneClickOrder;
+  final int? minDeliveryPeriod;
+  final int? maxDeliveryPeriod;
+  final String? periodName;
+  final dynamic deliveryNote;
+  final int? remaining;
+  final String? productCode;
+  final String? skuCode;
+  final int? colorOptions;
+  final List<Feature>? features;
+  final ProductRecentTwoReview? productRecentTwoReview;
+  final double? rating;
+  final List<Size>? sizes;
+  final List<ColorModel>? colors;
+  final bool? preOrder;
+  final dynamic availabilityDate;
+  final int? id;
+  final int? productId;
+  final String? imageUrl;
+  final String? imageThumbUrl;
+  final String? title;
+  final String? seoTitle;
+  final bool? isOutOfStock;
+  final double? price;
+  final double? finalPrice;
+  final bool? hasDiscount;
+  final double? discountValue;
+  final int? discountType;
+  final String? promoText;
+  final String? bogoPromoText;
+  final String? croppedImageUrl;
+  final bool? enableCropping;
+  final String? size;
+  final String? colorHexaCode;
+  final String? color;
 
   factory ProductDetailsModel.fromJson(Map<String, dynamic> json) =>
       ProductDetailsModel(
@@ -101,15 +116,11 @@ class ProductDetailsModel {
         shortDescription: json["shortDescription"],
         colorId: json["colorID"],
         sizeId: json["sizeID"],
-        categories: json["categories"] == null
-            ? null
-            : List<Brand>.from(
-                json["categories"].map((x) => Brand.fromJson(x))),
-        brand: json["brand"] == null ? null : Brand.fromJson(json["brand"]),
+        categories:
+            List<Brand>.from(json["categories"].map((x) => Brand.fromJson(x))),
+        brand: Brand.fromJson(json["brand"]),
         isAddedtoWishlist: json["isAddedtoWishlist"],
-        imageList: json["imageList"] == null
-            ? null
-            : List<String>.from(json["imageList"].map((x) => x)),
+        imageList: List<String>.from(json["imageList"].map((x) => x)),
         maxQty: json["maxQty"],
         reviewVisibility: json["reviewVisibility"],
         showOneClickOrder: json["showOneClickOrder"],
@@ -121,22 +132,16 @@ class ProductDetailsModel {
         productCode: json["productCode"],
         skuCode: json["skuCode"],
         colorOptions: json["colorOptions"],
-        features: json["features"] == null
-            ? null
-            : List<Feature>.from(
-                json["features"].map((x) => Feature.fromJson(x))),
+        features: List<Feature>.from(
+            json["features"].map((x) => Feature.fromJson(x))),
+        productRecentTwoReview:
+            ProductRecentTwoReview.fromJson(json["product_RecentTwo_Review"]),
         rating: json["rating"],
-        sizes: json["sizes"] == null
-            ? null
-            : List<Size>.from(json["sizes"].map((x) => Size.fromJson(x))),
-        colors: json["colors"] == null
-            ? null
-            : List<ColorModel>.from(
-                json["colors"].map((x) => ColorModel.fromJson(x))),
+        sizes: List<Size>.from(json["sizes"].map((x) => Size.fromJson(x))),
+        colors: List<ColorModel>.from(
+            json["colors"].map((x) => ColorModel.fromJson(x))),
         preOrder: json["preOrder"],
-        availabilityDate: json["availabilityDate"] == null
-            ? null
-            : DateTime.parse(json["availabilityDate"]),
+        availabilityDate: json["availabilityDate"],
         id: json["id"],
         productId: json["productID"],
         imageUrl: json["imageUrl"],
@@ -144,9 +149,8 @@ class ProductDetailsModel {
         title: json["title"],
         seoTitle: json["seoTitle"],
         isOutOfStock: json["isOutOfStock"],
-        price: json["price"] == null ? null : json["price"]!.toDouble(),
-        finalPrice:
-            json["finalPrice"] == null ? null : json["finalPrice"]!.toDouble(),
+        price: json["price"],
+        finalPrice: json["finalPrice"],
         hasDiscount: json["hasDiscount"],
         discountValue: json["discountValue"],
         discountType: json["discountType"],
@@ -164,14 +168,11 @@ class ProductDetailsModel {
         "shortDescription": shortDescription,
         "colorID": colorId,
         "sizeID": sizeId,
-        "categories": categories == null
-            ? null
-            : List<dynamic>.from(categories!.map((x) => x.toJson())),
-        "brand": brand == null ? null : brand!.toJson(),
+        "categories":
+            List<dynamic>.from(categories?.map((x) => x.toJson()) ?? []),
+        "brand": brand?.toJson(),
         "isAddedtoWishlist": isAddedtoWishlist,
-        "imageList": imageList == null
-            ? null
-            : List<dynamic>.from(imageList!.map((x) => x)),
+        "imageList": List<dynamic>.from(imageList!.map((x) => x)),
         "maxQty": maxQty,
         "reviewVisibility": reviewVisibility,
         "showOneClickOrder": showOneClickOrder,
@@ -183,20 +184,13 @@ class ProductDetailsModel {
         "productCode": productCode,
         "skuCode": skuCode,
         "colorOptions": colorOptions,
-        "features": features == null
-            ? null
-            : List<dynamic>.from(features!.map((x) => x.toJson())),
+        "features": List<dynamic>.from(features?.map((x) => x.toJson()) ?? []),
+        "product_RecentTwo_Review": productRecentTwoReview?.toJson(),
         "rating": rating,
-        "sizes": sizes == null
-            ? null
-            : List<dynamic>.from(sizes!.map((x) => x.toJson())),
-        "colors": colors == null
-            ? null
-            : List<dynamic>.from(colors!.map((x) => x.toJson())),
+        "sizes": List<dynamic>.from(sizes?.map((x) => x.toJson()) ?? []),
+        "colors": List<dynamic>.from(colors?.map((x) => x.toJson()) ?? []),
         "preOrder": preOrder,
-        "availabilityDate": availabilityDate == null
-            ? null
-            : availabilityDate!.toIso8601String(),
+        "availabilityDate": availabilityDate,
         "id": id,
         "productID": productId,
         "imageUrl": imageUrl,
@@ -225,8 +219,8 @@ class Brand {
     this.name,
   });
 
-  int? id;
-  String? name;
+  final int? id;
+  final String? name;
 
   factory Brand.fromJson(Map<String, dynamic> json) => Brand(
         id: json["id"],
@@ -236,5 +230,35 @@ class Brand {
   Map<String, dynamic> toJson() => {
         "id": id,
         "name": name,
+      };
+}
+
+class ProductRecentTwoReview {
+  ProductRecentTwoReview({
+    this.reviewsCount,
+    // required this.reviewsAvgRate,
+    this.length,
+    this.items,
+  });
+
+  final int? reviewsCount;
+  // final double? reviewsAvgRate;
+  final int? length;
+  final List<ItemReview>? items;
+
+  factory ProductRecentTwoReview.fromJson(Map<String, dynamic> json) =>
+      ProductRecentTwoReview(
+        reviewsCount: json["reviewsCount"],
+        // reviewsAvgRate: json["reviewsAvgRate"]?.toDouble(),
+        length: json["length"],
+        items: List<ItemReview>.from(
+            json["items"].map((x) => ItemReview.fromJson(x))),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "reviewsCount": reviewsCount,
+        // "reviewsAvgRate": reviewsAvgRate,
+        "length": length,
+        "items": List<dynamic>.from(items!.map((x) => x.toJson())),
       };
 }
