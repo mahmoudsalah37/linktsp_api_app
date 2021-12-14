@@ -19,10 +19,23 @@ class PageBlockWebServiceImp extends DefaultApiImp
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
   }
+
+  @override
+  Future<List<BrandsModel>> getBrands() async {
+    final respose =
+        await getData(path: 'GetBrands', queryParameters: {'language': 1});
+    final result = ApiReturnResult.fromJSON(respose.data);
+    if (result.code == 200) {
+      return (result.data as List).map((e) => BrandsModel.fromJson(e)).toList();
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
+  }
 }
 
 abstract class PageBlockWebService {
   /// Creates home screen data ( Ex: banners, sliders and posters ).
   /// It's return [PageBlockModel]
   Future<PageBlockModel> getPageBlock();
+  Future<List<BrandsModel>> getBrands();
 }
