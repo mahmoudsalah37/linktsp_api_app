@@ -9,9 +9,11 @@ class PageBlockWebServiceImp implements PageBlockWebService {
   final DefaultApi defaultApi;
 
   @override
-  Future<PageBlockModel> getPageBlock() async {
-    final respose = await defaultApi
-        .getData(path: 'home', queryParameters: {'language': 1});
+  Future<PageBlockModel> getPageBlock(int customerId) async {
+    final respose = await defaultApi.getData(path: 'home', queryParameters: {
+      'language': 1,
+      'CustomerID': customerId,
+    });
     final result = ApiReturnResult.fromJSON(respose.data);
     if (result.code == 200) {
       return PageBlockModel.fromJson(result.data);
@@ -38,6 +40,6 @@ class PageBlockWebServiceImp implements PageBlockWebService {
 abstract class PageBlockWebService {
   /// Creates home screen data ( Ex: banners, sliders and posters ).
   /// It's return [PageBlockModel]
-  Future<PageBlockModel> getPageBlock();
+  Future<PageBlockModel> getPageBlock(int customerId);
   Future<List<BrandsModel>> getBrands();
 }

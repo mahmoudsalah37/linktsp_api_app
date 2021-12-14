@@ -8,7 +8,7 @@ void main() async {
   final LinkTspApi linkTspApi = LinkTspApi();
   group('page block service test: ', () {
     test('check page block length', () async {
-      final result = await linkTspApi.pageBlock.getPageBlock();
+      final result = await linkTspApi.pageBlock.getPageBlock(33);
       expect(result.length, 8);
     });
   });
