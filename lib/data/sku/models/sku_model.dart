@@ -37,7 +37,8 @@ class ProductDetailsModel {
     this.skuCode,
     this.colorOptions,
     this.features,
-    this.productRecentTwoReview,
+    this.productRecentTwoReview =
+        const ProductRecentTwoReview(items: [], length: 0, reviewsCount: 0),
     this.rating,
     this.sizes,
     this.colors,
@@ -84,7 +85,7 @@ class ProductDetailsModel {
   final String? skuCode;
   final int? colorOptions;
   final List<Feature>? features;
-  final ProductRecentTwoReview? productRecentTwoReview;
+  final ProductRecentTwoReview productRecentTwoReview;
   final double? rating;
   final List<Size>? sizes;
   final List<ColorModel>? colors;
@@ -134,8 +135,10 @@ class ProductDetailsModel {
         colorOptions: json["colorOptions"],
         features: List<Feature>.from(
             json["features"].map((x) => Feature.fromJson(x))),
-        productRecentTwoReview:
-            ProductRecentTwoReview.fromJson(json["product_RecentTwo_Review"]),
+        productRecentTwoReview: json["product_RecentTwo_Review"] == null
+            ? const ProductRecentTwoReview(
+                items: [], length: 0, reviewsCount: 0)
+            : ProductRecentTwoReview.fromJson(json["product_RecentTwo_Review"]),
         rating: json["rating"],
         sizes: List<Size>.from(json["sizes"].map((x) => Size.fromJson(x))),
         colors: List<ColorModel>.from(
@@ -185,7 +188,7 @@ class ProductDetailsModel {
         "skuCode": skuCode,
         "colorOptions": colorOptions,
         "features": List<dynamic>.from(features?.map((x) => x.toJson()) ?? []),
-        "product_RecentTwo_Review": productRecentTwoReview?.toJson(),
+        "product_RecentTwo_Review": productRecentTwoReview.toJson(),
         "rating": rating,
         "sizes": List<dynamic>.from(sizes?.map((x) => x.toJson()) ?? []),
         "colors": List<dynamic>.from(colors?.map((x) => x.toJson()) ?? []),
@@ -234,31 +237,33 @@ class Brand {
 }
 
 class ProductRecentTwoReview {
-  ProductRecentTwoReview({
+  const ProductRecentTwoReview({
     this.reviewsCount,
     // required this.reviewsAvgRate,
     this.length,
-    this.items,
+    this.items = const [],
   });
 
   final int? reviewsCount;
   // final double? reviewsAvgRate;
   final int? length;
-  final List<ItemReview>? items;
+  final List<ItemReview> items;
 
   factory ProductRecentTwoReview.fromJson(Map<String, dynamic> json) =>
       ProductRecentTwoReview(
         reviewsCount: json["reviewsCount"],
         // reviewsAvgRate: json["reviewsAvgRate"]?.toDouble(),
         length: json["length"],
-        items: List<ItemReview>.from(
-            json["items"].map((x) => ItemReview.fromJson(x))),
+        items: json["items"] != null
+            ? List<ItemReview>.from(
+                json["items"].map((x) => ItemReview.fromJson(x)))
+            : [],
       );
 
   Map<String, dynamic> toJson() => {
         "reviewsCount": reviewsCount,
         // "reviewsAvgRate": reviewsAvgRate,
         "length": length,
-        "items": List<dynamic>.from(items!.map((x) => x.toJson())),
+        "items": List<dynamic>.from(items.map((x) => x.toJson())),
       };
 }
