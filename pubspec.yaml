@@ -1,6 +1,12 @@
 name: linktsp_api
-description: A new flutter plugin project.
-version: 0.0.1
+description: Private package for linktsp team.
+version: 0.0.5
+# authors:
+#   - "mahmoudsalah37@gmail.com"
+#   - "abdelrahmanaymanfcis@gmail.com"
+#   - "omarselim995@gmail.com"
+
+
 # homepage: none
 
 environment:
