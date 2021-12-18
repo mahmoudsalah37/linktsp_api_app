@@ -4,13 +4,14 @@ import '../../default_api.dart';
 import '../../exception_api.dart';
 import '../../result_model.dart';
 
-class ListServiceImp extends DefaultApi implements ListService {
-  ListServiceImp({String defaultPath = ''}) : super(defaultPath);
+class ListServiceImp implements ListService {
+  ListServiceImp({required this.defaultApi});
+  final DefaultApi defaultApi;
 
   @override
   Future<FilterDataModel> getFilterOptionsData(
       {required ListModel listModel}) async {
-    final respose = await postData(
+    final respose = await defaultApi.postData(
       path: 'filter',
       data: listModel,
     );
@@ -25,7 +26,7 @@ class ListServiceImp extends DefaultApi implements ListService {
   @override
   Future<ListingDataModel> getListingWithCategory(
       {required ListModel listModel}) async {
-    final respose = await postData(
+    final respose = await defaultApi.postData(
       path: 'list',
       data: listModel,
     );
@@ -40,7 +41,7 @@ class ListServiceImp extends DefaultApi implements ListService {
   @override
   Future<ListingDataModel> getListingWithFilter(
       {required ListModel listModel}) async {
-    final respose = await postData(
+    final respose = await defaultApi.postData(
       path: 'Search',
       data: listModel,
     );
@@ -55,7 +56,7 @@ class ListServiceImp extends DefaultApi implements ListService {
   @override
   Future<ListingDataModel> getListingWithSort(
       {required ListModel listModel}) async {
-    final respose = await postData(
+    final respose = await defaultApi.postData(
       path: 'List',
       data: listModel,
     );

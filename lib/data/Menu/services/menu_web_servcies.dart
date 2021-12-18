@@ -4,11 +4,12 @@ import '../../default_api.dart';
 import '../../exception_api.dart';
 import '../../result_model.dart';
 
-class MenuWebServiceImp extends DefaultApi implements MenuWebService {
-  MenuWebServiceImp({String defaultPath = ''}) : super(defaultPath);
+class MenuWebServiceImp implements MenuWebService {
+  MenuWebServiceImp({required this.defaultApi});
+  final DefaultApi defaultApi;
   @override
   Future<MenuModel> getMenu({required int customerID}) async {
-    final respose = await getData(
+    final respose = await defaultApi.getData(
       path: 'home/menu',
       queryParameters: {
         'CustomerID': customerID,
@@ -24,7 +25,7 @@ class MenuWebServiceImp extends DefaultApi implements MenuWebService {
 
   @override
   Future<List<ContactInfoModel>> getContactInfo() async {
-    final respose = await getData(
+    final respose = await defaultApi.getData(
       path: 'home/contactInfo',
     );
     final result = ApiReturnResult.fromJSON(respose.data);
@@ -38,7 +39,7 @@ class MenuWebServiceImp extends DefaultApi implements MenuWebService {
 
   @override
   Future<String> getPreOrderPolicy() async {
-    final respose = await getData(
+    final respose = await defaultApi.getData(
       path: 'home/PreOrderPolicy',
     );
     final result = ApiReturnResult.fromJSON(respose.data);

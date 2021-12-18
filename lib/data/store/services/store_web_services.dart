@@ -4,14 +4,15 @@ import 'package:linktsp_api/core/models/store.dart';
 
 import '../../exception_api.dart';
 
-class StoreWebServicesImp extends DefaultApi implements StoreWebService {
-  StoreWebServicesImp({String defaultPath = ''}) : super(defaultPath);
+class StoreWebServiceImp implements StoreWebService {
+  StoreWebServiceImp({required this.defaultApi});
+  final DefaultApi defaultApi;
 
   @override
   Future<List<StoreModel>> storesFilter(
       {required StoreFilterModel storeFilterModel}) async {
     final response =
-        await postData(path: 'store/filter', data: storeFilterModel);
+        await defaultApi.postData(path: 'store/filter', data: storeFilterModel);
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
       return List<StoreModel>.from(

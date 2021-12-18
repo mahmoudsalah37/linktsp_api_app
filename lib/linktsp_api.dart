@@ -1,4 +1,5 @@
 import 'package:linktsp_api/core/models/admin_model.dart';
+import 'package:linktsp_api/core/utils/injection_container.dart';
 
 import 'linktsp_api_exports.dart';
 
@@ -46,16 +47,23 @@ export 'core/models/summary_model.dart';
 export 'core/models/admin_model.dart';
 
 class LinkTspApi implements _LinkTspApiAbstract {
+  static final LinkTspApi instance = LinkTspApi();
+  final sl = InjectionContainer.sl;
   static Future<void> init(
       {required String domain,
       required AdminModel admin,
       int version = 1,
       int lang = 1,
       int? zoneid}) async {
+    try {
+      await InjectionContainer.init();
+    } catch (e) {
+      print(e.toString());
+    }
     final token = await TokenServiceImp()
         .getToken(domin: domain, version: version, admin: admin);
 
-    DefaultApi.init(
+    DefaultApiImp.init(
         domin: domain,
         token: token,
         version: version,
@@ -64,45 +72,45 @@ class LinkTspApi implements _LinkTspApiAbstract {
   }
 
   @override
-  TokenService get token => TokenServiceImp();
+  TokenService get token => sl<TokenService>();
   @override
-  AccountService get account => AccountServicesImp();
+  AccountService get account => sl<AccountService>();
   @override
-  AddressServices get address => AddressServicesImp();
+  AddressService get address => sl<AddressService>();
   @override
-  CancelOrderServices get cancelOrder => CancelOrderServicesImp();
+  CancelOrderService get cancelOrder => sl<CancelOrderService>();
   @override
-  CartService get cart => CartServiceImp();
+  CartService get cart => sl<CartService>();
   @override
-  CheckOutService get checkOut => CheckOutServicesImp();
+  CheckOutService get checkOut => sl<CheckOutService>();
   @override
-  ComplaintService get complaint => ComplaintServiceImp();
+  ComplaintService get complaint => sl<ComplaintService>();
   @override
-  ContentPageService get contentPage => ContentPageServiceImp();
+  ContentPageService get contentPage => sl<ContentPageService>();
   @override
-  ListService get list => ListServiceImp();
+  ListService get list => sl<ListService>();
   @override
-  LookUpService get lookUp => LookUpServiceImp();
+  LookUpService get lookUp => sl<LookUpService>();
   @override
-  MenuWebService get menu => MenuWebServiceImp();
+  MenuWebService get menu => sl<MenuWebService>();
   @override
-  MultiStoreService get multiStore => MultiStoreServiceImp();
+  MultiStoreService get multiStore => sl<MultiStoreService>();
   @override
-  OrderService get order => OrderServiceImp();
+  OrderService get order => sl<OrderService>();
   @override
-  PageBlockWebService get pageBlock => PageBlockWebServiceImp();
+  PageBlockWebService get pageBlock => sl<PageBlockWebService>();
   @override
-  ReviewWebService get review => ReviewWebServiceImp();
+  ReviewWebService get review => sl<ReviewWebService>();
   @override
-  SettingWebService get setting => SettingWebServicesImp();
+  SettingWebService get setting => sl<SettingWebService>();
   @override
-  SkuWebServices get sku => SkuWebServicesImp();
+  SkuWebService get sku => sl<SkuWebService>();
   @override
-  SocialLoginWebService get socialLogin => SocialLoginWebServicesImp();
+  SocialLoginWebService get socialLogin => sl<SocialLoginWebService>();
   @override
-  StoreWebService get store => StoreWebServicesImp();
+  StoreWebService get store => sl<StoreWebService>();
   @override
-  WishlistWebServices get wishlist => WishlistWebServicesImp();
+  WishlistWebService get wishlist => sl<WishlistWebService>();
 }
 
 abstract class _LinkTspApiAbstract {
@@ -110,9 +118,9 @@ abstract class _LinkTspApiAbstract {
 
   AccountService get account;
 
-  AddressServices get address;
+  AddressService get address;
 
-  CancelOrderServices get cancelOrder;
+  CancelOrderService get cancelOrder;
 
   CartService get cart;
 
@@ -138,11 +146,11 @@ abstract class _LinkTspApiAbstract {
 
   SettingWebService get setting;
 
-  SkuWebServices get sku;
+  SkuWebService get sku;
 
   SocialLoginWebService get socialLogin;
 
   StoreWebService get store;
 
-  WishlistWebServices get wishlist;
+  WishlistWebService get wishlist;
 }

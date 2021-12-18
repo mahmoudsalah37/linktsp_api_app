@@ -1,12 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:linktsp_api/linktsp_api.dart';
-
-import '../../default_api.dart';
 import '../../exception_api.dart';
 import '../../result_model.dart';
 
-class TokenServiceImp extends DefaultApi implements TokenService {
-  TokenServiceImp({String defaultPath = ''}) : super(defaultPath);
+class TokenServiceImp implements TokenService {
+  TokenServiceImp();
 
   @override
   Future<String> getToken(

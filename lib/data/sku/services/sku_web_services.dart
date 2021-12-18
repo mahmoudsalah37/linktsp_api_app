@@ -4,15 +4,16 @@ import 'package:linktsp_api/data/sku/models/sku_model.dart';
 import '../../exception_api.dart';
 import '../../result_model.dart';
 
-class SkuWebServicesImp extends DefaultApi implements SkuWebServices {
-  SkuWebServicesImp({String defaultPath = ''}) : super(defaultPath);
+class SkuWebServiceImp implements SkuWebService {
+  SkuWebServiceImp({required this.defaultApi});
+  final DefaultApi defaultApi;
 
   @override
   Future<List<ProductDetailsModel>> getInnerProductSliders(
       {required String productCode,
       required String relatedItemsEnum,
       int? customerId}) async {
-    final response = await postData(
+    final response = await defaultApi.postData(
         path: 'sku/ReleatedItem/$productCode',
         queryParameters: {
           'relatedItemsEnum': relatedItemsEnum,
@@ -30,7 +31,7 @@ class SkuWebServicesImp extends DefaultApi implements SkuWebServices {
   @override
   Future<ProductDetailsModel> getProductDetails(
       {required int skuid, int? customerId}) async {
-    final response = await postData(
+    final response = await defaultApi.postData(
         path: 'sku/$skuid', queryParameters: {'CustomerId': customerId});
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
@@ -43,7 +44,7 @@ class SkuWebServicesImp extends DefaultApi implements SkuWebServices {
   @override
   Future<ProductDetailsModel> getProductDetailsScanner(
       {required String skuCode, int? customerId}) async {
-    final response = await postData(
+    final response = await defaultApi.postData(
         path: 'sku/0',
         queryParameters: {'CustomerId': customerId, 'SKUCode': skuCode});
     final result = ApiReturnResult.fromJSON(response.data);
@@ -61,7 +62,8 @@ class SkuWebServicesImp extends DefaultApi implements SkuWebServices {
       required int sizeId,
       required String switchType,
       int? customerId}) async {
-    final response = await postData(path: 'sku/$productCode', queryParameters: {
+    final response =
+        await defaultApi.postData(path: 'sku/$productCode', queryParameters: {
       'CustomerId': customerId,
       'colorID': colorId,
       'SizeID': sizeId,
@@ -76,20 +78,20 @@ class SkuWebServicesImp extends DefaultApi implements SkuWebServices {
   }
 }
 
-abstract class SkuWebServices {
-  /// It's used to get all product details. It must take product [skuid]
+abstract class SkuWebService {
+  /// It's used to get all product details. It must take product (skuid)
   Future<ProductDetailsModel> getProductDetails({
     required int skuid,
     int customerId,
   });
 
-  /// It's used to get all produt details. It must take product [sku code]
+  /// It's used to get all produt details. It must take product (sku code)
   Future<ProductDetailsModel> getProductDetailsScanner(
       {required String skuCode, int customerId});
 
   /// It's used when changing the product color or product size.
   ///
-  /// [ SwitchType : SwitchColor, SwitchSize ]
+  /// ( SwitchType : SwitchColor, SwitchSize )
   Future<ProductDetailsModel> getSkuDetails(
       {required String productCode,
       required int colorId,
@@ -99,7 +101,7 @@ abstract class SkuWebServices {
 
   /// It's used to return related products list
   ///
-  /// [RelatedItemsEnum : WhoViewedThisViewedThat, WhoBoughtThisBoughtThat, CurrCustRecentskus, RelatedItems]
+  /// (RelatedItemsEnum : WhoViewedThisViewedThat, WhoBoughtThisBoughtThat, CurrCustRecentskus, RelatedItems)
   Future<List<ProductDetailsModel>> getInnerProductSliders({
     required String productCode,
     required String relatedItemsEnum,

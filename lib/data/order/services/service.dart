@@ -4,12 +4,13 @@ import '../../default_api.dart';
 import '../../exception_api.dart';
 import '../../result_model.dart';
 
-class OrderServiceImp extends DefaultApi implements OrderService {
-  OrderServiceImp({String defaultPath = ''}) : super(defaultPath);
+class OrderServiceImp implements OrderService {
+  OrderServiceImp({required this.defaultApi});
+  final DefaultApi defaultApi;
 
   @override
   Future<OrderDetailsModel> getOrderDetails({required String orderCode}) async {
-    final respose = await getData(
+    final respose = await defaultApi.getData(
       path: 'profile/order/$orderCode',
     );
     final result = ApiReturnResult.fromJSON(respose.data);
@@ -22,7 +23,7 @@ class OrderServiceImp extends DefaultApi implements OrderService {
 
   @override
   Future<List<OrderModel>> getOrders({required int customerId}) async {
-    final respose = await getData(
+    final respose = await defaultApi.getData(
       path: 'profile/order',
       queryParameters: {'CustomerID': customerId},
     );
@@ -37,7 +38,7 @@ class OrderServiceImp extends DefaultApi implements OrderService {
 
   @override
   Future<TrackOrderModel> trackOrder({required String orderCode}) async {
-    final respose = await getData(
+    final respose = await defaultApi.getData(
       path: 'profile/order/$orderCode/track',
     );
     final result = ApiReturnResult.fromJSON(respose.data);

@@ -4,15 +4,16 @@ import 'package:linktsp_api/data/default_api.dart';
 import '../../exception_api.dart';
 import '../../result_model.dart';
 
-class ReviewWebServiceImp extends DefaultApi implements ReviewWebService {
-  ReviewWebServiceImp({String defaultPath = ''}) : super(defaultPath);
+class ReviewWebServiceImp implements ReviewWebService {
+  ReviewWebServiceImp({required this.defaultApi});
+  final DefaultApi defaultApi;
 
   @override
   Future<bool?> addRate(
       {required String productCode,
       required double rate,
       required int customerId}) async {
-    final response = await postData(
+    final response = await defaultApi.postData(
       path: 'product/rate/add',
       queryParameters: {
         'ProductCode': productCode,
@@ -30,7 +31,7 @@ class ReviewWebServiceImp extends DefaultApi implements ReviewWebService {
 
   @override
   Future<bool?> addReview({required ItemReview itemReview}) async {
-    final response = await postData(
+    final response = await defaultApi.postData(
       path: 'product/review/add',
       data: itemReview,
     );
@@ -44,7 +45,7 @@ class ReviewWebServiceImp extends DefaultApi implements ReviewWebService {
 
   @override
   Future<ReviewRateModel> getProductRate({required String productCode}) async {
-    final response = await getData(
+    final response = await defaultApi.getData(
       path: 'product/$productCode/rate',
     );
     final result = ApiReturnResult.fromJSON(response.data);
@@ -57,7 +58,7 @@ class ReviewWebServiceImp extends DefaultApi implements ReviewWebService {
 
   @override
   Future<ReviewModel> getProductReviews({required String productCode}) async {
-    final response = await getData(
+    final response = await defaultApi.getData(
       path: 'product/$productCode/review',
     );
     final result = ApiReturnResult.fromJSON(response.data);
@@ -70,13 +71,13 @@ class ReviewWebServiceImp extends DefaultApi implements ReviewWebService {
 }
 
 abstract class ReviewWebService {
-  /// It's return all product reviews.It must take [product code].
+  /// It's return all product reviews.It must take (product code).
   Future<ReviewModel> getProductReviews({required String productCode});
 
   /// It's used to add review on product. User can make only one review on the same product. User must have an account to use this feature.
   Future<bool?> addReview({required ItemReview itemReview});
 
-  /// It's return product rate. It  must take [product code].
+  /// It's return product rate. It  must take (product code).
   Future<ReviewRateModel> getProductRate({required String productCode});
 
   /// It's used for only adding rate on product,User must have an account to use this feature.

@@ -2,9 +2,10 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 
-class DefaultApi {
+import 'exception_api.dart';
+
+class DefaultApiImp implements DefaultApi {
   static String _domin = '', _token = '';
-  final String defaultPath;
 
   static Map<String, dynamic>? _defaultQueryParameters;
   final Map<String, dynamic> _defaultHeaders = {
@@ -12,7 +13,7 @@ class DefaultApi {
     'authorization': 'Bearer $_token',
   };
   final dio = Dio();
-  DefaultApi(this.defaultPath) {
+  DefaultApiImp() {
     dio.options.baseUrl = _domin;
     dio.options.headers = _defaultHeaders;
   }
@@ -30,57 +31,98 @@ class DefaultApi {
     };
   }
 
+  @override
   Future<Response> getData(
-      {String? path,
+      {required String path,
       Map<String, dynamic> queryParameters = const {},
       Map<String, dynamic>? headers}) async {
     dio.options.headers = headers ?? _defaultHeaders;
-    final response = dio.get(
-      path ?? defaultPath,
-      queryParameters: Map<String, dynamic>.from(
-          _defaultQueryParameters ?? <String, dynamic>{})
-        ..addAll(queryParameters),
-    );
-    return response;
+    try {
+      final response = dio.get(
+        path,
+        queryParameters: Map<String, dynamic>.from(
+            _defaultQueryParameters ?? <String, dynamic>{})
+          ..addAll(queryParameters),
+      );
+      return response;
+    } on DioError catch (e) {
+      throw ExceptionApi(code: null, message: e.message);
+    }
   }
 
+  @override
   Future<Response> postData(
       {dynamic data,
-      String? path,
+      required String path,
       Map<String, dynamic> queryParameters = const {},
       Map<String, dynamic>? headers}) async {
     dio.options.headers = headers ?? _defaultHeaders;
-    final response = dio.post('/${path ?? defaultPath}',
-        queryParameters:
-            Map<String, dynamic>.from(_defaultQueryParameters ?? {})
-              ..addAll(queryParameters),
-        data: jsonEncode(data));
-    return response;
+    try {
+      final response = dio.post(path,
+          queryParameters:
+              Map<String, dynamic>.from(_defaultQueryParameters ?? {})
+                ..addAll(queryParameters),
+          data: jsonEncode(data));
+      return response;
+    } on DioError catch (e) {
+      throw ExceptionApi(code: null, message: e.message);
+    }
   }
 
+  @override
   Future<Response> putData(dynamic data,
-      {String? path,
+      {required String path,
       Map<String, dynamic> queryParameters = const {},
       Map<String, dynamic>? headers}) async {
     dio.options.headers = headers ?? _defaultHeaders;
-    final response = dio.put('/${path ?? defaultPath}',
+    try {
+      final response = dio.put(path,
+          queryParameters:
+              Map<String, dynamic>.from(_defaultQueryParameters ?? {})
+                ..addAll(queryParameters),
+          data: jsonEncode(data));
+      return response;
+    } on DioError catch (e) {
+      throw ExceptionApi(code: null, message: e.message);
+    }
+  }
+
+  @override
+  Future<Response> deleteData(
+      {required String path,
+      Map<String, dynamic> queryParameters = const {},
+      Map<String, dynamic>? headers}) async {
+    dio.options.headers = headers ?? _defaultHeaders;
+    try {
+      final response = dio.delete(
+        path,
         queryParameters:
             Map<String, dynamic>.from(_defaultQueryParameters ?? {})
               ..addAll(queryParameters),
-        data: jsonEncode(data));
-    return response;
+      );
+      return response;
+    } on DioError catch (e) {
+      throw ExceptionApi(code: null, message: e.message);
+    }
   }
+}
 
-  Future<Response> deleteData(
-      {String? path,
+abstract class DefaultApi {
+  Future<Response> getData(
+      {required String path,
       Map<String, dynamic> queryParameters = const {},
-      Map<String, dynamic>? headers}) async {
-    dio.options.headers = headers ?? _defaultHeaders;
-    final response = dio.delete(
-      '/${path ?? defaultPath}',
-      queryParameters: Map<String, dynamic>.from(_defaultQueryParameters ?? {})
-        ..addAll(queryParameters),
-    );
-    return response;
-  }
+      Map<String, dynamic>? headers});
+  Future<Response> postData(
+      {dynamic data,
+      required String path,
+      Map<String, dynamic> queryParameters = const {},
+      Map<String, dynamic>? headers});
+  Future<Response> putData(dynamic data,
+      {required String path,
+      Map<String, dynamic> queryParameters = const {},
+      Map<String, dynamic>? headers});
+  Future<Response> deleteData(
+      {required String path,
+      Map<String, dynamic> queryParameters = const {},
+      Map<String, dynamic>? headers});
 }

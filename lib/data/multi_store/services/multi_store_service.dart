@@ -5,15 +5,16 @@ import '../../default_api.dart';
 import '../../exception_api.dart';
 import '../../result_model.dart';
 
-class MultiStoreServiceImp extends DefaultApi implements MultiStoreService {
-  MultiStoreServiceImp({String defaultPath = ''}) : super(defaultPath);
+class MultiStoreServiceImp implements MultiStoreService {
+  MultiStoreServiceImp({required this.defaultApi});
+  final DefaultApi defaultApi;
 
   @override
   Future<CartValidateModel> cartItemRemove(
       {required int customerID,
       required int addressId,
       required int skuid}) async {
-    final respose = await postData(
+    final respose = await defaultApi.postData(
       path: 'multiStore/cart/remove',
       queryParameters: {
         'customerID': customerID,
@@ -34,7 +35,7 @@ class MultiStoreServiceImp extends DefaultApi implements MultiStoreService {
       {required int customerID,
       required int addressId,
       required List<CartSkuModel> carts}) async {
-    final respose = await postData(
+    final respose = await defaultApi.postData(
       path: 'multiStore/cart/update',
       data: carts,
       queryParameters: {
@@ -53,7 +54,7 @@ class MultiStoreServiceImp extends DefaultApi implements MultiStoreService {
   @override
   Future<CartValidateModel> cartValidate(
       {required int addressId, required int customerID}) async {
-    final respose = await postData(
+    final respose = await defaultApi.postData(
       path: 'multiStore/cart/validate',
       queryParameters: {'addressID': addressId, 'customerID': customerID},
     );

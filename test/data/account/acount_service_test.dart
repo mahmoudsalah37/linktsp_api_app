@@ -16,31 +16,31 @@ void main() async {
       }
     });
 
-    test('check register new user', () async {
-      const email = 'jsssdcfld@gmail.com', password = 'M123456d';
-      try {
-        await linkTspApi.account.register(
-          registerModel: RegisterModel(
-            email: email,
-            password: password,
-            conditionAgreement: true,
-            mobileType: "Android",
-            isSubscribed: true,
-            deviceId: "string",
-            id: 0,
-            firstName: "string",
-            lastName: "string",
-            mobile: "01091015145",
-            isActive: true,
-            zoneId: 0,
-            gender: 1,
-          ),
-        );
-        expect(true, true);
-      } catch (e) {
-        expect(true, false);
-      }
-    });
+    // test('check register new user', () async {
+    //   const email = 'jsssdcfld@gmail.com', password = 'M123456d';
+    //   try {
+    //     await linkTspApi.account.register(
+    //       registerModel: RegisterModel(
+    //         email: email,
+    //         password: password,
+    //         conditionAgreement: true,
+    //         mobileType: "Android",
+    //         isSubscribed: true,
+    //         deviceId: "string",
+    //         id: 0,
+    //         firstName: "string",
+    //         lastName: "string",
+    //         mobile: "01091015145",
+    //         isActive: true,
+    //         zoneId: 0,
+    //         gender: 1,
+    //       ),
+    //     );
+    //     expect(true, true);
+    //   } catch (e) {
+    //     expect(true, false);
+    //   }
+    // });
 
     test('update profile', () async {
       const email = 'omarzz@gmail.com';
