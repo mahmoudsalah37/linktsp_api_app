@@ -130,6 +130,7 @@ class OrderItem {
     this.colorHexaCode,
     this.color,
     this.colorId,
+    this.brandName,
   });
 
   int? qty;
@@ -155,6 +156,7 @@ class OrderItem {
   String? colorHexaCode;
   String? color;
   int? colorId;
+  String? brandName;
 
   factory OrderItem.fromJson(Map<String, dynamic> json) => OrderItem(
         qty: json["qty"],
@@ -181,6 +183,7 @@ class OrderItem {
         colorHexaCode: json["colorHexaCode"],
         color: json["color"],
         colorId: json["colorID"],
+        brandName: json["brandName"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -207,6 +210,7 @@ class OrderItem {
         "colorHexaCode": colorHexaCode,
         "color": color,
         "colorID": colorId,
+        "brandName": brandName,
       };
 }
 

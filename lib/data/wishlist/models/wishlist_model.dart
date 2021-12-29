@@ -24,6 +24,7 @@ class WishlistProductsModel {
     this.colorHexaCode,
     this.color,
     this.colorId,
+    this.brandName,
   });
 
   bool? preOrder;
@@ -50,6 +51,7 @@ class WishlistProductsModel {
   String? colorHexaCode;
   String? color;
   int? colorId;
+  String? brandName;
 
   factory WishlistProductsModel.fromJson(Map<String, dynamic> json) =>
       WishlistProductsModel(
@@ -78,6 +80,7 @@ class WishlistProductsModel {
         colorHexaCode: json["colorHexaCode"],
         color: json["color"],
         colorId: json["colorID"],
+        brandName: json["brandName"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -105,5 +108,6 @@ class WishlistProductsModel {
         "colorHexaCode": colorHexaCode,
         "color": color,
         "colorID": colorId,
+        "brandName": brandName,
       };
 }

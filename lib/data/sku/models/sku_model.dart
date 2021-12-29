@@ -63,6 +63,7 @@ class ProductDetailsModel {
     this.size,
     this.colorHexaCode,
     this.color,
+    this.brandName,
   });
 
   final String? details;
@@ -110,6 +111,7 @@ class ProductDetailsModel {
   final String? size;
   final String? colorHexaCode;
   final String? color;
+  final String? brandName;
 
   factory ProductDetailsModel.fromJson(Map<String, dynamic> json) =>
       ProductDetailsModel(
@@ -164,6 +166,7 @@ class ProductDetailsModel {
         size: json["size"],
         colorHexaCode: json["colorHexaCode"],
         color: json["color"],
+        brandName: json["brandName"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -213,6 +216,7 @@ class ProductDetailsModel {
         "size": size,
         "colorHexaCode": colorHexaCode,
         "color": color,
+        "brandName": brandName,
       };
 }
 
