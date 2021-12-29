@@ -76,7 +76,8 @@ class ItemItem {
     this.imageUrl,
     this.videoUrl,
     this.thumbImageUrl,
-    this.listType,
+    this.listTypeID,
+    this.listTypeName,
     this.product,
     this.itemSource,
     this.hasFilter,
@@ -88,7 +89,8 @@ class ItemItem {
   String? imageUrl;
   String? videoUrl;
   String? thumbImageUrl;
-  int? listType;
+  int? listTypeID;
+  String? listTypeName;
   Product? product;
   int? itemSource;
   bool? hasFilter;
@@ -100,7 +102,8 @@ class ItemItem {
         imageUrl: json["imageURL"],
         videoUrl: json["videoURL"],
         thumbImageUrl: json["thumbImageURL"],
-        listType: json["listType"],
+        listTypeID: json["listTypeID"],
+        listTypeName: json["listTypeName"],
         product:
             json["product"] == null ? null : Product.fromJson(json["product"]),
         itemSource: json["itemSource"],
@@ -114,7 +117,8 @@ class ItemItem {
         "imageURL": imageUrl,
         "videoURL": videoUrl,
         "thumbImageURL": thumbImageUrl,
-        "listType": listType,
+        "listTypeID": listTypeID,
+        "listTypeName": listTypeName,
         "product": product == null ? null : product!.toJson(),
         "itemSource": itemSource,
         "hasFilter": hasFilter,
@@ -232,21 +236,25 @@ class BrandsModel {
     this.id,
     this.title = '',
     this.imageUrl,
+    this.listTypeName,
   });
 
   int? id;
   String title;
   String? imageUrl;
+  String? listTypeName;
 
   factory BrandsModel.fromJson(Map<String, dynamic> json) => BrandsModel(
         id: json["id"],
         title: json["title"] ?? '',
         imageUrl: json["imageUrl"],
+        listTypeName: json["listTypeName"],
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
         "title": title,
         "imageUrl": imageUrl,
+        "listTypeName": listTypeName,
       };
 }

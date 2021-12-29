@@ -35,6 +35,7 @@ class CartItemModel {
     this.colorHexaCode,
     this.color,
     this.colorId,
+    this.brandName,
   });
 
   int? maxQty;
@@ -72,6 +73,7 @@ class CartItemModel {
   String? colorHexaCode;
   String? color;
   int? colorId;
+  String? brandName;
 
   factory CartItemModel.fromJson(Map<String, dynamic> json) => CartItemModel(
         maxQty: json["maxQty"],
@@ -110,6 +112,7 @@ class CartItemModel {
         colorHexaCode: json["colorHexaCode"],
         color: json["color"],
         colorId: json["colorID"],
+        brandName: json["brandName"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -148,5 +151,6 @@ class CartItemModel {
         "colorHexaCode": colorHexaCode,
         "color": color,
         "colorID": colorId,
+        "brandName": brandName,
       };
 }
