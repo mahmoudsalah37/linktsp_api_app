@@ -7,13 +7,16 @@ void main() async {
   final LinkTspApi linkTspApi = LinkTspApi();
   group('account services: ', () {
     test('check login', () async {
+      // Arange (Initialization)
+      UserModel userModel;
+
+      // Act (Execution)
       const email = 'omarzz@gmail.com', password = 'Oasdfghjkl@123';
-      try {
-        await linkTspApi.account.login(password: password, email: email);
-        expect(true, true);
-      } catch (e) {
-        expect(true, false);
-      }
+      userModel =
+          await linkTspApi.account.login(password: password, email: email);
+
+      // Assert (Observation)
+      expect(userModel.id, 32);
     });
 
     // test('check register new user', () async {

@@ -195,6 +195,7 @@ class ListingItem {
     this.colorHexaCode,
     this.color,
     this.colorId,
+    this.brandName,
   });
 
   double? rating;
@@ -225,6 +226,7 @@ class ListingItem {
   String? colorHexaCode;
   String? color;
   int? colorId;
+  String? brandName;
 
   factory ListingItem.fromJson(Map<String, dynamic> json) => ListingItem(
         rating: json["rating"],
@@ -263,6 +265,7 @@ class ListingItem {
         colorHexaCode: json["colorHexaCode"],
         color: json["color"],
         colorId: json["colorID"],
+        brandName: json["brandName"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -300,6 +303,7 @@ class ListingItem {
         "colorHexaCode": colorHexaCode,
         "color": color,
         "colorID": colorId,
+        "brandName": brandName,
       };
 }
 
