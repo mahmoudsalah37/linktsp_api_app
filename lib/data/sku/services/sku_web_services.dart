@@ -57,9 +57,9 @@ class SkuWebServiceImp implements SkuWebService {
 
   @override
   Future<ProductDetailsModel> getSkuDetails(
-      {required String productCode,
-      required int colorId,
-      required int sizeId,
+      {required String? productCode,
+      required int? colorId,
+      required int? sizeId,
       required String switchType,
       int? customerId}) async {
     final response =
@@ -93,11 +93,11 @@ abstract class SkuWebService {
   ///
   /// ( SwitchType : SwitchColor, SwitchSize )
   Future<ProductDetailsModel> getSkuDetails(
-      {required String productCode,
-      required int colorId,
-      required int sizeId,
+      {required String? productCode,
+      required int? colorId,
+      required int? sizeId,
       required String switchType,
-      int customerId});
+      int? customerId});
 
   /// It's used to return related products list
   ///
