@@ -47,7 +47,10 @@ class ListServiceImp implements ListService {
     );
     final result = ApiReturnResult.fromJSON(respose.data);
     if (result.code == 200) {
-      return ListingDataModel.fromJson(result.data);
+      print("result: ${result.data}");
+      return result.data == null
+          ? ListingDataModel(items: [], length: 0)
+          : ListingDataModel.fromJson(result.data);
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
