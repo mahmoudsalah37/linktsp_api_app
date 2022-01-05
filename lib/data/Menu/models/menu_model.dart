@@ -40,6 +40,8 @@ class Item {
   String? imgUrl;
   String? imgThumbUrl;
   bool? hasFilter;
+  String? listTypeName;
+  int? listTypeID;
 
   factory Item.fromJson(Map<String, dynamic> json) => Item(
         id: json["id"],
@@ -51,6 +53,8 @@ class Item {
         imgUrl: json["imgURL"],
         imgThumbUrl: json["imgThumbURL"],
         hasFilter: json["hasFilter"],
+        listTypeName: json["listTypeName"],
+        listTypeID: json["listTypeID"],
       );
 
   Map<String, dynamic> toJson() => {

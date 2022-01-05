@@ -247,12 +247,14 @@ class BrandsModel {
   String title;
   String? imageUrl;
   String? listTypeName;
+  int listTypeId;
 
   factory BrandsModel.fromJson(Map<String, dynamic> json) => BrandsModel(
         id: json["id"],
         title: json["title"] ?? '',
         imageUrl: json["imageUrl"],
         listTypeName: json["listTypeName"],
+        listTypeId: json["listTypeID"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -260,5 +262,6 @@ class BrandsModel {
         "title": title,
         "imageUrl": imageUrl,
         "listTypeName": listTypeName,
+        "listTypeID": listTypeId,
       };
 }
