@@ -241,13 +241,14 @@ class BrandsModel {
     this.title = '',
     this.imageUrl,
     this.listTypeName,
+    this.listTypeId,
   });
 
   int? id;
   String title;
   String? imageUrl;
   String? listTypeName;
-  int listTypeId;
+  int? listTypeId;
 
   factory BrandsModel.fromJson(Map<String, dynamic> json) => BrandsModel(
         id: json["id"],

@@ -31,6 +31,8 @@ class Item {
     this.imgUrl,
     this.imgThumbUrl,
     this.hasFilter,
+    this.listTypeName,
+    this.listTypeID,
   });
 
   int? id;
@@ -67,6 +69,8 @@ class Item {
         "imgURL": imgUrl,
         "imgThumbURL": imgThumbUrl,
         "hasFilter": hasFilter,
+        "listTypeName": listTypeName,
+        "listTypeID": listTypeID,
       };
 }
 
