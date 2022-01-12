@@ -101,7 +101,7 @@ abstract class SkuWebService {
       int version = 1,
       required int? sizeId,
       required String switchType,
-      int? customerId});
+      required int customerId});
 
   /// It's used to return related products list
   ///

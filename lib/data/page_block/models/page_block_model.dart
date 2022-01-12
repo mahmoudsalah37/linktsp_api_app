@@ -255,7 +255,7 @@ class BrandsModel {
         title: json["title"] ?? '',
         imageUrl: json["imageUrl"],
         listTypeName: json["listTypeName"],
-        listTypeId: json["listTypeID"],
+        listTypeId: json["listTypeId"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -263,6 +263,6 @@ class BrandsModel {
         "title": title,
         "imageUrl": imageUrl,
         "listTypeName": listTypeName,
-        "listTypeID": listTypeId,
+        "listTypeId": listTypeId,
       };
 }
