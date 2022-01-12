@@ -19,11 +19,10 @@ class DefaultApiImp implements DefaultApi {
   }
   static void init(
       {required String domin,
-      int version = 1,
       required String token,
       int lang = 1,
       int? zoneid}) {
-    _domin = '$domin/api/v$version/';
+    _domin = '$domin/api/';
     _token = token;
     _defaultQueryParameters = {
       'lang': lang,
@@ -34,12 +33,13 @@ class DefaultApiImp implements DefaultApi {
   @override
   Future<Response> getData(
       {required String path,
+        int version=1,
       Map<String, dynamic> queryParameters = const {},
       Map<String, dynamic>? headers}) async {
     dio.options.headers = headers ?? _defaultHeaders;
     try {
       final response = dio.get(
-        path,
+        "v$version/$path",
         queryParameters: Map<String, dynamic>.from(
             _defaultQueryParameters ?? <String, dynamic>{})
           ..addAll(queryParameters),
@@ -53,12 +53,14 @@ class DefaultApiImp implements DefaultApi {
   @override
   Future<Response> postData(
       {dynamic data,
+
       required String path,
+        int version=1,
       Map<String, dynamic> queryParameters = const {},
       Map<String, dynamic>? headers}) async {
     dio.options.headers = headers ?? _defaultHeaders;
     try {
-      final response = dio.post(path,
+      final response = dio.post("v$version/$path",
           queryParameters:
               Map<String, dynamic>.from(_defaultQueryParameters ?? {})
                 ..addAll(queryParameters),
@@ -72,11 +74,12 @@ class DefaultApiImp implements DefaultApi {
   @override
   Future<Response> putData(dynamic data,
       {required String path,
+        int version=1,
       Map<String, dynamic> queryParameters = const {},
       Map<String, dynamic>? headers}) async {
     dio.options.headers = headers ?? _defaultHeaders;
     try {
-      final response = dio.put(path,
+      final response = dio.put("v$version/$path",
           queryParameters:
               Map<String, dynamic>.from(_defaultQueryParameters ?? {})
                 ..addAll(queryParameters),
@@ -90,12 +93,13 @@ class DefaultApiImp implements DefaultApi {
   @override
   Future<Response> deleteData(
       {required String path,
+        int version=1,
       Map<String, dynamic> queryParameters = const {},
       Map<String, dynamic>? headers}) async {
     dio.options.headers = headers ?? _defaultHeaders;
     try {
       final response = dio.delete(
-        path,
+        "v$version/$path",
         queryParameters:
             Map<String, dynamic>.from(_defaultQueryParameters ?? {})
               ..addAll(queryParameters),
@@ -110,19 +114,23 @@ class DefaultApiImp implements DefaultApi {
 abstract class DefaultApi {
   Future<Response> getData(
       {required String path,
+        int version=1,
       Map<String, dynamic> queryParameters = const {},
       Map<String, dynamic>? headers});
   Future<Response> postData(
       {dynamic data,
       required String path,
+        int version=1,
       Map<String, dynamic> queryParameters = const {},
       Map<String, dynamic>? headers});
   Future<Response> putData(dynamic data,
       {required String path,
+        int version=1,
       Map<String, dynamic> queryParameters = const {},
       Map<String, dynamic>? headers});
   Future<Response> deleteData(
       {required String path,
+        int version=1,
       Map<String, dynamic> queryParameters = const {},
       Map<String, dynamic>? headers});
 }

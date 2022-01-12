@@ -30,9 +30,11 @@ class SkuWebServiceImp implements SkuWebService {
 
   @override
   Future<ProductDetailsModel> getProductDetails(
-      {required int skuid, int? customerId}) async {
+      {required int skuid, int version = 1, int? customerId}) async {
     final response = await defaultApi.postData(
-        path: 'sku/$skuid', queryParameters: {'CustomerId': customerId});
+        path: 'sku/$skuid',
+        version: version,
+        queryParameters: {'CustomerId': customerId});
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
       return ProductDetailsModel.fromJson(result.data);
@@ -59,11 +61,12 @@ class SkuWebServiceImp implements SkuWebService {
   Future<ProductDetailsModel> getSkuDetails(
       {required String? productCode,
       required int? colorId,
+      int version = 1,
       required int? sizeId,
       required String switchType,
       int? customerId}) async {
-    final response =
-        await defaultApi.postData(path: 'sku/$productCode', queryParameters: {
+    final response = await defaultApi
+        .postData(path: 'sku/$productCode', version: version, queryParameters: {
       'CustomerId': customerId,
       'colorID': colorId,
       'SizeID': sizeId,
@@ -95,6 +98,7 @@ abstract class SkuWebService {
   Future<ProductDetailsModel> getSkuDetails(
       {required String? productCode,
       required int? colorId,
+      int version = 1,
       required int? sizeId,
       required String switchType,
       int? customerId});

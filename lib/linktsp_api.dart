@@ -66,7 +66,6 @@ class LinkTspApi implements _LinkTspApiAbstract {
     DefaultApiImp.init(
         domin: domain,
         token: token,
-        version: version,
         lang: lang,
         zoneid: zoneid);
   }
