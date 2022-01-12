@@ -9,10 +9,13 @@ class ListServiceImp implements ListService {
   final DefaultApi defaultApi;
 
   @override
-  Future<FilterDataModel> getFilterOptionsData(
-      {required ListModel listModel}) async {
+  Future<FilterDataModel> getFilterOptionsData({
+    required ListModel listModel,
+    int version = 1,
+  }) async {
     final respose = await defaultApi.postData(
       path: 'filter',
+      version: version,
       data: listModel,
     );
     final result = ApiReturnResult.fromJSON(respose.data);
@@ -24,10 +27,13 @@ class ListServiceImp implements ListService {
   }
 
   @override
-  Future<ListingDataModel> getListingWithCategory(
-      {required ListModel listModel}) async {
+  Future<ListingDataModel> getListingWithCategory({
+    required ListModel listModel,
+    int version = 1,
+  }) async {
     final respose = await defaultApi.postData(
       path: 'list',
+      version: version,
       data: listModel,
     );
     final result = ApiReturnResult.fromJSON(respose.data);
@@ -39,15 +45,17 @@ class ListServiceImp implements ListService {
   }
 
   @override
-  Future<ListingDataModel> getListingWithFilter(
-      {required ListModel listModel}) async {
+  Future<ListingDataModel> getListingWithFilter({
+    required ListModel listModel,
+    int version = 1,
+  }) async {
     final respose = await defaultApi.postData(
       path: 'Search',
+      version: version,
       data: listModel,
     );
     final result = ApiReturnResult.fromJSON(respose.data);
     if (result.code == 200) {
-      print("result: ${result.data}");
       return result.data == null
           ? ListingDataModel(items: [], length: 0)
           : ListingDataModel.fromJson(result.data);
@@ -57,10 +65,13 @@ class ListServiceImp implements ListService {
   }
 
   @override
-  Future<ListingDataModel> getListingWithSort(
-      {required ListModel listModel}) async {
+  Future<ListingDataModel> getListingWithSort({
+    required ListModel listModel,
+    int version = 1,
+  }) async {
     final respose = await defaultApi.postData(
       path: 'List',
+      version: version,
       data: listModel,
     );
     final result = ApiReturnResult.fromJSON(respose.data);
@@ -74,11 +85,22 @@ class ListServiceImp implements ListService {
 
 abstract class ListService {
   /// Get list of products by category id
-  Future<ListingDataModel> getListingWithCategory(
-      {required ListModel listModel});
-  Future<ListingDataModel> getListingWithFilter({required ListModel listModel});
-  Future<ListingDataModel> getListingWithSort({required ListModel listModel});
+  Future<ListingDataModel> getListingWithCategory({
+    required ListModel listModel,
+    int version = 1,
+  });
+  Future<ListingDataModel> getListingWithFilter({
+    required ListModel listModel,
+    int version = 1,
+  });
+  Future<ListingDataModel> getListingWithSort({
+    required ListModel listModel,
+    int version = 1,
+  });
 
   /// Get filter options to use in filter
-  Future<FilterDataModel> getFilterOptionsData({required ListModel listModel});
+  Future<FilterDataModel> getFilterOptionsData({
+    required ListModel listModel,
+    int version = 1,
+  });
 }

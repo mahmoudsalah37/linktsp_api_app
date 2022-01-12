@@ -85,6 +85,7 @@ abstract class SkuWebService {
   /// It's used to get all product details. It must take product (skuid)
   Future<ProductDetailsModel> getProductDetails({
     required int skuid,
+    int version = 1,
     int customerId,
   });
 
