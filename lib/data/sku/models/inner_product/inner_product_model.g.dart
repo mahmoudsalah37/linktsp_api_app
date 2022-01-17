@@ -1,0 +1,161 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'inner_product_model.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_$_InnerProductModel _$$_InnerProductModelFromJson(Map<String, dynamic> json) =>
+    _$_InnerProductModel(
+      id: json['id'] as int?,
+      brands: json['brand'] == null
+          ? null
+          : BrandModel.fromJson(json['brand'] as Map<String, dynamic>),
+      title: json['title'] as String? ?? '',
+      averageRating: (json['averageRating'] as num?)?.toDouble() ?? 0,
+      sizes: (json['sizes'] as List<dynamic>?)
+              ?.map((e) => e == null
+                  ? null
+                  : SizeModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <SizeModel?>[],
+      colors: (json['colors'] as List<dynamic>?)
+              ?.map((e) => e == null
+                  ? null
+                  : ColorModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <ColorModel?>[],
+      skus: (json['skUs'] as List<dynamic>?)
+              ?.map((e) => e == null
+                  ? null
+                  : SkuModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <SkuModel?>[],
+      details: json['details'] as String? ?? '',
+      description: json['shortDescription'] as String? ?? '',
+      isShowSizeChart: json['showSizeChart'] as bool? ?? false,
+      sizeGuide: json['sizeChartImageURL'] as String?,
+      showOneClickOrder: json['showOneClickOrder'] as bool? ?? false,
+      preOrder: json['preOrder'] as bool? ?? false,
+      isAddedtoWishlist: json['isAddedtoWishlist'] as bool? ?? false,
+    );
+
+Map<String, dynamic> _$$_InnerProductModelToJson(
+        _$_InnerProductModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'brand': instance.brands,
+      'title': instance.title,
+      'averageRating': instance.averageRating,
+      'sizes': instance.sizes,
+      'colors': instance.colors,
+      'skUs': instance.skus,
+      'details': instance.details,
+      'shortDescription': instance.description,
+      'showSizeChart': instance.isShowSizeChart,
+      'sizeChartImageURL': instance.sizeGuide,
+      'showOneClickOrder': instance.showOneClickOrder,
+      'preOrder': instance.preOrder,
+      'isAddedtoWishlist': instance.isAddedtoWishlist,
+    };
+
+_$_BrandModel _$$_BrandModelFromJson(Map<String, dynamic> json) =>
+    _$_BrandModel(
+      id: json['id'] as int?,
+      name: json['name'] as String? ?? '',
+    );
+
+Map<String, dynamic> _$$_BrandModelToJson(_$_BrandModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+    };
+
+_$_SizeModel _$$_SizeModelFromJson(Map<String, dynamic> json) => _$_SizeModel(
+      id: json['id'] as int?,
+      name: json['name'] as String? ?? '',
+    );
+
+Map<String, dynamic> _$$_SizeModelToJson(_$_SizeModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+    };
+
+_$_ColorModel _$$_ColorModelFromJson(Map<String, dynamic> json) =>
+    _$_ColorModel(
+      id: json['id'] as int?,
+      name: json['name'] as String? ?? '',
+      thumbnail: json['croppedImageURL'] as String?,
+    );
+
+Map<String, dynamic> _$$_ColorModelToJson(_$_ColorModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'croppedImageURL': instance.thumbnail,
+    };
+
+_$_SkuModel _$$_SkuModelFromJson(Map<String, dynamic> json) => _$_SkuModel(
+      id: json['id'] as int?,
+      skuCode: json['sku'] as String? ?? '',
+      defaultPrice: (json['price'] as num?)?.toDouble() ?? 0,
+      finalPrice: (json['finalPrice'] as num?)?.toDouble() ?? 0,
+      colorId: json['colorID'] as int?,
+      sizeId: json['sizeID'] as int?,
+      images: (json['images'] as List<dynamic>?)
+              ?.map((e) => e == null
+                  ? null
+                  : ImageModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <ImageModel?>[],
+      discounts: (json['productDiscountList'] as List<dynamic>?)
+              ?.map((e) => e == null
+                  ? null
+                  : DiscountModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <DiscountModel?>[],
+      hasDiscount: json['hasDiscount'] as bool? ?? false,
+      maxQuantity: json['maxQty'] as int? ?? 0,
+      isAvaliable: json['isAvaliable'] as bool? ?? false,
+    );
+
+Map<String, dynamic> _$$_SkuModelToJson(_$_SkuModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'sku': instance.skuCode,
+      'price': instance.defaultPrice,
+      'finalPrice': instance.finalPrice,
+      'colorID': instance.colorId,
+      'sizeID': instance.sizeId,
+      'images': instance.images,
+      'productDiscountList': instance.discounts,
+      'hasDiscount': instance.hasDiscount,
+      'maxQty': instance.maxQuantity,
+      'isAvaliable': instance.isAvaliable,
+    };
+
+_$_ImageModel _$$_ImageModelFromJson(Map<String, dynamic> json) =>
+    _$_ImageModel(
+      id: json['id'] as int?,
+      url: json['url'] as String?,
+      thumbUrl: json['thumbUrl'] as String?,
+    );
+
+Map<String, dynamic> _$$_ImageModelToJson(_$_ImageModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'url': instance.url,
+      'thumbUrl': instance.thumbUrl,
+    };
+
+_$_DiscountModel _$$_DiscountModelFromJson(Map<String, dynamic> json) =>
+    _$_DiscountModel(
+      value: json['Value'] as String?,
+    );
+
+Map<String, dynamic> _$$_DiscountModelToJson(_$_DiscountModel instance) =>
+    <String, dynamic>{
+      'Value': instance.value,
+    };

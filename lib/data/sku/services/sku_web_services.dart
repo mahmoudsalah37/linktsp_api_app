@@ -1,4 +1,5 @@
 import 'package:linktsp_api/data/default_api.dart';
+import 'package:linktsp_api/data/sku/models/inner_product/inner_product_model.dart';
 import 'package:linktsp_api/data/sku/models/sku_model.dart';
 
 import '../../exception_api.dart';
@@ -29,7 +30,7 @@ class SkuWebServiceImp implements SkuWebService {
   }
 
   @override
-  Future<ProductDetailsModel> getProductDetails(
+  Future<InnerProductModel> getProductDetails(
       {required int skuid, int version = 1, int? customerId}) async {
     final response = await defaultApi.postData(
         path: 'sku/$skuid',
@@ -37,7 +38,7 @@ class SkuWebServiceImp implements SkuWebService {
         queryParameters: {'CustomerId': customerId});
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
-      return ProductDetailsModel.fromJson(result.data);
+      return InnerProductModel.fromJson(result.data);
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
@@ -83,7 +84,7 @@ class SkuWebServiceImp implements SkuWebService {
 
 abstract class SkuWebService {
   /// It's used to get all product details. It must take product (skuid)
-  Future<ProductDetailsModel> getProductDetails({
+  Future<InnerProductModel> getProductDetails({
     required int skuid,
     int version = 1,
     int customerId,
