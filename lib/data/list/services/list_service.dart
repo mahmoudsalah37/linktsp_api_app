@@ -1,6 +1,5 @@
 import 'package:linktsp_api/data/list/models/list_model.dart';
-import 'package:linktsp_api/data/list/models/new_list_model.dart';
-
+import 'package:linktsp_api/data/list/models/new_list_model.dart' as new_model;
 import '../../default_api.dart';
 import '../../exception_api.dart';
 import '../../result_model.dart';
@@ -15,7 +14,7 @@ class ListServiceImp implements ListService {
     int version = 1,
   }) async {
     final respose = await defaultApi.postData(
-      path: 'filter',
+      path: version == 1 ? 'filter' : 'List/filter',
       version: version,
       data: listModel,
     );
@@ -28,7 +27,7 @@ class ListServiceImp implements ListService {
   }
 
   @override
-  Future<NewListingDataModel> getListingWithCategory({
+  Future<new_model.NewListingDataModel> getListingWithCategory({
     required ListModel listModel,
     int version = 1,
   }) async {
@@ -37,32 +36,33 @@ class ListServiceImp implements ListService {
       version: version,
       data: listModel,
     );
-    print("path: ${version == 1 ? 'list' : 'List/list'}");
     final result = ApiReturnResult.fromJSON(respose.data);
     if (result.code == 200) {
       return result.data == null
-          ? NewListingDataModel(items: [], length: 0)
-          : NewListingDataModel.fromJson(result.data);
+          ? new_model.NewListingDataModel(
+              items: <new_model.ListingItem>[], length: 0)
+          : new_model.NewListingDataModel.fromJson(result.data);
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
   }
 
   @override
-  Future<ListingDataModel> getListingWithFilter({
+  Future<new_model.NewListingDataModel> getListingWithFilter({
     required ListModel listModel,
     int version = 1,
   }) async {
     final respose = await defaultApi.postData(
-      path: 'Search',
+      path: version == 1 ? 'Search' : 'List/Search',
       version: version,
       data: listModel,
     );
     final result = ApiReturnResult.fromJSON(respose.data);
     if (result.code == 200) {
       return result.data == null
-          ? ListingDataModel(items: [], length: 0)
-          : ListingDataModel.fromJson(result.data);
+          ? new_model.NewListingDataModel(
+              items: <new_model.ListingItem>[], length: 0)
+          : new_model.NewListingDataModel.fromJson(result.data);
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
@@ -89,11 +89,11 @@ class ListServiceImp implements ListService {
 
 abstract class ListService {
   /// Get list of products by category id
-  Future<NewListingDataModel> getListingWithCategory({
+  Future<new_model.NewListingDataModel> getListingWithCategory({
     required ListModel listModel,
     int version = 1,
   });
-  Future<ListingDataModel> getListingWithFilter({
+  Future<new_model.NewListingDataModel> getListingWithFilter({
     required ListModel listModel,
     int version = 1,
   });

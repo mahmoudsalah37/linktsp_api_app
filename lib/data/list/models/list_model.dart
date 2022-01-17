@@ -250,9 +250,8 @@ class ListingItem {
         title: json["title"],
         seoTitle: json["seoTitle"],
         isOutOfStock: json["isOutOfStock"],
-        price: json["price"] == null ? null : json["price"]!.toDouble(),
-        finalPrice:
-            json["finalPrice"] == null ? null : json["finalPrice"]!.toDouble(),
+        price: json["price"] ?? json["price"].toDouble(),
+        finalPrice: json["finalPrice"] ?? json["finalPrice"]!.toDouble(),
         hasDiscount: json["hasDiscount"],
         discountValue: json["discountValue"],
         discountType: json["discountType"],
