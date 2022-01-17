@@ -38,7 +38,15 @@ _$_InnerProductModel _$$_InnerProductModelFromJson(Map<String, dynamic> json) =>
       sizeGuide: json['sizeChartImageURL'] as String?,
       showOneClickOrder: json['showOneClickOrder'] as bool? ?? false,
       preOrder: json['preOrder'] as bool? ?? false,
-      isAddedtoWishlist: json['isAddedtoWishlist'] as bool? ?? false,
+      isAddedtoWishlist: json['isWishList'] as bool? ?? false,
+      minDeliveryPeriod: json['minDeliveryPeriod'] as int? ?? 0,
+      maxDeliveryPeriod: json['maxDeliveryPeriod'] as int? ?? 0,
+      features: (json['features'] as List<dynamic>?)
+              ?.map((e) => e == null
+                  ? null
+                  : FeatureModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <FeatureModel?>[],
     );
 
 Map<String, dynamic> _$$_InnerProductModelToJson(
@@ -57,7 +65,10 @@ Map<String, dynamic> _$$_InnerProductModelToJson(
       'sizeChartImageURL': instance.sizeGuide,
       'showOneClickOrder': instance.showOneClickOrder,
       'preOrder': instance.preOrder,
-      'isAddedtoWishlist': instance.isAddedtoWishlist,
+      'isWishList': instance.isAddedtoWishlist,
+      'minDeliveryPeriod': instance.minDeliveryPeriod,
+      'maxDeliveryPeriod': instance.maxDeliveryPeriod,
+      'features': instance.features,
     };
 
 _$_BrandModel _$$_BrandModelFromJson(Map<String, dynamic> json) =>
@@ -119,6 +130,8 @@ _$_SkuModel _$$_SkuModelFromJson(Map<String, dynamic> json) => _$_SkuModel(
       hasDiscount: json['hasDiscount'] as bool? ?? false,
       maxQuantity: json['maxQty'] as int? ?? 0,
       isAvaliable: json['isAvaliable'] as bool? ?? false,
+      bogoPromoText: json['bogoPromoText'] as String? ?? '',
+      quantityInStock: json['quantityLeft'] as int? ?? 0,
     );
 
 Map<String, dynamic> _$$_SkuModelToJson(_$_SkuModel instance) =>
@@ -134,6 +147,8 @@ Map<String, dynamic> _$$_SkuModelToJson(_$_SkuModel instance) =>
       'hasDiscount': instance.hasDiscount,
       'maxQty': instance.maxQuantity,
       'isAvaliable': instance.isAvaliable,
+      'bogoPromoText': instance.bogoPromoText,
+      'quantityLeft': instance.quantityInStock,
     };
 
 _$_ImageModel _$$_ImageModelFromJson(Map<String, dynamic> json) =>
@@ -152,10 +167,24 @@ Map<String, dynamic> _$$_ImageModelToJson(_$_ImageModel instance) =>
 
 _$_DiscountModel _$$_DiscountModelFromJson(Map<String, dynamic> json) =>
     _$_DiscountModel(
-      value: json['Value'] as String?,
+      key: json['key'] as String? ?? '',
+      value: json['value'] as String? ?? '',
     );
 
 Map<String, dynamic> _$$_DiscountModelToJson(_$_DiscountModel instance) =>
     <String, dynamic>{
-      'Value': instance.value,
+      'key': instance.key,
+      'value': instance.value,
+    };
+
+_$_FeatureModel _$$_FeatureModelFromJson(Map<String, dynamic> json) =>
+    _$_FeatureModel(
+      name: json['name'] as String? ?? '',
+      value: json['value'] as String? ?? '',
+    );
+
+Map<String, dynamic> _$$_FeatureModelToJson(_$_FeatureModel instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'value': instance.value,
     };

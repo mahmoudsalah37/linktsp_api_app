@@ -21,7 +21,12 @@ class InnerProductModel with _$InnerProductModel {
     @JsonKey(name: 'sizeChartImageURL') String? sizeGuide,
     @Default(false) @JsonKey(name: 'showOneClickOrder') bool showOneClickOrder,
     @Default(false) @JsonKey(name: 'preOrder') bool preOrder,
-    @Default(false) @JsonKey(name: 'isAddedtoWishlist') bool isAddedtoWishlist,
+    @Default(false) @JsonKey(name: 'isWishList') bool isAddedtoWishlist,
+    @Default(0) @JsonKey(name: 'minDeliveryPeriod') int minDeliveryPeriod,
+    @Default(0) @JsonKey(name: 'maxDeliveryPeriod') int maxDeliveryPeriod,
+    @Default(<FeatureModel?>[])
+    @JsonKey(name: 'features')
+        List<FeatureModel?> features,
   }) = _InnerProductModel;
 
   factory InnerProductModel.fromJson(Map<String, dynamic> json) =>
@@ -78,6 +83,8 @@ class SkuModel with _$SkuModel {
     @Default(false) @JsonKey(name: 'hasDiscount') bool hasDiscount,
     @Default(0) @JsonKey(name: 'maxQty') int maxQuantity,
     @Default(false) @JsonKey(name: 'isAvaliable') bool isAvaliable,
+    @Default('') @JsonKey(name: 'bogoPromoText') String bogoPromoText,
+    @Default(0) @JsonKey(name: 'quantityLeft') int quantityInStock,
   }) = _SkuModel;
 
   factory SkuModel.fromJson(Map<String, dynamic> json) =>
@@ -99,9 +106,21 @@ class ImageModel with _$ImageModel {
 @freezed
 class DiscountModel with _$DiscountModel {
   const factory DiscountModel({
-    @JsonKey(name: 'Value') String? value,
+    @Default('') @JsonKey(name: 'key') String key,
+    @Default('') @JsonKey(name: 'value') String value,
   }) = _DiscountModel;
 
   factory DiscountModel.fromJson(Map<String, dynamic> json) =>
       _$DiscountModelFromJson(json);
+}
+
+@freezed
+class FeatureModel with _$FeatureModel {
+  const factory FeatureModel({
+    @Default('') @JsonKey(name: 'name') String name,
+    @Default('') @JsonKey(name: 'value') String value,
+  }) = _FeatureModel;
+
+  factory FeatureModel.fromJson(Map<String, dynamic> json) =>
+      _$FeatureModelFromJson(json);
 }
