@@ -16,21 +16,25 @@ void main() async {
         expect(true, false);
       }
     });
-    // test('get listing with category is successed', () async {
-    //   try {
-    //     await service.getListingWithCategory(
-    //       listModel: ListModel(
-    //         listType: 'Category',
-    //         listTypeId: 304,
-    //         rowCount: 20,
-    //         pageIndex: 1,
-    //       ),
-    //     );
-    //     expect(true, true);
-    //   } catch (e) {
-    //     expect(true, false);
-    //   }
-    // });
+    test('get listing with category is successed', () async {
+      try {
+        await service.getListingWithCategory(
+          version: 3,
+          listModel: ListModel(
+            listType: "Brand",
+            listTypeId: 10006,
+            languageId: 1,
+            pageIndex: 1,
+            rowCount: 1,
+            // minPrice: int.parse(minPrice.value.toStringAsFixed(0).toString()),
+            // maxPrice: int.tryParse(maxPrice.value.toStringAsFixed(0).toString()),
+          ),
+        );
+        expect(true, true);
+      } catch (e) {
+        expect(true, false);
+      }
+    });
     // test('get listing with filter is successed', () async {
     //   try {
     //     await service.getListingWithFilter(
