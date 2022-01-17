@@ -33,7 +33,7 @@ class DefaultApiImp implements DefaultApi {
   @override
   Future<Response> getData(
       {required String path,
-        int version=1,
+      int version = 1,
       Map<String, dynamic> queryParameters = const {},
       Map<String, dynamic>? headers}) async {
     dio.options.headers = headers ?? _defaultHeaders;
@@ -53,9 +53,8 @@ class DefaultApiImp implements DefaultApi {
   @override
   Future<Response> postData(
       {dynamic data,
-
       required String path,
-        int version=1,
+      int version = 1,
       Map<String, dynamic> queryParameters = const {},
       Map<String, dynamic>? headers}) async {
     dio.options.headers = headers ?? _defaultHeaders;
@@ -74,7 +73,7 @@ class DefaultApiImp implements DefaultApi {
   @override
   Future<Response> putData(dynamic data,
       {required String path,
-        int version=1,
+      int version = 1,
       Map<String, dynamic> queryParameters = const {},
       Map<String, dynamic>? headers}) async {
     dio.options.headers = headers ?? _defaultHeaders;
@@ -93,7 +92,7 @@ class DefaultApiImp implements DefaultApi {
   @override
   Future<Response> deleteData(
       {required String path,
-        int version=1,
+      int version = 1,
       Map<String, dynamic> queryParameters = const {},
       Map<String, dynamic>? headers}) async {
     dio.options.headers = headers ?? _defaultHeaders;
@@ -114,23 +113,23 @@ class DefaultApiImp implements DefaultApi {
 abstract class DefaultApi {
   Future<Response> getData(
       {required String path,
-        int version=1,
+      int version = 1,
       Map<String, dynamic> queryParameters = const {},
       Map<String, dynamic>? headers});
   Future<Response> postData(
       {dynamic data,
       required String path,
-        int version=1,
+      int version = 1,
       Map<String, dynamic> queryParameters = const {},
       Map<String, dynamic>? headers});
   Future<Response> putData(dynamic data,
       {required String path,
-        int version=1,
+      int version = 1,
       Map<String, dynamic> queryParameters = const {},
       Map<String, dynamic>? headers});
   Future<Response> deleteData(
       {required String path,
-        int version=1,
+      int version = 1,
       Map<String, dynamic> queryParameters = const {},
       Map<String, dynamic>? headers});
 }
