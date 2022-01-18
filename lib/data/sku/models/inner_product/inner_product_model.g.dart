@@ -41,6 +41,10 @@ _$_InnerProductModel _$$_InnerProductModelFromJson(Map<String, dynamic> json) =>
       isAddedtoWishlist: json['isWishList'] as bool? ?? false,
       minDeliveryPeriod: json['minDeliveryPeriod'] as int? ?? 0,
       maxDeliveryPeriod: json['maxDeliveryPeriod'] as int? ?? 0,
+      review: json['reviews'] == null
+          ? null
+          : ReviewUserCommentModel.fromJson(
+              json['reviews'] as Map<String, dynamic>),
       features: (json['features'] as List<dynamic>?)
               ?.map((e) => e == null
                   ? null
@@ -68,7 +72,43 @@ Map<String, dynamic> _$$_InnerProductModelToJson(
       'isWishList': instance.isAddedtoWishlist,
       'minDeliveryPeriod': instance.minDeliveryPeriod,
       'maxDeliveryPeriod': instance.maxDeliveryPeriod,
+      'reviews': instance.review,
       'features': instance.features,
+    };
+
+_$_ReviewUserCommentModel _$$_ReviewUserCommentModelFromJson(
+        Map<String, dynamic> json) =>
+    _$_ReviewUserCommentModel(
+      items: (json['items'] as List<dynamic>?)
+              ?.map((e) => ItemReviewModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <ItemReviewModel>[],
+    );
+
+Map<String, dynamic> _$$_ReviewUserCommentModelToJson(
+        _$_ReviewUserCommentModel instance) =>
+    <String, dynamic>{
+      'items': instance.items,
+    };
+
+_$_ItemReviewModel _$$_ItemReviewModelFromJson(Map<String, dynamic> json) =>
+    _$_ItemReviewModel(
+      id: json['id'] as int?,
+      description: json['description'] as String? ?? '',
+      productCode: json['productCode'] as String? ?? '',
+      customerName: json['customerName'] as String? ?? '',
+      date: json['date'] as String? ?? '',
+      rating: (json['rating'] as num?)?.toDouble() ?? 0,
+    );
+
+Map<String, dynamic> _$$_ItemReviewModelToJson(_$_ItemReviewModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'description': instance.description,
+      'productCode': instance.productCode,
+      'customerName': instance.customerName,
+      'date': instance.date,
+      'rating': instance.rating,
     };
 
 _$_BrandModel _$$_BrandModelFromJson(Map<String, dynamic> json) =>

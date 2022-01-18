@@ -24,6 +24,9 @@ class InnerProductModel with _$InnerProductModel {
     @Default(false) @JsonKey(name: 'isWishList') bool isAddedtoWishlist,
     @Default(0) @JsonKey(name: 'minDeliveryPeriod') int minDeliveryPeriod,
     @Default(0) @JsonKey(name: 'maxDeliveryPeriod') int maxDeliveryPeriod,
+    //reviews
+
+    @JsonKey(name: 'reviews') ReviewUserCommentModel? review,
     @Default(<FeatureModel?>[])
     @JsonKey(name: 'features')
         List<FeatureModel?> features,
@@ -31,6 +34,33 @@ class InnerProductModel with _$InnerProductModel {
 
   factory InnerProductModel.fromJson(Map<String, dynamic> json) =>
       _$InnerProductModelFromJson(json);
+}
+
+@freezed
+class ReviewUserCommentModel with _$ReviewUserCommentModel {
+  const factory ReviewUserCommentModel({
+    @Default(<ItemReviewModel>[])
+    @JsonKey(name: 'items')
+        List<ItemReviewModel> items,
+  }) = _ReviewUserCommentModel;
+
+  factory ReviewUserCommentModel.fromJson(Map<String, dynamic> json) =>
+      _$ReviewUserCommentModelFromJson(json);
+}
+
+@freezed
+class ItemReviewModel with _$ItemReviewModel {
+  const factory ItemReviewModel({
+    @JsonKey(name: 'id') int? id,
+    @Default('') @JsonKey(name: 'description') String description,
+    @Default('') @JsonKey(name: 'productCode') String productCode,
+    @Default('') @JsonKey(name: 'customerName') String customerName,
+    @Default('') @JsonKey(name: 'date') String date,
+    @Default(0) @JsonKey(name: 'rating') double rating,
+  }) = _ItemReviewModel;
+
+  factory ItemReviewModel.fromJson(Map<String, dynamic> json) =>
+      _$ItemReviewModelFromJson(json);
 }
 
 @freezed

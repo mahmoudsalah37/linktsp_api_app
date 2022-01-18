@@ -55,6 +55,8 @@ class _$InnerProductModelTearOff {
           int minDeliveryPeriod = 0,
       @JsonKey(name: 'maxDeliveryPeriod')
           int maxDeliveryPeriod = 0,
+      @JsonKey(name: 'reviews')
+          ReviewUserCommentModel? review,
       @JsonKey(name: 'features')
           List<FeatureModel?> features = const <FeatureModel?>[]}) {
     return _InnerProductModel(
@@ -74,6 +76,7 @@ class _$InnerProductModelTearOff {
       isAddedtoWishlist: isAddedtoWishlist,
       minDeliveryPeriod: minDeliveryPeriod,
       maxDeliveryPeriod: maxDeliveryPeriod,
+      review: review,
       features: features,
     );
   }
@@ -119,7 +122,9 @@ mixin _$InnerProductModel {
   @JsonKey(name: 'minDeliveryPeriod')
   int get minDeliveryPeriod => throw _privateConstructorUsedError;
   @JsonKey(name: 'maxDeliveryPeriod')
-  int get maxDeliveryPeriod => throw _privateConstructorUsedError;
+  int get maxDeliveryPeriod => throw _privateConstructorUsedError; //reviews
+  @JsonKey(name: 'reviews')
+  ReviewUserCommentModel? get review => throw _privateConstructorUsedError;
   @JsonKey(name: 'features')
   List<FeatureModel?> get features => throw _privateConstructorUsedError;
 
@@ -151,9 +156,11 @@ abstract class $InnerProductModelCopyWith<$Res> {
       @JsonKey(name: 'isWishList') bool isAddedtoWishlist,
       @JsonKey(name: 'minDeliveryPeriod') int minDeliveryPeriod,
       @JsonKey(name: 'maxDeliveryPeriod') int maxDeliveryPeriod,
+      @JsonKey(name: 'reviews') ReviewUserCommentModel? review,
       @JsonKey(name: 'features') List<FeatureModel?> features});
 
   $BrandModelCopyWith<$Res>? get brands;
+  $ReviewUserCommentModelCopyWith<$Res>? get review;
 }
 
 /// @nodoc
@@ -183,6 +190,7 @@ class _$InnerProductModelCopyWithImpl<$Res>
     Object? isAddedtoWishlist = freezed,
     Object? minDeliveryPeriod = freezed,
     Object? maxDeliveryPeriod = freezed,
+    Object? review = freezed,
     Object? features = freezed,
   }) {
     return _then(_value.copyWith(
@@ -250,6 +258,10 @@ class _$InnerProductModelCopyWithImpl<$Res>
           ? _value.maxDeliveryPeriod
           : maxDeliveryPeriod // ignore: cast_nullable_to_non_nullable
               as int,
+      review: review == freezed
+          ? _value.review
+          : review // ignore: cast_nullable_to_non_nullable
+              as ReviewUserCommentModel?,
       features: features == freezed
           ? _value.features
           : features // ignore: cast_nullable_to_non_nullable
@@ -265,6 +277,17 @@ class _$InnerProductModelCopyWithImpl<$Res>
 
     return $BrandModelCopyWith<$Res>(_value.brands!, (value) {
       return _then(_value.copyWith(brands: value));
+    });
+  }
+
+  @override
+  $ReviewUserCommentModelCopyWith<$Res>? get review {
+    if (_value.review == null) {
+      return null;
+    }
+
+    return $ReviewUserCommentModelCopyWith<$Res>(_value.review!, (value) {
+      return _then(_value.copyWith(review: value));
     });
   }
 }
@@ -293,10 +316,13 @@ abstract class _$InnerProductModelCopyWith<$Res>
       @JsonKey(name: 'isWishList') bool isAddedtoWishlist,
       @JsonKey(name: 'minDeliveryPeriod') int minDeliveryPeriod,
       @JsonKey(name: 'maxDeliveryPeriod') int maxDeliveryPeriod,
+      @JsonKey(name: 'reviews') ReviewUserCommentModel? review,
       @JsonKey(name: 'features') List<FeatureModel?> features});
 
   @override
   $BrandModelCopyWith<$Res>? get brands;
+  @override
+  $ReviewUserCommentModelCopyWith<$Res>? get review;
 }
 
 /// @nodoc
@@ -328,6 +354,7 @@ class __$InnerProductModelCopyWithImpl<$Res>
     Object? isAddedtoWishlist = freezed,
     Object? minDeliveryPeriod = freezed,
     Object? maxDeliveryPeriod = freezed,
+    Object? review = freezed,
     Object? features = freezed,
   }) {
     return _then(_InnerProductModel(
@@ -395,6 +422,10 @@ class __$InnerProductModelCopyWithImpl<$Res>
           ? _value.maxDeliveryPeriod
           : maxDeliveryPeriod // ignore: cast_nullable_to_non_nullable
               as int,
+      review: review == freezed
+          ? _value.review
+          : review // ignore: cast_nullable_to_non_nullable
+              as ReviewUserCommentModel?,
       features: features == freezed
           ? _value.features
           : features // ignore: cast_nullable_to_non_nullable
@@ -423,6 +454,7 @@ class _$_InnerProductModel implements _InnerProductModel {
       @JsonKey(name: 'isWishList') this.isAddedtoWishlist = false,
       @JsonKey(name: 'minDeliveryPeriod') this.minDeliveryPeriod = 0,
       @JsonKey(name: 'maxDeliveryPeriod') this.maxDeliveryPeriod = 0,
+      @JsonKey(name: 'reviews') this.review,
       @JsonKey(name: 'features') this.features = const <FeatureModel?>[]});
 
   factory _$_InnerProductModel.fromJson(Map<String, dynamic> json) =>
@@ -476,13 +508,16 @@ class _$_InnerProductModel implements _InnerProductModel {
   @override
   @JsonKey(name: 'maxDeliveryPeriod')
   final int maxDeliveryPeriod;
+  @override //reviews
+  @JsonKey(name: 'reviews')
+  final ReviewUserCommentModel? review;
   @override
   @JsonKey(name: 'features')
   final List<FeatureModel?> features;
 
   @override
   String toString() {
-    return 'InnerProductModel(id: $id, brands: $brands, title: $title, averageRating: $averageRating, sizes: $sizes, colors: $colors, skus: $skus, details: $details, description: $description, isShowSizeChart: $isShowSizeChart, sizeGuide: $sizeGuide, showOneClickOrder: $showOneClickOrder, preOrder: $preOrder, isAddedtoWishlist: $isAddedtoWishlist, minDeliveryPeriod: $minDeliveryPeriod, maxDeliveryPeriod: $maxDeliveryPeriod, features: $features)';
+    return 'InnerProductModel(id: $id, brands: $brands, title: $title, averageRating: $averageRating, sizes: $sizes, colors: $colors, skus: $skus, details: $details, description: $description, isShowSizeChart: $isShowSizeChart, sizeGuide: $sizeGuide, showOneClickOrder: $showOneClickOrder, preOrder: $preOrder, isAddedtoWishlist: $isAddedtoWishlist, minDeliveryPeriod: $minDeliveryPeriod, maxDeliveryPeriod: $maxDeliveryPeriod, review: $review, features: $features)';
   }
 
   @override
@@ -513,6 +548,7 @@ class _$_InnerProductModel implements _InnerProductModel {
                 .equals(other.minDeliveryPeriod, minDeliveryPeriod) &&
             const DeepCollectionEquality()
                 .equals(other.maxDeliveryPeriod, maxDeliveryPeriod) &&
+            const DeepCollectionEquality().equals(other.review, review) &&
             const DeepCollectionEquality().equals(other.features, features));
   }
 
@@ -535,6 +571,7 @@ class _$_InnerProductModel implements _InnerProductModel {
       const DeepCollectionEquality().hash(isAddedtoWishlist),
       const DeepCollectionEquality().hash(minDeliveryPeriod),
       const DeepCollectionEquality().hash(maxDeliveryPeriod),
+      const DeepCollectionEquality().hash(review),
       const DeepCollectionEquality().hash(features));
 
   @JsonKey(ignore: true)
@@ -566,6 +603,7 @@ abstract class _InnerProductModel implements InnerProductModel {
           @JsonKey(name: 'isWishList') bool isAddedtoWishlist,
           @JsonKey(name: 'minDeliveryPeriod') int minDeliveryPeriod,
           @JsonKey(name: 'maxDeliveryPeriod') int maxDeliveryPeriod,
+          @JsonKey(name: 'reviews') ReviewUserCommentModel? review,
           @JsonKey(name: 'features') List<FeatureModel?> features}) =
       _$_InnerProductModel;
 
@@ -620,12 +658,465 @@ abstract class _InnerProductModel implements InnerProductModel {
   @override
   @JsonKey(name: 'maxDeliveryPeriod')
   int get maxDeliveryPeriod;
+  @override //reviews
+  @JsonKey(name: 'reviews')
+  ReviewUserCommentModel? get review;
   @override
   @JsonKey(name: 'features')
   List<FeatureModel?> get features;
   @override
   @JsonKey(ignore: true)
   _$InnerProductModelCopyWith<_InnerProductModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+ReviewUserCommentModel _$ReviewUserCommentModelFromJson(
+    Map<String, dynamic> json) {
+  return _ReviewUserCommentModel.fromJson(json);
+}
+
+/// @nodoc
+class _$ReviewUserCommentModelTearOff {
+  const _$ReviewUserCommentModelTearOff();
+
+  _ReviewUserCommentModel call(
+      {@JsonKey(name: 'items')
+          List<ItemReviewModel> items = const <ItemReviewModel>[]}) {
+    return _ReviewUserCommentModel(
+      items: items,
+    );
+  }
+
+  ReviewUserCommentModel fromJson(Map<String, Object?> json) {
+    return ReviewUserCommentModel.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $ReviewUserCommentModel = _$ReviewUserCommentModelTearOff();
+
+/// @nodoc
+mixin _$ReviewUserCommentModel {
+  @JsonKey(name: 'items')
+  List<ItemReviewModel> get items => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ReviewUserCommentModelCopyWith<ReviewUserCommentModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ReviewUserCommentModelCopyWith<$Res> {
+  factory $ReviewUserCommentModelCopyWith(ReviewUserCommentModel value,
+          $Res Function(ReviewUserCommentModel) then) =
+      _$ReviewUserCommentModelCopyWithImpl<$Res>;
+  $Res call({@JsonKey(name: 'items') List<ItemReviewModel> items});
+}
+
+/// @nodoc
+class _$ReviewUserCommentModelCopyWithImpl<$Res>
+    implements $ReviewUserCommentModelCopyWith<$Res> {
+  _$ReviewUserCommentModelCopyWithImpl(this._value, this._then);
+
+  final ReviewUserCommentModel _value;
+  // ignore: unused_field
+  final $Res Function(ReviewUserCommentModel) _then;
+
+  @override
+  $Res call({
+    Object? items = freezed,
+  }) {
+    return _then(_value.copyWith(
+      items: items == freezed
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
+              as List<ItemReviewModel>,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$ReviewUserCommentModelCopyWith<$Res>
+    implements $ReviewUserCommentModelCopyWith<$Res> {
+  factory _$ReviewUserCommentModelCopyWith(_ReviewUserCommentModel value,
+          $Res Function(_ReviewUserCommentModel) then) =
+      __$ReviewUserCommentModelCopyWithImpl<$Res>;
+  @override
+  $Res call({@JsonKey(name: 'items') List<ItemReviewModel> items});
+}
+
+/// @nodoc
+class __$ReviewUserCommentModelCopyWithImpl<$Res>
+    extends _$ReviewUserCommentModelCopyWithImpl<$Res>
+    implements _$ReviewUserCommentModelCopyWith<$Res> {
+  __$ReviewUserCommentModelCopyWithImpl(_ReviewUserCommentModel _value,
+      $Res Function(_ReviewUserCommentModel) _then)
+      : super(_value, (v) => _then(v as _ReviewUserCommentModel));
+
+  @override
+  _ReviewUserCommentModel get _value => super._value as _ReviewUserCommentModel;
+
+  @override
+  $Res call({
+    Object? items = freezed,
+  }) {
+    return _then(_ReviewUserCommentModel(
+      items: items == freezed
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
+              as List<ItemReviewModel>,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_ReviewUserCommentModel implements _ReviewUserCommentModel {
+  const _$_ReviewUserCommentModel(
+      {@JsonKey(name: 'items') this.items = const <ItemReviewModel>[]});
+
+  factory _$_ReviewUserCommentModel.fromJson(Map<String, dynamic> json) =>
+      _$$_ReviewUserCommentModelFromJson(json);
+
+  @override
+  @JsonKey(name: 'items')
+  final List<ItemReviewModel> items;
+
+  @override
+  String toString() {
+    return 'ReviewUserCommentModel(items: $items)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ReviewUserCommentModel &&
+            const DeepCollectionEquality().equals(other.items, items));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(items));
+
+  @JsonKey(ignore: true)
+  @override
+  _$ReviewUserCommentModelCopyWith<_ReviewUserCommentModel> get copyWith =>
+      __$ReviewUserCommentModelCopyWithImpl<_ReviewUserCommentModel>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ReviewUserCommentModelToJson(this);
+  }
+}
+
+abstract class _ReviewUserCommentModel implements ReviewUserCommentModel {
+  const factory _ReviewUserCommentModel(
+          {@JsonKey(name: 'items') List<ItemReviewModel> items}) =
+      _$_ReviewUserCommentModel;
+
+  factory _ReviewUserCommentModel.fromJson(Map<String, dynamic> json) =
+      _$_ReviewUserCommentModel.fromJson;
+
+  @override
+  @JsonKey(name: 'items')
+  List<ItemReviewModel> get items;
+  @override
+  @JsonKey(ignore: true)
+  _$ReviewUserCommentModelCopyWith<_ReviewUserCommentModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+ItemReviewModel _$ItemReviewModelFromJson(Map<String, dynamic> json) {
+  return _ItemReviewModel.fromJson(json);
+}
+
+/// @nodoc
+class _$ItemReviewModelTearOff {
+  const _$ItemReviewModelTearOff();
+
+  _ItemReviewModel call(
+      {@JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'description') String description = '',
+      @JsonKey(name: 'productCode') String productCode = '',
+      @JsonKey(name: 'customerName') String customerName = '',
+      @JsonKey(name: 'date') String date = '',
+      @JsonKey(name: 'rating') double rating = 0}) {
+    return _ItemReviewModel(
+      id: id,
+      description: description,
+      productCode: productCode,
+      customerName: customerName,
+      date: date,
+      rating: rating,
+    );
+  }
+
+  ItemReviewModel fromJson(Map<String, Object?> json) {
+    return ItemReviewModel.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $ItemReviewModel = _$ItemReviewModelTearOff();
+
+/// @nodoc
+mixin _$ItemReviewModel {
+  @JsonKey(name: 'id')
+  int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'description')
+  String get description => throw _privateConstructorUsedError;
+  @JsonKey(name: 'productCode')
+  String get productCode => throw _privateConstructorUsedError;
+  @JsonKey(name: 'customerName')
+  String get customerName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'date')
+  String get date => throw _privateConstructorUsedError;
+  @JsonKey(name: 'rating')
+  double get rating => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ItemReviewModelCopyWith<ItemReviewModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ItemReviewModelCopyWith<$Res> {
+  factory $ItemReviewModelCopyWith(
+          ItemReviewModel value, $Res Function(ItemReviewModel) then) =
+      _$ItemReviewModelCopyWithImpl<$Res>;
+  $Res call(
+      {@JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'description') String description,
+      @JsonKey(name: 'productCode') String productCode,
+      @JsonKey(name: 'customerName') String customerName,
+      @JsonKey(name: 'date') String date,
+      @JsonKey(name: 'rating') double rating});
+}
+
+/// @nodoc
+class _$ItemReviewModelCopyWithImpl<$Res>
+    implements $ItemReviewModelCopyWith<$Res> {
+  _$ItemReviewModelCopyWithImpl(this._value, this._then);
+
+  final ItemReviewModel _value;
+  // ignore: unused_field
+  final $Res Function(ItemReviewModel) _then;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? description = freezed,
+    Object? productCode = freezed,
+    Object? customerName = freezed,
+    Object? date = freezed,
+    Object? rating = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      productCode: productCode == freezed
+          ? _value.productCode
+          : productCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      customerName: customerName == freezed
+          ? _value.customerName
+          : customerName // ignore: cast_nullable_to_non_nullable
+              as String,
+      date: date == freezed
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String,
+      rating: rating == freezed
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$ItemReviewModelCopyWith<$Res>
+    implements $ItemReviewModelCopyWith<$Res> {
+  factory _$ItemReviewModelCopyWith(
+          _ItemReviewModel value, $Res Function(_ItemReviewModel) then) =
+      __$ItemReviewModelCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {@JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'description') String description,
+      @JsonKey(name: 'productCode') String productCode,
+      @JsonKey(name: 'customerName') String customerName,
+      @JsonKey(name: 'date') String date,
+      @JsonKey(name: 'rating') double rating});
+}
+
+/// @nodoc
+class __$ItemReviewModelCopyWithImpl<$Res>
+    extends _$ItemReviewModelCopyWithImpl<$Res>
+    implements _$ItemReviewModelCopyWith<$Res> {
+  __$ItemReviewModelCopyWithImpl(
+      _ItemReviewModel _value, $Res Function(_ItemReviewModel) _then)
+      : super(_value, (v) => _then(v as _ItemReviewModel));
+
+  @override
+  _ItemReviewModel get _value => super._value as _ItemReviewModel;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? description = freezed,
+    Object? productCode = freezed,
+    Object? customerName = freezed,
+    Object? date = freezed,
+    Object? rating = freezed,
+  }) {
+    return _then(_ItemReviewModel(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      productCode: productCode == freezed
+          ? _value.productCode
+          : productCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      customerName: customerName == freezed
+          ? _value.customerName
+          : customerName // ignore: cast_nullable_to_non_nullable
+              as String,
+      date: date == freezed
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String,
+      rating: rating == freezed
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_ItemReviewModel implements _ItemReviewModel {
+  const _$_ItemReviewModel(
+      {@JsonKey(name: 'id') this.id,
+      @JsonKey(name: 'description') this.description = '',
+      @JsonKey(name: 'productCode') this.productCode = '',
+      @JsonKey(name: 'customerName') this.customerName = '',
+      @JsonKey(name: 'date') this.date = '',
+      @JsonKey(name: 'rating') this.rating = 0});
+
+  factory _$_ItemReviewModel.fromJson(Map<String, dynamic> json) =>
+      _$$_ItemReviewModelFromJson(json);
+
+  @override
+  @JsonKey(name: 'id')
+  final int? id;
+  @override
+  @JsonKey(name: 'description')
+  final String description;
+  @override
+  @JsonKey(name: 'productCode')
+  final String productCode;
+  @override
+  @JsonKey(name: 'customerName')
+  final String customerName;
+  @override
+  @JsonKey(name: 'date')
+  final String date;
+  @override
+  @JsonKey(name: 'rating')
+  final double rating;
+
+  @override
+  String toString() {
+    return 'ItemReviewModel(id: $id, description: $description, productCode: $productCode, customerName: $customerName, date: $date, rating: $rating)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ItemReviewModel &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description) &&
+            const DeepCollectionEquality()
+                .equals(other.productCode, productCode) &&
+            const DeepCollectionEquality()
+                .equals(other.customerName, customerName) &&
+            const DeepCollectionEquality().equals(other.date, date) &&
+            const DeepCollectionEquality().equals(other.rating, rating));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(description),
+      const DeepCollectionEquality().hash(productCode),
+      const DeepCollectionEquality().hash(customerName),
+      const DeepCollectionEquality().hash(date),
+      const DeepCollectionEquality().hash(rating));
+
+  @JsonKey(ignore: true)
+  @override
+  _$ItemReviewModelCopyWith<_ItemReviewModel> get copyWith =>
+      __$ItemReviewModelCopyWithImpl<_ItemReviewModel>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ItemReviewModelToJson(this);
+  }
+}
+
+abstract class _ItemReviewModel implements ItemReviewModel {
+  const factory _ItemReviewModel(
+      {@JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'description') String description,
+      @JsonKey(name: 'productCode') String productCode,
+      @JsonKey(name: 'customerName') String customerName,
+      @JsonKey(name: 'date') String date,
+      @JsonKey(name: 'rating') double rating}) = _$_ItemReviewModel;
+
+  factory _ItemReviewModel.fromJson(Map<String, dynamic> json) =
+      _$_ItemReviewModel.fromJson;
+
+  @override
+  @JsonKey(name: 'id')
+  int? get id;
+  @override
+  @JsonKey(name: 'description')
+  String get description;
+  @override
+  @JsonKey(name: 'productCode')
+  String get productCode;
+  @override
+  @JsonKey(name: 'customerName')
+  String get customerName;
+  @override
+  @JsonKey(name: 'date')
+  String get date;
+  @override
+  @JsonKey(name: 'rating')
+  double get rating;
+  @override
+  @JsonKey(ignore: true)
+  _$ItemReviewModelCopyWith<_ItemReviewModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
