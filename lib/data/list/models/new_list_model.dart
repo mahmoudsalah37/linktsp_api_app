@@ -9,13 +9,15 @@ class NewListingDataModel {
   });
 
   int? length;
-  List<Item>? items;
+  List<ListingItem>? items;
 
   factory NewListingDataModel.fromJson(Map<String, dynamic> json) =>
       NewListingDataModel(
         length: json["length"] ?? json["length"],
-        items: json["items"] ??
-            List<Item>.from(json["items"].map((x) => Item.fromJson(x))),
+        items: json["items"] == null
+            ? null
+            : List<ListingItem>.from(
+                json["items"].map((x) => ListingItem.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -24,8 +26,8 @@ class NewListingDataModel {
       };
 }
 
-class Item {
-  Item({
+class ListingItem {
+  ListingItem({
     this.multiSku,
     this.isOutOfStock,
     this.remainingQty,
@@ -83,7 +85,7 @@ class Item {
   bool? isOutOfStockShowConfig;
   String? code;
   int? discountType;
-  int? discountValue;
+  double? discountValue;
   double? discountAmount;
   double? finalPrice;
   bool? hasDiscount;
@@ -122,12 +124,12 @@ class Item {
   dynamic categoryId;
   String? colorHexa;
   String? skuCode;
-  int? qty;
+  double? qty;
   List<dynamic>? sizes;
   List<ProductDiscountList>? productDiscountList;
   bool? isWishList;
 
-  factory Item.fromJson(Map<String, dynamic> json) => Item(
+  factory ListingItem.fromJson(Map<String, dynamic> json) => ListingItem(
         multiSku: json["multiSKU"] ?? json["multiSKU"],
         isOutOfStock: json["isOutOfStock"] ?? json["isOutOfStock"],
         remainingQty: json["remainingQty"],
@@ -136,9 +138,8 @@ class Item {
         code: json["code"] ?? json["code"],
         discountType: json["discountType"] ?? json["discountType"],
         discountValue: json["discountValue"] ?? json["discountValue"],
-        discountAmount:
-            json["discountAmount"] ?? json["discountAmount"].toDouble(),
-        finalPrice: json["finalPrice"] ?? json["finalPrice"].toDouble(),
+        discountAmount: json["discountAmount"] ?? json["discountAmount"],
+        finalPrice: json["finalPrice"] ?? json["finalPrice"],
         hasDiscount: json["hasDiscount"] ?? json["hasDiscount"],
         id: json["id"] ?? json["id"],
         imageId: json["imageID"] ?? json["imageID"],
@@ -150,8 +151,8 @@ class Item {
             json["secondThumbImageURL"] ?? json["secondThumbImageURL"],
         currentImageUrl: json["currentImageURL"],
         showOutfit: json["showOutfit"] ?? json["showOutfit"],
-        price: json["price"] ?? json["price"].toDouble(),
-        rating: json["rating"] ?? json["rating"].toDouble(),
+        price: json["price"] ?? json["price"],
+        rating: json["rating"] ?? json["rating"],
         ratingsCount: json["ratingsCount"] ?? json["ratingsCount"],
         shortDesc: json["shortDesc"] ?? json["shortDesc"],
         title: json["title"] ?? json["title"],
@@ -163,8 +164,9 @@ class Item {
         brandId: json["brandID"] ?? json["brandID"],
         brandName: json["brandName"] ?? json["brandName"],
         index: json["index"] ?? json["index"],
-        croppedColorImages: json["croppedColorImages"] ??
-            List<CroppedColorImage>.from(json["croppedColorImages"]
+        croppedColorImages: json["croppedColorImages"] == null
+            ? null
+            : List<CroppedColorImage>.from(json["croppedColorImages"]
                 .map((x) => CroppedColorImage.fromJson(x))),
         sizeId: json["sizeID"] ?? json["sizeID"],
         colorId: json["colorID"] ?? json["colorID"],
@@ -174,17 +176,21 @@ class Item {
         preOrder: json["preOrder"] ?? json["preOrder"],
         color: json["color"] ?? json["color"],
         size: json["size"] ?? json["size"],
-        availabilityDate: json["availabilityDate"] ??
-            DateTime.parse(json["availabilityDate"]),
+        availabilityDate: json["availabilityDate"] == null
+            ? null
+            : DateTime.parse(json["availabilityDate"]),
         categoryId: json["categoryID"],
         colorHexa: json["colorHexa"] ?? json["colorHexa"],
         skuCode: json["skuCode"] ?? json["skuCode"],
         qty: json["qty"] ?? json["qty"],
-        sizes: json["sizes"] ?? List<dynamic>.from(json["sizes"].map((x) => x)),
-        productDiscountList: json["productDiscountList"] ??
-            List<ProductDiscountList>.from(json["productDiscountList"]
+        sizes: json["sizes"] == null
+            ? null
+            : List<dynamic>.from(json["sizes"].map((x) => x)),
+        productDiscountList: json["productDiscountList"] == null
+            ? null
+            : List<ProductDiscountList>.from(json["productDiscountList"]
                 .map((x) => ProductDiscountList.fromJson(x))),
-        isWishList: json["isWishList"] ?? json["isWishList"],
+        isWishList: json["isWishList"] ?? false,
       );
 
   Map<String, dynamic> toJson() => {
@@ -221,7 +227,7 @@ class Item {
         "brandID": brandId ?? brandId,
         "brandName": brandName ?? brandName,
         "index": index ?? index,
-        "croppedColorImages": croppedColorImages,
+        "croppedColorImages": croppedColorImages ?? croppedColorImages,
         "sizeID": sizeId ?? sizeId,
         "colorID": colorId ?? colorId,
         "promoText": promoText ?? promoText,
