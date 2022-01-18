@@ -55,6 +55,8 @@ class _$InnerProductModelTearOff {
           int minDeliveryPeriod = 0,
       @JsonKey(name: 'maxDeliveryPeriod')
           int maxDeliveryPeriod = 0,
+      @JsonKey(name: 'bogoPromoText')
+          String bogoPromoText = '',
       @JsonKey(name: 'reviews')
           ReviewUserCommentModel? review,
       @JsonKey(name: 'features')
@@ -76,6 +78,7 @@ class _$InnerProductModelTearOff {
       isAddedtoWishlist: isAddedtoWishlist,
       minDeliveryPeriod: minDeliveryPeriod,
       maxDeliveryPeriod: maxDeliveryPeriod,
+      bogoPromoText: bogoPromoText,
       review: review,
       features: features,
     );
@@ -122,7 +125,9 @@ mixin _$InnerProductModel {
   @JsonKey(name: 'minDeliveryPeriod')
   int get minDeliveryPeriod => throw _privateConstructorUsedError;
   @JsonKey(name: 'maxDeliveryPeriod')
-  int get maxDeliveryPeriod => throw _privateConstructorUsedError; //reviews
+  int get maxDeliveryPeriod => throw _privateConstructorUsedError;
+  @JsonKey(name: 'bogoPromoText')
+  String get bogoPromoText => throw _privateConstructorUsedError;
   @JsonKey(name: 'reviews')
   ReviewUserCommentModel? get review => throw _privateConstructorUsedError;
   @JsonKey(name: 'features')
@@ -156,6 +161,7 @@ abstract class $InnerProductModelCopyWith<$Res> {
       @JsonKey(name: 'isWishList') bool isAddedtoWishlist,
       @JsonKey(name: 'minDeliveryPeriod') int minDeliveryPeriod,
       @JsonKey(name: 'maxDeliveryPeriod') int maxDeliveryPeriod,
+      @JsonKey(name: 'bogoPromoText') String bogoPromoText,
       @JsonKey(name: 'reviews') ReviewUserCommentModel? review,
       @JsonKey(name: 'features') List<FeatureModel?> features});
 
@@ -190,6 +196,7 @@ class _$InnerProductModelCopyWithImpl<$Res>
     Object? isAddedtoWishlist = freezed,
     Object? minDeliveryPeriod = freezed,
     Object? maxDeliveryPeriod = freezed,
+    Object? bogoPromoText = freezed,
     Object? review = freezed,
     Object? features = freezed,
   }) {
@@ -258,6 +265,10 @@ class _$InnerProductModelCopyWithImpl<$Res>
           ? _value.maxDeliveryPeriod
           : maxDeliveryPeriod // ignore: cast_nullable_to_non_nullable
               as int,
+      bogoPromoText: bogoPromoText == freezed
+          ? _value.bogoPromoText
+          : bogoPromoText // ignore: cast_nullable_to_non_nullable
+              as String,
       review: review == freezed
           ? _value.review
           : review // ignore: cast_nullable_to_non_nullable
@@ -316,6 +327,7 @@ abstract class _$InnerProductModelCopyWith<$Res>
       @JsonKey(name: 'isWishList') bool isAddedtoWishlist,
       @JsonKey(name: 'minDeliveryPeriod') int minDeliveryPeriod,
       @JsonKey(name: 'maxDeliveryPeriod') int maxDeliveryPeriod,
+      @JsonKey(name: 'bogoPromoText') String bogoPromoText,
       @JsonKey(name: 'reviews') ReviewUserCommentModel? review,
       @JsonKey(name: 'features') List<FeatureModel?> features});
 
@@ -354,6 +366,7 @@ class __$InnerProductModelCopyWithImpl<$Res>
     Object? isAddedtoWishlist = freezed,
     Object? minDeliveryPeriod = freezed,
     Object? maxDeliveryPeriod = freezed,
+    Object? bogoPromoText = freezed,
     Object? review = freezed,
     Object? features = freezed,
   }) {
@@ -422,6 +435,10 @@ class __$InnerProductModelCopyWithImpl<$Res>
           ? _value.maxDeliveryPeriod
           : maxDeliveryPeriod // ignore: cast_nullable_to_non_nullable
               as int,
+      bogoPromoText: bogoPromoText == freezed
+          ? _value.bogoPromoText
+          : bogoPromoText // ignore: cast_nullable_to_non_nullable
+              as String,
       review: review == freezed
           ? _value.review
           : review // ignore: cast_nullable_to_non_nullable
@@ -454,6 +471,7 @@ class _$_InnerProductModel implements _InnerProductModel {
       @JsonKey(name: 'isWishList') this.isAddedtoWishlist = false,
       @JsonKey(name: 'minDeliveryPeriod') this.minDeliveryPeriod = 0,
       @JsonKey(name: 'maxDeliveryPeriod') this.maxDeliveryPeriod = 0,
+      @JsonKey(name: 'bogoPromoText') this.bogoPromoText = '',
       @JsonKey(name: 'reviews') this.review,
       @JsonKey(name: 'features') this.features = const <FeatureModel?>[]});
 
@@ -508,7 +526,10 @@ class _$_InnerProductModel implements _InnerProductModel {
   @override
   @JsonKey(name: 'maxDeliveryPeriod')
   final int maxDeliveryPeriod;
-  @override //reviews
+  @override
+  @JsonKey(name: 'bogoPromoText')
+  final String bogoPromoText;
+  @override
   @JsonKey(name: 'reviews')
   final ReviewUserCommentModel? review;
   @override
@@ -517,7 +538,7 @@ class _$_InnerProductModel implements _InnerProductModel {
 
   @override
   String toString() {
-    return 'InnerProductModel(id: $id, brands: $brands, title: $title, averageRating: $averageRating, sizes: $sizes, colors: $colors, skus: $skus, details: $details, description: $description, isShowSizeChart: $isShowSizeChart, sizeGuide: $sizeGuide, showOneClickOrder: $showOneClickOrder, preOrder: $preOrder, isAddedtoWishlist: $isAddedtoWishlist, minDeliveryPeriod: $minDeliveryPeriod, maxDeliveryPeriod: $maxDeliveryPeriod, review: $review, features: $features)';
+    return 'InnerProductModel(id: $id, brands: $brands, title: $title, averageRating: $averageRating, sizes: $sizes, colors: $colors, skus: $skus, details: $details, description: $description, isShowSizeChart: $isShowSizeChart, sizeGuide: $sizeGuide, showOneClickOrder: $showOneClickOrder, preOrder: $preOrder, isAddedtoWishlist: $isAddedtoWishlist, minDeliveryPeriod: $minDeliveryPeriod, maxDeliveryPeriod: $maxDeliveryPeriod, bogoPromoText: $bogoPromoText, review: $review, features: $features)';
   }
 
   @override
@@ -548,31 +569,35 @@ class _$_InnerProductModel implements _InnerProductModel {
                 .equals(other.minDeliveryPeriod, minDeliveryPeriod) &&
             const DeepCollectionEquality()
                 .equals(other.maxDeliveryPeriod, maxDeliveryPeriod) &&
+            const DeepCollectionEquality()
+                .equals(other.bogoPromoText, bogoPromoText) &&
             const DeepCollectionEquality().equals(other.review, review) &&
             const DeepCollectionEquality().equals(other.features, features));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(brands),
-      const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(averageRating),
-      const DeepCollectionEquality().hash(sizes),
-      const DeepCollectionEquality().hash(colors),
-      const DeepCollectionEquality().hash(skus),
-      const DeepCollectionEquality().hash(details),
-      const DeepCollectionEquality().hash(description),
-      const DeepCollectionEquality().hash(isShowSizeChart),
-      const DeepCollectionEquality().hash(sizeGuide),
-      const DeepCollectionEquality().hash(showOneClickOrder),
-      const DeepCollectionEquality().hash(preOrder),
-      const DeepCollectionEquality().hash(isAddedtoWishlist),
-      const DeepCollectionEquality().hash(minDeliveryPeriod),
-      const DeepCollectionEquality().hash(maxDeliveryPeriod),
-      const DeepCollectionEquality().hash(review),
-      const DeepCollectionEquality().hash(features));
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        const DeepCollectionEquality().hash(id),
+        const DeepCollectionEquality().hash(brands),
+        const DeepCollectionEquality().hash(title),
+        const DeepCollectionEquality().hash(averageRating),
+        const DeepCollectionEquality().hash(sizes),
+        const DeepCollectionEquality().hash(colors),
+        const DeepCollectionEquality().hash(skus),
+        const DeepCollectionEquality().hash(details),
+        const DeepCollectionEquality().hash(description),
+        const DeepCollectionEquality().hash(isShowSizeChart),
+        const DeepCollectionEquality().hash(sizeGuide),
+        const DeepCollectionEquality().hash(showOneClickOrder),
+        const DeepCollectionEquality().hash(preOrder),
+        const DeepCollectionEquality().hash(isAddedtoWishlist),
+        const DeepCollectionEquality().hash(minDeliveryPeriod),
+        const DeepCollectionEquality().hash(maxDeliveryPeriod),
+        const DeepCollectionEquality().hash(bogoPromoText),
+        const DeepCollectionEquality().hash(review),
+        const DeepCollectionEquality().hash(features)
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -603,6 +628,7 @@ abstract class _InnerProductModel implements InnerProductModel {
           @JsonKey(name: 'isWishList') bool isAddedtoWishlist,
           @JsonKey(name: 'minDeliveryPeriod') int minDeliveryPeriod,
           @JsonKey(name: 'maxDeliveryPeriod') int maxDeliveryPeriod,
+          @JsonKey(name: 'bogoPromoText') String bogoPromoText,
           @JsonKey(name: 'reviews') ReviewUserCommentModel? review,
           @JsonKey(name: 'features') List<FeatureModel?> features}) =
       _$_InnerProductModel;
@@ -658,7 +684,10 @@ abstract class _InnerProductModel implements InnerProductModel {
   @override
   @JsonKey(name: 'maxDeliveryPeriod')
   int get maxDeliveryPeriod;
-  @override //reviews
+  @override
+  @JsonKey(name: 'bogoPromoText')
+  String get bogoPromoText;
+  @override
   @JsonKey(name: 'reviews')
   ReviewUserCommentModel? get review;
   @override
@@ -1706,8 +1735,6 @@ class _$SkuModelTearOff {
           int maxQuantity = 0,
       @JsonKey(name: 'isAvaliable')
           bool isAvaliable = false,
-      @JsonKey(name: 'bogoPromoText')
-          String bogoPromoText = '',
       @JsonKey(name: 'quantityLeft')
           int quantityInStock = 0}) {
     return _SkuModel(
@@ -1722,7 +1749,6 @@ class _$SkuModelTearOff {
       hasDiscount: hasDiscount,
       maxQuantity: maxQuantity,
       isAvaliable: isAvaliable,
-      bogoPromoText: bogoPromoText,
       quantityInStock: quantityInStock,
     );
   }
@@ -1759,8 +1785,6 @@ mixin _$SkuModel {
   int get maxQuantity => throw _privateConstructorUsedError;
   @JsonKey(name: 'isAvaliable')
   bool get isAvaliable => throw _privateConstructorUsedError;
-  @JsonKey(name: 'bogoPromoText')
-  String get bogoPromoText => throw _privateConstructorUsedError;
   @JsonKey(name: 'quantityLeft')
   int get quantityInStock => throw _privateConstructorUsedError;
 
@@ -1786,7 +1810,6 @@ abstract class $SkuModelCopyWith<$Res> {
       @JsonKey(name: 'hasDiscount') bool hasDiscount,
       @JsonKey(name: 'maxQty') int maxQuantity,
       @JsonKey(name: 'isAvaliable') bool isAvaliable,
-      @JsonKey(name: 'bogoPromoText') String bogoPromoText,
       @JsonKey(name: 'quantityLeft') int quantityInStock});
 }
 
@@ -1811,7 +1834,6 @@ class _$SkuModelCopyWithImpl<$Res> implements $SkuModelCopyWith<$Res> {
     Object? hasDiscount = freezed,
     Object? maxQuantity = freezed,
     Object? isAvaliable = freezed,
-    Object? bogoPromoText = freezed,
     Object? quantityInStock = freezed,
   }) {
     return _then(_value.copyWith(
@@ -1859,10 +1881,6 @@ class _$SkuModelCopyWithImpl<$Res> implements $SkuModelCopyWith<$Res> {
           ? _value.isAvaliable
           : isAvaliable // ignore: cast_nullable_to_non_nullable
               as bool,
-      bogoPromoText: bogoPromoText == freezed
-          ? _value.bogoPromoText
-          : bogoPromoText // ignore: cast_nullable_to_non_nullable
-              as String,
       quantityInStock: quantityInStock == freezed
           ? _value.quantityInStock
           : quantityInStock // ignore: cast_nullable_to_non_nullable
@@ -1888,7 +1906,6 @@ abstract class _$SkuModelCopyWith<$Res> implements $SkuModelCopyWith<$Res> {
       @JsonKey(name: 'hasDiscount') bool hasDiscount,
       @JsonKey(name: 'maxQty') int maxQuantity,
       @JsonKey(name: 'isAvaliable') bool isAvaliable,
-      @JsonKey(name: 'bogoPromoText') String bogoPromoText,
       @JsonKey(name: 'quantityLeft') int quantityInStock});
 }
 
@@ -1914,7 +1931,6 @@ class __$SkuModelCopyWithImpl<$Res> extends _$SkuModelCopyWithImpl<$Res>
     Object? hasDiscount = freezed,
     Object? maxQuantity = freezed,
     Object? isAvaliable = freezed,
-    Object? bogoPromoText = freezed,
     Object? quantityInStock = freezed,
   }) {
     return _then(_SkuModel(
@@ -1962,10 +1978,6 @@ class __$SkuModelCopyWithImpl<$Res> extends _$SkuModelCopyWithImpl<$Res>
           ? _value.isAvaliable
           : isAvaliable // ignore: cast_nullable_to_non_nullable
               as bool,
-      bogoPromoText: bogoPromoText == freezed
-          ? _value.bogoPromoText
-          : bogoPromoText // ignore: cast_nullable_to_non_nullable
-              as String,
       quantityInStock: quantityInStock == freezed
           ? _value.quantityInStock
           : quantityInStock // ignore: cast_nullable_to_non_nullable
@@ -2000,8 +2012,6 @@ class _$_SkuModel implements _SkuModel {
           this.maxQuantity = 0,
       @JsonKey(name: 'isAvaliable')
           this.isAvaliable = false,
-      @JsonKey(name: 'bogoPromoText')
-          this.bogoPromoText = '',
       @JsonKey(name: 'quantityLeft')
           this.quantityInStock = 0});
 
@@ -2042,15 +2052,12 @@ class _$_SkuModel implements _SkuModel {
   @JsonKey(name: 'isAvaliable')
   final bool isAvaliable;
   @override
-  @JsonKey(name: 'bogoPromoText')
-  final String bogoPromoText;
-  @override
   @JsonKey(name: 'quantityLeft')
   final int quantityInStock;
 
   @override
   String toString() {
-    return 'SkuModel(id: $id, skuCode: $skuCode, defaultPrice: $defaultPrice, finalPrice: $finalPrice, colorId: $colorId, sizeId: $sizeId, images: $images, discounts: $discounts, hasDiscount: $hasDiscount, maxQuantity: $maxQuantity, isAvaliable: $isAvaliable, bogoPromoText: $bogoPromoText, quantityInStock: $quantityInStock)';
+    return 'SkuModel(id: $id, skuCode: $skuCode, defaultPrice: $defaultPrice, finalPrice: $finalPrice, colorId: $colorId, sizeId: $sizeId, images: $images, discounts: $discounts, hasDiscount: $hasDiscount, maxQuantity: $maxQuantity, isAvaliable: $isAvaliable, quantityInStock: $quantityInStock)';
   }
 
   @override
@@ -2075,8 +2082,6 @@ class _$_SkuModel implements _SkuModel {
             const DeepCollectionEquality()
                 .equals(other.isAvaliable, isAvaliable) &&
             const DeepCollectionEquality()
-                .equals(other.bogoPromoText, bogoPromoText) &&
-            const DeepCollectionEquality()
                 .equals(other.quantityInStock, quantityInStock));
   }
 
@@ -2094,7 +2099,6 @@ class _$_SkuModel implements _SkuModel {
       const DeepCollectionEquality().hash(hasDiscount),
       const DeepCollectionEquality().hash(maxQuantity),
       const DeepCollectionEquality().hash(isAvaliable),
-      const DeepCollectionEquality().hash(bogoPromoText),
       const DeepCollectionEquality().hash(quantityInStock));
 
   @JsonKey(ignore: true)
@@ -2121,7 +2125,6 @@ abstract class _SkuModel implements SkuModel {
       @JsonKey(name: 'hasDiscount') bool hasDiscount,
       @JsonKey(name: 'maxQty') int maxQuantity,
       @JsonKey(name: 'isAvaliable') bool isAvaliable,
-      @JsonKey(name: 'bogoPromoText') String bogoPromoText,
       @JsonKey(name: 'quantityLeft') int quantityInStock}) = _$_SkuModel;
 
   factory _SkuModel.fromJson(Map<String, dynamic> json) = _$_SkuModel.fromJson;
@@ -2159,9 +2162,6 @@ abstract class _SkuModel implements SkuModel {
   @override
   @JsonKey(name: 'isAvaliable')
   bool get isAvaliable;
-  @override
-  @JsonKey(name: 'bogoPromoText')
-  String get bogoPromoText;
   @override
   @JsonKey(name: 'quantityLeft')
   int get quantityInStock;

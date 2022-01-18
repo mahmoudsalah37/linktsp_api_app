@@ -24,8 +24,7 @@ class InnerProductModel with _$InnerProductModel {
     @Default(false) @JsonKey(name: 'isWishList') bool isAddedtoWishlist,
     @Default(0) @JsonKey(name: 'minDeliveryPeriod') int minDeliveryPeriod,
     @Default(0) @JsonKey(name: 'maxDeliveryPeriod') int maxDeliveryPeriod,
-    //reviews
-
+    @Default('') @JsonKey(name: 'bogoPromoText') String bogoPromoText,
     @JsonKey(name: 'reviews') ReviewUserCommentModel? review,
     @Default(<FeatureModel?>[])
     @JsonKey(name: 'features')
@@ -113,7 +112,6 @@ class SkuModel with _$SkuModel {
     @Default(false) @JsonKey(name: 'hasDiscount') bool hasDiscount,
     @Default(0) @JsonKey(name: 'maxQty') int maxQuantity,
     @Default(false) @JsonKey(name: 'isAvaliable') bool isAvaliable,
-    @Default('') @JsonKey(name: 'bogoPromoText') String bogoPromoText,
     @Default(0) @JsonKey(name: 'quantityLeft') int quantityInStock,
   }) = _SkuModel;
 

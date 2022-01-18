@@ -41,6 +41,7 @@ _$_InnerProductModel _$$_InnerProductModelFromJson(Map<String, dynamic> json) =>
       isAddedtoWishlist: json['isWishList'] as bool? ?? false,
       minDeliveryPeriod: json['minDeliveryPeriod'] as int? ?? 0,
       maxDeliveryPeriod: json['maxDeliveryPeriod'] as int? ?? 0,
+      bogoPromoText: json['bogoPromoText'] as String? ?? '',
       review: json['reviews'] == null
           ? null
           : ReviewUserCommentModel.fromJson(
@@ -72,6 +73,7 @@ Map<String, dynamic> _$$_InnerProductModelToJson(
       'isWishList': instance.isAddedtoWishlist,
       'minDeliveryPeriod': instance.minDeliveryPeriod,
       'maxDeliveryPeriod': instance.maxDeliveryPeriod,
+      'bogoPromoText': instance.bogoPromoText,
       'reviews': instance.review,
       'features': instance.features,
     };
@@ -170,7 +172,6 @@ _$_SkuModel _$$_SkuModelFromJson(Map<String, dynamic> json) => _$_SkuModel(
       hasDiscount: json['hasDiscount'] as bool? ?? false,
       maxQuantity: json['maxQty'] as int? ?? 0,
       isAvaliable: json['isAvaliable'] as bool? ?? false,
-      bogoPromoText: json['bogoPromoText'] as String? ?? '',
       quantityInStock: json['quantityLeft'] as int? ?? 0,
     );
 
@@ -187,7 +188,6 @@ Map<String, dynamic> _$$_SkuModelToJson(_$_SkuModel instance) =>
       'hasDiscount': instance.hasDiscount,
       'maxQty': instance.maxQuantity,
       'isAvaliable': instance.isAvaliable,
-      'bogoPromoText': instance.bogoPromoText,
       'quantityLeft': instance.quantityInStock,
     };
 
