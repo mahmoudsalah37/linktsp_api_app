@@ -114,7 +114,7 @@ class CartServiceImp implements CartService {
         queryParameters: {"CustomerID": customerId});
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
-      return result.data;
+      return result.data ?? '';
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
