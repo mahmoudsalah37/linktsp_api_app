@@ -59,7 +59,7 @@ class AccountServicesImp implements AccountService {
 
   @override
   Future<UserModel> getProfileDetails(
-      {required UserModel userModel, required int customerId}) async {
+      {UserModel? userModel, required int customerId}) async {
     final response = await defaultApi.postData(
         data: userModel,
         path: 'profile/details',
@@ -241,7 +241,7 @@ abstract class AccountService {
   Future<UserModel> register({required RegisterModel registerModel});
   Future<UserModel> updateProfile({required UserModel userModel});
   Future<UserModel> getProfileDetails(
-      {required UserModel userModel, required int customerId});
+      {UserModel? userModel, required int customerId});
 
   /// Use it to get user's profile points and wishlist number
   Future<CustomerSummaryModel> customerSummary({required int customerId});
