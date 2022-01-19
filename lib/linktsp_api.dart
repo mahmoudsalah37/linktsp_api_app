@@ -63,6 +63,7 @@ class LinkTspApi implements _LinkTspApiAbstract {
     }
     final token = await TokenServiceImp()
         .getToken(domin: domain, version: version, admin: admin);
+    print("token: $token");
     DefaultApiImp.init(domin: domain, token: token, lang: lang, zoneid: zoneid);
   }
 
