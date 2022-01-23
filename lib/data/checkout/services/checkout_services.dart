@@ -37,9 +37,7 @@ class CheckOutServicesImp implements CheckOutService {
 
   @override
   Future<CheckouCartSummaryModel> chehckoutCartSummary(
-      {required int customerId,
-      required int storeId,
-      required int addressId}) async {
+      {required int customerId, int? storeId, int? addressId}) async {
     final response = await defaultApi.getData(
         path: 'checkout/cartsummary',
         queryParameters: {
@@ -70,7 +68,7 @@ class CheckOutServicesImp implements CheckOutService {
   @override
   Future<CheckouCartSummaryModel> couponRedeem(
       {required String couponCode,
-      required int addressId,
+      int? addressId,
       required int loyaltyPoints,
       required int customerId,
       int? storeId}) async {
@@ -95,7 +93,7 @@ class CheckOutServicesImp implements CheckOutService {
   @override
   Future<CheckouCartSummaryModel> couponClear(
       {required String couponCode,
-      required int addressId,
+      int? addressId,
       required int loyaltyPoints,
       required int customerId,
       int? storeId}) async {
@@ -260,7 +258,7 @@ class CheckOutServicesImp implements CheckOutService {
   @override
   Future<CheckouCartSummaryModel> loyaltyPointsRedeem(
       {required int customerId,
-      required int addressId,
+      int? addressId,
       required int loyaltyPoints,
       int? storeId}) async {
     final response = await defaultApi.postData(
@@ -283,7 +281,7 @@ class CheckOutServicesImp implements CheckOutService {
   @override
   Future<CheckouCartSummaryModel> loyaltyPointsClear(
       {required int customerId,
-      required int addressId,
+      int? addressId,
       required int loyaltyPoints,
       int? storeId}) async {
     final response = await defaultApi.postData(
@@ -315,7 +313,7 @@ abstract class CheckOutService {
 
   /// It's return checkout summary (total - sub total - discount value)
   Future<CheckouCartSummaryModel> chehckoutCartSummary(
-      {required int customerId, required int storeId, required int addressId});
+      {required int customerId, int? storeId, int? addressId});
 
   /// It's return all Payment options available (COD - CC - Apple pay)
   ///
@@ -325,7 +323,7 @@ abstract class CheckOutService {
   /// It's used to apply coupon value
   Future<CheckouCartSummaryModel> couponRedeem(
       {required String couponCode,
-      required int addressId,
+      int? addressId,
       required int loyaltyPoints,
       required int customerId,
       int? storeId});
@@ -333,7 +331,7 @@ abstract class CheckOutService {
   /// It's used to remove coupon value
   Future<CheckouCartSummaryModel> couponClear(
       {required String couponCode,
-      required int addressId,
+      int? addressId,
       required int loyaltyPoints,
       required int customerId,
       int? storeId});
@@ -388,14 +386,14 @@ abstract class CheckOutService {
   /// It's used to remove points
   Future<CheckouCartSummaryModel> loyaltyPointsClear(
       {required int customerId,
-      required int addressId,
+      int? addressId,
       required int loyaltyPoints,
       int? storeId});
 
   /// It's used to apply points
   Future<CheckouCartSummaryModel> loyaltyPointsRedeem(
       {required int customerId,
-      required int addressId,
+      int? addressId,
       required int loyaltyPoints,
       int? storeId});
 }
