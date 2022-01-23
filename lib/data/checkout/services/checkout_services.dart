@@ -156,7 +156,7 @@ class CheckOutServicesImp implements CheckOutService {
         "AddressID": addressId,
         "PickStoreID": storeId,
         "LoyaltyPointsRedeemed": loyaltyPoints,
-        "FinalAmount": paymentOptionId,
+        "FinalAmount": finalAmount,
       },
     );
     final result = ApiReturnResult.fromJSON(response.data);
@@ -183,7 +183,7 @@ class CheckOutServicesImp implements CheckOutService {
         "AddressID": addressId,
         "PickStoreID": storeId,
         "LoyaltyPointsRedeemed": loyaltyPoints,
-        "FinalAmount": paymentOptionId,
+        "FinalAmount": finalAmount,
       },
     );
     final result = ApiReturnResult.fromJSON(response.data);
