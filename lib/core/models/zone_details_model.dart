@@ -14,14 +14,14 @@ class ZoneDetailsModel {
   factory ZoneDetailsModel.fromJson(Map<String, dynamic> json) =>
       ZoneDetailsModel(
         id: json["id"],
-        latitude: json["latitude"],
+        latitude: json["lat"],
         longitude: json["longitude"],
         coverageArea: json["coverageArea"],
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        "latitude": latitude,
+        "lat": latitude,
         "longitude": longitude,
         "coverageArea": coverageArea,
       };
