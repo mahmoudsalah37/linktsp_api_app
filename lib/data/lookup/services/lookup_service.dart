@@ -39,9 +39,10 @@ class LookUpServiceImp implements LookUpService {
   }
 
   @override
-  Future<List<CityModel>> getCityPerZoneLookup() async {
+  Future<List<CityModel>> getCityPerZoneLookup({int? zoneId}) async {
     final respose = await defaultApi.getData(
       path: 'lookup/CityPerZone',
+      queryParameters: {"ZoneID": zoneId},
     );
     final result = ApiReturnResult.fromJSON(respose.data);
     if (result.code == 200) {
