@@ -2,6 +2,7 @@ import 'package:linktsp_api/core/models/cart_item_model.dart';
 import 'package:linktsp_api/core/models/cart_sku_model.dart';
 import 'package:linktsp_api/core/models/cart_summary_model.dart';
 import 'package:linktsp_api/core/models/preorder_message_model.dart';
+import 'package:linktsp_api/core/models/zone_details_model.dart';
 import 'package:linktsp_api/data/default_api.dart';
 import 'package:linktsp_api/data/exception_api.dart';
 import 'package:linktsp_api/data/result_model.dart';
@@ -133,6 +134,21 @@ class CartServiceImp implements CartService {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
   }
+
+  @override
+  Future<List<ZoneDetailsModel>> getZoneDetails({int version = 3}) async {
+    final response = await defaultApi.getData(
+      version: version,
+      path: 'Cart/zoneDetails',
+    );
+    final result = ApiReturnResult.fromJSON(response.data);
+    if (result.code == 200) {
+      return List<ZoneDetailsModel>.from(
+          result.data.map((model) => ZoneDetailsModel.fromJson(model)));
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
+  }
 }
 
 abstract class CartService {
@@ -160,4 +176,7 @@ abstract class CartService {
   /// Called first thing in cart page to get all guest's discounts
   Future<String> visitorDiscountNotification(
       {required List<CartSkuModel> cartSkuModel});
+
+  /// Called to get zones with coverage area and coordinates
+  Future<List<ZoneDetailsModel>> getZoneDetails({int version = 1});
 }
