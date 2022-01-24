@@ -131,6 +131,6 @@ abstract class LookUpService {
   Future<List<CancelReasonLookupModel>> getCancelReasonLookup();
   Future<List<CityModel>> getZoneLookup();
   Future<List<CityModel>> getStoreCityLookup();
-  Future<List<CityModel>> getCityPerZoneLookup();
+  Future<List<CityModel>> getCityPerZoneLookup({int? zoneId});
   Future<List<FeedbackReasonsLookupModel>> getFeedbackReasonsLookup();
 }
