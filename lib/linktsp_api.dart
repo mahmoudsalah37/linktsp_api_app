@@ -54,9 +54,7 @@ class LinkTspApi implements _LinkTspApiAbstract {
       int version = 1,
       int lang = 1,
       int? zoneid}) async {
-    if (InjectionContainer.isInit) {
-      await InjectionContainer.init();
-    }
+    await InjectionContainer.init();
 
     final token = await TokenServiceImp()
         .getToken(domin: domain, version: version, admin: admin);
