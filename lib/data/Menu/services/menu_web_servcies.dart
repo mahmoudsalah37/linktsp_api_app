@@ -8,9 +8,10 @@ class MenuWebServiceImp implements MenuWebService {
   MenuWebServiceImp({required this.defaultApi});
   final DefaultApi defaultApi;
   @override
-  Future<MenuModel> getMenu({required int customerID}) async {
+  Future<MenuModel> getMenu({required int customerID, int version = 1}) async {
     final respose = await defaultApi.getData(
       path: 'home/menu',
+      version: version,
       queryParameters: {
         'CustomerID': customerID,
       },
@@ -52,7 +53,7 @@ class MenuWebServiceImp implements MenuWebService {
 }
 
 abstract class MenuWebService {
-  Future<MenuModel> getMenu({required int customerID});
+  Future<MenuModel> getMenu({required int customerID, int version = 1});
   Future<List<ContactInfoModel>> getContactInfo();
 
   /// User it in checkout page to notify the user about pre-order products policy if he has one
