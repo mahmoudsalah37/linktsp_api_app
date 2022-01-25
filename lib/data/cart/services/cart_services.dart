@@ -17,6 +17,21 @@ class CartServiceImp implements CartService {
       required int customerId}) async {
     final response = await defaultApi.postData(
         data: cartSkuModel.map((e) => e.toJson()).toList(),
+        path: 'Profile/cart/AddItem',
+        queryParameters: {"CustomerID": customerId});
+    final result = ApiReturnResult.fromJSON(response.data);
+    if (result.code == 200) {
+      return result.data ?? true;
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
+  }
+  @override
+  Future<bool?> updateItemInCart(
+      {required List<CartSkuModel> cartSkuModel,
+        required int customerId}) async {
+    final response = await defaultApi.postData(
+        data: cartSkuModel.map((e) => e.toJson()).toList(),
         path: 'Profile/cart/Add',
         queryParameters: {"CustomerID": customerId});
     final result = ApiReturnResult.fromJSON(response.data);
@@ -153,6 +168,8 @@ class CartServiceImp implements CartService {
 
 abstract class CartService {
   Future<bool?> addToCart(
+      {required List<CartSkuModel> cartSkuModel, required int customerId});
+  Future<bool?> updateItemInCart(
       {required List<CartSkuModel> cartSkuModel, required int customerId});
   Future<List<CartItemModel>> getCartList({required int customerId});
 
