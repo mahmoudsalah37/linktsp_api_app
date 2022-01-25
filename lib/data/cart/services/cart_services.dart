@@ -169,6 +169,8 @@ class CartServiceImp implements CartService {
 abstract class CartService {
   Future<bool?> addToCart(
       {required List<CartSkuModel> cartSkuModel, required int customerId});
+  Future<bool?> updateItemInCart(
+      {required List<CartSkuModel> cartSkuModel, required int customerId});
   Future<List<CartItemModel>> getCartList({required int customerId});
 
   /// Update cart in guest user case
