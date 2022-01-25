@@ -45,7 +45,7 @@ class Item {
   bool? hasFilter;
   String? listTypeName;
   int? listTypeID;
-  FilterModel? filterModel;
+  FilterrModel? filterModel;
 
   factory Item.fromJson(Map<String, dynamic> json) => Item(
         id: json["id"],
@@ -61,7 +61,7 @@ class Item {
         listTypeID: json["listTypeID"],
         filterModel: json["filterModel"] == null
             ? null
-            : FilterModel.fromJson(json["filterModel"]),
+            : FilterrModel.fromJson(json["filterModel"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -105,8 +105,8 @@ class ContactInfoModel {
       };
 }
 
-class FilterModel {
-  FilterModel({
+class FilterrModel {
+  FilterrModel({
     this.listType,
     this.listTypeId,
     this.languageId,
@@ -150,7 +150,7 @@ class FilterModel {
   dynamic sortProp;
   dynamic sortDir;
 
-  factory FilterModel.fromJson(Map<String, dynamic> json) => FilterModel(
+  factory FilterrModel.fromJson(Map<String, dynamic> json) => FilterrModel(
         listType: json["listType"] == null ? null : json["listType"],
         listTypeId: json["listTypeID"] == null ? null : json["listTypeID"],
         languageId: json["languageID"] == null ? null : json["languageID"],
