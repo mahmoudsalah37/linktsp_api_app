@@ -10,7 +10,7 @@ class MenuWebServiceImp implements MenuWebService {
   @override
   Future<MenuModel> getMenu({required int customerID, int version = 1}) async {
     final respose = await defaultApi.getData(
-      path: 'home/menu',
+      path: 'Menu/menu',
       version: version,
       queryParameters: {
         'CustomerID': customerID,
