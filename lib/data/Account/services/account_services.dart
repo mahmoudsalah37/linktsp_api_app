@@ -88,13 +88,16 @@ class AccountServicesImp implements AccountService {
   }
 
   @override
-  Future<bool?> verify(
-      {required ActivationCodeModel activationCodeModel}) async {
+  Future<UserModel> verify(
+      {required ActivationCodeModel activationCodeModel,
+      int version = 3}) async {
     final response = await defaultApi.postData(
-        data: activationCodeModel, path: 'account/verfiy');
+        data: activationCodeModel,
+        path: 'New/account/verfiy',
+        version: version);
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
-      return result.data ?? true;
+      return UserModel.fromJson(result.data);
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
@@ -245,7 +248,8 @@ abstract class AccountService {
 
   /// Use it to get user's profile points and wishlist number
   Future<CustomerSummaryModel> customerSummary({required int customerId});
-  Future<bool?> verify({required ActivationCodeModel activationCodeModel});
+  Future<UserModel> verify(
+      {required ActivationCodeModel activationCodeModel, int version = 3});
 
   /// Used for resend only verification code
   Future<bool?> resendVerificationCode(
