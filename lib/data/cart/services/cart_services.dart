@@ -17,7 +17,7 @@ class CartServiceImp implements CartService {
       required int customerId}) async {
     final response = await defaultApi.postData(
         data: cartSkuModel.map((e) => e.toJson()).toList(),
-        path: 'Profile/cart/Add',
+        path: 'Profile/cart/AddItem',
         queryParameters: {"CustomerID": customerId});
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
