@@ -60,7 +60,9 @@ class _$InnerProductModelTearOff {
       @JsonKey(name: 'reviews')
           ReviewUserCommentModel? review,
       @JsonKey(name: 'features')
-          List<FeatureModel?> features = const <FeatureModel?>[]}) {
+          List<FeatureModel?> features = const <FeatureModel?>[],
+      @JsonKey(name: 'productCategories')
+          List<CategoryModel> categories = const <CategoryModel>[]}) {
     return _InnerProductModel(
       id: id,
       brands: brands,
@@ -81,6 +83,7 @@ class _$InnerProductModelTearOff {
       bogoPromoText: bogoPromoText,
       review: review,
       features: features,
+      categories: categories,
     );
   }
 
@@ -132,6 +135,8 @@ mixin _$InnerProductModel {
   ReviewUserCommentModel? get review => throw _privateConstructorUsedError;
   @JsonKey(name: 'features')
   List<FeatureModel?> get features => throw _privateConstructorUsedError;
+  @JsonKey(name: 'productCategories')
+  List<CategoryModel> get categories => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -163,7 +168,8 @@ abstract class $InnerProductModelCopyWith<$Res> {
       @JsonKey(name: 'maxDeliveryPeriod') int maxDeliveryPeriod,
       @JsonKey(name: 'bogoPromoText') String bogoPromoText,
       @JsonKey(name: 'reviews') ReviewUserCommentModel? review,
-      @JsonKey(name: 'features') List<FeatureModel?> features});
+      @JsonKey(name: 'features') List<FeatureModel?> features,
+      @JsonKey(name: 'productCategories') List<CategoryModel> categories});
 
   $BrandModelCopyWith<$Res>? get brands;
   $ReviewUserCommentModelCopyWith<$Res>? get review;
@@ -199,6 +205,7 @@ class _$InnerProductModelCopyWithImpl<$Res>
     Object? bogoPromoText = freezed,
     Object? review = freezed,
     Object? features = freezed,
+    Object? categories = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -277,6 +284,10 @@ class _$InnerProductModelCopyWithImpl<$Res>
           ? _value.features
           : features // ignore: cast_nullable_to_non_nullable
               as List<FeatureModel?>,
+      categories: categories == freezed
+          ? _value.categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as List<CategoryModel>,
     ));
   }
 
@@ -329,7 +340,8 @@ abstract class _$InnerProductModelCopyWith<$Res>
       @JsonKey(name: 'maxDeliveryPeriod') int maxDeliveryPeriod,
       @JsonKey(name: 'bogoPromoText') String bogoPromoText,
       @JsonKey(name: 'reviews') ReviewUserCommentModel? review,
-      @JsonKey(name: 'features') List<FeatureModel?> features});
+      @JsonKey(name: 'features') List<FeatureModel?> features,
+      @JsonKey(name: 'productCategories') List<CategoryModel> categories});
 
   @override
   $BrandModelCopyWith<$Res>? get brands;
@@ -369,6 +381,7 @@ class __$InnerProductModelCopyWithImpl<$Res>
     Object? bogoPromoText = freezed,
     Object? review = freezed,
     Object? features = freezed,
+    Object? categories = freezed,
   }) {
     return _then(_InnerProductModel(
       id: id == freezed
@@ -447,6 +460,10 @@ class __$InnerProductModelCopyWithImpl<$Res>
           ? _value.features
           : features // ignore: cast_nullable_to_non_nullable
               as List<FeatureModel?>,
+      categories: categories == freezed
+          ? _value.categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as List<CategoryModel>,
     ));
   }
 }
@@ -455,25 +472,46 @@ class __$InnerProductModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_InnerProductModel implements _InnerProductModel {
   const _$_InnerProductModel(
-      {@JsonKey(name: 'id') this.id,
-      @JsonKey(name: 'brand') this.brands,
-      @JsonKey(name: 'title') this.title = '',
-      @JsonKey(name: 'averageRating') this.averageRating = 0,
-      @JsonKey(name: 'sizes') this.sizes = const <SizeModel?>[],
-      @JsonKey(name: 'colors') this.colors = const <ColorModel?>[],
-      @JsonKey(name: 'skUs') this.skus = const <SkuModel?>[],
-      @JsonKey(name: 'details') this.details = '',
-      @JsonKey(name: 'shortDescription') this.description = '',
-      @JsonKey(name: 'showSizeChart') this.isShowSizeChart = false,
-      @JsonKey(name: 'sizeChartImageURL') this.sizeGuide,
-      @JsonKey(name: 'showOneClickOrder') this.showOneClickOrder = false,
-      @JsonKey(name: 'preOrder') this.preOrder = false,
-      @JsonKey(name: 'isWishList') this.isAddedtoWishlist = false,
-      @JsonKey(name: 'minDeliveryPeriod') this.minDeliveryPeriod = 0,
-      @JsonKey(name: 'maxDeliveryPeriod') this.maxDeliveryPeriod = 0,
-      @JsonKey(name: 'bogoPromoText') this.bogoPromoText = '',
-      @JsonKey(name: 'reviews') this.review,
-      @JsonKey(name: 'features') this.features = const <FeatureModel?>[]});
+      {@JsonKey(name: 'id')
+          this.id,
+      @JsonKey(name: 'brand')
+          this.brands,
+      @JsonKey(name: 'title')
+          this.title = '',
+      @JsonKey(name: 'averageRating')
+          this.averageRating = 0,
+      @JsonKey(name: 'sizes')
+          this.sizes = const <SizeModel?>[],
+      @JsonKey(name: 'colors')
+          this.colors = const <ColorModel?>[],
+      @JsonKey(name: 'skUs')
+          this.skus = const <SkuModel?>[],
+      @JsonKey(name: 'details')
+          this.details = '',
+      @JsonKey(name: 'shortDescription')
+          this.description = '',
+      @JsonKey(name: 'showSizeChart')
+          this.isShowSizeChart = false,
+      @JsonKey(name: 'sizeChartImageURL')
+          this.sizeGuide,
+      @JsonKey(name: 'showOneClickOrder')
+          this.showOneClickOrder = false,
+      @JsonKey(name: 'preOrder')
+          this.preOrder = false,
+      @JsonKey(name: 'isWishList')
+          this.isAddedtoWishlist = false,
+      @JsonKey(name: 'minDeliveryPeriod')
+          this.minDeliveryPeriod = 0,
+      @JsonKey(name: 'maxDeliveryPeriod')
+          this.maxDeliveryPeriod = 0,
+      @JsonKey(name: 'bogoPromoText')
+          this.bogoPromoText = '',
+      @JsonKey(name: 'reviews')
+          this.review,
+      @JsonKey(name: 'features')
+          this.features = const <FeatureModel?>[],
+      @JsonKey(name: 'productCategories')
+          this.categories = const <CategoryModel>[]});
 
   factory _$_InnerProductModel.fromJson(Map<String, dynamic> json) =>
       _$$_InnerProductModelFromJson(json);
@@ -535,10 +573,13 @@ class _$_InnerProductModel implements _InnerProductModel {
   @override
   @JsonKey(name: 'features')
   final List<FeatureModel?> features;
+  @override
+  @JsonKey(name: 'productCategories')
+  final List<CategoryModel> categories;
 
   @override
   String toString() {
-    return 'InnerProductModel(id: $id, brands: $brands, title: $title, averageRating: $averageRating, sizes: $sizes, colors: $colors, skus: $skus, details: $details, description: $description, isShowSizeChart: $isShowSizeChart, sizeGuide: $sizeGuide, showOneClickOrder: $showOneClickOrder, preOrder: $preOrder, isAddedtoWishlist: $isAddedtoWishlist, minDeliveryPeriod: $minDeliveryPeriod, maxDeliveryPeriod: $maxDeliveryPeriod, bogoPromoText: $bogoPromoText, review: $review, features: $features)';
+    return 'InnerProductModel(id: $id, brands: $brands, title: $title, averageRating: $averageRating, sizes: $sizes, colors: $colors, skus: $skus, details: $details, description: $description, isShowSizeChart: $isShowSizeChart, sizeGuide: $sizeGuide, showOneClickOrder: $showOneClickOrder, preOrder: $preOrder, isAddedtoWishlist: $isAddedtoWishlist, minDeliveryPeriod: $minDeliveryPeriod, maxDeliveryPeriod: $maxDeliveryPeriod, bogoPromoText: $bogoPromoText, review: $review, features: $features, categories: $categories)';
   }
 
   @override
@@ -572,7 +613,9 @@ class _$_InnerProductModel implements _InnerProductModel {
             const DeepCollectionEquality()
                 .equals(other.bogoPromoText, bogoPromoText) &&
             const DeepCollectionEquality().equals(other.review, review) &&
-            const DeepCollectionEquality().equals(other.features, features));
+            const DeepCollectionEquality().equals(other.features, features) &&
+            const DeepCollectionEquality()
+                .equals(other.categories, categories));
   }
 
   @override
@@ -596,7 +639,8 @@ class _$_InnerProductModel implements _InnerProductModel {
         const DeepCollectionEquality().hash(maxDeliveryPeriod),
         const DeepCollectionEquality().hash(bogoPromoText),
         const DeepCollectionEquality().hash(review),
-        const DeepCollectionEquality().hash(features)
+        const DeepCollectionEquality().hash(features),
+        const DeepCollectionEquality().hash(categories)
       ]);
 
   @JsonKey(ignore: true)
@@ -630,7 +674,8 @@ abstract class _InnerProductModel implements InnerProductModel {
           @JsonKey(name: 'maxDeliveryPeriod') int maxDeliveryPeriod,
           @JsonKey(name: 'bogoPromoText') String bogoPromoText,
           @JsonKey(name: 'reviews') ReviewUserCommentModel? review,
-          @JsonKey(name: 'features') List<FeatureModel?> features}) =
+          @JsonKey(name: 'features') List<FeatureModel?> features,
+          @JsonKey(name: 'productCategories') List<CategoryModel> categories}) =
       _$_InnerProductModel;
 
   factory _InnerProductModel.fromJson(Map<String, dynamic> json) =
@@ -693,6 +738,9 @@ abstract class _InnerProductModel implements InnerProductModel {
   @override
   @JsonKey(name: 'features')
   List<FeatureModel?> get features;
+  @override
+  @JsonKey(name: 'productCategories')
+  List<CategoryModel> get categories;
   @override
   @JsonKey(ignore: true)
   _$InnerProductModelCopyWith<_InnerProductModel> get copyWith =>
@@ -2739,5 +2787,183 @@ abstract class _FeatureModel implements FeatureModel {
   @override
   @JsonKey(ignore: true)
   _$FeatureModelCopyWith<_FeatureModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+CategoryModel _$CategoryModelFromJson(Map<String, dynamic> json) {
+  return _CategoryModel.fromJson(json);
+}
+
+/// @nodoc
+class _$CategoryModelTearOff {
+  const _$CategoryModelTearOff();
+
+  _CategoryModel call(
+      {@JsonKey(name: 'id') int? id, @JsonKey(name: 'name') String name = ''}) {
+    return _CategoryModel(
+      id: id,
+      name: name,
+    );
+  }
+
+  CategoryModel fromJson(Map<String, Object?> json) {
+    return CategoryModel.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $CategoryModel = _$CategoryModelTearOff();
+
+/// @nodoc
+mixin _$CategoryModel {
+  @JsonKey(name: 'id')
+  int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'name')
+  String get name => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $CategoryModelCopyWith<CategoryModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CategoryModelCopyWith<$Res> {
+  factory $CategoryModelCopyWith(
+          CategoryModel value, $Res Function(CategoryModel) then) =
+      _$CategoryModelCopyWithImpl<$Res>;
+  $Res call({@JsonKey(name: 'id') int? id, @JsonKey(name: 'name') String name});
+}
+
+/// @nodoc
+class _$CategoryModelCopyWithImpl<$Res>
+    implements $CategoryModelCopyWith<$Res> {
+  _$CategoryModelCopyWithImpl(this._value, this._then);
+
+  final CategoryModel _value;
+  // ignore: unused_field
+  final $Res Function(CategoryModel) _then;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? name = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$CategoryModelCopyWith<$Res>
+    implements $CategoryModelCopyWith<$Res> {
+  factory _$CategoryModelCopyWith(
+          _CategoryModel value, $Res Function(_CategoryModel) then) =
+      __$CategoryModelCopyWithImpl<$Res>;
+  @override
+  $Res call({@JsonKey(name: 'id') int? id, @JsonKey(name: 'name') String name});
+}
+
+/// @nodoc
+class __$CategoryModelCopyWithImpl<$Res>
+    extends _$CategoryModelCopyWithImpl<$Res>
+    implements _$CategoryModelCopyWith<$Res> {
+  __$CategoryModelCopyWithImpl(
+      _CategoryModel _value, $Res Function(_CategoryModel) _then)
+      : super(_value, (v) => _then(v as _CategoryModel));
+
+  @override
+  _CategoryModel get _value => super._value as _CategoryModel;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? name = freezed,
+  }) {
+    return _then(_CategoryModel(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_CategoryModel implements _CategoryModel {
+  const _$_CategoryModel(
+      {@JsonKey(name: 'id') this.id, @JsonKey(name: 'name') this.name = ''});
+
+  factory _$_CategoryModel.fromJson(Map<String, dynamic> json) =>
+      _$$_CategoryModelFromJson(json);
+
+  @override
+  @JsonKey(name: 'id')
+  final int? id;
+  @override
+  @JsonKey(name: 'name')
+  final String name;
+
+  @override
+  String toString() {
+    return 'CategoryModel(id: $id, name: $name)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _CategoryModel &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.name, name));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(name));
+
+  @JsonKey(ignore: true)
+  @override
+  _$CategoryModelCopyWith<_CategoryModel> get copyWith =>
+      __$CategoryModelCopyWithImpl<_CategoryModel>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_CategoryModelToJson(this);
+  }
+}
+
+abstract class _CategoryModel implements CategoryModel {
+  const factory _CategoryModel(
+      {@JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'name') String name}) = _$_CategoryModel;
+
+  factory _CategoryModel.fromJson(Map<String, dynamic> json) =
+      _$_CategoryModel.fromJson;
+
+  @override
+  @JsonKey(name: 'id')
+  int? get id;
+  @override
+  @JsonKey(name: 'name')
+  String get name;
+  @override
+  @JsonKey(ignore: true)
+  _$CategoryModelCopyWith<_CategoryModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
