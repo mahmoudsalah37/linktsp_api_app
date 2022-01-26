@@ -52,6 +52,10 @@ _$_InnerProductModel _$$_InnerProductModelFromJson(Map<String, dynamic> json) =>
                   : FeatureModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const <FeatureModel?>[],
+      categories: (json['productCategories'] as List<dynamic>?)
+              ?.map((e) => CategoryModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <CategoryModel>[],
     );
 
 Map<String, dynamic> _$$_InnerProductModelToJson(
@@ -76,6 +80,7 @@ Map<String, dynamic> _$$_InnerProductModelToJson(
       'bogoPromoText': instance.bogoPromoText,
       'reviews': instance.review,
       'features': instance.features,
+      'productCategories': instance.categories,
     };
 
 _$_ReviewUserCommentModel _$$_ReviewUserCommentModelFromJson(
@@ -227,4 +232,16 @@ Map<String, dynamic> _$$_FeatureModelToJson(_$_FeatureModel instance) =>
     <String, dynamic>{
       'name': instance.name,
       'value': instance.value,
+    };
+
+_$_CategoryModel _$$_CategoryModelFromJson(Map<String, dynamic> json) =>
+    _$_CategoryModel(
+      id: json['id'] as int?,
+      name: json['name'] as String? ?? '',
+    );
+
+Map<String, dynamic> _$$_CategoryModelToJson(_$_CategoryModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
     };

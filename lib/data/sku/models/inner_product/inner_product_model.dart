@@ -29,6 +29,9 @@ class InnerProductModel with _$InnerProductModel {
     @Default(<FeatureModel?>[])
     @JsonKey(name: 'features')
         List<FeatureModel?> features,
+    @Default(<CategoryModel>[])
+    @JsonKey(name: 'productCategories')
+        List<CategoryModel> categories,
   }) = _InnerProductModel;
 
   factory InnerProductModel.fromJson(Map<String, dynamic> json) =>
@@ -151,4 +154,15 @@ class FeatureModel with _$FeatureModel {
 
   factory FeatureModel.fromJson(Map<String, dynamic> json) =>
       _$FeatureModelFromJson(json);
+}
+
+@freezed
+class CategoryModel with _$CategoryModel {
+  const factory CategoryModel({
+    @JsonKey(name: 'id') int? id,
+    @Default('') @JsonKey(name: 'name') String name,
+  }) = _CategoryModel;
+
+  factory CategoryModel.fromJson(Map<String, dynamic> json) =>
+      _$CategoryModelFromJson(json);
 }
