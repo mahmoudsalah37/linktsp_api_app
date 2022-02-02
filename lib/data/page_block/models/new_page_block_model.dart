@@ -72,20 +72,20 @@ class DataItem {
 }
 
 class ItemItem {
-  ItemItem(
-      {this.id,
-      this.name,
-      this.description,
-      this.imageUrl,
-      this.videoUrl,
-      this.thumbImageUrl,
-      this.listTypeId,
-      this.listTypeName,
-      this.product,
-      this.itemSource,
-      this.hasFilter,
-      this.filterModel,
-      this.productDiscountList});
+  ItemItem({
+    this.id,
+    this.name,
+    this.description,
+    this.imageUrl,
+    this.videoUrl,
+    this.thumbImageUrl,
+    this.listTypeId,
+    this.listTypeName,
+    this.product,
+    this.itemSource,
+    this.hasFilter,
+    this.filterModel,
+  });
 
   int? id;
   String? name;
@@ -99,7 +99,6 @@ class ItemItem {
   dynamic itemSource;
   bool? hasFilter;
   FilterModel? filterModel;
-  List<ProductDiscountList>? productDiscountList;
 
   factory ItemItem.fromJson(Map<String, dynamic> json) => ItemItem(
         id: json["id"] == null ? null : json["id"],
@@ -118,10 +117,6 @@ class ItemItem {
         filterModel: json["filterModel"] == null
             ? null
             : FilterModel.fromJson(json["filterModel"]),
-        productDiscountList: json["productDiscountList"] == null
-            ? null
-            : List<ProductDiscountList>.from(json["productDiscountList"]
-                .map((x) => ProductDiscountList.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -137,8 +132,6 @@ class ItemItem {
         "itemSource": itemSource,
         "hasFilter": hasFilter == null ? null : hasFilter,
         "filterModel": filterModel == null ? null : filterModel!.toJson(),
-        "productDiscountList": productDiscountList ??
-            List<dynamic>.from(productDiscountList!.map((x) => x.toJson())),
       };
 }
 
@@ -281,6 +274,7 @@ class Product {
     this.color,
     this.sizes,
     this.colors,
+    this.productDiscountList,
   });
 
   int? id;
@@ -304,6 +298,7 @@ class Product {
   String? color;
   List<Size>? sizes;
   List<Color>? colors;
+  List<ProductDiscountList>? productDiscountList;
 
   factory Product.fromJson(Map<String, dynamic> json) => Product(
         id: json["id"] == null ? null : json["id"],
@@ -347,6 +342,10 @@ class Product {
         colors: json["colors"] == null
             ? null
             : List<Color>.from(json["colors"].map((x) => Color.fromJson(x))),
+        productDiscountList: json["productDiscountList"] == null
+            ? null
+            : List<ProductDiscountList>.from(json["productDiscountList"]
+                .map((x) => ProductDiscountList.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -378,6 +377,8 @@ class Product {
         "colors": colors == null
             ? null
             : List<dynamic>.from(colors!.map((x) => x.toJson())),
+        "productDiscountList": productDiscountList ??
+            List<dynamic>.from(productDiscountList!.map((x) => x.toJson())),
       };
 }
 
