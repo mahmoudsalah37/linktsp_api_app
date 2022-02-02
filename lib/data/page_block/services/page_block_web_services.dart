@@ -14,7 +14,7 @@ class PageBlockWebServiceImp implements PageBlockWebService {
       {int? customerId, int version = 1}) async {
     final respose = await defaultApi
         .getData(path: 'home', version: version, queryParameters: {
-      'language': 1,
+      // 'language': 2,
       'CustomerID': customerId,
     });
     final result = ApiReturnResult.fromJSON(respose.data);
@@ -30,7 +30,7 @@ class PageBlockWebServiceImp implements PageBlockWebService {
       {int? customerId, int version = 1}) async {
     final respose = await defaultApi
         .getData(path: 'PageBlock/home', version: version, queryParameters: {
-      'language': 1,
+      // 'language': 2,
       'CustomerID': customerId,
     });
     final result = ApiReturnResult.fromJSON(respose.data);

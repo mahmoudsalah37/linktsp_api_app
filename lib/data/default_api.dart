@@ -25,7 +25,7 @@ class DefaultApiImp implements DefaultApi {
     _domin = '$domin/api/';
     _token = token;
     _defaultQueryParameters = {
-      'lang': lang,
+      'language': lang,
       'ZoneID': zoneid,
     };
   }
