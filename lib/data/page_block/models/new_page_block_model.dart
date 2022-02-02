@@ -2,6 +2,8 @@
 //
 //     final NewPageBlockModel = NewPageBlockModelFromJson(jsonString);
 
+import 'package:linktsp_api/data/list/models/new_list_model.dart';
+
 class NewPageBlockModel {
   NewPageBlockModel({
     this.length,
@@ -70,20 +72,20 @@ class DataItem {
 }
 
 class ItemItem {
-  ItemItem({
-    this.id,
-    this.name,
-    this.description,
-    this.imageUrl,
-    this.videoUrl,
-    this.thumbImageUrl,
-    this.listTypeId,
-    this.listTypeName,
-    this.product,
-    this.itemSource,
-    this.hasFilter,
-    this.filterModel,
-  });
+  ItemItem(
+      {this.id,
+      this.name,
+      this.description,
+      this.imageUrl,
+      this.videoUrl,
+      this.thumbImageUrl,
+      this.listTypeId,
+      this.listTypeName,
+      this.product,
+      this.itemSource,
+      this.hasFilter,
+      this.filterModel,
+      this.productDiscountList});
 
   int? id;
   String? name;
@@ -97,6 +99,7 @@ class ItemItem {
   dynamic itemSource;
   bool? hasFilter;
   FilterModel? filterModel;
+  List<ProductDiscountList>? productDiscountList;
 
   factory ItemItem.fromJson(Map<String, dynamic> json) => ItemItem(
         id: json["id"] == null ? null : json["id"],
@@ -115,6 +118,10 @@ class ItemItem {
         filterModel: json["filterModel"] == null
             ? null
             : FilterModel.fromJson(json["filterModel"]),
+        productDiscountList: json["productDiscountList"] == null
+            ? null
+            : List<ProductDiscountList>.from(json["productDiscountList"]
+                .map((x) => ProductDiscountList.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -130,6 +137,8 @@ class ItemItem {
         "itemSource": itemSource,
         "hasFilter": hasFilter == null ? null : hasFilter,
         "filterModel": filterModel == null ? null : filterModel!.toJson(),
+        "productDiscountList": productDiscountList ??
+            List<dynamic>.from(productDiscountList!.map((x) => x.toJson())),
       };
 }
 
