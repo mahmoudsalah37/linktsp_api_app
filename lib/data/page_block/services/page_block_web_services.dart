@@ -14,7 +14,6 @@ class PageBlockWebServiceImp implements PageBlockWebService {
       {int? customerId, int version = 1}) async {
     final respose = await defaultApi
         .getData(path: 'home', version: version, queryParameters: {
-      // 'language': 2,
       'CustomerID': customerId,
     });
     final result = ApiReturnResult.fromJSON(respose.data);
@@ -30,7 +29,6 @@ class PageBlockWebServiceImp implements PageBlockWebService {
       {int? customerId, int version = 1}) async {
     final respose = await defaultApi
         .getData(path: 'PageBlock/home', version: version, queryParameters: {
-      // 'language': 2,
       'CustomerID': customerId,
     });
     final result = ApiReturnResult.fromJSON(respose.data);
@@ -43,8 +41,9 @@ class PageBlockWebServiceImp implements PageBlockWebService {
 
   @override
   Future<List<BrandsModel>> getBrands() async {
-    final respose = await defaultApi
-        .getData(path: 'GetBrands', queryParameters: {'language': 1});
+    final respose = await defaultApi.getData(
+      path: 'GetBrands',
+    );
     final result = ApiReturnResult.fromJSON(respose.data);
     if (result.code == 200) {
       return (result.data["brands"] as List)
