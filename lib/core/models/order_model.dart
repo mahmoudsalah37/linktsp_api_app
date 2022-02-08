@@ -1,3 +1,4 @@
+import '../../data/list/models/new_list_model.dart';
 import 'address_model.dart';
 import 'store_model.dart';
 
@@ -131,6 +132,7 @@ class OrderItem {
     this.color,
     this.colorId,
     this.brandName,
+    this.productDiscountList,
   });
 
   int? qty;
@@ -157,6 +159,7 @@ class OrderItem {
   String? color;
   int? colorId;
   String? brandName;
+  List<ProductDiscountList>? productDiscountList;
 
   factory OrderItem.fromJson(Map<String, dynamic> json) => OrderItem(
         qty: json["qty"],
@@ -183,7 +186,13 @@ class OrderItem {
         colorHexaCode: json["colorHexaCode"],
         color: json["color"],
         colorId: json["colorID"],
-        brandName: json["brandName"],
+        productDiscountList: json["productDiscountList"] == null
+            ? null
+            : List<ProductDiscountList>.from(
+                json["productDiscountList"].map(
+                  (x) => ProductDiscountList.fromJson(x),
+                ),
+              ),
       );
 
   Map<String, dynamic> toJson() => {
@@ -211,6 +220,8 @@ class OrderItem {
         "color": color,
         "colorID": colorId,
         "brandName": brandName,
+        "productDiscountList": productDiscountList ??
+            List<dynamic>.from(productDiscountList!.map((x) => x.toJson())),
       };
 }
 
