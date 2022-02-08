@@ -26,10 +26,11 @@ class CartServiceImp implements CartService {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
   }
+
   @override
   Future<bool?> updateItemInCart(
       {required List<CartSkuModel> cartSkuModel,
-        required int customerId}) async {
+      required int customerId}) async {
     final response = await defaultApi.postData(
         data: cartSkuModel.map((e) => e.toJson()).toList(),
         path: 'Profile/cart/Add',
@@ -111,10 +112,14 @@ class CartServiceImp implements CartService {
   }
 
   @override
-  Future<CartSummaryModel> getCartSummary({required int customerId}) async {
+  Future<CartSummaryModel> getCartSummary(
+      {required int customerId, int version = 1}) async {
     final response = await defaultApi.getData(
         path: 'profile/cart/summary',
-        queryParameters: {"CustomerID": customerId});
+        version: version,
+        queryParameters: {
+          "CustomerID": customerId,
+        });
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
       return CartSummaryModel.fromJson(result.data);
@@ -185,7 +190,8 @@ abstract class CartService {
   Future<bool?> removeFromCart({required int skuId, required int customerId});
 
   /// Get all the information about cart for checkout
-  Future<CartSummaryModel> getCartSummary({required int customerId});
+  Future<CartSummaryModel> getCartSummary(
+      {required int customerId, int version = 1});
 
   /// Called first thing in cart page to get all client's discounts
   Future<String> cartDiscountNotification({required int customerId});

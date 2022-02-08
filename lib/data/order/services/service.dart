@@ -9,10 +9,10 @@ class OrderServiceImp implements OrderService {
   final DefaultApi defaultApi;
 
   @override
-  Future<OrderDetailsModel> getOrderDetails({required String orderCode}) async {
+  Future<OrderDetailsModel> getOrderDetails(
+      {required String orderCode, int version = 1}) async {
     final respose = await defaultApi.getData(
-      path: 'profile/order/$orderCode',
-    );
+        path: 'profile/order/$orderCode', version: version);
     final result = ApiReturnResult.fromJSON(respose.data);
     if (result.code == 200) {
       return OrderDetailsModel.fromJson(result.data);
@@ -52,7 +52,8 @@ class OrderServiceImp implements OrderService {
 
 abstract class OrderService {
   Future<List<OrderModel>> getOrders({required int customerId});
-  Future<OrderDetailsModel> getOrderDetails({required String orderCode});
+  Future<OrderDetailsModel> getOrderDetails(
+      {required String orderCode, int version = 1});
 
   /// Track order to see it's current status
   Future<TrackOrderModel> trackOrder({required String orderCode});
