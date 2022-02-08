@@ -115,7 +115,8 @@ class CartServiceImp implements CartService {
   Future<CartSummaryModel> getCartSummary(
       {required int customerId, int version = 1}) async {
     final response = await defaultApi.getData(
-        path: 'profile/cart/summary',
+        path:
+            version == 1 ? 'profile/cart/summary' : "Cart/profile/cart/summary",
         version: version,
         queryParameters: {
           "CustomerID": customerId,
