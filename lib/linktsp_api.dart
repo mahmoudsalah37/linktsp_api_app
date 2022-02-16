@@ -62,6 +62,10 @@ class LinkTspApi implements _LinkTspApiAbstract {
     DefaultApiImp.init(domin: domain, token: token, lang: lang, zoneid: zoneid);
   }
 
+  Future<void> initDependencyInjection() async {
+    await InjectionContainer.init();
+  }
+
   @override
   TokenService get token => sl<TokenService>();
   @override

@@ -42,7 +42,7 @@ class PageBlockWebServiceImp implements PageBlockWebService {
   @override
   Future<List<BrandsModel>> getBrands() async {
     final respose = await defaultApi.getData(
-      path: 'GetBrands',
+      path: 'PageBlock/GetBrands',
     );
     final result = ApiReturnResult.fromJSON(respose.data);
     if (result.code == 200) {
