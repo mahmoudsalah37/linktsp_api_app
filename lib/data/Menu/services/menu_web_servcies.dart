@@ -53,7 +53,7 @@ class MenuWebServiceImp implements MenuWebService {
 }
 
 abstract class MenuWebService {
-  Future<MenuModel> getMenu({required int customerID, int version = 1});
+  Future<MenuModel> getMenu({int? customerID, int version = 1});
   Future<List<ContactInfoModel>> getContactInfo();
 
   /// User it in checkout page to notify the user about pre-order products policy if he has one
