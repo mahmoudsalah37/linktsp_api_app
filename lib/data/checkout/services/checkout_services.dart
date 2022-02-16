@@ -37,14 +37,17 @@ class CheckOutServicesImp implements CheckOutService {
 
   @override
   Future<CheckouCartSummaryModel> chehckoutCartSummary(
-      {required int customerId, int? storeId, int? addressId}) async {
-    final response = await defaultApi.getData(
-        path: 'checkout/cartsummary',
-        queryParameters: {
-          "CustomerID": customerId,
-          "PickStoreID": storeId,
-          "AddressID": addressId
-        });
+      {required int customerId,
+      int? storeId,
+      int? addressId,
+      String? shipmentMethods}) async {
+    final response = await defaultApi
+        .getData(path: 'checkout/cartsummary', queryParameters: {
+      "CustomerID": customerId,
+      "PickStoreID": storeId,
+      "AddressID": addressId,
+      "ShipmentMethods": shipmentMethods,
+    });
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
       return CheckouCartSummaryModel.fromJson(result.data);
@@ -71,7 +74,8 @@ class CheckOutServicesImp implements CheckOutService {
       int? addressId,
       required int loyaltyPoints,
       required int customerId,
-      int? storeId}) async {
+      int? storeId,
+      String? shipmentMethods}) async {
     final response = await defaultApi.postData(
       path: 'checkout/coupon/redeem',
       queryParameters: {
@@ -80,6 +84,7 @@ class CheckOutServicesImp implements CheckOutService {
         "AddressID": addressId,
         "PickStoreID": storeId,
         "LoyaltyPointsRedeemed": loyaltyPoints,
+        "ShipmentMethods": shipmentMethods,
       },
     );
     final result = ApiReturnResult.fromJSON(response.data);
@@ -96,7 +101,8 @@ class CheckOutServicesImp implements CheckOutService {
       int? addressId,
       required int loyaltyPoints,
       required int customerId,
-      int? storeId}) async {
+      int? storeId,
+      String? shipmentMethods}) async {
     final response = await defaultApi.postData(
       path: 'checkout/coupon/clear',
       queryParameters: {
@@ -105,6 +111,7 @@ class CheckOutServicesImp implements CheckOutService {
         "AddressID": addressId,
         "PickStoreID": storeId,
         "LoyaltyPointsRedeemed": loyaltyPoints,
+        "ShipmentMethods": shipmentMethods,
       },
     );
     final result = ApiReturnResult.fromJSON(response.data);
@@ -174,7 +181,8 @@ class CheckOutServicesImp implements CheckOutService {
       int? addressId,
       required int loyaltyPoints,
       required double finalAmount,
-      int? storeId}) async {
+      int? storeId,
+      String? shipmentMethods}) async {
     final response = await defaultApi.postData(
       path: 'checkout/confirmorder',
       queryParameters: {
@@ -184,6 +192,7 @@ class CheckOutServicesImp implements CheckOutService {
         "PickStoreID": storeId,
         "LoyaltyPointsRedeemed": loyaltyPoints,
         "FinalAmount": finalAmount,
+        "ShipmentMethods": shipmentMethods,
       },
     );
     final result = ApiReturnResult.fromJSON(response.data);
@@ -260,7 +269,8 @@ class CheckOutServicesImp implements CheckOutService {
       {required int customerId,
       int? addressId,
       required int loyaltyPoints,
-      int? storeId}) async {
+      int? storeId,
+      String? shipmentMethods}) async {
     final response = await defaultApi.postData(
       path: 'LoyaltyPoints/Redeem',
       queryParameters: {
@@ -268,6 +278,7 @@ class CheckOutServicesImp implements CheckOutService {
         "LoyaltyPointsRedeemed": loyaltyPoints,
         "ShipmentAddressID": addressId,
         "PickStoreID": storeId,
+        "ShipmentMethods": shipmentMethods,
       },
     );
     final result = ApiReturnResult.fromJSON(response.data);
@@ -283,7 +294,8 @@ class CheckOutServicesImp implements CheckOutService {
       {required int customerId,
       int? addressId,
       required int loyaltyPoints,
-      int? storeId}) async {
+      int? storeId,
+      String? shipmentMethods}) async {
     final response = await defaultApi.postData(
       path: 'LoyaltyPoints/Unredeem',
       queryParameters: {
@@ -291,6 +303,7 @@ class CheckOutServicesImp implements CheckOutService {
         "LoyaltyPointsRedeemed": loyaltyPoints,
         "ShipmentAddressID": addressId,
         "PickStoreID": storeId,
+        "ShipmentMethods": shipmentMethods,
       },
     );
     final result = ApiReturnResult.fromJSON(response.data);
@@ -313,7 +326,10 @@ abstract class CheckOutService {
 
   /// It's return checkout summary (total - sub total - discount value)
   Future<CheckouCartSummaryModel> chehckoutCartSummary(
-      {required int customerId, int? storeId, int? addressId});
+      {required int customerId,
+      int? storeId,
+      int? addressId,
+      String? shipmentMethods});
 
   /// It's return all Payment options available (COD - CC - Apple pay)
   ///
@@ -326,7 +342,8 @@ abstract class CheckOutService {
       int? addressId,
       required int loyaltyPoints,
       required int customerId,
-      int? storeId});
+      int? storeId,
+      String? shipmentMethods});
 
   /// It's used to remove coupon value
   Future<CheckouCartSummaryModel> couponClear(
@@ -334,7 +351,8 @@ abstract class CheckOutService {
       int? addressId,
       required int loyaltyPoints,
       required int customerId,
-      int? storeId});
+      int? storeId,
+      String? shipmentMethods});
 
   /// It's used to get final stage in checkout cycle, It's just a review contains (order Items - selected payment - selected address)
   Future<CheckoutReviewModel> checkoutReview(
@@ -364,7 +382,8 @@ abstract class CheckOutService {
       int? addressId,
       required int loyaltyPoints,
       required double finalAmount,
-      int? storeId});
+      int? storeId,
+      String? shipmentMethods});
 
   /// It's used to confirm the order with one click.
   ///
@@ -388,12 +407,14 @@ abstract class CheckOutService {
       {required int customerId,
       int? addressId,
       required int loyaltyPoints,
-      int? storeId});
+      int? storeId,
+      String? shipmentMethods});
 
   /// It's used to apply points
   Future<CheckouCartSummaryModel> loyaltyPointsRedeem(
       {required int customerId,
       int? addressId,
       required int loyaltyPoints,
-      int? storeId});
+      int? storeId,
+      String? shipmentMethods});
 }
