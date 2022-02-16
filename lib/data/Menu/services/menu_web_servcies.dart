@@ -8,7 +8,7 @@ class MenuWebServiceImp implements MenuWebService {
   MenuWebServiceImp({required this.defaultApi});
   final DefaultApi defaultApi;
   @override
-  Future<MenuModel> getMenu({required int customerID, int version = 1}) async {
+  Future<MenuModel> getMenu({int? customerID, int version = 1}) async {
     final respose = await defaultApi.getData(
       path: 'Menu/menu',
       version: version,
