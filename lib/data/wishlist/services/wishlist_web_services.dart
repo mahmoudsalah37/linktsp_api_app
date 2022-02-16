@@ -25,9 +25,9 @@ class WishlistWebServiceImp implements WishlistWebService {
 
   @override
   Future<List<WishlistProductsModel>> getWishlist(
-      {required int customerId}) async {
-    final response =
-        await defaultApi.getData(path: 'profile/wishList', queryParameters: {
+      {required int customerId, int version = 1}) async {
+    final response = await defaultApi
+        .getData(path: 'profile/wishList', version: version, queryParameters: {
       'CustomerID': customerId,
     });
     final result = ApiReturnResult.fromJSON(response.data);
@@ -85,7 +85,8 @@ class WishlistWebServiceImp implements WishlistWebService {
 }
 
 abstract class WishlistWebService {
-  Future<List<WishlistProductsModel>> getWishlist({required int customerId});
+  Future<List<WishlistProductsModel>> getWishlist(
+      {required int customerId, int version = 1});
   Future<bool?> addToWishlist({required int customerId, required int skuid});
   Future<bool?> removeFromWishlist(
       {required int customerId, required int skuid});

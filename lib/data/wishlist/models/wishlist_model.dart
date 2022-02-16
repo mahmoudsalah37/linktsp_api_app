@@ -1,3 +1,5 @@
+import '../../list/models/new_list_model.dart';
+
 class WishlistProductsModel {
   WishlistProductsModel({
     this.preOrder,
@@ -25,6 +27,7 @@ class WishlistProductsModel {
     this.color,
     this.colorId,
     this.brandName,
+    this.productDiscountList,
   });
 
   bool? preOrder;
@@ -52,6 +55,7 @@ class WishlistProductsModel {
   String? color;
   int? colorId;
   String? brandName;
+  List<ProductDiscountList>? productDiscountList;
 
   factory WishlistProductsModel.fromJson(Map<String, dynamic> json) =>
       WishlistProductsModel(
@@ -81,6 +85,10 @@ class WishlistProductsModel {
         color: json["color"],
         colorId: json["colorID"],
         brandName: json["brandName"],
+        productDiscountList: json["productDiscountList"] == null
+            ? null
+            : List<ProductDiscountList>.from(json["productDiscountList"]
+                .map((x) => ProductDiscountList.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -109,5 +117,7 @@ class WishlistProductsModel {
         "color": color,
         "colorID": colorId,
         "brandName": brandName,
+        "productDiscountList": productDiscountList ??
+            List<dynamic>.from(productDiscountList!.map((x) => x.toJson())),
       };
 }
