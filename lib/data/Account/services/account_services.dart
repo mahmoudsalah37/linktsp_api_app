@@ -28,6 +28,28 @@ class AccountServicesImp implements AccountService {
   }
 
   @override
+  Future<UserModel> newLogin(
+      {required String password,
+      required String email,
+      required String deviceId}) async {
+    final response = await defaultApi.postData(
+      version: 3,
+      data: {
+        "password": password.trim(),
+        "email": email.trim(),
+        "deviceToken": deviceId,
+      },
+      path: 'New/account/login',
+    );
+    final result = ApiReturnResult.fromJSON(response.data);
+    if (result.code == 200) {
+      return UserModel.fromJson(result.data);
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
+  }
+
+  @override
   Future<UserModel> register({required RegisterModel registerModel}) async {
     final response = await defaultApi.postData(
       data: registerModel,
@@ -240,6 +262,12 @@ abstract class AccountService {
   ///
   /// Password must be more than 8 chacracters
   Future<UserModel> login({required String password, required String email});
+
+  /// login and send device id (firebase device id)
+  Future<UserModel> newLogin(
+      {required String password,
+      required String email,
+      required String deviceId});
 
   Future<UserModel> register({required RegisterModel registerModel});
   Future<UserModel> updateProfile({required UserModel userModel});
