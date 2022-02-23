@@ -25,6 +25,8 @@ class _$InnerProductModelTearOff {
   _InnerProductModel call(
       {@JsonKey(name: 'id')
           int? id,
+      @JsonKey(name: 'code')
+          String? code,
       @JsonKey(name: 'brand')
           BrandModel? brands,
       @JsonKey(name: 'title')
@@ -65,6 +67,7 @@ class _$InnerProductModelTearOff {
           List<CategoryModel> categories = const <CategoryModel>[]}) {
     return _InnerProductModel(
       id: id,
+      code: code,
       brands: brands,
       title: title,
       averageRating: averageRating,
@@ -99,6 +102,8 @@ const $InnerProductModel = _$InnerProductModelTearOff();
 mixin _$InnerProductModel {
   @JsonKey(name: 'id')
   int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'code')
+  String? get code => throw _privateConstructorUsedError;
   @JsonKey(name: 'brand')
   BrandModel? get brands => throw _privateConstructorUsedError;
   @JsonKey(name: 'title')
@@ -151,6 +156,7 @@ abstract class $InnerProductModelCopyWith<$Res> {
       _$InnerProductModelCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'code') String? code,
       @JsonKey(name: 'brand') BrandModel? brands,
       @JsonKey(name: 'title') String title,
       @JsonKey(name: 'averageRating') double averageRating,
@@ -187,6 +193,7 @@ class _$InnerProductModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
+    Object? code = freezed,
     Object? brands = freezed,
     Object? title = freezed,
     Object? averageRating = freezed,
@@ -212,6 +219,10 @@ class _$InnerProductModelCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as String?,
       brands: brands == freezed
           ? _value.brands
           : brands // ignore: cast_nullable_to_non_nullable
@@ -323,6 +334,7 @@ abstract class _$InnerProductModelCopyWith<$Res>
   @override
   $Res call(
       {@JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'code') String? code,
       @JsonKey(name: 'brand') BrandModel? brands,
       @JsonKey(name: 'title') String title,
       @JsonKey(name: 'averageRating') double averageRating,
@@ -363,6 +375,7 @@ class __$InnerProductModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
+    Object? code = freezed,
     Object? brands = freezed,
     Object? title = freezed,
     Object? averageRating = freezed,
@@ -388,6 +401,10 @@ class __$InnerProductModelCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as String?,
       brands: brands == freezed
           ? _value.brands
           : brands // ignore: cast_nullable_to_non_nullable
@@ -474,6 +491,8 @@ class _$_InnerProductModel implements _InnerProductModel {
   const _$_InnerProductModel(
       {@JsonKey(name: 'id')
           this.id,
+      @JsonKey(name: 'code')
+          this.code,
       @JsonKey(name: 'brand')
           this.brands,
       @JsonKey(name: 'title')
@@ -519,6 +538,9 @@ class _$_InnerProductModel implements _InnerProductModel {
   @override
   @JsonKey(name: 'id')
   final int? id;
+  @override
+  @JsonKey(name: 'code')
+  final String? code;
   @override
   @JsonKey(name: 'brand')
   final BrandModel? brands;
@@ -579,7 +601,7 @@ class _$_InnerProductModel implements _InnerProductModel {
 
   @override
   String toString() {
-    return 'InnerProductModel(id: $id, brands: $brands, title: $title, averageRating: $averageRating, sizes: $sizes, colors: $colors, skus: $skus, details: $details, description: $description, isShowSizeChart: $isShowSizeChart, sizeGuide: $sizeGuide, showOneClickOrder: $showOneClickOrder, preOrder: $preOrder, isAddedtoWishlist: $isAddedtoWishlist, minDeliveryPeriod: $minDeliveryPeriod, maxDeliveryPeriod: $maxDeliveryPeriod, bogoPromoText: $bogoPromoText, review: $review, features: $features, categories: $categories)';
+    return 'InnerProductModel(id: $id, code: $code, brands: $brands, title: $title, averageRating: $averageRating, sizes: $sizes, colors: $colors, skus: $skus, details: $details, description: $description, isShowSizeChart: $isShowSizeChart, sizeGuide: $sizeGuide, showOneClickOrder: $showOneClickOrder, preOrder: $preOrder, isAddedtoWishlist: $isAddedtoWishlist, minDeliveryPeriod: $minDeliveryPeriod, maxDeliveryPeriod: $maxDeliveryPeriod, bogoPromoText: $bogoPromoText, review: $review, features: $features, categories: $categories)';
   }
 
   @override
@@ -588,6 +610,7 @@ class _$_InnerProductModel implements _InnerProductModel {
         (other.runtimeType == runtimeType &&
             other is _InnerProductModel &&
             const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.code, code) &&
             const DeepCollectionEquality().equals(other.brands, brands) &&
             const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality()
@@ -622,6 +645,7 @@ class _$_InnerProductModel implements _InnerProductModel {
   int get hashCode => Object.hashAll([
         runtimeType,
         const DeepCollectionEquality().hash(id),
+        const DeepCollectionEquality().hash(code),
         const DeepCollectionEquality().hash(brands),
         const DeepCollectionEquality().hash(title),
         const DeepCollectionEquality().hash(averageRating),
@@ -657,6 +681,7 @@ class _$_InnerProductModel implements _InnerProductModel {
 abstract class _InnerProductModel implements InnerProductModel {
   const factory _InnerProductModel(
           {@JsonKey(name: 'id') int? id,
+          @JsonKey(name: 'code') String? code,
           @JsonKey(name: 'brand') BrandModel? brands,
           @JsonKey(name: 'title') String title,
           @JsonKey(name: 'averageRating') double averageRating,
@@ -684,6 +709,9 @@ abstract class _InnerProductModel implements InnerProductModel {
   @override
   @JsonKey(name: 'id')
   int? get id;
+  @override
+  @JsonKey(name: 'code')
+  String? get code;
   @override
   @JsonKey(name: 'brand')
   BrandModel? get brands;

@@ -9,6 +9,7 @@ part of 'inner_product_model.dart';
 _$_InnerProductModel _$$_InnerProductModelFromJson(Map<String, dynamic> json) =>
     _$_InnerProductModel(
       id: json['id'] as int?,
+      code: json['code'] as String?,
       brands: json['brand'] == null
           ? null
           : BrandModel.fromJson(json['brand'] as Map<String, dynamic>),
@@ -62,6 +63,7 @@ Map<String, dynamic> _$$_InnerProductModelToJson(
         _$_InnerProductModel instance) =>
     <String, dynamic>{
       'id': instance.id,
+      'code': instance.code,
       'brand': instance.brands,
       'title': instance.title,
       'averageRating': instance.averageRating,

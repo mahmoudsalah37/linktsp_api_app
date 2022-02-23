@@ -9,6 +9,7 @@ part 'inner_product_model.g.dart';
 class InnerProductModel with _$InnerProductModel {
   const factory InnerProductModel({
     @JsonKey(name: 'id') int? id,
+    @JsonKey(name: 'code') String? code,
     @JsonKey(name: 'brand') BrandModel? brands,
     @Default('') @JsonKey(name: 'title') String title,
     @Default(0) @JsonKey(name: 'averageRating') double averageRating,
