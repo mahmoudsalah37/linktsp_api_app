@@ -2,6 +2,8 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../page_block/models/new_page_block_model.dart';
+
 part 'inner_product_model.freezed.dart';
 part 'inner_product_model.g.dart';
 
@@ -33,6 +35,12 @@ class InnerProductModel with _$InnerProductModel {
     @Default(<CategoryModel>[])
     @JsonKey(name: 'productCategories')
         List<CategoryModel> categories,
+    @Default(<Product>[])
+    @JsonKey(name: 'recentItems')
+        List<Product> recentItems,
+    @Default(<Product>[])
+    @JsonKey(name: 'relatedItems')
+        List<Product> relatedItems,
   }) = _InnerProductModel;
 
   factory InnerProductModel.fromJson(Map<String, dynamic> json) =>

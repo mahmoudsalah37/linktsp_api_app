@@ -57,6 +57,14 @@ _$_InnerProductModel _$$_InnerProductModelFromJson(Map<String, dynamic> json) =>
               ?.map((e) => CategoryModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const <CategoryModel>[],
+      recentItems: (json['recentItems'] as List<dynamic>?)
+              ?.map((e) => Product.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <Product>[],
+      relatedItems: (json['relatedItems'] as List<dynamic>?)
+              ?.map((e) => Product.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <Product>[],
     );
 
 Map<String, dynamic> _$$_InnerProductModelToJson(
@@ -83,6 +91,8 @@ Map<String, dynamic> _$$_InnerProductModelToJson(
       'reviews': instance.review,
       'features': instance.features,
       'productCategories': instance.categories,
+      'recentItems': instance.recentItems,
+      'relatedItems': instance.relatedItems,
     };
 
 _$_ReviewUserCommentModel _$$_ReviewUserCommentModelFromJson(
