@@ -66,9 +66,9 @@ class _$InnerProductModelTearOff {
       @JsonKey(name: 'productCategories')
           List<CategoryModel> categories = const <CategoryModel>[],
       @JsonKey(name: 'recentItems')
-          List<Product> recentItems = const <Product>[],
+          List<ProductModel> recentItems = const <ProductModel>[],
       @JsonKey(name: 'relatedItems')
-          List<Product> relatedItems = const <Product>[]}) {
+          List<ProductModel> relatedItems = const <ProductModel>[]}) {
     return _InnerProductModel(
       id: id,
       code: code,
@@ -149,9 +149,9 @@ mixin _$InnerProductModel {
   @JsonKey(name: 'productCategories')
   List<CategoryModel> get categories => throw _privateConstructorUsedError;
   @JsonKey(name: 'recentItems')
-  List<Product> get recentItems => throw _privateConstructorUsedError;
+  List<ProductModel> get recentItems => throw _privateConstructorUsedError;
   @JsonKey(name: 'relatedItems')
-  List<Product> get relatedItems => throw _privateConstructorUsedError;
+  List<ProductModel> get relatedItems => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -186,8 +186,8 @@ abstract class $InnerProductModelCopyWith<$Res> {
       @JsonKey(name: 'reviews') ReviewUserCommentModel? review,
       @JsonKey(name: 'features') List<FeatureModel?> features,
       @JsonKey(name: 'productCategories') List<CategoryModel> categories,
-      @JsonKey(name: 'recentItems') List<Product> recentItems,
-      @JsonKey(name: 'relatedItems') List<Product> relatedItems});
+      @JsonKey(name: 'recentItems') List<ProductModel> recentItems,
+      @JsonKey(name: 'relatedItems') List<ProductModel> relatedItems});
 
   $BrandModelCopyWith<$Res>? get brands;
   $ReviewUserCommentModelCopyWith<$Res>? get review;
@@ -316,11 +316,11 @@ class _$InnerProductModelCopyWithImpl<$Res>
       recentItems: recentItems == freezed
           ? _value.recentItems
           : recentItems // ignore: cast_nullable_to_non_nullable
-              as List<Product>,
+              as List<ProductModel>,
       relatedItems: relatedItems == freezed
           ? _value.relatedItems
           : relatedItems // ignore: cast_nullable_to_non_nullable
-              as List<Product>,
+              as List<ProductModel>,
     ));
   }
 
@@ -376,8 +376,8 @@ abstract class _$InnerProductModelCopyWith<$Res>
       @JsonKey(name: 'reviews') ReviewUserCommentModel? review,
       @JsonKey(name: 'features') List<FeatureModel?> features,
       @JsonKey(name: 'productCategories') List<CategoryModel> categories,
-      @JsonKey(name: 'recentItems') List<Product> recentItems,
-      @JsonKey(name: 'relatedItems') List<Product> relatedItems});
+      @JsonKey(name: 'recentItems') List<ProductModel> recentItems,
+      @JsonKey(name: 'relatedItems') List<ProductModel> relatedItems});
 
   @override
   $BrandModelCopyWith<$Res>? get brands;
@@ -510,11 +510,11 @@ class __$InnerProductModelCopyWithImpl<$Res>
       recentItems: recentItems == freezed
           ? _value.recentItems
           : recentItems // ignore: cast_nullable_to_non_nullable
-              as List<Product>,
+              as List<ProductModel>,
       relatedItems: relatedItems == freezed
           ? _value.relatedItems
           : relatedItems // ignore: cast_nullable_to_non_nullable
-              as List<Product>,
+              as List<ProductModel>,
     ));
   }
 }
@@ -566,9 +566,9 @@ class _$_InnerProductModel implements _InnerProductModel {
       @JsonKey(name: 'productCategories')
           this.categories = const <CategoryModel>[],
       @JsonKey(name: 'recentItems')
-          this.recentItems = const <Product>[],
+          this.recentItems = const <ProductModel>[],
       @JsonKey(name: 'relatedItems')
-          this.relatedItems = const <Product>[]});
+          this.relatedItems = const <ProductModel>[]});
 
   factory _$_InnerProductModel.fromJson(Map<String, dynamic> json) =>
       _$$_InnerProductModelFromJson(json);
@@ -638,10 +638,10 @@ class _$_InnerProductModel implements _InnerProductModel {
   final List<CategoryModel> categories;
   @override
   @JsonKey(name: 'recentItems')
-  final List<Product> recentItems;
+  final List<ProductModel> recentItems;
   @override
   @JsonKey(name: 'relatedItems')
-  final List<Product> relatedItems;
+  final List<ProductModel> relatedItems;
 
   @override
   String toString() {
@@ -751,8 +751,8 @@ abstract class _InnerProductModel implements InnerProductModel {
           @JsonKey(name: 'reviews') ReviewUserCommentModel? review,
           @JsonKey(name: 'features') List<FeatureModel?> features,
           @JsonKey(name: 'productCategories') List<CategoryModel> categories,
-          @JsonKey(name: 'recentItems') List<Product> recentItems,
-          @JsonKey(name: 'relatedItems') List<Product> relatedItems}) =
+          @JsonKey(name: 'recentItems') List<ProductModel> recentItems,
+          @JsonKey(name: 'relatedItems') List<ProductModel> relatedItems}) =
       _$_InnerProductModel;
 
   factory _InnerProductModel.fromJson(Map<String, dynamic> json) =
@@ -823,10 +823,10 @@ abstract class _InnerProductModel implements InnerProductModel {
   List<CategoryModel> get categories;
   @override
   @JsonKey(name: 'recentItems')
-  List<Product> get recentItems;
+  List<ProductModel> get recentItems;
   @override
   @JsonKey(name: 'relatedItems')
-  List<Product> get relatedItems;
+  List<ProductModel> get relatedItems;
   @override
   @JsonKey(ignore: true)
   _$InnerProductModelCopyWith<_InnerProductModel> get copyWith =>
@@ -3051,5 +3051,829 @@ abstract class _CategoryModel implements CategoryModel {
   @override
   @JsonKey(ignore: true)
   _$CategoryModelCopyWith<_CategoryModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+ProductModel _$ProductModelFromJson(Map<String, dynamic> json) {
+  return _ProductModel.fromJson(json);
+}
+
+/// @nodoc
+class _$ProductModelTearOff {
+  const _$ProductModelTearOff();
+
+  _ProductModel call(
+      {@JsonKey(name: 'id')
+          int? id,
+      @JsonKey(name: 'title')
+          String name = '',
+      @JsonKey(name: 'shortDesc')
+          String shortDesc = '',
+      @JsonKey(name: 'bogoPromoText')
+          String bogoPromoText = '',
+      @JsonKey(name: 'imageURL')
+          String imageUrl = '',
+      @JsonKey(name: 'imageThumbUrl')
+          String imageThumbUrl = '',
+      @JsonKey(name: 'secondImageURL')
+          String secondImageURL = '',
+      @JsonKey(name: 'secondThumbImageURL')
+          String secondThumbImageURL = '',
+      @JsonKey(name: 'isAddedtoWishlist')
+          bool isAddedtoWishlist = false,
+      @JsonKey(name: 'isOutOfStock')
+          bool isOutOfStock = false,
+      @JsonKey(name: 'isOutOfStockShowConfig')
+          bool isOutOfStockShowConfig = false,
+      @JsonKey(name: 'hasDiscount')
+          bool hasDiscount = false,
+      @JsonKey(name: 'preOrder')
+          bool preOrder = false,
+      @JsonKey(name: 'price')
+          double price = 0,
+      @JsonKey(name: 'finalPrice')
+          double finalPrice = 0,
+      @JsonKey(name: 'productDiscountList')
+          List<ProductDiscountListModel>
+              productDiscountList = const <ProductDiscountListModel>[]}) {
+    return _ProductModel(
+      id: id,
+      name: name,
+      shortDesc: shortDesc,
+      bogoPromoText: bogoPromoText,
+      imageUrl: imageUrl,
+      imageThumbUrl: imageThumbUrl,
+      secondImageURL: secondImageURL,
+      secondThumbImageURL: secondThumbImageURL,
+      isAddedtoWishlist: isAddedtoWishlist,
+      isOutOfStock: isOutOfStock,
+      isOutOfStockShowConfig: isOutOfStockShowConfig,
+      hasDiscount: hasDiscount,
+      preOrder: preOrder,
+      price: price,
+      finalPrice: finalPrice,
+      productDiscountList: productDiscountList,
+    );
+  }
+
+  ProductModel fromJson(Map<String, Object?> json) {
+    return ProductModel.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $ProductModel = _$ProductModelTearOff();
+
+/// @nodoc
+mixin _$ProductModel {
+  @JsonKey(name: 'id')
+  int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'title')
+  String get name => throw _privateConstructorUsedError;
+  @JsonKey(name: 'shortDesc')
+  String get shortDesc => throw _privateConstructorUsedError;
+  @JsonKey(name: 'bogoPromoText')
+  String get bogoPromoText => throw _privateConstructorUsedError;
+  @JsonKey(name: 'imageURL')
+  String get imageUrl => throw _privateConstructorUsedError;
+  @JsonKey(name: 'imageThumbUrl')
+  String get imageThumbUrl => throw _privateConstructorUsedError;
+  @JsonKey(name: 'secondImageURL')
+  String get secondImageURL => throw _privateConstructorUsedError;
+  @JsonKey(name: 'secondThumbImageURL')
+  String get secondThumbImageURL => throw _privateConstructorUsedError;
+  @JsonKey(name: 'isAddedtoWishlist')
+  bool get isAddedtoWishlist => throw _privateConstructorUsedError;
+  @JsonKey(name: 'isOutOfStock')
+  bool get isOutOfStock => throw _privateConstructorUsedError;
+  @JsonKey(name: 'isOutOfStockShowConfig')
+  bool get isOutOfStockShowConfig => throw _privateConstructorUsedError;
+  @JsonKey(name: 'hasDiscount')
+  bool get hasDiscount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'preOrder')
+  bool get preOrder => throw _privateConstructorUsedError;
+  @JsonKey(name: 'price')
+  double get price => throw _privateConstructorUsedError;
+  @JsonKey(name: 'finalPrice')
+  double get finalPrice => throw _privateConstructorUsedError;
+  @JsonKey(name: 'productDiscountList')
+  List<ProductDiscountListModel> get productDiscountList =>
+      throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ProductModelCopyWith<ProductModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ProductModelCopyWith<$Res> {
+  factory $ProductModelCopyWith(
+          ProductModel value, $Res Function(ProductModel) then) =
+      _$ProductModelCopyWithImpl<$Res>;
+  $Res call(
+      {@JsonKey(name: 'id')
+          int? id,
+      @JsonKey(name: 'title')
+          String name,
+      @JsonKey(name: 'shortDesc')
+          String shortDesc,
+      @JsonKey(name: 'bogoPromoText')
+          String bogoPromoText,
+      @JsonKey(name: 'imageURL')
+          String imageUrl,
+      @JsonKey(name: 'imageThumbUrl')
+          String imageThumbUrl,
+      @JsonKey(name: 'secondImageURL')
+          String secondImageURL,
+      @JsonKey(name: 'secondThumbImageURL')
+          String secondThumbImageURL,
+      @JsonKey(name: 'isAddedtoWishlist')
+          bool isAddedtoWishlist,
+      @JsonKey(name: 'isOutOfStock')
+          bool isOutOfStock,
+      @JsonKey(name: 'isOutOfStockShowConfig')
+          bool isOutOfStockShowConfig,
+      @JsonKey(name: 'hasDiscount')
+          bool hasDiscount,
+      @JsonKey(name: 'preOrder')
+          bool preOrder,
+      @JsonKey(name: 'price')
+          double price,
+      @JsonKey(name: 'finalPrice')
+          double finalPrice,
+      @JsonKey(name: 'productDiscountList')
+          List<ProductDiscountListModel> productDiscountList});
+}
+
+/// @nodoc
+class _$ProductModelCopyWithImpl<$Res> implements $ProductModelCopyWith<$Res> {
+  _$ProductModelCopyWithImpl(this._value, this._then);
+
+  final ProductModel _value;
+  // ignore: unused_field
+  final $Res Function(ProductModel) _then;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? name = freezed,
+    Object? shortDesc = freezed,
+    Object? bogoPromoText = freezed,
+    Object? imageUrl = freezed,
+    Object? imageThumbUrl = freezed,
+    Object? secondImageURL = freezed,
+    Object? secondThumbImageURL = freezed,
+    Object? isAddedtoWishlist = freezed,
+    Object? isOutOfStock = freezed,
+    Object? isOutOfStockShowConfig = freezed,
+    Object? hasDiscount = freezed,
+    Object? preOrder = freezed,
+    Object? price = freezed,
+    Object? finalPrice = freezed,
+    Object? productDiscountList = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      shortDesc: shortDesc == freezed
+          ? _value.shortDesc
+          : shortDesc // ignore: cast_nullable_to_non_nullable
+              as String,
+      bogoPromoText: bogoPromoText == freezed
+          ? _value.bogoPromoText
+          : bogoPromoText // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageUrl: imageUrl == freezed
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageThumbUrl: imageThumbUrl == freezed
+          ? _value.imageThumbUrl
+          : imageThumbUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      secondImageURL: secondImageURL == freezed
+          ? _value.secondImageURL
+          : secondImageURL // ignore: cast_nullable_to_non_nullable
+              as String,
+      secondThumbImageURL: secondThumbImageURL == freezed
+          ? _value.secondThumbImageURL
+          : secondThumbImageURL // ignore: cast_nullable_to_non_nullable
+              as String,
+      isAddedtoWishlist: isAddedtoWishlist == freezed
+          ? _value.isAddedtoWishlist
+          : isAddedtoWishlist // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isOutOfStock: isOutOfStock == freezed
+          ? _value.isOutOfStock
+          : isOutOfStock // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isOutOfStockShowConfig: isOutOfStockShowConfig == freezed
+          ? _value.isOutOfStockShowConfig
+          : isOutOfStockShowConfig // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hasDiscount: hasDiscount == freezed
+          ? _value.hasDiscount
+          : hasDiscount // ignore: cast_nullable_to_non_nullable
+              as bool,
+      preOrder: preOrder == freezed
+          ? _value.preOrder
+          : preOrder // ignore: cast_nullable_to_non_nullable
+              as bool,
+      price: price == freezed
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as double,
+      finalPrice: finalPrice == freezed
+          ? _value.finalPrice
+          : finalPrice // ignore: cast_nullable_to_non_nullable
+              as double,
+      productDiscountList: productDiscountList == freezed
+          ? _value.productDiscountList
+          : productDiscountList // ignore: cast_nullable_to_non_nullable
+              as List<ProductDiscountListModel>,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$ProductModelCopyWith<$Res>
+    implements $ProductModelCopyWith<$Res> {
+  factory _$ProductModelCopyWith(
+          _ProductModel value, $Res Function(_ProductModel) then) =
+      __$ProductModelCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {@JsonKey(name: 'id')
+          int? id,
+      @JsonKey(name: 'title')
+          String name,
+      @JsonKey(name: 'shortDesc')
+          String shortDesc,
+      @JsonKey(name: 'bogoPromoText')
+          String bogoPromoText,
+      @JsonKey(name: 'imageURL')
+          String imageUrl,
+      @JsonKey(name: 'imageThumbUrl')
+          String imageThumbUrl,
+      @JsonKey(name: 'secondImageURL')
+          String secondImageURL,
+      @JsonKey(name: 'secondThumbImageURL')
+          String secondThumbImageURL,
+      @JsonKey(name: 'isAddedtoWishlist')
+          bool isAddedtoWishlist,
+      @JsonKey(name: 'isOutOfStock')
+          bool isOutOfStock,
+      @JsonKey(name: 'isOutOfStockShowConfig')
+          bool isOutOfStockShowConfig,
+      @JsonKey(name: 'hasDiscount')
+          bool hasDiscount,
+      @JsonKey(name: 'preOrder')
+          bool preOrder,
+      @JsonKey(name: 'price')
+          double price,
+      @JsonKey(name: 'finalPrice')
+          double finalPrice,
+      @JsonKey(name: 'productDiscountList')
+          List<ProductDiscountListModel> productDiscountList});
+}
+
+/// @nodoc
+class __$ProductModelCopyWithImpl<$Res> extends _$ProductModelCopyWithImpl<$Res>
+    implements _$ProductModelCopyWith<$Res> {
+  __$ProductModelCopyWithImpl(
+      _ProductModel _value, $Res Function(_ProductModel) _then)
+      : super(_value, (v) => _then(v as _ProductModel));
+
+  @override
+  _ProductModel get _value => super._value as _ProductModel;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? name = freezed,
+    Object? shortDesc = freezed,
+    Object? bogoPromoText = freezed,
+    Object? imageUrl = freezed,
+    Object? imageThumbUrl = freezed,
+    Object? secondImageURL = freezed,
+    Object? secondThumbImageURL = freezed,
+    Object? isAddedtoWishlist = freezed,
+    Object? isOutOfStock = freezed,
+    Object? isOutOfStockShowConfig = freezed,
+    Object? hasDiscount = freezed,
+    Object? preOrder = freezed,
+    Object? price = freezed,
+    Object? finalPrice = freezed,
+    Object? productDiscountList = freezed,
+  }) {
+    return _then(_ProductModel(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      shortDesc: shortDesc == freezed
+          ? _value.shortDesc
+          : shortDesc // ignore: cast_nullable_to_non_nullable
+              as String,
+      bogoPromoText: bogoPromoText == freezed
+          ? _value.bogoPromoText
+          : bogoPromoText // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageUrl: imageUrl == freezed
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageThumbUrl: imageThumbUrl == freezed
+          ? _value.imageThumbUrl
+          : imageThumbUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      secondImageURL: secondImageURL == freezed
+          ? _value.secondImageURL
+          : secondImageURL // ignore: cast_nullable_to_non_nullable
+              as String,
+      secondThumbImageURL: secondThumbImageURL == freezed
+          ? _value.secondThumbImageURL
+          : secondThumbImageURL // ignore: cast_nullable_to_non_nullable
+              as String,
+      isAddedtoWishlist: isAddedtoWishlist == freezed
+          ? _value.isAddedtoWishlist
+          : isAddedtoWishlist // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isOutOfStock: isOutOfStock == freezed
+          ? _value.isOutOfStock
+          : isOutOfStock // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isOutOfStockShowConfig: isOutOfStockShowConfig == freezed
+          ? _value.isOutOfStockShowConfig
+          : isOutOfStockShowConfig // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hasDiscount: hasDiscount == freezed
+          ? _value.hasDiscount
+          : hasDiscount // ignore: cast_nullable_to_non_nullable
+              as bool,
+      preOrder: preOrder == freezed
+          ? _value.preOrder
+          : preOrder // ignore: cast_nullable_to_non_nullable
+              as bool,
+      price: price == freezed
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as double,
+      finalPrice: finalPrice == freezed
+          ? _value.finalPrice
+          : finalPrice // ignore: cast_nullable_to_non_nullable
+              as double,
+      productDiscountList: productDiscountList == freezed
+          ? _value.productDiscountList
+          : productDiscountList // ignore: cast_nullable_to_non_nullable
+              as List<ProductDiscountListModel>,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_ProductModel implements _ProductModel {
+  const _$_ProductModel(
+      {@JsonKey(name: 'id')
+          this.id,
+      @JsonKey(name: 'title')
+          this.name = '',
+      @JsonKey(name: 'shortDesc')
+          this.shortDesc = '',
+      @JsonKey(name: 'bogoPromoText')
+          this.bogoPromoText = '',
+      @JsonKey(name: 'imageURL')
+          this.imageUrl = '',
+      @JsonKey(name: 'imageThumbUrl')
+          this.imageThumbUrl = '',
+      @JsonKey(name: 'secondImageURL')
+          this.secondImageURL = '',
+      @JsonKey(name: 'secondThumbImageURL')
+          this.secondThumbImageURL = '',
+      @JsonKey(name: 'isAddedtoWishlist')
+          this.isAddedtoWishlist = false,
+      @JsonKey(name: 'isOutOfStock')
+          this.isOutOfStock = false,
+      @JsonKey(name: 'isOutOfStockShowConfig')
+          this.isOutOfStockShowConfig = false,
+      @JsonKey(name: 'hasDiscount')
+          this.hasDiscount = false,
+      @JsonKey(name: 'preOrder')
+          this.preOrder = false,
+      @JsonKey(name: 'price')
+          this.price = 0,
+      @JsonKey(name: 'finalPrice')
+          this.finalPrice = 0,
+      @JsonKey(name: 'productDiscountList')
+          this.productDiscountList = const <ProductDiscountListModel>[]});
+
+  factory _$_ProductModel.fromJson(Map<String, dynamic> json) =>
+      _$$_ProductModelFromJson(json);
+
+  @override
+  @JsonKey(name: 'id')
+  final int? id;
+  @override
+  @JsonKey(name: 'title')
+  final String name;
+  @override
+  @JsonKey(name: 'shortDesc')
+  final String shortDesc;
+  @override
+  @JsonKey(name: 'bogoPromoText')
+  final String bogoPromoText;
+  @override
+  @JsonKey(name: 'imageURL')
+  final String imageUrl;
+  @override
+  @JsonKey(name: 'imageThumbUrl')
+  final String imageThumbUrl;
+  @override
+  @JsonKey(name: 'secondImageURL')
+  final String secondImageURL;
+  @override
+  @JsonKey(name: 'secondThumbImageURL')
+  final String secondThumbImageURL;
+  @override
+  @JsonKey(name: 'isAddedtoWishlist')
+  final bool isAddedtoWishlist;
+  @override
+  @JsonKey(name: 'isOutOfStock')
+  final bool isOutOfStock;
+  @override
+  @JsonKey(name: 'isOutOfStockShowConfig')
+  final bool isOutOfStockShowConfig;
+  @override
+  @JsonKey(name: 'hasDiscount')
+  final bool hasDiscount;
+  @override
+  @JsonKey(name: 'preOrder')
+  final bool preOrder;
+  @override
+  @JsonKey(name: 'price')
+  final double price;
+  @override
+  @JsonKey(name: 'finalPrice')
+  final double finalPrice;
+  @override
+  @JsonKey(name: 'productDiscountList')
+  final List<ProductDiscountListModel> productDiscountList;
+
+  @override
+  String toString() {
+    return 'ProductModel(id: $id, name: $name, shortDesc: $shortDesc, bogoPromoText: $bogoPromoText, imageUrl: $imageUrl, imageThumbUrl: $imageThumbUrl, secondImageURL: $secondImageURL, secondThumbImageURL: $secondThumbImageURL, isAddedtoWishlist: $isAddedtoWishlist, isOutOfStock: $isOutOfStock, isOutOfStockShowConfig: $isOutOfStockShowConfig, hasDiscount: $hasDiscount, preOrder: $preOrder, price: $price, finalPrice: $finalPrice, productDiscountList: $productDiscountList)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ProductModel &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.shortDesc, shortDesc) &&
+            const DeepCollectionEquality()
+                .equals(other.bogoPromoText, bogoPromoText) &&
+            const DeepCollectionEquality().equals(other.imageUrl, imageUrl) &&
+            const DeepCollectionEquality()
+                .equals(other.imageThumbUrl, imageThumbUrl) &&
+            const DeepCollectionEquality()
+                .equals(other.secondImageURL, secondImageURL) &&
+            const DeepCollectionEquality()
+                .equals(other.secondThumbImageURL, secondThumbImageURL) &&
+            const DeepCollectionEquality()
+                .equals(other.isAddedtoWishlist, isAddedtoWishlist) &&
+            const DeepCollectionEquality()
+                .equals(other.isOutOfStock, isOutOfStock) &&
+            const DeepCollectionEquality()
+                .equals(other.isOutOfStockShowConfig, isOutOfStockShowConfig) &&
+            const DeepCollectionEquality()
+                .equals(other.hasDiscount, hasDiscount) &&
+            const DeepCollectionEquality().equals(other.preOrder, preOrder) &&
+            const DeepCollectionEquality().equals(other.price, price) &&
+            const DeepCollectionEquality()
+                .equals(other.finalPrice, finalPrice) &&
+            const DeepCollectionEquality()
+                .equals(other.productDiscountList, productDiscountList));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(shortDesc),
+      const DeepCollectionEquality().hash(bogoPromoText),
+      const DeepCollectionEquality().hash(imageUrl),
+      const DeepCollectionEquality().hash(imageThumbUrl),
+      const DeepCollectionEquality().hash(secondImageURL),
+      const DeepCollectionEquality().hash(secondThumbImageURL),
+      const DeepCollectionEquality().hash(isAddedtoWishlist),
+      const DeepCollectionEquality().hash(isOutOfStock),
+      const DeepCollectionEquality().hash(isOutOfStockShowConfig),
+      const DeepCollectionEquality().hash(hasDiscount),
+      const DeepCollectionEquality().hash(preOrder),
+      const DeepCollectionEquality().hash(price),
+      const DeepCollectionEquality().hash(finalPrice),
+      const DeepCollectionEquality().hash(productDiscountList));
+
+  @JsonKey(ignore: true)
+  @override
+  _$ProductModelCopyWith<_ProductModel> get copyWith =>
+      __$ProductModelCopyWithImpl<_ProductModel>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ProductModelToJson(this);
+  }
+}
+
+abstract class _ProductModel implements ProductModel {
+  const factory _ProductModel(
+          {@JsonKey(name: 'id')
+              int? id,
+          @JsonKey(name: 'title')
+              String name,
+          @JsonKey(name: 'shortDesc')
+              String shortDesc,
+          @JsonKey(name: 'bogoPromoText')
+              String bogoPromoText,
+          @JsonKey(name: 'imageURL')
+              String imageUrl,
+          @JsonKey(name: 'imageThumbUrl')
+              String imageThumbUrl,
+          @JsonKey(name: 'secondImageURL')
+              String secondImageURL,
+          @JsonKey(name: 'secondThumbImageURL')
+              String secondThumbImageURL,
+          @JsonKey(name: 'isAddedtoWishlist')
+              bool isAddedtoWishlist,
+          @JsonKey(name: 'isOutOfStock')
+              bool isOutOfStock,
+          @JsonKey(name: 'isOutOfStockShowConfig')
+              bool isOutOfStockShowConfig,
+          @JsonKey(name: 'hasDiscount')
+              bool hasDiscount,
+          @JsonKey(name: 'preOrder')
+              bool preOrder,
+          @JsonKey(name: 'price')
+              double price,
+          @JsonKey(name: 'finalPrice')
+              double finalPrice,
+          @JsonKey(name: 'productDiscountList')
+              List<ProductDiscountListModel> productDiscountList}) =
+      _$_ProductModel;
+
+  factory _ProductModel.fromJson(Map<String, dynamic> json) =
+      _$_ProductModel.fromJson;
+
+  @override
+  @JsonKey(name: 'id')
+  int? get id;
+  @override
+  @JsonKey(name: 'title')
+  String get name;
+  @override
+  @JsonKey(name: 'shortDesc')
+  String get shortDesc;
+  @override
+  @JsonKey(name: 'bogoPromoText')
+  String get bogoPromoText;
+  @override
+  @JsonKey(name: 'imageURL')
+  String get imageUrl;
+  @override
+  @JsonKey(name: 'imageThumbUrl')
+  String get imageThumbUrl;
+  @override
+  @JsonKey(name: 'secondImageURL')
+  String get secondImageURL;
+  @override
+  @JsonKey(name: 'secondThumbImageURL')
+  String get secondThumbImageURL;
+  @override
+  @JsonKey(name: 'isAddedtoWishlist')
+  bool get isAddedtoWishlist;
+  @override
+  @JsonKey(name: 'isOutOfStock')
+  bool get isOutOfStock;
+  @override
+  @JsonKey(name: 'isOutOfStockShowConfig')
+  bool get isOutOfStockShowConfig;
+  @override
+  @JsonKey(name: 'hasDiscount')
+  bool get hasDiscount;
+  @override
+  @JsonKey(name: 'preOrder')
+  bool get preOrder;
+  @override
+  @JsonKey(name: 'price')
+  double get price;
+  @override
+  @JsonKey(name: 'finalPrice')
+  double get finalPrice;
+  @override
+  @JsonKey(name: 'productDiscountList')
+  List<ProductDiscountListModel> get productDiscountList;
+  @override
+  @JsonKey(ignore: true)
+  _$ProductModelCopyWith<_ProductModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+ProductDiscountListModel _$ProductDiscountListModelFromJson(
+    Map<String, dynamic> json) {
+  return _ProductDiscountListModel.fromJson(json);
+}
+
+/// @nodoc
+class _$ProductDiscountListModelTearOff {
+  const _$ProductDiscountListModelTearOff();
+
+  _ProductDiscountListModel call(
+      {@JsonKey(name: 'key') String key = '',
+      @JsonKey(name: 'value') String value = ''}) {
+    return _ProductDiscountListModel(
+      key: key,
+      value: value,
+    );
+  }
+
+  ProductDiscountListModel fromJson(Map<String, Object?> json) {
+    return ProductDiscountListModel.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $ProductDiscountListModel = _$ProductDiscountListModelTearOff();
+
+/// @nodoc
+mixin _$ProductDiscountListModel {
+  @JsonKey(name: 'key')
+  String get key => throw _privateConstructorUsedError;
+  @JsonKey(name: 'value')
+  String get value => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ProductDiscountListModelCopyWith<ProductDiscountListModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ProductDiscountListModelCopyWith<$Res> {
+  factory $ProductDiscountListModelCopyWith(ProductDiscountListModel value,
+          $Res Function(ProductDiscountListModel) then) =
+      _$ProductDiscountListModelCopyWithImpl<$Res>;
+  $Res call(
+      {@JsonKey(name: 'key') String key, @JsonKey(name: 'value') String value});
+}
+
+/// @nodoc
+class _$ProductDiscountListModelCopyWithImpl<$Res>
+    implements $ProductDiscountListModelCopyWith<$Res> {
+  _$ProductDiscountListModelCopyWithImpl(this._value, this._then);
+
+  final ProductDiscountListModel _value;
+  // ignore: unused_field
+  final $Res Function(ProductDiscountListModel) _then;
+
+  @override
+  $Res call({
+    Object? key = freezed,
+    Object? value = freezed,
+  }) {
+    return _then(_value.copyWith(
+      key: key == freezed
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String,
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$ProductDiscountListModelCopyWith<$Res>
+    implements $ProductDiscountListModelCopyWith<$Res> {
+  factory _$ProductDiscountListModelCopyWith(_ProductDiscountListModel value,
+          $Res Function(_ProductDiscountListModel) then) =
+      __$ProductDiscountListModelCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {@JsonKey(name: 'key') String key, @JsonKey(name: 'value') String value});
+}
+
+/// @nodoc
+class __$ProductDiscountListModelCopyWithImpl<$Res>
+    extends _$ProductDiscountListModelCopyWithImpl<$Res>
+    implements _$ProductDiscountListModelCopyWith<$Res> {
+  __$ProductDiscountListModelCopyWithImpl(_ProductDiscountListModel _value,
+      $Res Function(_ProductDiscountListModel) _then)
+      : super(_value, (v) => _then(v as _ProductDiscountListModel));
+
+  @override
+  _ProductDiscountListModel get _value =>
+      super._value as _ProductDiscountListModel;
+
+  @override
+  $Res call({
+    Object? key = freezed,
+    Object? value = freezed,
+  }) {
+    return _then(_ProductDiscountListModel(
+      key: key == freezed
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String,
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_ProductDiscountListModel implements _ProductDiscountListModel {
+  const _$_ProductDiscountListModel(
+      {@JsonKey(name: 'key') this.key = '',
+      @JsonKey(name: 'value') this.value = ''});
+
+  factory _$_ProductDiscountListModel.fromJson(Map<String, dynamic> json) =>
+      _$$_ProductDiscountListModelFromJson(json);
+
+  @override
+  @JsonKey(name: 'key')
+  final String key;
+  @override
+  @JsonKey(name: 'value')
+  final String value;
+
+  @override
+  String toString() {
+    return 'ProductDiscountListModel(key: $key, value: $value)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ProductDiscountListModel &&
+            const DeepCollectionEquality().equals(other.key, key) &&
+            const DeepCollectionEquality().equals(other.value, value));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(key),
+      const DeepCollectionEquality().hash(value));
+
+  @JsonKey(ignore: true)
+  @override
+  _$ProductDiscountListModelCopyWith<_ProductDiscountListModel> get copyWith =>
+      __$ProductDiscountListModelCopyWithImpl<_ProductDiscountListModel>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ProductDiscountListModelToJson(this);
+  }
+}
+
+abstract class _ProductDiscountListModel implements ProductDiscountListModel {
+  const factory _ProductDiscountListModel(
+      {@JsonKey(name: 'key') String key,
+      @JsonKey(name: 'value') String value}) = _$_ProductDiscountListModel;
+
+  factory _ProductDiscountListModel.fromJson(Map<String, dynamic> json) =
+      _$_ProductDiscountListModel.fromJson;
+
+  @override
+  @JsonKey(name: 'key')
+  String get key;
+  @override
+  @JsonKey(name: 'value')
+  String get value;
+  @override
+  @JsonKey(ignore: true)
+  _$ProductDiscountListModelCopyWith<_ProductDiscountListModel> get copyWith =>
       throw _privateConstructorUsedError;
 }

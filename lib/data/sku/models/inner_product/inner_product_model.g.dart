@@ -58,13 +58,13 @@ _$_InnerProductModel _$$_InnerProductModelFromJson(Map<String, dynamic> json) =>
               .toList() ??
           const <CategoryModel>[],
       recentItems: (json['recentItems'] as List<dynamic>?)
-              ?.map((e) => Product.fromJson(e as Map<String, dynamic>))
+              ?.map((e) => ProductModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
-          const <Product>[],
+          const <ProductModel>[],
       relatedItems: (json['relatedItems'] as List<dynamic>?)
-              ?.map((e) => Product.fromJson(e as Map<String, dynamic>))
+              ?.map((e) => ProductModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
-          const <Product>[],
+          const <ProductModel>[],
     );
 
 Map<String, dynamic> _$$_InnerProductModelToJson(
@@ -256,4 +256,62 @@ Map<String, dynamic> _$$_CategoryModelToJson(_$_CategoryModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
+    };
+
+_$_ProductModel _$$_ProductModelFromJson(Map<String, dynamic> json) =>
+    _$_ProductModel(
+      id: json['id'] as int?,
+      name: json['title'] as String? ?? '',
+      shortDesc: json['shortDesc'] as String? ?? '',
+      bogoPromoText: json['bogoPromoText'] as String? ?? '',
+      imageUrl: json['imageURL'] as String? ?? '',
+      imageThumbUrl: json['imageThumbUrl'] as String? ?? '',
+      secondImageURL: json['secondImageURL'] as String? ?? '',
+      secondThumbImageURL: json['secondThumbImageURL'] as String? ?? '',
+      isAddedtoWishlist: json['isAddedtoWishlist'] as bool? ?? false,
+      isOutOfStock: json['isOutOfStock'] as bool? ?? false,
+      isOutOfStockShowConfig: json['isOutOfStockShowConfig'] as bool? ?? false,
+      hasDiscount: json['hasDiscount'] as bool? ?? false,
+      preOrder: json['preOrder'] as bool? ?? false,
+      price: (json['price'] as num?)?.toDouble() ?? 0,
+      finalPrice: (json['finalPrice'] as num?)?.toDouble() ?? 0,
+      productDiscountList: (json['productDiscountList'] as List<dynamic>?)
+              ?.map((e) =>
+                  ProductDiscountListModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <ProductDiscountListModel>[],
+    );
+
+Map<String, dynamic> _$$_ProductModelToJson(_$_ProductModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'title': instance.name,
+      'shortDesc': instance.shortDesc,
+      'bogoPromoText': instance.bogoPromoText,
+      'imageURL': instance.imageUrl,
+      'imageThumbUrl': instance.imageThumbUrl,
+      'secondImageURL': instance.secondImageURL,
+      'secondThumbImageURL': instance.secondThumbImageURL,
+      'isAddedtoWishlist': instance.isAddedtoWishlist,
+      'isOutOfStock': instance.isOutOfStock,
+      'isOutOfStockShowConfig': instance.isOutOfStockShowConfig,
+      'hasDiscount': instance.hasDiscount,
+      'preOrder': instance.preOrder,
+      'price': instance.price,
+      'finalPrice': instance.finalPrice,
+      'productDiscountList': instance.productDiscountList,
+    };
+
+_$_ProductDiscountListModel _$$_ProductDiscountListModelFromJson(
+        Map<String, dynamic> json) =>
+    _$_ProductDiscountListModel(
+      key: json['key'] as String? ?? '',
+      value: json['value'] as String? ?? '',
+    );
+
+Map<String, dynamic> _$$_ProductDiscountListModelToJson(
+        _$_ProductDiscountListModel instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'value': instance.value,
     };

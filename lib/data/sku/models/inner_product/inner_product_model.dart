@@ -35,12 +35,12 @@ class InnerProductModel with _$InnerProductModel {
     @Default(<CategoryModel>[])
     @JsonKey(name: 'productCategories')
         List<CategoryModel> categories,
-    @Default(<Product>[])
+    @Default(<ProductModel>[])
     @JsonKey(name: 'recentItems')
-        List<Product> recentItems,
-    @Default(<Product>[])
+        List<ProductModel> recentItems,
+    @Default(<ProductModel>[])
     @JsonKey(name: 'relatedItems')
-        List<Product> relatedItems,
+        List<ProductModel> relatedItems,
   }) = _InnerProductModel;
 
   factory InnerProductModel.fromJson(Map<String, dynamic> json) =>
@@ -174,4 +174,46 @@ class CategoryModel with _$CategoryModel {
 
   factory CategoryModel.fromJson(Map<String, dynamic> json) =>
       _$CategoryModelFromJson(json);
+}
+
+@freezed
+class ProductModel with _$ProductModel {
+  const factory ProductModel({
+    @JsonKey(name: 'id') int? id,
+    @Default('') @JsonKey(name: 'title') String name,
+    @Default('') @JsonKey(name: 'shortDesc') String shortDesc,
+    @Default('') @JsonKey(name: 'bogoPromoText') String bogoPromoText,
+    @Default('') @JsonKey(name: 'imageURL') String imageUrl,
+    @Default('') @JsonKey(name: 'imageThumbUrl') String imageThumbUrl,
+    @Default('') @JsonKey(name: 'secondImageURL') String secondImageURL,
+    @Default('')
+    @JsonKey(name: 'secondThumbImageURL')
+        String secondThumbImageURL,
+    @Default(false) @JsonKey(name: 'isAddedtoWishlist') bool isAddedtoWishlist,
+    @Default(false) @JsonKey(name: 'isOutOfStock') bool isOutOfStock,
+    @Default(false)
+    @JsonKey(name: 'isOutOfStockShowConfig')
+        bool isOutOfStockShowConfig,
+    @Default(false) @JsonKey(name: 'hasDiscount') bool hasDiscount,
+    @Default(false) @JsonKey(name: 'preOrder') bool preOrder,
+    @Default(0) @JsonKey(name: 'price') double price,
+    @Default(0) @JsonKey(name: 'finalPrice') double finalPrice,
+    @Default(<ProductDiscountListModel>[])
+    @JsonKey(name: 'productDiscountList')
+        List<ProductDiscountListModel> productDiscountList,
+  }) = _ProductModel;
+
+  factory ProductModel.fromJson(Map<String, dynamic> json) =>
+      _$ProductModelFromJson(json);
+}
+
+@freezed
+class ProductDiscountListModel with _$ProductDiscountListModel {
+  const factory ProductDiscountListModel({
+    @Default('') @JsonKey(name: 'key') String key,
+    @Default('') @JsonKey(name: 'value') String value,
+  }) = _ProductDiscountListModel;
+
+  factory ProductDiscountListModel.fromJson(Map<String, dynamic> json) =>
+      _$ProductDiscountListModelFromJson(json);
 }
