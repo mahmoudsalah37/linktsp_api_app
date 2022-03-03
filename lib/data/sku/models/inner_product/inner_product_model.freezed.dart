@@ -1642,11 +1642,15 @@ class _$ColorModelTearOff {
   _ColorModel call(
       {@JsonKey(name: 'id') int? id,
       @JsonKey(name: 'name') String name = '',
-      @JsonKey(name: 'croppedImageURL') String? thumbnail}) {
+      @JsonKey(name: 'hexa') String? hexa,
+      @JsonKey(name: 'croppedImageURL') String? thumbnail,
+      @JsonKey(name: 'enableCropping') bool? enableCropping = false}) {
     return _ColorModel(
       id: id,
       name: name,
+      hexa: hexa,
       thumbnail: thumbnail,
+      enableCropping: enableCropping,
     );
   }
 
@@ -1664,8 +1668,12 @@ mixin _$ColorModel {
   int? get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'name')
   String get name => throw _privateConstructorUsedError;
+  @JsonKey(name: 'hexa')
+  String? get hexa => throw _privateConstructorUsedError;
   @JsonKey(name: 'croppedImageURL')
   String? get thumbnail => throw _privateConstructorUsedError;
+  @JsonKey(name: 'enableCropping')
+  bool? get enableCropping => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1681,7 +1689,9 @@ abstract class $ColorModelCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'id') int? id,
       @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'croppedImageURL') String? thumbnail});
+      @JsonKey(name: 'hexa') String? hexa,
+      @JsonKey(name: 'croppedImageURL') String? thumbnail,
+      @JsonKey(name: 'enableCropping') bool? enableCropping});
 }
 
 /// @nodoc
@@ -1696,7 +1706,9 @@ class _$ColorModelCopyWithImpl<$Res> implements $ColorModelCopyWith<$Res> {
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
+    Object? hexa = freezed,
     Object? thumbnail = freezed,
+    Object? enableCropping = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -1707,10 +1719,18 @@ class _$ColorModelCopyWithImpl<$Res> implements $ColorModelCopyWith<$Res> {
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      hexa: hexa == freezed
+          ? _value.hexa
+          : hexa // ignore: cast_nullable_to_non_nullable
+              as String?,
       thumbnail: thumbnail == freezed
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
               as String?,
+      enableCropping: enableCropping == freezed
+          ? _value.enableCropping
+          : enableCropping // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -1724,7 +1744,9 @@ abstract class _$ColorModelCopyWith<$Res> implements $ColorModelCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'id') int? id,
       @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'croppedImageURL') String? thumbnail});
+      @JsonKey(name: 'hexa') String? hexa,
+      @JsonKey(name: 'croppedImageURL') String? thumbnail,
+      @JsonKey(name: 'enableCropping') bool? enableCropping});
 }
 
 /// @nodoc
@@ -1741,7 +1763,9 @@ class __$ColorModelCopyWithImpl<$Res> extends _$ColorModelCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
+    Object? hexa = freezed,
     Object? thumbnail = freezed,
+    Object? enableCropping = freezed,
   }) {
     return _then(_ColorModel(
       id: id == freezed
@@ -1752,10 +1776,18 @@ class __$ColorModelCopyWithImpl<$Res> extends _$ColorModelCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      hexa: hexa == freezed
+          ? _value.hexa
+          : hexa // ignore: cast_nullable_to_non_nullable
+              as String?,
       thumbnail: thumbnail == freezed
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
               as String?,
+      enableCropping: enableCropping == freezed
+          ? _value.enableCropping
+          : enableCropping // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -1766,7 +1798,9 @@ class _$_ColorModel implements _ColorModel {
   const _$_ColorModel(
       {@JsonKey(name: 'id') this.id,
       @JsonKey(name: 'name') this.name = '',
-      @JsonKey(name: 'croppedImageURL') this.thumbnail});
+      @JsonKey(name: 'hexa') this.hexa,
+      @JsonKey(name: 'croppedImageURL') this.thumbnail,
+      @JsonKey(name: 'enableCropping') this.enableCropping = false});
 
   factory _$_ColorModel.fromJson(Map<String, dynamic> json) =>
       _$$_ColorModelFromJson(json);
@@ -1778,12 +1812,18 @@ class _$_ColorModel implements _ColorModel {
   @JsonKey(name: 'name')
   final String name;
   @override
+  @JsonKey(name: 'hexa')
+  final String? hexa;
+  @override
   @JsonKey(name: 'croppedImageURL')
   final String? thumbnail;
+  @override
+  @JsonKey(name: 'enableCropping')
+  final bool? enableCropping;
 
   @override
   String toString() {
-    return 'ColorModel(id: $id, name: $name, thumbnail: $thumbnail)';
+    return 'ColorModel(id: $id, name: $name, hexa: $hexa, thumbnail: $thumbnail, enableCropping: $enableCropping)';
   }
 
   @override
@@ -1793,7 +1833,10 @@ class _$_ColorModel implements _ColorModel {
             other is _ColorModel &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.thumbnail, thumbnail));
+            const DeepCollectionEquality().equals(other.hexa, hexa) &&
+            const DeepCollectionEquality().equals(other.thumbnail, thumbnail) &&
+            const DeepCollectionEquality()
+                .equals(other.enableCropping, enableCropping));
   }
 
   @override
@@ -1801,7 +1844,9 @@ class _$_ColorModel implements _ColorModel {
       runtimeType,
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(thumbnail));
+      const DeepCollectionEquality().hash(hexa),
+      const DeepCollectionEquality().hash(thumbnail),
+      const DeepCollectionEquality().hash(enableCropping));
 
   @JsonKey(ignore: true)
   @override
@@ -1818,7 +1863,9 @@ abstract class _ColorModel implements ColorModel {
   const factory _ColorModel(
       {@JsonKey(name: 'id') int? id,
       @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'croppedImageURL') String? thumbnail}) = _$_ColorModel;
+      @JsonKey(name: 'hexa') String? hexa,
+      @JsonKey(name: 'croppedImageURL') String? thumbnail,
+      @JsonKey(name: 'enableCropping') bool? enableCropping}) = _$_ColorModel;
 
   factory _ColorModel.fromJson(Map<String, dynamic> json) =
       _$_ColorModel.fromJson;
@@ -1830,8 +1877,14 @@ abstract class _ColorModel implements ColorModel {
   @JsonKey(name: 'name')
   String get name;
   @override
+  @JsonKey(name: 'hexa')
+  String? get hexa;
+  @override
   @JsonKey(name: 'croppedImageURL')
   String? get thumbnail;
+  @override
+  @JsonKey(name: 'enableCropping')
+  bool? get enableCropping;
   @override
   @JsonKey(ignore: true)
   _$ColorModelCopyWith<_ColorModel> get copyWith =>
@@ -2704,10 +2757,12 @@ class _$FeatureModelTearOff {
 
   _FeatureModel call(
       {@JsonKey(name: 'name') String name = '',
-      @JsonKey(name: 'value') String value = ''}) {
+      @JsonKey(name: 'value') String value = '',
+      @JsonKey(name: 'imageURL') String? imageURL}) {
     return _FeatureModel(
       name: name,
       value: value,
+      imageURL: imageURL,
     );
   }
 
@@ -2725,6 +2780,8 @@ mixin _$FeatureModel {
   String get name => throw _privateConstructorUsedError;
   @JsonKey(name: 'value')
   String get value => throw _privateConstructorUsedError;
+  @JsonKey(name: 'imageURL')
+  String? get imageURL => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2739,7 +2796,8 @@ abstract class $FeatureModelCopyWith<$Res> {
       _$FeatureModelCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: 'name') String name,
-      @JsonKey(name: 'value') String value});
+      @JsonKey(name: 'value') String value,
+      @JsonKey(name: 'imageURL') String? imageURL});
 }
 
 /// @nodoc
@@ -2754,6 +2812,7 @@ class _$FeatureModelCopyWithImpl<$Res> implements $FeatureModelCopyWith<$Res> {
   $Res call({
     Object? name = freezed,
     Object? value = freezed,
+    Object? imageURL = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed
@@ -2764,6 +2823,10 @@ class _$FeatureModelCopyWithImpl<$Res> implements $FeatureModelCopyWith<$Res> {
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
+      imageURL: imageURL == freezed
+          ? _value.imageURL
+          : imageURL // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -2777,7 +2840,8 @@ abstract class _$FeatureModelCopyWith<$Res>
   @override
   $Res call(
       {@JsonKey(name: 'name') String name,
-      @JsonKey(name: 'value') String value});
+      @JsonKey(name: 'value') String value,
+      @JsonKey(name: 'imageURL') String? imageURL});
 }
 
 /// @nodoc
@@ -2794,6 +2858,7 @@ class __$FeatureModelCopyWithImpl<$Res> extends _$FeatureModelCopyWithImpl<$Res>
   $Res call({
     Object? name = freezed,
     Object? value = freezed,
+    Object? imageURL = freezed,
   }) {
     return _then(_FeatureModel(
       name: name == freezed
@@ -2804,6 +2869,10 @@ class __$FeatureModelCopyWithImpl<$Res> extends _$FeatureModelCopyWithImpl<$Res>
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
+      imageURL: imageURL == freezed
+          ? _value.imageURL
+          : imageURL // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -2813,7 +2882,8 @@ class __$FeatureModelCopyWithImpl<$Res> extends _$FeatureModelCopyWithImpl<$Res>
 class _$_FeatureModel implements _FeatureModel {
   const _$_FeatureModel(
       {@JsonKey(name: 'name') this.name = '',
-      @JsonKey(name: 'value') this.value = ''});
+      @JsonKey(name: 'value') this.value = '',
+      @JsonKey(name: 'imageURL') this.imageURL});
 
   factory _$_FeatureModel.fromJson(Map<String, dynamic> json) =>
       _$$_FeatureModelFromJson(json);
@@ -2824,10 +2894,13 @@ class _$_FeatureModel implements _FeatureModel {
   @override
   @JsonKey(name: 'value')
   final String value;
+  @override
+  @JsonKey(name: 'imageURL')
+  final String? imageURL;
 
   @override
   String toString() {
-    return 'FeatureModel(name: $name, value: $value)';
+    return 'FeatureModel(name: $name, value: $value, imageURL: $imageURL)';
   }
 
   @override
@@ -2836,14 +2909,16 @@ class _$_FeatureModel implements _FeatureModel {
         (other.runtimeType == runtimeType &&
             other is _FeatureModel &&
             const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.value, value));
+            const DeepCollectionEquality().equals(other.value, value) &&
+            const DeepCollectionEquality().equals(other.imageURL, imageURL));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(value));
+      const DeepCollectionEquality().hash(value),
+      const DeepCollectionEquality().hash(imageURL));
 
   @JsonKey(ignore: true)
   @override
@@ -2859,7 +2934,8 @@ class _$_FeatureModel implements _FeatureModel {
 abstract class _FeatureModel implements FeatureModel {
   const factory _FeatureModel(
       {@JsonKey(name: 'name') String name,
-      @JsonKey(name: 'value') String value}) = _$_FeatureModel;
+      @JsonKey(name: 'value') String value,
+      @JsonKey(name: 'imageURL') String? imageURL}) = _$_FeatureModel;
 
   factory _FeatureModel.fromJson(Map<String, dynamic> json) =
       _$_FeatureModel.fromJson;
@@ -2870,6 +2946,9 @@ abstract class _FeatureModel implements FeatureModel {
   @override
   @JsonKey(name: 'value')
   String get value;
+  @override
+  @JsonKey(name: 'imageURL')
+  String? get imageURL;
   @override
   @JsonKey(ignore: true)
   _$FeatureModelCopyWith<_FeatureModel> get copyWith =>

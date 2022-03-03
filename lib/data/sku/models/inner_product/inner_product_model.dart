@@ -101,7 +101,9 @@ class ColorModel with _$ColorModel {
   const factory ColorModel({
     @JsonKey(name: 'id') int? id,
     @Default('') @JsonKey(name: 'name') String name,
+    @JsonKey(name: 'hexa') String? hexa,
     @JsonKey(name: 'croppedImageURL') String? thumbnail,
+    @Default(false) @JsonKey(name: 'enableCropping') bool? enableCropping,
   }) = _ColorModel;
 
   factory ColorModel.fromJson(Map<String, dynamic> json) =>
@@ -159,6 +161,7 @@ class FeatureModel with _$FeatureModel {
   const factory FeatureModel({
     @Default('') @JsonKey(name: 'name') String name,
     @Default('') @JsonKey(name: 'value') String value,
+    @JsonKey(name: 'imageURL') String? imageURL,
   }) = _FeatureModel;
 
   factory FeatureModel.fromJson(Map<String, dynamic> json) =>

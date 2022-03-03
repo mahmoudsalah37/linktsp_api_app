@@ -157,14 +157,18 @@ _$_ColorModel _$$_ColorModelFromJson(Map<String, dynamic> json) =>
     _$_ColorModel(
       id: json['id'] as int?,
       name: json['name'] as String? ?? '',
+      hexa: json['hexa'] as String?,
       thumbnail: json['croppedImageURL'] as String?,
+      enableCropping: json['enableCropping'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$_ColorModelToJson(_$_ColorModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
+      'hexa': instance.hexa,
       'croppedImageURL': instance.thumbnail,
+      'enableCropping': instance.enableCropping,
     };
 
 _$_SkuModel _$$_SkuModelFromJson(Map<String, dynamic> json) => _$_SkuModel(
@@ -238,12 +242,14 @@ _$_FeatureModel _$$_FeatureModelFromJson(Map<String, dynamic> json) =>
     _$_FeatureModel(
       name: json['name'] as String? ?? '',
       value: json['value'] as String? ?? '',
+      imageURL: json['imageURL'] as String?,
     );
 
 Map<String, dynamic> _$$_FeatureModelToJson(_$_FeatureModel instance) =>
     <String, dynamic>{
       'name': instance.name,
       'value': instance.value,
+      'imageURL': instance.imageURL,
     };
 
 _$_CategoryModel _$$_CategoryModelFromJson(Map<String, dynamic> json) =>
