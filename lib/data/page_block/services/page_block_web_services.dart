@@ -40,6 +40,21 @@ class PageBlockWebServiceImp implements PageBlockWebService {
   }
 
   @override
+  Future<PageBlockModel> getEditorialContent(
+      {int? customerId, int version = 1}) async {
+    final respose = await defaultApi
+        .getData(path: 'Editorial', version: version, queryParameters: {
+      'CustomerID': customerId,
+    });
+    final result = ApiReturnResult.fromJSON(respose.data);
+    if (result.code == 200) {
+      return PageBlockModel.fromJson(result.data);
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
+  }
+
+  @override
   Future<List<BrandsModel>> getBrands() async {
     final respose =
         await defaultApi.getData(path: 'PageBlock/GetBrands', version: 3);
@@ -59,5 +74,7 @@ abstract class PageBlockWebService {
   /// It's return [PageBlockModel]
   Future<PageBlockModel> getPageBlock({int? customerId, int version = 1});
   Future<NewPageBlockModel> getNewPageBlock({int? customerId, int version = 1});
+  Future<PageBlockModel> getEditorialContent(
+      {int? customerId, int version = 1});
   Future<List<BrandsModel>> getBrands();
 }
