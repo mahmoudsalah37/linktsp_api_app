@@ -10,8 +10,8 @@ class CustomerSummaryModel {
 
   double? loyaltyPoints;
   bool? loyaltyPointsEnabled;
-  dynamic loyaltyProgramName;
-  dynamic loyaltyProgramId;
+  String? loyaltyProgramName;
+  String? loyaltyProgramId;
   int? wishListCount;
   int? ordersThisMonth;
 
