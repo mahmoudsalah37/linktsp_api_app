@@ -1,3 +1,5 @@
+import '../../data/list/models/list_model.dart';
+
 class Feature {
   Feature({
     this.name,
@@ -29,32 +31,5 @@ class Feature {
         "value": value,
         "imageURL": imageUrl,
         "values": values ?? List<dynamic>.from(values!.map((x) => x.toJson()))
-      };
-}
-
-class FeatureValue {
-  FeatureValue({
-    this.id,
-    this.iDs,
-    this.name,
-    this.featureID,
-  });
-  int? id;
-  dynamic iDs;
-  String? name;
-  int? featureID;
-
-  factory FeatureValue.fromJson(Map<String, dynamic> json) => FeatureValue(
-        id: json["id"],
-        iDs: json["iDs"],
-        name: json["name"],
-        featureID: json["imageURL"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "iDs": iDs,
-        "name": name,
-        "featureID": featureID,
       };
 }
