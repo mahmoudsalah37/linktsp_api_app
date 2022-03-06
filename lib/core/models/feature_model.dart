@@ -15,14 +15,20 @@ class Feature {
         name: json["name"],
         value: json["value"],
         imageUrl: json["imageURL"],
-        values: json["values"],
+        values: json["values"] == null
+            ? json["values"]
+            : List<FeatureValue>.from(
+                json["values"].map(
+                  (x) => FeatureValue.fromJson(x),
+                ),
+              ),
       );
 
   Map<String, dynamic> toJson() => {
         "name": name,
         "value": value,
         "imageURL": imageUrl,
-        "values": values,
+        "values": values ?? List<dynamic>.from(values!.map((x) => x.toJson()))
       };
 }
 
