@@ -28,24 +28,27 @@ class Feature {
 
 class FeatureValue {
   FeatureValue({
+    this.id,
+    this.iDs,
     this.name,
-    this.value,
-    this.imageUrl,
+    this.featureID,
   });
-
+  int? id;
+  dynamic iDs;
   String? name;
-  String? value;
-  String? imageUrl;
+  int? featureID;
 
   factory FeatureValue.fromJson(Map<String, dynamic> json) => FeatureValue(
+        id: json["id"],
+        iDs: json["iDs"],
         name: json["name"],
-        value: json["value"],
-        imageUrl: json["imageURL"],
+        featureID: json["imageURL"],
       );
 
   Map<String, dynamic> toJson() => {
+        "id": id,
+        "iDs": iDs,
         "name": name,
-        "value": value,
-        "imageURL": imageUrl,
+        "featureID": featureID,
       };
 }
