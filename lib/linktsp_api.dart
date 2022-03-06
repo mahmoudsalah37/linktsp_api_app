@@ -12,7 +12,7 @@ export 'data/checkout/models/checkout_cart_summary_model.dart';
 
 export 'data/content_page/models/content_page_model.dart';
 
-export 'data/list/models/list_model.dart';
+export 'data/list/models/list_model.dart' hide FeatureValue;
 
 export 'data/lookup/models/lookup_model.dart';
 
