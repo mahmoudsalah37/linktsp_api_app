@@ -306,6 +306,7 @@ class Product {
     this.sizes,
     this.colors,
     this.productDiscountList,
+    this.allClassifications,
   });
 
   int? id;
@@ -330,6 +331,7 @@ class Product {
   List<Size>? sizes;
   List<Color>? colors;
   List<ProductDiscountList>? productDiscountList;
+  List<Classification>? allClassifications;
 
   factory Product.fromJson(Map<String, dynamic> json) => Product(
         id: json["id"] == null ? null : json["id"],
@@ -377,6 +379,10 @@ class Product {
             ? null
             : List<ProductDiscountList>.from(json["productDiscountList"]
                 .map((x) => ProductDiscountList.fromJson(x))),
+        allClassifications: json["allClassifications"] == null
+            ? null
+            : List<Classification>.from(json["allClassifications"]
+                .map((x) => ProductDiscountList.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -410,6 +416,8 @@ class Product {
             : List<dynamic>.from(colors!.map((x) => x.toJson())),
         "productDiscountList": productDiscountList ??
             List<dynamic>.from(productDiscountList!.map((x) => x.toJson())),
+        "allClassifications": allClassifications ??
+            List<dynamic>.from(allClassifications!.map((x) => x.toJson())),
       };
 }
 
