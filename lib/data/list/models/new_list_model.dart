@@ -2,6 +2,8 @@
 //
 //     final NewListingDataModel = NewListingDataModelFromJson(jsonString);
 
+import '../../../core/models/size_model.dart';
+
 class NewListingDataModel {
   NewListingDataModel({
     this.length,
