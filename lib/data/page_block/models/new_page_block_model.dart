@@ -37,6 +37,7 @@ class DataItem {
     this.description,
     this.itemType,
     this.code,
+    this.classification,
     this.items,
   });
 
@@ -46,6 +47,7 @@ class DataItem {
   int? itemType;
   int? code;
   List<ItemItem>? items;
+  Classification? classification;
 
   factory DataItem.fromJson(Map<String, dynamic> json) => DataItem(
         id: json["id"] == null ? null : json["id"],
@@ -53,6 +55,9 @@ class DataItem {
         description: json["description"],
         itemType: json["itemType"] == null ? null : json["itemType"],
         code: json["code"] == null ? null : json["code"],
+        classification: json["classification"] == null
+            ? null
+            : Classification.fromJson(json["classification"]),
         items: json["items"] == null
             ? null
             : List<ItemItem>.from(
@@ -65,9 +70,35 @@ class DataItem {
         "description": description,
         "itemType": itemType == null ? null : itemType,
         "code": code == null ? null : code,
+        "classification":
+            classification == null ? null : classification!.toJson(),
         "items": items == null
             ? null
             : List<dynamic>.from(items!.map((x) => x.toJson())),
+      };
+}
+
+class Classification {
+  Classification({
+    this.id,
+    this.nameAr,
+    this.nameEn,
+  });
+
+  int? id;
+  String? nameAr;
+  String? nameEn;
+
+  factory Classification.fromJson(Map<String, dynamic> json) => Classification(
+        id: json["id"] == null ? null : json["id"],
+        nameAr: json["nameAR"] == null ? null : json["nameAR"],
+        nameEn: json["nameEN"] == null ? null : json["nameEN"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "id": id == null ? null : id,
+        "nameAR": nameAr == null ? null : nameAr,
+        "nameEN": nameEn == null ? null : nameEn,
       };
 }
 
