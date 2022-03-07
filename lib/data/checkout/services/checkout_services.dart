@@ -313,6 +313,19 @@ class CheckOutServicesImp implements CheckOutService {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
   }
+
+  @override
+  Future<bool> validateSameDayDeliveryTime() async {
+    final response = await defaultApi.postData(
+      path: 'checkout/ValidateSameDayDeliveryTime',
+    );
+    final result = ApiReturnResult.fromJSON(response.data);
+    if (result.code == 200) {
+      return (result.data as bool? ?? false);
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
+  }
 }
 
 abstract class CheckOutService {
@@ -417,4 +430,5 @@ abstract class CheckOutService {
       required int loyaltyPoints,
       int? storeId,
       String? shipmentMethods});
+  Future<bool> validateSameDayDeliveryTime();
 }
