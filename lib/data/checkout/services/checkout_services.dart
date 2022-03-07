@@ -321,7 +321,7 @@ class CheckOutServicesImp implements CheckOutService {
     );
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
-      return (result.data as bool? ?? false);
+      return (result.data as bool? ?? true);
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
