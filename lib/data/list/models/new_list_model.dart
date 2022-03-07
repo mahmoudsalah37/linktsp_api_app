@@ -125,7 +125,7 @@ class ListingItem {
   String? colorHexa;
   String? skuCode;
   double? qty;
-  List<dynamic>? sizes;
+  List<Size>? sizes;
   List<ProductDiscountList>? productDiscountList;
   bool? isWishList;
 
@@ -185,7 +185,7 @@ class ListingItem {
         qty: json["qty"] ?? json["qty"],
         sizes: json["sizes"] == null
             ? null
-            : List<dynamic>.from(json["sizes"].map((x) => x)),
+            : List<Size>.from(json["sizes"].map((x) => Size.fromJson(x))),
         productDiscountList: json["productDiscountList"] == null
             ? null
             : List<ProductDiscountList>.from(json["productDiscountList"]
@@ -242,7 +242,9 @@ class ListingItem {
         "colorHexa": colorHexa ?? colorHexa,
         "skuCode": skuCode ?? skuCode,
         "qty": qty ?? qty,
-        "sizes": sizes ?? List<dynamic>.from(sizes!.map((x) => x)),
+        "sizes": sizes == null
+            ? null
+            : List<dynamic>.from(sizes!.map((x) => x.toJson())),
         "productDiscountList": productDiscountList ??
             List<dynamic>.from(productDiscountList!.map((x) => x.toJson())),
         "isWishList": isWishList ?? isWishList,
