@@ -10,13 +10,13 @@ class Size {
         id: json["id"],
         name: json["name"],
         isOutOfStock: json["isOutOfStock"],
-        skuId: json["skuId"],
+        skuId: json["SkuId"],
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
         "name": name,
         "isOutOfStock": isOutOfStock,
-        "skuId": skuId,
+        "SkuId": skuId,
       };
 }
