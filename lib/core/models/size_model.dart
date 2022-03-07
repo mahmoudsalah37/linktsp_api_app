@@ -4,13 +4,13 @@ class Size {
   int? id;
   String? name;
   bool? isOutOfStock;
-  double? skuId;
+  int? skuId;
 
   factory Size.fromJson(Map<String, dynamic> json) => Size(
         id: json["id"],
         name: json["name"],
         isOutOfStock: json["isOutOfStock"],
-        skuId: json["skuId"],
+        skuId: int.tryParse(json["skuId"].toString()),
       );
 
   Map<String, dynamic> toJson() => {
