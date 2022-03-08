@@ -48,7 +48,7 @@ class UserModel {
         email: json["email"],
         isActive: json["isActive"],
         zoneId: json["zoneID"],
-        gender: Gender.values.elementAt(json["gender"]));
+        gender: Gender.values.elementAt(json["gender"] ?? 1));
     // json["gender"] == null ? null : json["gender"]);
     return userModel;
   }
