@@ -2,8 +2,6 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../page_block/models/new_page_block_model.dart';
-
 part 'inner_product_model.freezed.dart';
 part 'inner_product_model.g.dart';
 
@@ -41,6 +39,7 @@ class InnerProductModel with _$InnerProductModel {
     @Default(<ProductModel>[])
     @JsonKey(name: 'relatedItems')
         List<ProductModel> relatedItems,
+    @Default(false) @JsonKey(name: 'allowRating') bool isEnableAddReview,
   }) = _InnerProductModel;
 
   factory InnerProductModel.fromJson(Map<String, dynamic> json) =>

@@ -65,6 +65,7 @@ _$_InnerProductModel _$$_InnerProductModelFromJson(Map<String, dynamic> json) =>
               ?.map((e) => ProductModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const <ProductModel>[],
+      isEnableAddReview: json['allowRating'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$_InnerProductModelToJson(
@@ -93,6 +94,7 @@ Map<String, dynamic> _$$_InnerProductModelToJson(
       'productCategories': instance.categories,
       'recentItems': instance.recentItems,
       'relatedItems': instance.relatedItems,
+      'allowRating': instance.isEnableAddReview,
     };
 
 _$_ReviewUserCommentModel _$$_ReviewUserCommentModelFromJson(

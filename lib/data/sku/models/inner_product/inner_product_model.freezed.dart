@@ -68,7 +68,9 @@ class _$InnerProductModelTearOff {
       @JsonKey(name: 'recentItems')
           List<ProductModel> recentItems = const <ProductModel>[],
       @JsonKey(name: 'relatedItems')
-          List<ProductModel> relatedItems = const <ProductModel>[]}) {
+          List<ProductModel> relatedItems = const <ProductModel>[],
+      @JsonKey(name: 'allowRating')
+          bool isEnableAddReview = false}) {
     return _InnerProductModel(
       id: id,
       code: code,
@@ -93,6 +95,7 @@ class _$InnerProductModelTearOff {
       categories: categories,
       recentItems: recentItems,
       relatedItems: relatedItems,
+      isEnableAddReview: isEnableAddReview,
     );
   }
 
@@ -152,6 +155,8 @@ mixin _$InnerProductModel {
   List<ProductModel> get recentItems => throw _privateConstructorUsedError;
   @JsonKey(name: 'relatedItems')
   List<ProductModel> get relatedItems => throw _privateConstructorUsedError;
+  @JsonKey(name: 'allowRating')
+  bool get isEnableAddReview => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -187,7 +192,8 @@ abstract class $InnerProductModelCopyWith<$Res> {
       @JsonKey(name: 'features') List<FeatureModel?> features,
       @JsonKey(name: 'productCategories') List<CategoryModel> categories,
       @JsonKey(name: 'recentItems') List<ProductModel> recentItems,
-      @JsonKey(name: 'relatedItems') List<ProductModel> relatedItems});
+      @JsonKey(name: 'relatedItems') List<ProductModel> relatedItems,
+      @JsonKey(name: 'allowRating') bool isEnableAddReview});
 
   $BrandModelCopyWith<$Res>? get brands;
   $ReviewUserCommentModelCopyWith<$Res>? get review;
@@ -227,6 +233,7 @@ class _$InnerProductModelCopyWithImpl<$Res>
     Object? categories = freezed,
     Object? recentItems = freezed,
     Object? relatedItems = freezed,
+    Object? isEnableAddReview = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -321,6 +328,10 @@ class _$InnerProductModelCopyWithImpl<$Res>
           ? _value.relatedItems
           : relatedItems // ignore: cast_nullable_to_non_nullable
               as List<ProductModel>,
+      isEnableAddReview: isEnableAddReview == freezed
+          ? _value.isEnableAddReview
+          : isEnableAddReview // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 
@@ -377,7 +388,8 @@ abstract class _$InnerProductModelCopyWith<$Res>
       @JsonKey(name: 'features') List<FeatureModel?> features,
       @JsonKey(name: 'productCategories') List<CategoryModel> categories,
       @JsonKey(name: 'recentItems') List<ProductModel> recentItems,
-      @JsonKey(name: 'relatedItems') List<ProductModel> relatedItems});
+      @JsonKey(name: 'relatedItems') List<ProductModel> relatedItems,
+      @JsonKey(name: 'allowRating') bool isEnableAddReview});
 
   @override
   $BrandModelCopyWith<$Res>? get brands;
@@ -421,6 +433,7 @@ class __$InnerProductModelCopyWithImpl<$Res>
     Object? categories = freezed,
     Object? recentItems = freezed,
     Object? relatedItems = freezed,
+    Object? isEnableAddReview = freezed,
   }) {
     return _then(_InnerProductModel(
       id: id == freezed
@@ -515,6 +528,10 @@ class __$InnerProductModelCopyWithImpl<$Res>
           ? _value.relatedItems
           : relatedItems // ignore: cast_nullable_to_non_nullable
               as List<ProductModel>,
+      isEnableAddReview: isEnableAddReview == freezed
+          ? _value.isEnableAddReview
+          : isEnableAddReview // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -568,7 +585,9 @@ class _$_InnerProductModel implements _InnerProductModel {
       @JsonKey(name: 'recentItems')
           this.recentItems = const <ProductModel>[],
       @JsonKey(name: 'relatedItems')
-          this.relatedItems = const <ProductModel>[]});
+          this.relatedItems = const <ProductModel>[],
+      @JsonKey(name: 'allowRating')
+          this.isEnableAddReview = false});
 
   factory _$_InnerProductModel.fromJson(Map<String, dynamic> json) =>
       _$$_InnerProductModelFromJson(json);
@@ -642,10 +661,13 @@ class _$_InnerProductModel implements _InnerProductModel {
   @override
   @JsonKey(name: 'relatedItems')
   final List<ProductModel> relatedItems;
+  @override
+  @JsonKey(name: 'allowRating')
+  final bool isEnableAddReview;
 
   @override
   String toString() {
-    return 'InnerProductModel(id: $id, code: $code, brands: $brands, title: $title, averageRating: $averageRating, sizes: $sizes, colors: $colors, skus: $skus, details: $details, description: $description, isShowSizeChart: $isShowSizeChart, sizeGuide: $sizeGuide, showOneClickOrder: $showOneClickOrder, preOrder: $preOrder, isAddedtoWishlist: $isAddedtoWishlist, minDeliveryPeriod: $minDeliveryPeriod, maxDeliveryPeriod: $maxDeliveryPeriod, bogoPromoText: $bogoPromoText, review: $review, features: $features, categories: $categories, recentItems: $recentItems, relatedItems: $relatedItems)';
+    return 'InnerProductModel(id: $id, code: $code, brands: $brands, title: $title, averageRating: $averageRating, sizes: $sizes, colors: $colors, skus: $skus, details: $details, description: $description, isShowSizeChart: $isShowSizeChart, sizeGuide: $sizeGuide, showOneClickOrder: $showOneClickOrder, preOrder: $preOrder, isAddedtoWishlist: $isAddedtoWishlist, minDeliveryPeriod: $minDeliveryPeriod, maxDeliveryPeriod: $maxDeliveryPeriod, bogoPromoText: $bogoPromoText, review: $review, features: $features, categories: $categories, recentItems: $recentItems, relatedItems: $relatedItems, isEnableAddReview: $isEnableAddReview)';
   }
 
   @override
@@ -686,7 +708,9 @@ class _$_InnerProductModel implements _InnerProductModel {
             const DeepCollectionEquality()
                 .equals(other.recentItems, recentItems) &&
             const DeepCollectionEquality()
-                .equals(other.relatedItems, relatedItems));
+                .equals(other.relatedItems, relatedItems) &&
+            const DeepCollectionEquality()
+                .equals(other.isEnableAddReview, isEnableAddReview));
   }
 
   @override
@@ -714,7 +738,8 @@ class _$_InnerProductModel implements _InnerProductModel {
         const DeepCollectionEquality().hash(features),
         const DeepCollectionEquality().hash(categories),
         const DeepCollectionEquality().hash(recentItems),
-        const DeepCollectionEquality().hash(relatedItems)
+        const DeepCollectionEquality().hash(relatedItems),
+        const DeepCollectionEquality().hash(isEnableAddReview)
       ]);
 
   @JsonKey(ignore: true)
@@ -752,7 +777,8 @@ abstract class _InnerProductModel implements InnerProductModel {
           @JsonKey(name: 'features') List<FeatureModel?> features,
           @JsonKey(name: 'productCategories') List<CategoryModel> categories,
           @JsonKey(name: 'recentItems') List<ProductModel> recentItems,
-          @JsonKey(name: 'relatedItems') List<ProductModel> relatedItems}) =
+          @JsonKey(name: 'relatedItems') List<ProductModel> relatedItems,
+          @JsonKey(name: 'allowRating') bool isEnableAddReview}) =
       _$_InnerProductModel;
 
   factory _InnerProductModel.fromJson(Map<String, dynamic> json) =
@@ -827,6 +853,9 @@ abstract class _InnerProductModel implements InnerProductModel {
   @override
   @JsonKey(name: 'relatedItems')
   List<ProductModel> get relatedItems;
+  @override
+  @JsonKey(name: 'allowRating')
+  bool get isEnableAddReview;
   @override
   @JsonKey(ignore: true)
   _$InnerProductModelCopyWith<_InnerProductModel> get copyWith =>
