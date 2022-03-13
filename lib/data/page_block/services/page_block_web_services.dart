@@ -1,6 +1,7 @@
 import 'package:linktsp_api/data/default_api.dart';
 import 'package:linktsp_api/data/page_block/models/new_page_block_model.dart';
 import 'package:linktsp_api/data/page_block/models/page_block_model.dart';
+import 'package:linktsp_api/data/page_block/models/ribbon/ribbon_model.dart';
 
 import '../../exception_api.dart';
 import '../../result_model.dart';
@@ -84,6 +85,18 @@ class PageBlockWebServiceImp implements PageBlockWebService {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
   }
+
+  @override
+  Future<List<RibbonModel>> ribbon({int version = 1}) async {
+    final respose = await defaultApi.getData(path: 'Ribbon', version: version);
+    final result = ApiReturnResult.fromJSON(respose.data);
+    if (result.code == 200) {
+      final list = result.data as List? ?? [];
+      return list.map((e) => RibbonModel.fromJson(e)).toList();
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
+  }
 }
 
 abstract class PageBlockWebService {
@@ -96,4 +109,5 @@ abstract class PageBlockWebService {
   Future<PageBlockModel> getEditorialContent(
       {int? customerId, int version = 1});
   Future<List<BrandsModel>> getBrands();
+  Future<List<RibbonModel>> ribbon();
 }
