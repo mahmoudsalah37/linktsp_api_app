@@ -128,7 +128,8 @@ class CheckOutServicesImp implements CheckOutService {
       int? paymentOptionId,
       int? addressId,
       int? loyaltyPoints,
-      int? pickStoreID}) async {
+      int? pickStoreID,
+      required String shipmentMethods}) async {
     final response = await defaultApi.getData(
       path: 'checkout/review',
       queryParameters: {
@@ -137,6 +138,7 @@ class CheckOutServicesImp implements CheckOutService {
         "AddressID": addressId,
         "PickStoreID": pickStoreID,
         "LoyaltyPointsRedeemed": loyaltyPoints,
+        "ShipmentMethods": shipmentMethods,
       },
     );
     final result = ApiReturnResult.fromJSON(response.data);
@@ -148,13 +150,15 @@ class CheckOutServicesImp implements CheckOutService {
   }
 
   @override
-  Future<String> confirm(
-      {required int customerId,
-      int? paymentOptionId,
-      int? addressId,
-      required int loyaltyPoints,
-      required double finalAmount,
-      int? storeId}) async {
+  Future<String> confirm({
+    required int customerId,
+    int? paymentOptionId,
+    int? addressId,
+    required int loyaltyPoints,
+    required double finalAmount,
+    int? storeId,
+    required String shipmentMethods,
+  }) async {
     final response = await defaultApi.postData(
       path: 'checkout/confirm',
       queryParameters: {
@@ -164,6 +168,7 @@ class CheckOutServicesImp implements CheckOutService {
         "PickStoreID": storeId,
         "LoyaltyPointsRedeemed": loyaltyPoints,
         "FinalAmount": finalAmount,
+        "ShipmentMethods": shipmentMethods,
       },
     );
     final result = ApiReturnResult.fromJSON(response.data);
@@ -182,7 +187,7 @@ class CheckOutServicesImp implements CheckOutService {
       required int loyaltyPoints,
       required double finalAmount,
       int? storeId,
-      String? shipmentMethods}) async {
+      required String shipmentMethods}) async {
     final response = await defaultApi.postData(
       path: 'checkout/confirmorder',
       queryParameters: {
@@ -373,18 +378,21 @@ abstract class CheckOutService {
       int? paymentOptionId,
       int? addressId,
       int? loyaltyPoints,
-      int? pickStoreID});
+      int? pickStoreID,
+      required String shipmentMethods});
 
   /// It's used to confirm the order if the payment is (Cash on delivery).
   ///
   /// It will return the Order Code.
-  Future<String> confirm(
-      {required int customerId,
-      int? paymentOptionId,
-      int? addressId,
-      required int loyaltyPoints,
-      required double finalAmount,
-      int? storeId});
+  Future<String> confirm({
+    required int customerId,
+    int? paymentOptionId,
+    int? addressId,
+    required int loyaltyPoints,
+    required double finalAmount,
+    int? storeId,
+    required String shipmentMethods,
+  });
 
   /// It's used to confirm the order if the payment is (Credit card).
   ///
@@ -396,7 +404,7 @@ abstract class CheckOutService {
       required int loyaltyPoints,
       required double finalAmount,
       int? storeId,
-      String? shipmentMethods});
+      required String shipmentMethods});
 
   /// It's used to confirm the order with one click.
   ///
