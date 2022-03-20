@@ -25,6 +25,8 @@ class InnerProductModel with _$InnerProductModel {
     @Default(false) @JsonKey(name: 'isWishList') bool isAddedtoWishlist,
     @Default(0) @JsonKey(name: 'minDeliveryPeriod') int minDeliveryPeriod,
     @Default(0) @JsonKey(name: 'maxDeliveryPeriod') int maxDeliveryPeriod,
+    @Default('') @JsonKey(name: 'periodName') String periodName,
+    @Default('') @JsonKey(name: 'deliveryNote') String deliveryNote,
     @Default('') @JsonKey(name: 'bogoPromoText') String bogoPromoText,
     @JsonKey(name: 'reviews') ReviewUserCommentModel? review,
     @Default(<FeatureModel?>[])

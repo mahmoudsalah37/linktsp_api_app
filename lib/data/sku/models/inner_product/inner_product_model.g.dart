@@ -42,6 +42,8 @@ _$_InnerProductModel _$$_InnerProductModelFromJson(Map<String, dynamic> json) =>
       isAddedtoWishlist: json['isWishList'] as bool? ?? false,
       minDeliveryPeriod: json['minDeliveryPeriod'] as int? ?? 0,
       maxDeliveryPeriod: json['maxDeliveryPeriod'] as int? ?? 0,
+      periodName: json['periodName'] as String? ?? '',
+      deliveryNote: json['deliveryNote'] as String? ?? '',
       bogoPromoText: json['bogoPromoText'] as String? ?? '',
       review: json['reviews'] == null
           ? null
@@ -88,6 +90,8 @@ Map<String, dynamic> _$$_InnerProductModelToJson(
       'isWishList': instance.isAddedtoWishlist,
       'minDeliveryPeriod': instance.minDeliveryPeriod,
       'maxDeliveryPeriod': instance.maxDeliveryPeriod,
+      'periodName': instance.periodName,
+      'deliveryNote': instance.deliveryNote,
       'bogoPromoText': instance.bogoPromoText,
       'reviews': instance.review,
       'features': instance.features,

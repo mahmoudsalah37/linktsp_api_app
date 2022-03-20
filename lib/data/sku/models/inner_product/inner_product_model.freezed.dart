@@ -57,6 +57,10 @@ class _$InnerProductModelTearOff {
           int minDeliveryPeriod = 0,
       @JsonKey(name: 'maxDeliveryPeriod')
           int maxDeliveryPeriod = 0,
+      @JsonKey(name: 'periodName')
+          String periodName = '',
+      @JsonKey(name: 'deliveryNote')
+          String deliveryNote = '',
       @JsonKey(name: 'bogoPromoText')
           String bogoPromoText = '',
       @JsonKey(name: 'reviews')
@@ -89,6 +93,8 @@ class _$InnerProductModelTearOff {
       isAddedtoWishlist: isAddedtoWishlist,
       minDeliveryPeriod: minDeliveryPeriod,
       maxDeliveryPeriod: maxDeliveryPeriod,
+      periodName: periodName,
+      deliveryNote: deliveryNote,
       bogoPromoText: bogoPromoText,
       review: review,
       features: features,
@@ -143,6 +149,10 @@ mixin _$InnerProductModel {
   int get minDeliveryPeriod => throw _privateConstructorUsedError;
   @JsonKey(name: 'maxDeliveryPeriod')
   int get maxDeliveryPeriod => throw _privateConstructorUsedError;
+  @JsonKey(name: 'periodName')
+  String get periodName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'deliveryNote')
+  String get deliveryNote => throw _privateConstructorUsedError;
   @JsonKey(name: 'bogoPromoText')
   String get bogoPromoText => throw _privateConstructorUsedError;
   @JsonKey(name: 'reviews')
@@ -187,6 +197,8 @@ abstract class $InnerProductModelCopyWith<$Res> {
       @JsonKey(name: 'isWishList') bool isAddedtoWishlist,
       @JsonKey(name: 'minDeliveryPeriod') int minDeliveryPeriod,
       @JsonKey(name: 'maxDeliveryPeriod') int maxDeliveryPeriod,
+      @JsonKey(name: 'periodName') String periodName,
+      @JsonKey(name: 'deliveryNote') String deliveryNote,
       @JsonKey(name: 'bogoPromoText') String bogoPromoText,
       @JsonKey(name: 'reviews') ReviewUserCommentModel? review,
       @JsonKey(name: 'features') List<FeatureModel?> features,
@@ -227,6 +239,8 @@ class _$InnerProductModelCopyWithImpl<$Res>
     Object? isAddedtoWishlist = freezed,
     Object? minDeliveryPeriod = freezed,
     Object? maxDeliveryPeriod = freezed,
+    Object? periodName = freezed,
+    Object? deliveryNote = freezed,
     Object? bogoPromoText = freezed,
     Object? review = freezed,
     Object? features = freezed,
@@ -304,6 +318,14 @@ class _$InnerProductModelCopyWithImpl<$Res>
           ? _value.maxDeliveryPeriod
           : maxDeliveryPeriod // ignore: cast_nullable_to_non_nullable
               as int,
+      periodName: periodName == freezed
+          ? _value.periodName
+          : periodName // ignore: cast_nullable_to_non_nullable
+              as String,
+      deliveryNote: deliveryNote == freezed
+          ? _value.deliveryNote
+          : deliveryNote // ignore: cast_nullable_to_non_nullable
+              as String,
       bogoPromoText: bogoPromoText == freezed
           ? _value.bogoPromoText
           : bogoPromoText // ignore: cast_nullable_to_non_nullable
@@ -383,6 +405,8 @@ abstract class _$InnerProductModelCopyWith<$Res>
       @JsonKey(name: 'isWishList') bool isAddedtoWishlist,
       @JsonKey(name: 'minDeliveryPeriod') int minDeliveryPeriod,
       @JsonKey(name: 'maxDeliveryPeriod') int maxDeliveryPeriod,
+      @JsonKey(name: 'periodName') String periodName,
+      @JsonKey(name: 'deliveryNote') String deliveryNote,
       @JsonKey(name: 'bogoPromoText') String bogoPromoText,
       @JsonKey(name: 'reviews') ReviewUserCommentModel? review,
       @JsonKey(name: 'features') List<FeatureModel?> features,
@@ -427,6 +451,8 @@ class __$InnerProductModelCopyWithImpl<$Res>
     Object? isAddedtoWishlist = freezed,
     Object? minDeliveryPeriod = freezed,
     Object? maxDeliveryPeriod = freezed,
+    Object? periodName = freezed,
+    Object? deliveryNote = freezed,
     Object? bogoPromoText = freezed,
     Object? review = freezed,
     Object? features = freezed,
@@ -504,6 +530,14 @@ class __$InnerProductModelCopyWithImpl<$Res>
           ? _value.maxDeliveryPeriod
           : maxDeliveryPeriod // ignore: cast_nullable_to_non_nullable
               as int,
+      periodName: periodName == freezed
+          ? _value.periodName
+          : periodName // ignore: cast_nullable_to_non_nullable
+              as String,
+      deliveryNote: deliveryNote == freezed
+          ? _value.deliveryNote
+          : deliveryNote // ignore: cast_nullable_to_non_nullable
+              as String,
       bogoPromoText: bogoPromoText == freezed
           ? _value.bogoPromoText
           : bogoPromoText // ignore: cast_nullable_to_non_nullable
@@ -574,6 +608,10 @@ class _$_InnerProductModel implements _InnerProductModel {
           this.minDeliveryPeriod = 0,
       @JsonKey(name: 'maxDeliveryPeriod')
           this.maxDeliveryPeriod = 0,
+      @JsonKey(name: 'periodName')
+          this.periodName = '',
+      @JsonKey(name: 'deliveryNote')
+          this.deliveryNote = '',
       @JsonKey(name: 'bogoPromoText')
           this.bogoPromoText = '',
       @JsonKey(name: 'reviews')
@@ -644,6 +682,12 @@ class _$_InnerProductModel implements _InnerProductModel {
   @JsonKey(name: 'maxDeliveryPeriod')
   final int maxDeliveryPeriod;
   @override
+  @JsonKey(name: 'periodName')
+  final String periodName;
+  @override
+  @JsonKey(name: 'deliveryNote')
+  final String deliveryNote;
+  @override
   @JsonKey(name: 'bogoPromoText')
   final String bogoPromoText;
   @override
@@ -667,7 +711,7 @@ class _$_InnerProductModel implements _InnerProductModel {
 
   @override
   String toString() {
-    return 'InnerProductModel(id: $id, code: $code, brands: $brands, title: $title, averageRating: $averageRating, sizes: $sizes, colors: $colors, skus: $skus, details: $details, description: $description, isShowSizeChart: $isShowSizeChart, sizeGuide: $sizeGuide, showOneClickOrder: $showOneClickOrder, preOrder: $preOrder, isAddedtoWishlist: $isAddedtoWishlist, minDeliveryPeriod: $minDeliveryPeriod, maxDeliveryPeriod: $maxDeliveryPeriod, bogoPromoText: $bogoPromoText, review: $review, features: $features, categories: $categories, recentItems: $recentItems, relatedItems: $relatedItems, isEnableAddReview: $isEnableAddReview)';
+    return 'InnerProductModel(id: $id, code: $code, brands: $brands, title: $title, averageRating: $averageRating, sizes: $sizes, colors: $colors, skus: $skus, details: $details, description: $description, isShowSizeChart: $isShowSizeChart, sizeGuide: $sizeGuide, showOneClickOrder: $showOneClickOrder, preOrder: $preOrder, isAddedtoWishlist: $isAddedtoWishlist, minDeliveryPeriod: $minDeliveryPeriod, maxDeliveryPeriod: $maxDeliveryPeriod, periodName: $periodName, deliveryNote: $deliveryNote, bogoPromoText: $bogoPromoText, review: $review, features: $features, categories: $categories, recentItems: $recentItems, relatedItems: $relatedItems, isEnableAddReview: $isEnableAddReview)';
   }
 
   @override
@@ -699,6 +743,10 @@ class _$_InnerProductModel implements _InnerProductModel {
                 .equals(other.minDeliveryPeriod, minDeliveryPeriod) &&
             const DeepCollectionEquality()
                 .equals(other.maxDeliveryPeriod, maxDeliveryPeriod) &&
+            const DeepCollectionEquality()
+                .equals(other.periodName, periodName) &&
+            const DeepCollectionEquality()
+                .equals(other.deliveryNote, deliveryNote) &&
             const DeepCollectionEquality()
                 .equals(other.bogoPromoText, bogoPromoText) &&
             const DeepCollectionEquality().equals(other.review, review) &&
@@ -733,6 +781,8 @@ class _$_InnerProductModel implements _InnerProductModel {
         const DeepCollectionEquality().hash(isAddedtoWishlist),
         const DeepCollectionEquality().hash(minDeliveryPeriod),
         const DeepCollectionEquality().hash(maxDeliveryPeriod),
+        const DeepCollectionEquality().hash(periodName),
+        const DeepCollectionEquality().hash(deliveryNote),
         const DeepCollectionEquality().hash(bogoPromoText),
         const DeepCollectionEquality().hash(review),
         const DeepCollectionEquality().hash(features),
@@ -772,6 +822,8 @@ abstract class _InnerProductModel implements InnerProductModel {
           @JsonKey(name: 'isWishList') bool isAddedtoWishlist,
           @JsonKey(name: 'minDeliveryPeriod') int minDeliveryPeriod,
           @JsonKey(name: 'maxDeliveryPeriod') int maxDeliveryPeriod,
+          @JsonKey(name: 'periodName') String periodName,
+          @JsonKey(name: 'deliveryNote') String deliveryNote,
           @JsonKey(name: 'bogoPromoText') String bogoPromoText,
           @JsonKey(name: 'reviews') ReviewUserCommentModel? review,
           @JsonKey(name: 'features') List<FeatureModel?> features,
@@ -835,6 +887,12 @@ abstract class _InnerProductModel implements InnerProductModel {
   @override
   @JsonKey(name: 'maxDeliveryPeriod')
   int get maxDeliveryPeriod;
+  @override
+  @JsonKey(name: 'periodName')
+  String get periodName;
+  @override
+  @JsonKey(name: 'deliveryNote')
+  String get deliveryNote;
   @override
   @JsonKey(name: 'bogoPromoText')
   String get bogoPromoText;
