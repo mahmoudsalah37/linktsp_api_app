@@ -126,7 +126,7 @@ class CheckOutServicesImp implements CheckOutService {
   Future<CheckoutReviewModel> checkoutReview(
       {required int customerId,
       int? paymentOptionId,
-      required int addressId,
+      int? addressId,
       int? loyaltyPoints,
       int? pickStoreID,
       required String shipmentMethods}) async {
@@ -376,7 +376,7 @@ abstract class CheckOutService {
   Future<CheckoutReviewModel> checkoutReview(
       {required int customerId,
       int? paymentOptionId,
-      required int addressId,
+      int? addressId,
       int? loyaltyPoints,
       int? pickStoreID,
       required String shipmentMethods});
