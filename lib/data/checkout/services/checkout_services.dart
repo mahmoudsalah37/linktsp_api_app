@@ -331,6 +331,22 @@ class CheckOutServicesImp implements CheckOutService {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
   }
+
+  @override
+  Future<String> confirmationOrderMessage({required String orderCode}) async {
+    final response = await defaultApi.getData(
+      path: 'checkout/getConfirmationMessage',
+      queryParameters: {
+        "orderCode": orderCode,
+      },
+    );
+    final result = ApiReturnResult.fromJSON(response.data);
+    if (result.code == 200) {
+      return result.data;
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
+  }
 }
 
 abstract class CheckOutService {
@@ -439,4 +455,6 @@ abstract class CheckOutService {
       int? storeId,
       String? shipmentMethods});
   Future<bool> validateSameDayDeliveryTime();
+  // return message in confirmation screen
+  Future<String> confirmationOrderMessage({required String orderCode});
 }
