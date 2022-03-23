@@ -48,18 +48,24 @@ class ListServiceImp implements ListService {
   }
 
   @override
-  Future<new_model.NewListingDataModel> getListingWithFilter({
+  Future<List<new_model.ListingItem>> getListingWithFilter({
     required ListModel listModel,
-    int version = 1,
+    int version = 3,
   }) async {
     final respose = await defaultApi.postData(
-      path: version == 1 ? 'Search' : 'List/Search',
+      path: 'List/Search',
       version: version,
       data: listModel,
     );
     final result = ApiReturnResult.fromJSON(respose.data);
     if (result.code == 200) {
-      return new_model.NewListingDataModel.fromJson(result.data);
+      if (result.data == null) {
+        return [];
+      }
+      return (result.data["productSearchResult"] as List?)
+              ?.map((e) => new_model.ListingItem.fromJson(e))
+              .toList() ??
+          [];
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
@@ -90,7 +96,7 @@ abstract class ListService {
     required ListModel listModel,
     int version = 1,
   });
-  Future<new_model.NewListingDataModel> getListingWithFilter({
+  Future<List<new_model.ListingItem>> getListingWithFilter({
     required ListModel listModel,
     int version = 1,
   });

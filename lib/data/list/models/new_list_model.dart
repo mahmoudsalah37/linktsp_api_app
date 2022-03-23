@@ -13,14 +13,16 @@ class NewListingDataModel {
   int? length;
   List<ListingItem>? items;
 
-  factory NewListingDataModel.fromJson(Map<String, dynamic> json) =>
-      NewListingDataModel(
-        length: json["length"] ?? json["length"],
-        items: json["items"] == null
-            ? null
-            : List<ListingItem>.from(
-                json["items"].map((x) => ListingItem.fromJson(x))),
-      );
+  factory NewListingDataModel.fromJson(Map<String, dynamic>? json) =>
+      json == null
+          ? NewListingDataModel(items: [], length: 0)
+          : NewListingDataModel(
+              length: json["length"] ?? json["length"],
+              items: json["items"] == null
+                  ? []
+                  : List<ListingItem>.from(
+                      json["items"].map((x) => ListingItem.fromJson(x))),
+            );
 
   Map<String, dynamic> toJson() => {
         "length": length ?? length,
