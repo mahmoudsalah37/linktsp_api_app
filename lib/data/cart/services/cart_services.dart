@@ -98,7 +98,7 @@ class CartServiceImp implements CartService {
   }
 
   @override
-  Future<bool?> removeFromCart(
+  Future<bool> removeFromCart(
       {required int skuId, required int customerId}) async {
     final response = await defaultApi.postData(
         path: 'Profile/cart/remove',
@@ -188,7 +188,7 @@ abstract class CartService {
   /// Use it in cart page
   Future<PreOrderMessageModel> preOrderMessage({required int customerId});
   Future<int> getCartCounter({required int customerId});
-  Future<bool?> removeFromCart({required int skuId, required int customerId});
+  Future<bool> removeFromCart({required int skuId, required int customerId});
 
   /// Get all the information about cart for checkout
   Future<CartSummaryModel> getCartSummary(

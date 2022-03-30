@@ -68,6 +68,8 @@ _$_InnerProductModel _$$_InnerProductModelFromJson(Map<String, dynamic> json) =>
               .toList() ??
           const <ProductModel>[],
       isEnableAddReview: json['allowRating'] as bool? ?? false,
+      allPricesIncludeVATDetails:
+          json['allPricesIincludeVATDetails'] as String? ?? '',
     );
 
 Map<String, dynamic> _$$_InnerProductModelToJson(
@@ -99,6 +101,7 @@ Map<String, dynamic> _$$_InnerProductModelToJson(
       'recentItems': instance.recentItems,
       'relatedItems': instance.relatedItems,
       'allowRating': instance.isEnableAddReview,
+      'allPricesIincludeVATDetails': instance.allPricesIncludeVATDetails,
     };
 
 _$_ReviewUserCommentModel _$$_ReviewUserCommentModelFromJson(

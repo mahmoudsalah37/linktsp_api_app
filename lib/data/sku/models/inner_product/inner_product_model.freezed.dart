@@ -74,7 +74,9 @@ class _$InnerProductModelTearOff {
       @JsonKey(name: 'relatedItems')
           List<ProductModel> relatedItems = const <ProductModel>[],
       @JsonKey(name: 'allowRating')
-          bool isEnableAddReview = false}) {
+          bool isEnableAddReview = false,
+      @JsonKey(name: 'allPricesIincludeVATDetails')
+          String allPricesIncludeVATDetails = ''}) {
     return _InnerProductModel(
       id: id,
       code: code,
@@ -102,6 +104,7 @@ class _$InnerProductModelTearOff {
       recentItems: recentItems,
       relatedItems: relatedItems,
       isEnableAddReview: isEnableAddReview,
+      allPricesIncludeVATDetails: allPricesIncludeVATDetails,
     );
   }
 
@@ -167,6 +170,8 @@ mixin _$InnerProductModel {
   List<ProductModel> get relatedItems => throw _privateConstructorUsedError;
   @JsonKey(name: 'allowRating')
   bool get isEnableAddReview => throw _privateConstructorUsedError;
+  @JsonKey(name: 'allPricesIincludeVATDetails')
+  String get allPricesIncludeVATDetails => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -180,32 +185,60 @@ abstract class $InnerProductModelCopyWith<$Res> {
           InnerProductModel value, $Res Function(InnerProductModel) then) =
       _$InnerProductModelCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: 'id') int? id,
-      @JsonKey(name: 'code') String? code,
-      @JsonKey(name: 'brand') BrandModel? brands,
-      @JsonKey(name: 'title') String title,
-      @JsonKey(name: 'averageRating') double averageRating,
-      @JsonKey(name: 'sizes') List<SizeModel?> sizes,
-      @JsonKey(name: 'colors') List<ColorModel?> colors,
-      @JsonKey(name: 'skUs') List<SkuModel?> skus,
-      @JsonKey(name: 'details') String details,
-      @JsonKey(name: 'shortDescription') String description,
-      @JsonKey(name: 'showSizeChart') bool isShowSizeChart,
-      @JsonKey(name: 'sizeChartImageURL') String? sizeGuide,
-      @JsonKey(name: 'showOneClickOrder') bool showOneClickOrder,
-      @JsonKey(name: 'preOrder') bool preOrder,
-      @JsonKey(name: 'isWishList') bool isAddedtoWishlist,
-      @JsonKey(name: 'minDeliveryPeriod') int minDeliveryPeriod,
-      @JsonKey(name: 'maxDeliveryPeriod') int maxDeliveryPeriod,
-      @JsonKey(name: 'periodName') String periodName,
-      @JsonKey(name: 'deliveryNote') String deliveryNote,
-      @JsonKey(name: 'bogoPromoText') String bogoPromoText,
-      @JsonKey(name: 'reviews') ReviewUserCommentModel? review,
-      @JsonKey(name: 'features') List<FeatureModel?> features,
-      @JsonKey(name: 'productCategories') List<CategoryModel> categories,
-      @JsonKey(name: 'recentItems') List<ProductModel> recentItems,
-      @JsonKey(name: 'relatedItems') List<ProductModel> relatedItems,
-      @JsonKey(name: 'allowRating') bool isEnableAddReview});
+      {@JsonKey(name: 'id')
+          int? id,
+      @JsonKey(name: 'code')
+          String? code,
+      @JsonKey(name: 'brand')
+          BrandModel? brands,
+      @JsonKey(name: 'title')
+          String title,
+      @JsonKey(name: 'averageRating')
+          double averageRating,
+      @JsonKey(name: 'sizes')
+          List<SizeModel?> sizes,
+      @JsonKey(name: 'colors')
+          List<ColorModel?> colors,
+      @JsonKey(name: 'skUs')
+          List<SkuModel?> skus,
+      @JsonKey(name: 'details')
+          String details,
+      @JsonKey(name: 'shortDescription')
+          String description,
+      @JsonKey(name: 'showSizeChart')
+          bool isShowSizeChart,
+      @JsonKey(name: 'sizeChartImageURL')
+          String? sizeGuide,
+      @JsonKey(name: 'showOneClickOrder')
+          bool showOneClickOrder,
+      @JsonKey(name: 'preOrder')
+          bool preOrder,
+      @JsonKey(name: 'isWishList')
+          bool isAddedtoWishlist,
+      @JsonKey(name: 'minDeliveryPeriod')
+          int minDeliveryPeriod,
+      @JsonKey(name: 'maxDeliveryPeriod')
+          int maxDeliveryPeriod,
+      @JsonKey(name: 'periodName')
+          String periodName,
+      @JsonKey(name: 'deliveryNote')
+          String deliveryNote,
+      @JsonKey(name: 'bogoPromoText')
+          String bogoPromoText,
+      @JsonKey(name: 'reviews')
+          ReviewUserCommentModel? review,
+      @JsonKey(name: 'features')
+          List<FeatureModel?> features,
+      @JsonKey(name: 'productCategories')
+          List<CategoryModel> categories,
+      @JsonKey(name: 'recentItems')
+          List<ProductModel> recentItems,
+      @JsonKey(name: 'relatedItems')
+          List<ProductModel> relatedItems,
+      @JsonKey(name: 'allowRating')
+          bool isEnableAddReview,
+      @JsonKey(name: 'allPricesIincludeVATDetails')
+          String allPricesIncludeVATDetails});
 
   $BrandModelCopyWith<$Res>? get brands;
   $ReviewUserCommentModelCopyWith<$Res>? get review;
@@ -248,6 +281,7 @@ class _$InnerProductModelCopyWithImpl<$Res>
     Object? recentItems = freezed,
     Object? relatedItems = freezed,
     Object? isEnableAddReview = freezed,
+    Object? allPricesIncludeVATDetails = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -354,6 +388,10 @@ class _$InnerProductModelCopyWithImpl<$Res>
           ? _value.isEnableAddReview
           : isEnableAddReview // ignore: cast_nullable_to_non_nullable
               as bool,
+      allPricesIncludeVATDetails: allPricesIncludeVATDetails == freezed
+          ? _value.allPricesIncludeVATDetails
+          : allPricesIncludeVATDetails // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 
@@ -388,32 +426,60 @@ abstract class _$InnerProductModelCopyWith<$Res>
       __$InnerProductModelCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: 'id') int? id,
-      @JsonKey(name: 'code') String? code,
-      @JsonKey(name: 'brand') BrandModel? brands,
-      @JsonKey(name: 'title') String title,
-      @JsonKey(name: 'averageRating') double averageRating,
-      @JsonKey(name: 'sizes') List<SizeModel?> sizes,
-      @JsonKey(name: 'colors') List<ColorModel?> colors,
-      @JsonKey(name: 'skUs') List<SkuModel?> skus,
-      @JsonKey(name: 'details') String details,
-      @JsonKey(name: 'shortDescription') String description,
-      @JsonKey(name: 'showSizeChart') bool isShowSizeChart,
-      @JsonKey(name: 'sizeChartImageURL') String? sizeGuide,
-      @JsonKey(name: 'showOneClickOrder') bool showOneClickOrder,
-      @JsonKey(name: 'preOrder') bool preOrder,
-      @JsonKey(name: 'isWishList') bool isAddedtoWishlist,
-      @JsonKey(name: 'minDeliveryPeriod') int minDeliveryPeriod,
-      @JsonKey(name: 'maxDeliveryPeriod') int maxDeliveryPeriod,
-      @JsonKey(name: 'periodName') String periodName,
-      @JsonKey(name: 'deliveryNote') String deliveryNote,
-      @JsonKey(name: 'bogoPromoText') String bogoPromoText,
-      @JsonKey(name: 'reviews') ReviewUserCommentModel? review,
-      @JsonKey(name: 'features') List<FeatureModel?> features,
-      @JsonKey(name: 'productCategories') List<CategoryModel> categories,
-      @JsonKey(name: 'recentItems') List<ProductModel> recentItems,
-      @JsonKey(name: 'relatedItems') List<ProductModel> relatedItems,
-      @JsonKey(name: 'allowRating') bool isEnableAddReview});
+      {@JsonKey(name: 'id')
+          int? id,
+      @JsonKey(name: 'code')
+          String? code,
+      @JsonKey(name: 'brand')
+          BrandModel? brands,
+      @JsonKey(name: 'title')
+          String title,
+      @JsonKey(name: 'averageRating')
+          double averageRating,
+      @JsonKey(name: 'sizes')
+          List<SizeModel?> sizes,
+      @JsonKey(name: 'colors')
+          List<ColorModel?> colors,
+      @JsonKey(name: 'skUs')
+          List<SkuModel?> skus,
+      @JsonKey(name: 'details')
+          String details,
+      @JsonKey(name: 'shortDescription')
+          String description,
+      @JsonKey(name: 'showSizeChart')
+          bool isShowSizeChart,
+      @JsonKey(name: 'sizeChartImageURL')
+          String? sizeGuide,
+      @JsonKey(name: 'showOneClickOrder')
+          bool showOneClickOrder,
+      @JsonKey(name: 'preOrder')
+          bool preOrder,
+      @JsonKey(name: 'isWishList')
+          bool isAddedtoWishlist,
+      @JsonKey(name: 'minDeliveryPeriod')
+          int minDeliveryPeriod,
+      @JsonKey(name: 'maxDeliveryPeriod')
+          int maxDeliveryPeriod,
+      @JsonKey(name: 'periodName')
+          String periodName,
+      @JsonKey(name: 'deliveryNote')
+          String deliveryNote,
+      @JsonKey(name: 'bogoPromoText')
+          String bogoPromoText,
+      @JsonKey(name: 'reviews')
+          ReviewUserCommentModel? review,
+      @JsonKey(name: 'features')
+          List<FeatureModel?> features,
+      @JsonKey(name: 'productCategories')
+          List<CategoryModel> categories,
+      @JsonKey(name: 'recentItems')
+          List<ProductModel> recentItems,
+      @JsonKey(name: 'relatedItems')
+          List<ProductModel> relatedItems,
+      @JsonKey(name: 'allowRating')
+          bool isEnableAddReview,
+      @JsonKey(name: 'allPricesIincludeVATDetails')
+          String allPricesIncludeVATDetails});
 
   @override
   $BrandModelCopyWith<$Res>? get brands;
@@ -460,6 +526,7 @@ class __$InnerProductModelCopyWithImpl<$Res>
     Object? recentItems = freezed,
     Object? relatedItems = freezed,
     Object? isEnableAddReview = freezed,
+    Object? allPricesIncludeVATDetails = freezed,
   }) {
     return _then(_InnerProductModel(
       id: id == freezed
@@ -566,6 +633,10 @@ class __$InnerProductModelCopyWithImpl<$Res>
           ? _value.isEnableAddReview
           : isEnableAddReview // ignore: cast_nullable_to_non_nullable
               as bool,
+      allPricesIncludeVATDetails: allPricesIncludeVATDetails == freezed
+          ? _value.allPricesIncludeVATDetails
+          : allPricesIncludeVATDetails // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -625,7 +696,9 @@ class _$_InnerProductModel implements _InnerProductModel {
       @JsonKey(name: 'relatedItems')
           this.relatedItems = const <ProductModel>[],
       @JsonKey(name: 'allowRating')
-          this.isEnableAddReview = false});
+          this.isEnableAddReview = false,
+      @JsonKey(name: 'allPricesIincludeVATDetails')
+          this.allPricesIncludeVATDetails = ''});
 
   factory _$_InnerProductModel.fromJson(Map<String, dynamic> json) =>
       _$$_InnerProductModelFromJson(json);
@@ -708,10 +781,13 @@ class _$_InnerProductModel implements _InnerProductModel {
   @override
   @JsonKey(name: 'allowRating')
   final bool isEnableAddReview;
+  @override
+  @JsonKey(name: 'allPricesIincludeVATDetails')
+  final String allPricesIncludeVATDetails;
 
   @override
   String toString() {
-    return 'InnerProductModel(id: $id, code: $code, brands: $brands, title: $title, averageRating: $averageRating, sizes: $sizes, colors: $colors, skus: $skus, details: $details, description: $description, isShowSizeChart: $isShowSizeChart, sizeGuide: $sizeGuide, showOneClickOrder: $showOneClickOrder, preOrder: $preOrder, isAddedtoWishlist: $isAddedtoWishlist, minDeliveryPeriod: $minDeliveryPeriod, maxDeliveryPeriod: $maxDeliveryPeriod, periodName: $periodName, deliveryNote: $deliveryNote, bogoPromoText: $bogoPromoText, review: $review, features: $features, categories: $categories, recentItems: $recentItems, relatedItems: $relatedItems, isEnableAddReview: $isEnableAddReview)';
+    return 'InnerProductModel(id: $id, code: $code, brands: $brands, title: $title, averageRating: $averageRating, sizes: $sizes, colors: $colors, skus: $skus, details: $details, description: $description, isShowSizeChart: $isShowSizeChart, sizeGuide: $sizeGuide, showOneClickOrder: $showOneClickOrder, preOrder: $preOrder, isAddedtoWishlist: $isAddedtoWishlist, minDeliveryPeriod: $minDeliveryPeriod, maxDeliveryPeriod: $maxDeliveryPeriod, periodName: $periodName, deliveryNote: $deliveryNote, bogoPromoText: $bogoPromoText, review: $review, features: $features, categories: $categories, recentItems: $recentItems, relatedItems: $relatedItems, isEnableAddReview: $isEnableAddReview, allPricesIncludeVATDetails: $allPricesIncludeVATDetails)';
   }
 
   @override
@@ -758,7 +834,9 @@ class _$_InnerProductModel implements _InnerProductModel {
             const DeepCollectionEquality()
                 .equals(other.relatedItems, relatedItems) &&
             const DeepCollectionEquality()
-                .equals(other.isEnableAddReview, isEnableAddReview));
+                .equals(other.isEnableAddReview, isEnableAddReview) &&
+            const DeepCollectionEquality().equals(
+                other.allPricesIncludeVATDetails, allPricesIncludeVATDetails));
   }
 
   @override
@@ -789,7 +867,8 @@ class _$_InnerProductModel implements _InnerProductModel {
         const DeepCollectionEquality().hash(categories),
         const DeepCollectionEquality().hash(recentItems),
         const DeepCollectionEquality().hash(relatedItems),
-        const DeepCollectionEquality().hash(isEnableAddReview)
+        const DeepCollectionEquality().hash(isEnableAddReview),
+        const DeepCollectionEquality().hash(allPricesIncludeVATDetails)
       ]);
 
   @JsonKey(ignore: true)
@@ -805,33 +884,60 @@ class _$_InnerProductModel implements _InnerProductModel {
 
 abstract class _InnerProductModel implements InnerProductModel {
   const factory _InnerProductModel(
-          {@JsonKey(name: 'id') int? id,
-          @JsonKey(name: 'code') String? code,
-          @JsonKey(name: 'brand') BrandModel? brands,
-          @JsonKey(name: 'title') String title,
-          @JsonKey(name: 'averageRating') double averageRating,
-          @JsonKey(name: 'sizes') List<SizeModel?> sizes,
-          @JsonKey(name: 'colors') List<ColorModel?> colors,
-          @JsonKey(name: 'skUs') List<SkuModel?> skus,
-          @JsonKey(name: 'details') String details,
-          @JsonKey(name: 'shortDescription') String description,
-          @JsonKey(name: 'showSizeChart') bool isShowSizeChart,
-          @JsonKey(name: 'sizeChartImageURL') String? sizeGuide,
-          @JsonKey(name: 'showOneClickOrder') bool showOneClickOrder,
-          @JsonKey(name: 'preOrder') bool preOrder,
-          @JsonKey(name: 'isWishList') bool isAddedtoWishlist,
-          @JsonKey(name: 'minDeliveryPeriod') int minDeliveryPeriod,
-          @JsonKey(name: 'maxDeliveryPeriod') int maxDeliveryPeriod,
-          @JsonKey(name: 'periodName') String periodName,
-          @JsonKey(name: 'deliveryNote') String deliveryNote,
-          @JsonKey(name: 'bogoPromoText') String bogoPromoText,
-          @JsonKey(name: 'reviews') ReviewUserCommentModel? review,
-          @JsonKey(name: 'features') List<FeatureModel?> features,
-          @JsonKey(name: 'productCategories') List<CategoryModel> categories,
-          @JsonKey(name: 'recentItems') List<ProductModel> recentItems,
-          @JsonKey(name: 'relatedItems') List<ProductModel> relatedItems,
-          @JsonKey(name: 'allowRating') bool isEnableAddReview}) =
-      _$_InnerProductModel;
+      {@JsonKey(name: 'id')
+          int? id,
+      @JsonKey(name: 'code')
+          String? code,
+      @JsonKey(name: 'brand')
+          BrandModel? brands,
+      @JsonKey(name: 'title')
+          String title,
+      @JsonKey(name: 'averageRating')
+          double averageRating,
+      @JsonKey(name: 'sizes')
+          List<SizeModel?> sizes,
+      @JsonKey(name: 'colors')
+          List<ColorModel?> colors,
+      @JsonKey(name: 'skUs')
+          List<SkuModel?> skus,
+      @JsonKey(name: 'details')
+          String details,
+      @JsonKey(name: 'shortDescription')
+          String description,
+      @JsonKey(name: 'showSizeChart')
+          bool isShowSizeChart,
+      @JsonKey(name: 'sizeChartImageURL')
+          String? sizeGuide,
+      @JsonKey(name: 'showOneClickOrder')
+          bool showOneClickOrder,
+      @JsonKey(name: 'preOrder')
+          bool preOrder,
+      @JsonKey(name: 'isWishList')
+          bool isAddedtoWishlist,
+      @JsonKey(name: 'minDeliveryPeriod')
+          int minDeliveryPeriod,
+      @JsonKey(name: 'maxDeliveryPeriod')
+          int maxDeliveryPeriod,
+      @JsonKey(name: 'periodName')
+          String periodName,
+      @JsonKey(name: 'deliveryNote')
+          String deliveryNote,
+      @JsonKey(name: 'bogoPromoText')
+          String bogoPromoText,
+      @JsonKey(name: 'reviews')
+          ReviewUserCommentModel? review,
+      @JsonKey(name: 'features')
+          List<FeatureModel?> features,
+      @JsonKey(name: 'productCategories')
+          List<CategoryModel> categories,
+      @JsonKey(name: 'recentItems')
+          List<ProductModel> recentItems,
+      @JsonKey(name: 'relatedItems')
+          List<ProductModel> relatedItems,
+      @JsonKey(name: 'allowRating')
+          bool isEnableAddReview,
+      @JsonKey(name: 'allPricesIincludeVATDetails')
+          String allPricesIncludeVATDetails}) = _$_InnerProductModel;
 
   factory _InnerProductModel.fromJson(Map<String, dynamic> json) =
       _$_InnerProductModel.fromJson;
@@ -914,6 +1020,9 @@ abstract class _InnerProductModel implements InnerProductModel {
   @override
   @JsonKey(name: 'allowRating')
   bool get isEnableAddReview;
+  @override
+  @JsonKey(name: 'allPricesIincludeVATDetails')
+  String get allPricesIncludeVATDetails;
   @override
   @JsonKey(ignore: true)
   _$InnerProductModelCopyWith<_InnerProductModel> get copyWith =>

@@ -11,10 +11,10 @@ class ListServiceImp implements ListService {
   @override
   Future<FilterDataModel> getFilterOptionsData({
     required ListModel listModel,
-    int version = 1,
+    int version = 3,
   }) async {
     final respose = await defaultApi.postData(
-      path: version == 1 ? 'filter' : 'List/filter',
+      path: 'List/filter',
       version: version,
       data: listModel,
     );

@@ -42,6 +42,9 @@ class InnerProductModel with _$InnerProductModel {
     @JsonKey(name: 'relatedItems')
         List<ProductModel> relatedItems,
     @Default(false) @JsonKey(name: 'allowRating') bool isEnableAddReview,
+    @Default('')
+    @JsonKey(name: 'allPricesIincludeVATDetails')
+        String allPricesIncludeVATDetails,
   }) = _InnerProductModel;
 
   factory InnerProductModel.fromJson(Map<String, dynamic> json) =>
