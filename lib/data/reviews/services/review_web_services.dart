@@ -57,10 +57,11 @@ class ReviewWebServiceImp implements ReviewWebService {
   }
 
   @override
-  Future<ReviewModel> getProductReviews({required String productCode}) async {
+  Future<ReviewModel> getProductReviews(
+      {required String productCode, int? zoneId}) async {
     final response = await defaultApi.getData(
-      path: 'product/$productCode/review',
-    );
+        path: 'product/$productCode/review',
+        queryParameters: {"ZoneID": zoneId});
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
       return ReviewModel.fromJson(result.data);
@@ -72,7 +73,8 @@ class ReviewWebServiceImp implements ReviewWebService {
 
 abstract class ReviewWebService {
   /// It's return all product reviews.It must take (product code).
-  Future<ReviewModel> getProductReviews({required String productCode});
+  Future<ReviewModel> getProductReviews(
+      {required String productCode, int? zoneId});
 
   /// It's used to add review on product. User can make only one review on the same product. User must have an account to use this feature.
   Future<bool?> addReview({required ItemReview itemReview});
