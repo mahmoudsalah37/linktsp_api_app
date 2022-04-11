@@ -6,6 +6,8 @@ import 'package:linktsp_api/data/default_api.dart';
 import 'package:linktsp_api/data/exception_api.dart';
 import 'package:linktsp_api/data/result_model.dart';
 
+import '../models/customer_model.dart';
+
 class AccountServicesImp implements AccountService {
   AccountServicesImp({required this.defaultApi});
   final DefaultApi defaultApi;
@@ -255,6 +257,26 @@ class AccountServicesImp implements AccountService {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
   }
+
+  @override
+  Future<List<CustomerModel>> customersSearch(
+      {required String keyword, int version = 3}) async {
+    final response = await defaultApi.getData(
+      path: 'Customer/search',
+      version: version,
+      queryParameters: {'keyword': keyword},
+    );
+
+    if (response.statusCode == 200) {
+      final users = response.data["Data"] as List?;
+      final result =
+          users?.map((e) => CustomerModel.fromJson(e)).toList() ?? [];
+      return result;
+    } else {
+      throw ExceptionApi(
+          code: response.statusCode, message: response.statusMessage);
+    }
+  }
 }
 
 abstract class AccountService {
@@ -303,4 +325,6 @@ abstract class AccountService {
 
   /// Send firebase device token to server
   Future<bool?> notificationsToken({required String deviceToken});
+  Future<List<CustomerModel>> customersSearch(
+      {required String keyword, int version = 3});
 }
