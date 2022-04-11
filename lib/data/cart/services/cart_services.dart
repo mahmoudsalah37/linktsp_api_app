@@ -6,19 +6,25 @@ import 'package:linktsp_api/core/models/zone_details_model.dart';
 import 'package:linktsp_api/data/default_api.dart';
 import 'package:linktsp_api/data/exception_api.dart';
 import 'package:linktsp_api/data/result_model.dart';
+import 'package:linktsp_api/data/sku/models/inner_product/inner_product_model.dart';
 
 class CartServiceImp implements CartService {
   CartServiceImp({required this.defaultApi});
   final DefaultApi defaultApi;
 
   @override
-  Future<bool?> addToCart(
-      {required List<CartSkuModel> cartSkuModel,
-      required int customerId}) async {
+  Future<bool?> addToCart({
+    required List<CartSkuModel> cartSkuModel,
+    required int customerId,
+    List<ExtraDto>? extras,
+  }) async {
     final response = await defaultApi.postData(
         data: cartSkuModel.map((e) => e.toJson()).toList(),
         path: 'Profile/cart/AddItem',
-        queryParameters: {"CustomerID": customerId});
+        queryParameters: {
+          "CustomerID": customerId,
+          "skuExtras": extras,
+        });
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
       return result.data ?? true;
@@ -28,13 +34,18 @@ class CartServiceImp implements CartService {
   }
 
   @override
-  Future<bool?> updateItemInCart(
-      {required List<CartSkuModel> cartSkuModel,
-      required int customerId}) async {
+  Future<bool?> updateItemInCart({
+    required List<CartSkuModel> cartSkuModel,
+    required int customerId,
+    List<ExtraDto>? extras,
+  }) async {
     final response = await defaultApi.postData(
         data: cartSkuModel.map((e) => e.toJson()).toList(),
         path: 'Profile/cart/Add',
-        queryParameters: {"CustomerID": customerId});
+        queryParameters: {
+          "CustomerID": customerId,
+          "skuExtras": extras,
+        });
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
       return result.data ?? true;
@@ -173,10 +184,16 @@ class CartServiceImp implements CartService {
 }
 
 abstract class CartService {
-  Future<bool?> addToCart(
-      {required List<CartSkuModel> cartSkuModel, required int customerId});
-  Future<bool?> updateItemInCart(
-      {required List<CartSkuModel> cartSkuModel, required int customerId});
+  Future<bool?> addToCart({
+    required List<CartSkuModel> cartSkuModel,
+    required int customerId,
+    List<ExtraDto>? extras,
+  });
+  Future<bool?> updateItemInCart({
+    required List<CartSkuModel> cartSkuModel,
+    required int customerId,
+    List<ExtraDto>? extras,
+  });
   Future<List<CartItemModel>> getCartList({required int customerId});
 
   /// Update cart in guest user case
