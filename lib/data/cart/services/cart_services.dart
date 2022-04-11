@@ -35,7 +35,7 @@ class CartServiceImp implements CartService {
   }) async {
     final response = await defaultApi.postData(
         data: cartSkuModel.map((e) => e.toJson()).toList(),
-        path: 'Profile/cart/Add',
+        path: 'profile/cart/Add',
         queryParameters: {"CustomerID": customerId});
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
@@ -175,7 +175,7 @@ class CartServiceImp implements CartService {
 
   @override
   Future<bool?> addToCartDemo({
-    required List<DemoCartSkuModel> cartSkuModel,
+    required List<CartSkuModel> cartSkuModel,
     required int customerId,
   }) async {
     final response = await defaultApi.postData(
@@ -192,7 +192,7 @@ class CartServiceImp implements CartService {
 
   @override
   Future<bool?> updateItemInCartDemo({
-    required List<DemoCartSkuModel> cartSkuModel,
+    required List<CartSkuModel> cartSkuModel,
     required int customerId,
   }) async {
     final response = await defaultApi.postData(
@@ -214,9 +214,9 @@ abstract class CartService {
   Future<bool?> updateItemInCart(
       {required List<CartSkuModel> cartSkuModel, required int customerId});
   Future<bool?> addToCartDemo(
-      {required List<DemoCartSkuModel> cartSkuModel, required int customerId});
+      {required List<CartSkuModel> cartSkuModel, required int customerId});
   Future<bool?> updateItemInCartDemo(
-      {required List<DemoCartSkuModel> cartSkuModel, required int customerId});
+      {required List<CartSkuModel> cartSkuModel, required int customerId});
   Future<List<CartItemModel>> getCartList({required int customerId});
 
   /// Update cart in guest user case
