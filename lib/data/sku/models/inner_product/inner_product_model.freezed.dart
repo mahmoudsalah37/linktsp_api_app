@@ -2119,7 +2119,11 @@ class _$SkuModelTearOff {
       @JsonKey(name: 'isAvaliable')
           bool isAvaliable = false,
       @JsonKey(name: 'quantityLeft')
-          int quantityInStock = 0}) {
+          int quantityInStock = 0,
+      @JsonKey(name: 'extras')
+          List<ExtraDto?> extras = const <ExtraDto?>[],
+      @JsonKey(name: 'options')
+          List<ExtraDto?> options = const <ExtraDto?>[]}) {
     return _SkuModel(
       id: id,
       skuCode: skuCode,
@@ -2133,6 +2137,8 @@ class _$SkuModelTearOff {
       maxQuantity: maxQuantity,
       isAvaliable: isAvaliable,
       quantityInStock: quantityInStock,
+      extras: extras,
+      options: options,
     );
   }
 
@@ -2170,6 +2176,10 @@ mixin _$SkuModel {
   bool get isAvaliable => throw _privateConstructorUsedError;
   @JsonKey(name: 'quantityLeft')
   int get quantityInStock => throw _privateConstructorUsedError;
+  @JsonKey(name: 'extras')
+  List<ExtraDto?> get extras => throw _privateConstructorUsedError;
+  @JsonKey(name: 'options')
+  List<ExtraDto?> get options => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2193,7 +2203,9 @@ abstract class $SkuModelCopyWith<$Res> {
       @JsonKey(name: 'hasDiscount') bool hasDiscount,
       @JsonKey(name: 'maxQty') int maxQuantity,
       @JsonKey(name: 'isAvaliable') bool isAvaliable,
-      @JsonKey(name: 'quantityLeft') int quantityInStock});
+      @JsonKey(name: 'quantityLeft') int quantityInStock,
+      @JsonKey(name: 'extras') List<ExtraDto?> extras,
+      @JsonKey(name: 'options') List<ExtraDto?> options});
 }
 
 /// @nodoc
@@ -2218,6 +2230,8 @@ class _$SkuModelCopyWithImpl<$Res> implements $SkuModelCopyWith<$Res> {
     Object? maxQuantity = freezed,
     Object? isAvaliable = freezed,
     Object? quantityInStock = freezed,
+    Object? extras = freezed,
+    Object? options = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -2268,6 +2282,14 @@ class _$SkuModelCopyWithImpl<$Res> implements $SkuModelCopyWith<$Res> {
           ? _value.quantityInStock
           : quantityInStock // ignore: cast_nullable_to_non_nullable
               as int,
+      extras: extras == freezed
+          ? _value.extras
+          : extras // ignore: cast_nullable_to_non_nullable
+              as List<ExtraDto?>,
+      options: options == freezed
+          ? _value.options
+          : options // ignore: cast_nullable_to_non_nullable
+              as List<ExtraDto?>,
     ));
   }
 }
@@ -2289,7 +2311,9 @@ abstract class _$SkuModelCopyWith<$Res> implements $SkuModelCopyWith<$Res> {
       @JsonKey(name: 'hasDiscount') bool hasDiscount,
       @JsonKey(name: 'maxQty') int maxQuantity,
       @JsonKey(name: 'isAvaliable') bool isAvaliable,
-      @JsonKey(name: 'quantityLeft') int quantityInStock});
+      @JsonKey(name: 'quantityLeft') int quantityInStock,
+      @JsonKey(name: 'extras') List<ExtraDto?> extras,
+      @JsonKey(name: 'options') List<ExtraDto?> options});
 }
 
 /// @nodoc
@@ -2315,6 +2339,8 @@ class __$SkuModelCopyWithImpl<$Res> extends _$SkuModelCopyWithImpl<$Res>
     Object? maxQuantity = freezed,
     Object? isAvaliable = freezed,
     Object? quantityInStock = freezed,
+    Object? extras = freezed,
+    Object? options = freezed,
   }) {
     return _then(_SkuModel(
       id: id == freezed
@@ -2365,6 +2391,14 @@ class __$SkuModelCopyWithImpl<$Res> extends _$SkuModelCopyWithImpl<$Res>
           ? _value.quantityInStock
           : quantityInStock // ignore: cast_nullable_to_non_nullable
               as int,
+      extras: extras == freezed
+          ? _value.extras
+          : extras // ignore: cast_nullable_to_non_nullable
+              as List<ExtraDto?>,
+      options: options == freezed
+          ? _value.options
+          : options // ignore: cast_nullable_to_non_nullable
+              as List<ExtraDto?>,
     ));
   }
 }
@@ -2396,7 +2430,11 @@ class _$_SkuModel implements _SkuModel {
       @JsonKey(name: 'isAvaliable')
           this.isAvaliable = false,
       @JsonKey(name: 'quantityLeft')
-          this.quantityInStock = 0});
+          this.quantityInStock = 0,
+      @JsonKey(name: 'extras')
+          this.extras = const <ExtraDto?>[],
+      @JsonKey(name: 'options')
+          this.options = const <ExtraDto?>[]});
 
   factory _$_SkuModel.fromJson(Map<String, dynamic> json) =>
       _$$_SkuModelFromJson(json);
@@ -2437,10 +2475,16 @@ class _$_SkuModel implements _SkuModel {
   @override
   @JsonKey(name: 'quantityLeft')
   final int quantityInStock;
+  @override
+  @JsonKey(name: 'extras')
+  final List<ExtraDto?> extras;
+  @override
+  @JsonKey(name: 'options')
+  final List<ExtraDto?> options;
 
   @override
   String toString() {
-    return 'SkuModel(id: $id, skuCode: $skuCode, defaultPrice: $defaultPrice, finalPrice: $finalPrice, colorId: $colorId, sizeId: $sizeId, images: $images, discounts: $discounts, hasDiscount: $hasDiscount, maxQuantity: $maxQuantity, isAvaliable: $isAvaliable, quantityInStock: $quantityInStock)';
+    return 'SkuModel(id: $id, skuCode: $skuCode, defaultPrice: $defaultPrice, finalPrice: $finalPrice, colorId: $colorId, sizeId: $sizeId, images: $images, discounts: $discounts, hasDiscount: $hasDiscount, maxQuantity: $maxQuantity, isAvaliable: $isAvaliable, quantityInStock: $quantityInStock, extras: $extras, options: $options)';
   }
 
   @override
@@ -2465,7 +2509,9 @@ class _$_SkuModel implements _SkuModel {
             const DeepCollectionEquality()
                 .equals(other.isAvaliable, isAvaliable) &&
             const DeepCollectionEquality()
-                .equals(other.quantityInStock, quantityInStock));
+                .equals(other.quantityInStock, quantityInStock) &&
+            const DeepCollectionEquality().equals(other.extras, extras) &&
+            const DeepCollectionEquality().equals(other.options, options));
   }
 
   @override
@@ -2482,7 +2528,9 @@ class _$_SkuModel implements _SkuModel {
       const DeepCollectionEquality().hash(hasDiscount),
       const DeepCollectionEquality().hash(maxQuantity),
       const DeepCollectionEquality().hash(isAvaliable),
-      const DeepCollectionEquality().hash(quantityInStock));
+      const DeepCollectionEquality().hash(quantityInStock),
+      const DeepCollectionEquality().hash(extras),
+      const DeepCollectionEquality().hash(options));
 
   @JsonKey(ignore: true)
   @override
@@ -2508,7 +2556,9 @@ abstract class _SkuModel implements SkuModel {
       @JsonKey(name: 'hasDiscount') bool hasDiscount,
       @JsonKey(name: 'maxQty') int maxQuantity,
       @JsonKey(name: 'isAvaliable') bool isAvaliable,
-      @JsonKey(name: 'quantityLeft') int quantityInStock}) = _$_SkuModel;
+      @JsonKey(name: 'quantityLeft') int quantityInStock,
+      @JsonKey(name: 'extras') List<ExtraDto?> extras,
+      @JsonKey(name: 'options') List<ExtraDto?> options}) = _$_SkuModel;
 
   factory _SkuModel.fromJson(Map<String, dynamic> json) = _$_SkuModel.fromJson;
 
@@ -2548,6 +2598,12 @@ abstract class _SkuModel implements SkuModel {
   @override
   @JsonKey(name: 'quantityLeft')
   int get quantityInStock;
+  @override
+  @JsonKey(name: 'extras')
+  List<ExtraDto?> get extras;
+  @override
+  @JsonKey(name: 'options')
+  List<ExtraDto?> get options;
   @override
   @JsonKey(ignore: true)
   _$SkuModelCopyWith<_SkuModel> get copyWith =>
@@ -4150,5 +4206,485 @@ abstract class _ProductDiscountListModel implements ProductDiscountListModel {
   @override
   @JsonKey(ignore: true)
   _$ProductDiscountListModelCopyWith<_ProductDiscountListModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+ExtraDto _$ExtraDtoFromJson(Map<String, dynamic> json) {
+  return _ExtraDto.fromJson(json);
+}
+
+/// @nodoc
+class _$ExtraDtoTearOff {
+  const _$ExtraDtoTearOff();
+
+  _ExtraDto call(
+      {@JsonKey(name: 'ID') int? id,
+      @JsonKey(name: 'Title') String value = '',
+      @JsonKey(name: 'Price') double price = 0,
+      @JsonKey(name: 'Qty') int qty = 0,
+      @JsonKey(name: 'IsOption') bool isOption = false,
+      @JsonKey(name: 'ExtrasLocalizes') ExtrasLocalizes? extrasLocalizes}) {
+    return _ExtraDto(
+      id: id,
+      value: value,
+      price: price,
+      qty: qty,
+      isOption: isOption,
+      extrasLocalizes: extrasLocalizes,
+    );
+  }
+
+  ExtraDto fromJson(Map<String, Object?> json) {
+    return ExtraDto.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $ExtraDto = _$ExtraDtoTearOff();
+
+/// @nodoc
+mixin _$ExtraDto {
+  @JsonKey(name: 'ID')
+  int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Title')
+  String get value => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Price')
+  double get price => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Qty')
+  int get qty => throw _privateConstructorUsedError;
+  @JsonKey(name: 'IsOption')
+  bool get isOption => throw _privateConstructorUsedError;
+  @JsonKey(name: 'ExtrasLocalizes')
+  ExtrasLocalizes? get extrasLocalizes => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ExtraDtoCopyWith<ExtraDto> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ExtraDtoCopyWith<$Res> {
+  factory $ExtraDtoCopyWith(ExtraDto value, $Res Function(ExtraDto) then) =
+      _$ExtraDtoCopyWithImpl<$Res>;
+  $Res call(
+      {@JsonKey(name: 'ID') int? id,
+      @JsonKey(name: 'Title') String value,
+      @JsonKey(name: 'Price') double price,
+      @JsonKey(name: 'Qty') int qty,
+      @JsonKey(name: 'IsOption') bool isOption,
+      @JsonKey(name: 'ExtrasLocalizes') ExtrasLocalizes? extrasLocalizes});
+
+  $ExtrasLocalizesCopyWith<$Res>? get extrasLocalizes;
+}
+
+/// @nodoc
+class _$ExtraDtoCopyWithImpl<$Res> implements $ExtraDtoCopyWith<$Res> {
+  _$ExtraDtoCopyWithImpl(this._value, this._then);
+
+  final ExtraDto _value;
+  // ignore: unused_field
+  final $Res Function(ExtraDto) _then;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? value = freezed,
+    Object? price = freezed,
+    Object? qty = freezed,
+    Object? isOption = freezed,
+    Object? extrasLocalizes = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+      price: price == freezed
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as double,
+      qty: qty == freezed
+          ? _value.qty
+          : qty // ignore: cast_nullable_to_non_nullable
+              as int,
+      isOption: isOption == freezed
+          ? _value.isOption
+          : isOption // ignore: cast_nullable_to_non_nullable
+              as bool,
+      extrasLocalizes: extrasLocalizes == freezed
+          ? _value.extrasLocalizes
+          : extrasLocalizes // ignore: cast_nullable_to_non_nullable
+              as ExtrasLocalizes?,
+    ));
+  }
+
+  @override
+  $ExtrasLocalizesCopyWith<$Res>? get extrasLocalizes {
+    if (_value.extrasLocalizes == null) {
+      return null;
+    }
+
+    return $ExtrasLocalizesCopyWith<$Res>(_value.extrasLocalizes!, (value) {
+      return _then(_value.copyWith(extrasLocalizes: value));
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$ExtraDtoCopyWith<$Res> implements $ExtraDtoCopyWith<$Res> {
+  factory _$ExtraDtoCopyWith(_ExtraDto value, $Res Function(_ExtraDto) then) =
+      __$ExtraDtoCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {@JsonKey(name: 'ID') int? id,
+      @JsonKey(name: 'Title') String value,
+      @JsonKey(name: 'Price') double price,
+      @JsonKey(name: 'Qty') int qty,
+      @JsonKey(name: 'IsOption') bool isOption,
+      @JsonKey(name: 'ExtrasLocalizes') ExtrasLocalizes? extrasLocalizes});
+
+  @override
+  $ExtrasLocalizesCopyWith<$Res>? get extrasLocalizes;
+}
+
+/// @nodoc
+class __$ExtraDtoCopyWithImpl<$Res> extends _$ExtraDtoCopyWithImpl<$Res>
+    implements _$ExtraDtoCopyWith<$Res> {
+  __$ExtraDtoCopyWithImpl(_ExtraDto _value, $Res Function(_ExtraDto) _then)
+      : super(_value, (v) => _then(v as _ExtraDto));
+
+  @override
+  _ExtraDto get _value => super._value as _ExtraDto;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? value = freezed,
+    Object? price = freezed,
+    Object? qty = freezed,
+    Object? isOption = freezed,
+    Object? extrasLocalizes = freezed,
+  }) {
+    return _then(_ExtraDto(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+      price: price == freezed
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as double,
+      qty: qty == freezed
+          ? _value.qty
+          : qty // ignore: cast_nullable_to_non_nullable
+              as int,
+      isOption: isOption == freezed
+          ? _value.isOption
+          : isOption // ignore: cast_nullable_to_non_nullable
+              as bool,
+      extrasLocalizes: extrasLocalizes == freezed
+          ? _value.extrasLocalizes
+          : extrasLocalizes // ignore: cast_nullable_to_non_nullable
+              as ExtrasLocalizes?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_ExtraDto implements _ExtraDto {
+  const _$_ExtraDto(
+      {@JsonKey(name: 'ID') this.id,
+      @JsonKey(name: 'Title') this.value = '',
+      @JsonKey(name: 'Price') this.price = 0,
+      @JsonKey(name: 'Qty') this.qty = 0,
+      @JsonKey(name: 'IsOption') this.isOption = false,
+      @JsonKey(name: 'ExtrasLocalizes') this.extrasLocalizes});
+
+  factory _$_ExtraDto.fromJson(Map<String, dynamic> json) =>
+      _$$_ExtraDtoFromJson(json);
+
+  @override
+  @JsonKey(name: 'ID')
+  final int? id;
+  @override
+  @JsonKey(name: 'Title')
+  final String value;
+  @override
+  @JsonKey(name: 'Price')
+  final double price;
+  @override
+  @JsonKey(name: 'Qty')
+  final int qty;
+  @override
+  @JsonKey(name: 'IsOption')
+  final bool isOption;
+  @override
+  @JsonKey(name: 'ExtrasLocalizes')
+  final ExtrasLocalizes? extrasLocalizes;
+
+  @override
+  String toString() {
+    return 'ExtraDto(id: $id, value: $value, price: $price, qty: $qty, isOption: $isOption, extrasLocalizes: $extrasLocalizes)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ExtraDto &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.value, value) &&
+            const DeepCollectionEquality().equals(other.price, price) &&
+            const DeepCollectionEquality().equals(other.qty, qty) &&
+            const DeepCollectionEquality().equals(other.isOption, isOption) &&
+            const DeepCollectionEquality()
+                .equals(other.extrasLocalizes, extrasLocalizes));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(value),
+      const DeepCollectionEquality().hash(price),
+      const DeepCollectionEquality().hash(qty),
+      const DeepCollectionEquality().hash(isOption),
+      const DeepCollectionEquality().hash(extrasLocalizes));
+
+  @JsonKey(ignore: true)
+  @override
+  _$ExtraDtoCopyWith<_ExtraDto> get copyWith =>
+      __$ExtraDtoCopyWithImpl<_ExtraDto>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ExtraDtoToJson(this);
+  }
+}
+
+abstract class _ExtraDto implements ExtraDto {
+  const factory _ExtraDto(
+          {@JsonKey(name: 'ID') int? id,
+          @JsonKey(name: 'Title') String value,
+          @JsonKey(name: 'Price') double price,
+          @JsonKey(name: 'Qty') int qty,
+          @JsonKey(name: 'IsOption') bool isOption,
+          @JsonKey(name: 'ExtrasLocalizes') ExtrasLocalizes? extrasLocalizes}) =
+      _$_ExtraDto;
+
+  factory _ExtraDto.fromJson(Map<String, dynamic> json) = _$_ExtraDto.fromJson;
+
+  @override
+  @JsonKey(name: 'ID')
+  int? get id;
+  @override
+  @JsonKey(name: 'Title')
+  String get value;
+  @override
+  @JsonKey(name: 'Price')
+  double get price;
+  @override
+  @JsonKey(name: 'Qty')
+  int get qty;
+  @override
+  @JsonKey(name: 'IsOption')
+  bool get isOption;
+  @override
+  @JsonKey(name: 'ExtrasLocalizes')
+  ExtrasLocalizes? get extrasLocalizes;
+  @override
+  @JsonKey(ignore: true)
+  _$ExtraDtoCopyWith<_ExtraDto> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+ExtrasLocalizes _$ExtrasLocalizesFromJson(Map<String, dynamic> json) {
+  return _ExtrasLocalizes.fromJson(json);
+}
+
+/// @nodoc
+class _$ExtrasLocalizesTearOff {
+  const _$ExtrasLocalizesTearOff();
+
+  _ExtrasLocalizes call(
+      {@JsonKey(name: 'ID') int? id,
+      @JsonKey(name: 'Title') String value = ''}) {
+    return _ExtrasLocalizes(
+      id: id,
+      value: value,
+    );
+  }
+
+  ExtrasLocalizes fromJson(Map<String, Object?> json) {
+    return ExtrasLocalizes.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $ExtrasLocalizes = _$ExtrasLocalizesTearOff();
+
+/// @nodoc
+mixin _$ExtrasLocalizes {
+  @JsonKey(name: 'ID')
+  int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Title')
+  String get value => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ExtrasLocalizesCopyWith<ExtrasLocalizes> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ExtrasLocalizesCopyWith<$Res> {
+  factory $ExtrasLocalizesCopyWith(
+          ExtrasLocalizes value, $Res Function(ExtrasLocalizes) then) =
+      _$ExtrasLocalizesCopyWithImpl<$Res>;
+  $Res call(
+      {@JsonKey(name: 'ID') int? id, @JsonKey(name: 'Title') String value});
+}
+
+/// @nodoc
+class _$ExtrasLocalizesCopyWithImpl<$Res>
+    implements $ExtrasLocalizesCopyWith<$Res> {
+  _$ExtrasLocalizesCopyWithImpl(this._value, this._then);
+
+  final ExtrasLocalizes _value;
+  // ignore: unused_field
+  final $Res Function(ExtrasLocalizes) _then;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? value = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$ExtrasLocalizesCopyWith<$Res>
+    implements $ExtrasLocalizesCopyWith<$Res> {
+  factory _$ExtrasLocalizesCopyWith(
+          _ExtrasLocalizes value, $Res Function(_ExtrasLocalizes) then) =
+      __$ExtrasLocalizesCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {@JsonKey(name: 'ID') int? id, @JsonKey(name: 'Title') String value});
+}
+
+/// @nodoc
+class __$ExtrasLocalizesCopyWithImpl<$Res>
+    extends _$ExtrasLocalizesCopyWithImpl<$Res>
+    implements _$ExtrasLocalizesCopyWith<$Res> {
+  __$ExtrasLocalizesCopyWithImpl(
+      _ExtrasLocalizes _value, $Res Function(_ExtrasLocalizes) _then)
+      : super(_value, (v) => _then(v as _ExtrasLocalizes));
+
+  @override
+  _ExtrasLocalizes get _value => super._value as _ExtrasLocalizes;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? value = freezed,
+  }) {
+    return _then(_ExtrasLocalizes(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_ExtrasLocalizes implements _ExtrasLocalizes {
+  const _$_ExtrasLocalizes(
+      {@JsonKey(name: 'ID') this.id, @JsonKey(name: 'Title') this.value = ''});
+
+  factory _$_ExtrasLocalizes.fromJson(Map<String, dynamic> json) =>
+      _$$_ExtrasLocalizesFromJson(json);
+
+  @override
+  @JsonKey(name: 'ID')
+  final int? id;
+  @override
+  @JsonKey(name: 'Title')
+  final String value;
+
+  @override
+  String toString() {
+    return 'ExtrasLocalizes(id: $id, value: $value)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ExtrasLocalizes &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.value, value));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(value));
+
+  @JsonKey(ignore: true)
+  @override
+  _$ExtrasLocalizesCopyWith<_ExtrasLocalizes> get copyWith =>
+      __$ExtrasLocalizesCopyWithImpl<_ExtrasLocalizes>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ExtrasLocalizesToJson(this);
+  }
+}
+
+abstract class _ExtrasLocalizes implements ExtrasLocalizes {
+  const factory _ExtrasLocalizes(
+      {@JsonKey(name: 'ID') int? id,
+      @JsonKey(name: 'Title') String value}) = _$_ExtrasLocalizes;
+
+  factory _ExtrasLocalizes.fromJson(Map<String, dynamic> json) =
+      _$_ExtrasLocalizes.fromJson;
+
+  @override
+  @JsonKey(name: 'ID')
+  int? get id;
+  @override
+  @JsonKey(name: 'Title')
+  String get value;
+  @override
+  @JsonKey(ignore: true)
+  _$ExtrasLocalizesCopyWith<_ExtrasLocalizes> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -131,6 +131,8 @@ class SkuModel with _$SkuModel {
     @Default(0) @JsonKey(name: 'maxQty') int maxQuantity,
     @Default(false) @JsonKey(name: 'isAvaliable') bool isAvaliable,
     @Default(0) @JsonKey(name: 'quantityLeft') int quantityInStock,
+    @Default(<ExtraDto?>[]) @JsonKey(name: 'extras') List<ExtraDto?> extras,
+    @Default(<ExtraDto?>[]) @JsonKey(name: 'options') List<ExtraDto?> options,
   }) = _SkuModel;
 
   factory SkuModel.fromJson(Map<String, dynamic> json) =>
@@ -223,4 +225,30 @@ class ProductDiscountListModel with _$ProductDiscountListModel {
 
   factory ProductDiscountListModel.fromJson(Map<String, dynamic> json) =>
       _$ProductDiscountListModelFromJson(json);
+}
+
+@freezed
+class ExtraDto with _$ExtraDto {
+  const factory ExtraDto({
+    @JsonKey(name: 'ID') int? id,
+    @Default('') @JsonKey(name: 'Title') String value,
+    @Default(0) @JsonKey(name: 'Price') double price,
+    @Default(0) @JsonKey(name: 'Qty') int qty,
+    @Default(false) @JsonKey(name: 'IsOption') bool isOption,
+    @JsonKey(name: 'ExtrasLocalizes') ExtrasLocalizes? extrasLocalizes,
+  }) = _ExtraDto;
+
+  factory ExtraDto.fromJson(Map<String, dynamic> json) =>
+      _$ExtraDtoFromJson(json);
+}
+
+@freezed
+class ExtrasLocalizes with _$ExtrasLocalizes {
+  const factory ExtrasLocalizes({
+    @JsonKey(name: 'ID') int? id,
+    @Default('') @JsonKey(name: 'Title') String value,
+  }) = _ExtrasLocalizes;
+
+  factory ExtrasLocalizes.fromJson(Map<String, dynamic> json) =>
+      _$ExtrasLocalizesFromJson(json);
 }

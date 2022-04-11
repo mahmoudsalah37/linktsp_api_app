@@ -203,6 +203,18 @@ _$_SkuModel _$$_SkuModelFromJson(Map<String, dynamic> json) => _$_SkuModel(
       maxQuantity: json['maxQty'] as int? ?? 0,
       isAvaliable: json['isAvaliable'] as bool? ?? false,
       quantityInStock: json['quantityLeft'] as int? ?? 0,
+      extras: (json['extras'] as List<dynamic>?)
+              ?.map((e) => e == null
+                  ? null
+                  : ExtraDto.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <ExtraDto?>[],
+      options: (json['options'] as List<dynamic>?)
+              ?.map((e) => e == null
+                  ? null
+                  : ExtraDto.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <ExtraDto?>[],
     );
 
 Map<String, dynamic> _$$_SkuModelToJson(_$_SkuModel instance) =>
@@ -219,6 +231,8 @@ Map<String, dynamic> _$$_SkuModelToJson(_$_SkuModel instance) =>
       'maxQty': instance.maxQuantity,
       'isAvaliable': instance.isAvaliable,
       'quantityLeft': instance.quantityInStock,
+      'extras': instance.extras,
+      'options': instance.options,
     };
 
 _$_ImageModel _$$_ImageModelFromJson(Map<String, dynamic> json) =>
@@ -329,4 +343,38 @@ Map<String, dynamic> _$$_ProductDiscountListModelToJson(
     <String, dynamic>{
       'key': instance.key,
       'value': instance.value,
+    };
+
+_$_ExtraDto _$$_ExtraDtoFromJson(Map<String, dynamic> json) => _$_ExtraDto(
+      id: json['ID'] as int?,
+      value: json['Title'] as String? ?? '',
+      price: (json['Price'] as num?)?.toDouble() ?? 0,
+      qty: json['Qty'] as int? ?? 0,
+      isOption: json['IsOption'] as bool? ?? false,
+      extrasLocalizes: json['ExtrasLocalizes'] == null
+          ? null
+          : ExtrasLocalizes.fromJson(
+              json['ExtrasLocalizes'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$_ExtraDtoToJson(_$_ExtraDto instance) =>
+    <String, dynamic>{
+      'ID': instance.id,
+      'Title': instance.value,
+      'Price': instance.price,
+      'Qty': instance.qty,
+      'IsOption': instance.isOption,
+      'ExtrasLocalizes': instance.extrasLocalizes,
+    };
+
+_$_ExtrasLocalizes _$$_ExtrasLocalizesFromJson(Map<String, dynamic> json) =>
+    _$_ExtrasLocalizes(
+      id: json['ID'] as int?,
+      value: json['Title'] as String? ?? '',
+    );
+
+Map<String, dynamic> _$$_ExtrasLocalizesToJson(_$_ExtrasLocalizes instance) =>
+    <String, dynamic>{
+      'ID': instance.id,
+      'Title': instance.value,
     };
