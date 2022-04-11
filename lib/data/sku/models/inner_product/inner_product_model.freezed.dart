@@ -4219,14 +4219,14 @@ class _$ExtraDtoTearOff {
 
   _ExtraDto call(
       {@JsonKey(name: 'ID') int? id,
-      @JsonKey(name: 'Title') String value = '',
-      @JsonKey(name: 'Price') double price = 0,
-      @JsonKey(name: 'Qty') int qty = 0,
-      @JsonKey(name: 'IsOption') bool isOption = false,
-      @JsonKey(name: 'ExtrasLocalizes') ExtrasLocalizes? extrasLocalizes}) {
+      @JsonKey(name: 'title') String title = '',
+      @JsonKey(name: 'price') double price = 0,
+      @JsonKey(name: 'qty') int qty = 0,
+      @JsonKey(name: 'isOption') bool isOption = false,
+      @JsonKey(name: 'extrasLocalizes') ExtrasLocalizes? extrasLocalizes}) {
     return _ExtraDto(
       id: id,
-      value: value,
+      title: title,
       price: price,
       qty: qty,
       isOption: isOption,
@@ -4246,15 +4246,15 @@ const $ExtraDto = _$ExtraDtoTearOff();
 mixin _$ExtraDto {
   @JsonKey(name: 'ID')
   int? get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'Title')
-  String get value => throw _privateConstructorUsedError;
-  @JsonKey(name: 'Price')
+  @JsonKey(name: 'title')
+  String get title => throw _privateConstructorUsedError;
+  @JsonKey(name: 'price')
   double get price => throw _privateConstructorUsedError;
-  @JsonKey(name: 'Qty')
+  @JsonKey(name: 'qty')
   int get qty => throw _privateConstructorUsedError;
-  @JsonKey(name: 'IsOption')
+  @JsonKey(name: 'isOption')
   bool get isOption => throw _privateConstructorUsedError;
-  @JsonKey(name: 'ExtrasLocalizes')
+  @JsonKey(name: 'extrasLocalizes')
   ExtrasLocalizes? get extrasLocalizes => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -4269,11 +4269,11 @@ abstract class $ExtraDtoCopyWith<$Res> {
       _$ExtraDtoCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: 'ID') int? id,
-      @JsonKey(name: 'Title') String value,
-      @JsonKey(name: 'Price') double price,
-      @JsonKey(name: 'Qty') int qty,
-      @JsonKey(name: 'IsOption') bool isOption,
-      @JsonKey(name: 'ExtrasLocalizes') ExtrasLocalizes? extrasLocalizes});
+      @JsonKey(name: 'title') String title,
+      @JsonKey(name: 'price') double price,
+      @JsonKey(name: 'qty') int qty,
+      @JsonKey(name: 'isOption') bool isOption,
+      @JsonKey(name: 'extrasLocalizes') ExtrasLocalizes? extrasLocalizes});
 
   $ExtrasLocalizesCopyWith<$Res>? get extrasLocalizes;
 }
@@ -4289,7 +4289,7 @@ class _$ExtraDtoCopyWithImpl<$Res> implements $ExtraDtoCopyWith<$Res> {
   @override
   $Res call({
     Object? id = freezed,
-    Object? value = freezed,
+    Object? title = freezed,
     Object? price = freezed,
     Object? qty = freezed,
     Object? isOption = freezed,
@@ -4300,9 +4300,9 @@ class _$ExtraDtoCopyWithImpl<$Res> implements $ExtraDtoCopyWith<$Res> {
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      value: value == freezed
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
       price: price == freezed
           ? _value.price
@@ -4342,11 +4342,11 @@ abstract class _$ExtraDtoCopyWith<$Res> implements $ExtraDtoCopyWith<$Res> {
   @override
   $Res call(
       {@JsonKey(name: 'ID') int? id,
-      @JsonKey(name: 'Title') String value,
-      @JsonKey(name: 'Price') double price,
-      @JsonKey(name: 'Qty') int qty,
-      @JsonKey(name: 'IsOption') bool isOption,
-      @JsonKey(name: 'ExtrasLocalizes') ExtrasLocalizes? extrasLocalizes});
+      @JsonKey(name: 'title') String title,
+      @JsonKey(name: 'price') double price,
+      @JsonKey(name: 'qty') int qty,
+      @JsonKey(name: 'isOption') bool isOption,
+      @JsonKey(name: 'extrasLocalizes') ExtrasLocalizes? extrasLocalizes});
 
   @override
   $ExtrasLocalizesCopyWith<$Res>? get extrasLocalizes;
@@ -4364,7 +4364,7 @@ class __$ExtraDtoCopyWithImpl<$Res> extends _$ExtraDtoCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? value = freezed,
+    Object? title = freezed,
     Object? price = freezed,
     Object? qty = freezed,
     Object? isOption = freezed,
@@ -4375,9 +4375,9 @@ class __$ExtraDtoCopyWithImpl<$Res> extends _$ExtraDtoCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      value: value == freezed
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
       price: price == freezed
           ? _value.price
@@ -4404,11 +4404,11 @@ class __$ExtraDtoCopyWithImpl<$Res> extends _$ExtraDtoCopyWithImpl<$Res>
 class _$_ExtraDto implements _ExtraDto {
   const _$_ExtraDto(
       {@JsonKey(name: 'ID') this.id,
-      @JsonKey(name: 'Title') this.value = '',
-      @JsonKey(name: 'Price') this.price = 0,
-      @JsonKey(name: 'Qty') this.qty = 0,
-      @JsonKey(name: 'IsOption') this.isOption = false,
-      @JsonKey(name: 'ExtrasLocalizes') this.extrasLocalizes});
+      @JsonKey(name: 'title') this.title = '',
+      @JsonKey(name: 'price') this.price = 0,
+      @JsonKey(name: 'qty') this.qty = 0,
+      @JsonKey(name: 'isOption') this.isOption = false,
+      @JsonKey(name: 'extrasLocalizes') this.extrasLocalizes});
 
   factory _$_ExtraDto.fromJson(Map<String, dynamic> json) =>
       _$$_ExtraDtoFromJson(json);
@@ -4417,24 +4417,24 @@ class _$_ExtraDto implements _ExtraDto {
   @JsonKey(name: 'ID')
   final int? id;
   @override
-  @JsonKey(name: 'Title')
-  final String value;
+  @JsonKey(name: 'title')
+  final String title;
   @override
-  @JsonKey(name: 'Price')
+  @JsonKey(name: 'price')
   final double price;
   @override
-  @JsonKey(name: 'Qty')
+  @JsonKey(name: 'qty')
   final int qty;
   @override
-  @JsonKey(name: 'IsOption')
+  @JsonKey(name: 'isOption')
   final bool isOption;
   @override
-  @JsonKey(name: 'ExtrasLocalizes')
+  @JsonKey(name: 'extrasLocalizes')
   final ExtrasLocalizes? extrasLocalizes;
 
   @override
   String toString() {
-    return 'ExtraDto(id: $id, value: $value, price: $price, qty: $qty, isOption: $isOption, extrasLocalizes: $extrasLocalizes)';
+    return 'ExtraDto(id: $id, title: $title, price: $price, qty: $qty, isOption: $isOption, extrasLocalizes: $extrasLocalizes)';
   }
 
   @override
@@ -4443,7 +4443,7 @@ class _$_ExtraDto implements _ExtraDto {
         (other.runtimeType == runtimeType &&
             other is _ExtraDto &&
             const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.value, value) &&
+            const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality().equals(other.price, price) &&
             const DeepCollectionEquality().equals(other.qty, qty) &&
             const DeepCollectionEquality().equals(other.isOption, isOption) &&
@@ -4455,7 +4455,7 @@ class _$_ExtraDto implements _ExtraDto {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(value),
+      const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(price),
       const DeepCollectionEquality().hash(qty),
       const DeepCollectionEquality().hash(isOption),
@@ -4475,11 +4475,11 @@ class _$_ExtraDto implements _ExtraDto {
 abstract class _ExtraDto implements ExtraDto {
   const factory _ExtraDto(
           {@JsonKey(name: 'ID') int? id,
-          @JsonKey(name: 'Title') String value,
-          @JsonKey(name: 'Price') double price,
-          @JsonKey(name: 'Qty') int qty,
-          @JsonKey(name: 'IsOption') bool isOption,
-          @JsonKey(name: 'ExtrasLocalizes') ExtrasLocalizes? extrasLocalizes}) =
+          @JsonKey(name: 'title') String title,
+          @JsonKey(name: 'price') double price,
+          @JsonKey(name: 'qty') int qty,
+          @JsonKey(name: 'isOption') bool isOption,
+          @JsonKey(name: 'extrasLocalizes') ExtrasLocalizes? extrasLocalizes}) =
       _$_ExtraDto;
 
   factory _ExtraDto.fromJson(Map<String, dynamic> json) = _$_ExtraDto.fromJson;
@@ -4488,19 +4488,19 @@ abstract class _ExtraDto implements ExtraDto {
   @JsonKey(name: 'ID')
   int? get id;
   @override
-  @JsonKey(name: 'Title')
-  String get value;
+  @JsonKey(name: 'title')
+  String get title;
   @override
-  @JsonKey(name: 'Price')
+  @JsonKey(name: 'price')
   double get price;
   @override
-  @JsonKey(name: 'Qty')
+  @JsonKey(name: 'qty')
   int get qty;
   @override
-  @JsonKey(name: 'IsOption')
+  @JsonKey(name: 'isOption')
   bool get isOption;
   @override
-  @JsonKey(name: 'ExtrasLocalizes')
+  @JsonKey(name: 'extrasLocalizes')
   ExtrasLocalizes? get extrasLocalizes;
   @override
   @JsonKey(ignore: true)
@@ -4517,11 +4517,13 @@ class _$ExtrasLocalizesTearOff {
   const _$ExtrasLocalizesTearOff();
 
   _ExtrasLocalizes call(
-      {@JsonKey(name: 'ID') int? id,
-      @JsonKey(name: 'Title') String value = ''}) {
+      {@JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'title') String title = '',
+      @JsonKey(name: 'languageID') int languageID = 1}) {
     return _ExtrasLocalizes(
       id: id,
-      value: value,
+      title: title,
+      languageID: languageID,
     );
   }
 
@@ -4535,10 +4537,12 @@ const $ExtrasLocalizes = _$ExtrasLocalizesTearOff();
 
 /// @nodoc
 mixin _$ExtrasLocalizes {
-  @JsonKey(name: 'ID')
+  @JsonKey(name: 'id')
   int? get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'Title')
-  String get value => throw _privateConstructorUsedError;
+  @JsonKey(name: 'title')
+  String get title => throw _privateConstructorUsedError;
+  @JsonKey(name: 'languageID')
+  int get languageID => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -4552,7 +4556,9 @@ abstract class $ExtrasLocalizesCopyWith<$Res> {
           ExtrasLocalizes value, $Res Function(ExtrasLocalizes) then) =
       _$ExtrasLocalizesCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: 'ID') int? id, @JsonKey(name: 'Title') String value});
+      {@JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'title') String title,
+      @JsonKey(name: 'languageID') int languageID});
 }
 
 /// @nodoc
@@ -4567,17 +4573,22 @@ class _$ExtrasLocalizesCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? value = freezed,
+    Object? title = freezed,
+    Object? languageID = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      value: value == freezed
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
+      languageID: languageID == freezed
+          ? _value.languageID
+          : languageID // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -4590,7 +4601,9 @@ abstract class _$ExtrasLocalizesCopyWith<$Res>
       __$ExtrasLocalizesCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: 'ID') int? id, @JsonKey(name: 'Title') String value});
+      {@JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'title') String title,
+      @JsonKey(name: 'languageID') int languageID});
 }
 
 /// @nodoc
@@ -4607,17 +4620,22 @@ class __$ExtrasLocalizesCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? value = freezed,
+    Object? title = freezed,
+    Object? languageID = freezed,
   }) {
     return _then(_ExtrasLocalizes(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      value: value == freezed
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
+      languageID: languageID == freezed
+          ? _value.languageID
+          : languageID // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -4626,21 +4644,26 @@ class __$ExtrasLocalizesCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ExtrasLocalizes implements _ExtrasLocalizes {
   const _$_ExtrasLocalizes(
-      {@JsonKey(name: 'ID') this.id, @JsonKey(name: 'Title') this.value = ''});
+      {@JsonKey(name: 'id') this.id,
+      @JsonKey(name: 'title') this.title = '',
+      @JsonKey(name: 'languageID') this.languageID = 1});
 
   factory _$_ExtrasLocalizes.fromJson(Map<String, dynamic> json) =>
       _$$_ExtrasLocalizesFromJson(json);
 
   @override
-  @JsonKey(name: 'ID')
+  @JsonKey(name: 'id')
   final int? id;
   @override
-  @JsonKey(name: 'Title')
-  final String value;
+  @JsonKey(name: 'title')
+  final String title;
+  @override
+  @JsonKey(name: 'languageID')
+  final int languageID;
 
   @override
   String toString() {
-    return 'ExtrasLocalizes(id: $id, value: $value)';
+    return 'ExtrasLocalizes(id: $id, title: $title, languageID: $languageID)';
   }
 
   @override
@@ -4649,14 +4672,17 @@ class _$_ExtrasLocalizes implements _ExtrasLocalizes {
         (other.runtimeType == runtimeType &&
             other is _ExtrasLocalizes &&
             const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.value, value));
+            const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality()
+                .equals(other.languageID, languageID));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(value));
+      const DeepCollectionEquality().hash(title),
+      const DeepCollectionEquality().hash(languageID));
 
   @JsonKey(ignore: true)
   @override
@@ -4671,18 +4697,22 @@ class _$_ExtrasLocalizes implements _ExtrasLocalizes {
 
 abstract class _ExtrasLocalizes implements ExtrasLocalizes {
   const factory _ExtrasLocalizes(
-      {@JsonKey(name: 'ID') int? id,
-      @JsonKey(name: 'Title') String value}) = _$_ExtrasLocalizes;
+      {@JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'title') String title,
+      @JsonKey(name: 'languageID') int languageID}) = _$_ExtrasLocalizes;
 
   factory _ExtrasLocalizes.fromJson(Map<String, dynamic> json) =
       _$_ExtrasLocalizes.fromJson;
 
   @override
-  @JsonKey(name: 'ID')
+  @JsonKey(name: 'id')
   int? get id;
   @override
-  @JsonKey(name: 'Title')
-  String get value;
+  @JsonKey(name: 'title')
+  String get title;
+  @override
+  @JsonKey(name: 'languageID')
+  int get languageID;
   @override
   @JsonKey(ignore: true)
   _$ExtrasLocalizesCopyWith<_ExtrasLocalizes> get copyWith =>

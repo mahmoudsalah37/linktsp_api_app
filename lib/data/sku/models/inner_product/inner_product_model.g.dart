@@ -347,34 +347,36 @@ Map<String, dynamic> _$$_ProductDiscountListModelToJson(
 
 _$_ExtraDto _$$_ExtraDtoFromJson(Map<String, dynamic> json) => _$_ExtraDto(
       id: json['ID'] as int?,
-      value: json['Title'] as String? ?? '',
-      price: (json['Price'] as num?)?.toDouble() ?? 0,
-      qty: json['Qty'] as int? ?? 0,
-      isOption: json['IsOption'] as bool? ?? false,
-      extrasLocalizes: json['ExtrasLocalizes'] == null
+      title: json['title'] as String? ?? '',
+      price: (json['price'] as num?)?.toDouble() ?? 0,
+      qty: json['qty'] as int? ?? 0,
+      isOption: json['isOption'] as bool? ?? false,
+      extrasLocalizes: json['extrasLocalizes'] == null
           ? null
           : ExtrasLocalizes.fromJson(
-              json['ExtrasLocalizes'] as Map<String, dynamic>),
+              json['extrasLocalizes'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_ExtraDtoToJson(_$_ExtraDto instance) =>
     <String, dynamic>{
       'ID': instance.id,
-      'Title': instance.value,
-      'Price': instance.price,
-      'Qty': instance.qty,
-      'IsOption': instance.isOption,
-      'ExtrasLocalizes': instance.extrasLocalizes,
+      'title': instance.title,
+      'price': instance.price,
+      'qty': instance.qty,
+      'isOption': instance.isOption,
+      'extrasLocalizes': instance.extrasLocalizes,
     };
 
 _$_ExtrasLocalizes _$$_ExtrasLocalizesFromJson(Map<String, dynamic> json) =>
     _$_ExtrasLocalizes(
-      id: json['ID'] as int?,
-      value: json['Title'] as String? ?? '',
+      id: json['id'] as int?,
+      title: json['title'] as String? ?? '',
+      languageID: json['languageID'] as int? ?? 1,
     );
 
 Map<String, dynamic> _$$_ExtrasLocalizesToJson(_$_ExtrasLocalizes instance) =>
     <String, dynamic>{
-      'ID': instance.id,
-      'Title': instance.value,
+      'id': instance.id,
+      'title': instance.title,
+      'languageID': instance.languageID,
     };

@@ -231,11 +231,11 @@ class ProductDiscountListModel with _$ProductDiscountListModel {
 class ExtraDto with _$ExtraDto {
   const factory ExtraDto({
     @JsonKey(name: 'ID') int? id,
-    @Default('') @JsonKey(name: 'Title') String value,
-    @Default(0) @JsonKey(name: 'Price') double price,
-    @Default(0) @JsonKey(name: 'Qty') int qty,
-    @Default(false) @JsonKey(name: 'IsOption') bool isOption,
-    @JsonKey(name: 'ExtrasLocalizes') ExtrasLocalizes? extrasLocalizes,
+    @Default('') @JsonKey(name: 'title') String title,
+    @Default(0) @JsonKey(name: 'price') double price,
+    @Default(0) @JsonKey(name: 'qty') int qty,
+    @Default(false) @JsonKey(name: 'isOption') bool isOption,
+    @JsonKey(name: 'extrasLocalizes') ExtrasLocalizes? extrasLocalizes,
   }) = _ExtraDto;
 
   factory ExtraDto.fromJson(Map<String, dynamic> json) =>
@@ -245,8 +245,9 @@ class ExtraDto with _$ExtraDto {
 @freezed
 class ExtrasLocalizes with _$ExtrasLocalizes {
   const factory ExtrasLocalizes({
-    @JsonKey(name: 'ID') int? id,
-    @Default('') @JsonKey(name: 'Title') String value,
+    @JsonKey(name: 'id') int? id,
+    @Default('') @JsonKey(name: 'title') String title,
+    @Default(1) @JsonKey(name: 'languageID') int languageID,
   }) = _ExtrasLocalizes;
 
   factory ExtrasLocalizes.fromJson(Map<String, dynamic> json) =>
