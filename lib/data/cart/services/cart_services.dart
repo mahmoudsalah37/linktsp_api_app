@@ -60,9 +60,11 @@ class CartServiceImp implements CartService {
 
   @override
   Future<List<CartItemModel>> guestCartUpdate(
-      {required List<CartSkuModel> cartSkuModel}) async {
+      {required List<CartSkuModel> cartSkuModel, int version = 1}) async {
     final response = await defaultApi.postData(
-        data: cartSkuModel, path: 'guest/cart/update');
+        data: cartSkuModel,
+        path: version == 1 ? 'guest/cart/update' : "Cart/guest/cart/update",
+        version: version);
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
       return List<CartItemModel>.from(
@@ -221,7 +223,7 @@ abstract class CartService {
 
   /// Update cart in guest user case
   Future<List<CartItemModel>> guestCartUpdate(
-      {required List<CartSkuModel> cartSkuModel});
+      {required List<CartSkuModel> cartSkuModel, int version = 1});
 
   /// Notify user when booking pre-order product
   ///
