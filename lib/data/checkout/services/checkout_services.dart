@@ -155,6 +155,7 @@ class CheckOutServicesImp implements CheckOutService {
   Future<String> confirm({
     required int customerId,
     int? paymentOptionId,
+    int? zoneID,
     int? addressId,
     required int loyaltyPoints,
     required double finalAmount,
@@ -166,6 +167,7 @@ class CheckOutServicesImp implements CheckOutService {
       queryParameters: {
         "PaymentOptionID": paymentOptionId,
         "CustomerID": customerId,
+        "ZoneID": zoneID,
         "AddressID": addressId,
         "PickStoreID": storeId,
         "LoyaltyPointsRedeemed": loyaltyPoints,
@@ -185,6 +187,7 @@ class CheckOutServicesImp implements CheckOutService {
   Future<PaymentFrameModel> confirmOrder(
       {required int customerId,
       int? paymentOptionId,
+      int? zoneID,
       int? addressId,
       required int loyaltyPoints,
       required double finalAmount,
@@ -196,6 +199,7 @@ class CheckOutServicesImp implements CheckOutService {
         "PaymentOptionID": paymentOptionId,
         "CustomerID": customerId,
         "AddressID": addressId,
+        "ZoneID": zoneID,
         "PickStoreID": storeId,
         "LoyaltyPointsRedeemed": loyaltyPoints,
         "FinalAmount": finalAmount,
@@ -406,6 +410,7 @@ abstract class CheckOutService {
   Future<String> confirm({
     required int customerId,
     int? paymentOptionId,
+    int? zoneID,
     int? addressId,
     required int loyaltyPoints,
     required double finalAmount,
@@ -419,6 +424,7 @@ abstract class CheckOutService {
   Future<PaymentFrameModel> confirmOrder(
       {required int customerId,
       int? paymentOptionId,
+      int? zoneID,
       int? addressId,
       required int loyaltyPoints,
       required double finalAmount,
