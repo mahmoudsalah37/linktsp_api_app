@@ -183,6 +183,7 @@ Map<String, dynamic> _$$_ColorModelToJson(_$_ColorModel instance) =>
 _$_SkuModel _$$_SkuModelFromJson(Map<String, dynamic> json) => _$_SkuModel(
       id: json['id'] as int?,
       skuCode: json['sku'] as String? ?? '',
+      availabilityDate: json['availabilityDate'] as String? ?? '',
       defaultPrice: (json['price'] as num?)?.toDouble() ?? 0,
       finalPrice: (json['finalPrice'] as num?)?.toDouble() ?? 0,
       colorId: json['colorID'] as int?,
@@ -221,6 +222,7 @@ Map<String, dynamic> _$$_SkuModelToJson(_$_SkuModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'sku': instance.skuCode,
+      'availabilityDate': instance.availabilityDate,
       'price': instance.defaultPrice,
       'finalPrice': instance.finalPrice,
       'colorID': instance.colorId,

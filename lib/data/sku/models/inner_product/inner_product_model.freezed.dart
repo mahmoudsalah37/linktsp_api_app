@@ -2100,6 +2100,8 @@ class _$SkuModelTearOff {
           int? id,
       @JsonKey(name: 'sku')
           String skuCode = '',
+      @JsonKey(name: 'availabilityDate')
+          String availabilityDate = '',
       @JsonKey(name: 'price')
           double defaultPrice = 0,
       @JsonKey(name: 'finalPrice')
@@ -2127,6 +2129,7 @@ class _$SkuModelTearOff {
     return _SkuModel(
       id: id,
       skuCode: skuCode,
+      availabilityDate: availabilityDate,
       defaultPrice: defaultPrice,
       finalPrice: finalPrice,
       colorId: colorId,
@@ -2156,6 +2159,8 @@ mixin _$SkuModel {
   int? get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'sku')
   String get skuCode => throw _privateConstructorUsedError;
+  @JsonKey(name: 'availabilityDate')
+  String get availabilityDate => throw _privateConstructorUsedError;
   @JsonKey(name: 'price')
   double get defaultPrice => throw _privateConstructorUsedError;
   @JsonKey(name: 'finalPrice')
@@ -2194,6 +2199,7 @@ abstract class $SkuModelCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'id') int? id,
       @JsonKey(name: 'sku') String skuCode,
+      @JsonKey(name: 'availabilityDate') String availabilityDate,
       @JsonKey(name: 'price') double defaultPrice,
       @JsonKey(name: 'finalPrice') double finalPrice,
       @JsonKey(name: 'colorID') int? colorId,
@@ -2220,6 +2226,7 @@ class _$SkuModelCopyWithImpl<$Res> implements $SkuModelCopyWith<$Res> {
   $Res call({
     Object? id = freezed,
     Object? skuCode = freezed,
+    Object? availabilityDate = freezed,
     Object? defaultPrice = freezed,
     Object? finalPrice = freezed,
     Object? colorId = freezed,
@@ -2241,6 +2248,10 @@ class _$SkuModelCopyWithImpl<$Res> implements $SkuModelCopyWith<$Res> {
       skuCode: skuCode == freezed
           ? _value.skuCode
           : skuCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      availabilityDate: availabilityDate == freezed
+          ? _value.availabilityDate
+          : availabilityDate // ignore: cast_nullable_to_non_nullable
               as String,
       defaultPrice: defaultPrice == freezed
           ? _value.defaultPrice
@@ -2302,6 +2313,7 @@ abstract class _$SkuModelCopyWith<$Res> implements $SkuModelCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'id') int? id,
       @JsonKey(name: 'sku') String skuCode,
+      @JsonKey(name: 'availabilityDate') String availabilityDate,
       @JsonKey(name: 'price') double defaultPrice,
       @JsonKey(name: 'finalPrice') double finalPrice,
       @JsonKey(name: 'colorID') int? colorId,
@@ -2329,6 +2341,7 @@ class __$SkuModelCopyWithImpl<$Res> extends _$SkuModelCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? skuCode = freezed,
+    Object? availabilityDate = freezed,
     Object? defaultPrice = freezed,
     Object? finalPrice = freezed,
     Object? colorId = freezed,
@@ -2350,6 +2363,10 @@ class __$SkuModelCopyWithImpl<$Res> extends _$SkuModelCopyWithImpl<$Res>
       skuCode: skuCode == freezed
           ? _value.skuCode
           : skuCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      availabilityDate: availabilityDate == freezed
+          ? _value.availabilityDate
+          : availabilityDate // ignore: cast_nullable_to_non_nullable
               as String,
       defaultPrice: defaultPrice == freezed
           ? _value.defaultPrice
@@ -2411,6 +2428,8 @@ class _$_SkuModel implements _SkuModel {
           this.id,
       @JsonKey(name: 'sku')
           this.skuCode = '',
+      @JsonKey(name: 'availabilityDate')
+          this.availabilityDate = '',
       @JsonKey(name: 'price')
           this.defaultPrice = 0,
       @JsonKey(name: 'finalPrice')
@@ -2445,6 +2464,9 @@ class _$_SkuModel implements _SkuModel {
   @override
   @JsonKey(name: 'sku')
   final String skuCode;
+  @override
+  @JsonKey(name: 'availabilityDate')
+  final String availabilityDate;
   @override
   @JsonKey(name: 'price')
   final double defaultPrice;
@@ -2484,7 +2506,7 @@ class _$_SkuModel implements _SkuModel {
 
   @override
   String toString() {
-    return 'SkuModel(id: $id, skuCode: $skuCode, defaultPrice: $defaultPrice, finalPrice: $finalPrice, colorId: $colorId, sizeId: $sizeId, images: $images, discounts: $discounts, hasDiscount: $hasDiscount, maxQuantity: $maxQuantity, isAvaliable: $isAvaliable, quantityInStock: $quantityInStock, extras: $extras, options: $options)';
+    return 'SkuModel(id: $id, skuCode: $skuCode, availabilityDate: $availabilityDate, defaultPrice: $defaultPrice, finalPrice: $finalPrice, colorId: $colorId, sizeId: $sizeId, images: $images, discounts: $discounts, hasDiscount: $hasDiscount, maxQuantity: $maxQuantity, isAvaliable: $isAvaliable, quantityInStock: $quantityInStock, extras: $extras, options: $options)';
   }
 
   @override
@@ -2494,6 +2516,8 @@ class _$_SkuModel implements _SkuModel {
             other is _SkuModel &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.skuCode, skuCode) &&
+            const DeepCollectionEquality()
+                .equals(other.availabilityDate, availabilityDate) &&
             const DeepCollectionEquality()
                 .equals(other.defaultPrice, defaultPrice) &&
             const DeepCollectionEquality()
@@ -2519,6 +2543,7 @@ class _$_SkuModel implements _SkuModel {
       runtimeType,
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(skuCode),
+      const DeepCollectionEquality().hash(availabilityDate),
       const DeepCollectionEquality().hash(defaultPrice),
       const DeepCollectionEquality().hash(finalPrice),
       const DeepCollectionEquality().hash(colorId),
@@ -2547,6 +2572,7 @@ abstract class _SkuModel implements SkuModel {
   const factory _SkuModel(
       {@JsonKey(name: 'id') int? id,
       @JsonKey(name: 'sku') String skuCode,
+      @JsonKey(name: 'availabilityDate') String availabilityDate,
       @JsonKey(name: 'price') double defaultPrice,
       @JsonKey(name: 'finalPrice') double finalPrice,
       @JsonKey(name: 'colorID') int? colorId,
@@ -2568,6 +2594,9 @@ abstract class _SkuModel implements SkuModel {
   @override
   @JsonKey(name: 'sku')
   String get skuCode;
+  @override
+  @JsonKey(name: 'availabilityDate')
+  String get availabilityDate;
   @override
   @JsonKey(name: 'price')
   double get defaultPrice;

@@ -87,7 +87,7 @@ abstract class SkuWebService {
   Future<InnerProductModel> getProductDetails({
     required int skuid,
     int version = 1,
-    int customerId,
+    int? customerId,
   });
 
   /// It's used to get all produt details. It must take product (sku code)

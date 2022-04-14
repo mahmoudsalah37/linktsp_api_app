@@ -119,6 +119,7 @@ class SkuModel with _$SkuModel {
   const factory SkuModel({
     @JsonKey(name: 'id') int? id,
     @Default('') @JsonKey(name: 'sku') String skuCode,
+    @Default('') @JsonKey(name: 'availabilityDate') String availabilityDate,
     @Default(0) @JsonKey(name: 'price') double defaultPrice,
     @Default(0) @JsonKey(name: 'finalPrice') double finalPrice,
     @JsonKey(name: 'colorID') int? colorId,
