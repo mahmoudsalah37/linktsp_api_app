@@ -129,7 +129,7 @@ class CheckOutServicesImp implements CheckOutService {
       int? addressId,
       int? loyaltyPoints,
       int? pickStoreID,
-      int version = 1,
+      int version = 3,
       required String shipmentMethods}) async {
     final response = await defaultApi.getData(
       path: version == 1 ? 'checkout/review' : 'CheckOut/checkout/review',
@@ -401,7 +401,7 @@ abstract class CheckOutService {
       int? addressId,
       int? loyaltyPoints,
       int? pickStoreID,
-      int version = 1,
+      int version = 3,
       required String shipmentMethods});
 
   /// It's used to confirm the order if the payment is (Cash on delivery).
