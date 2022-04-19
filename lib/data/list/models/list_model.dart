@@ -4,27 +4,27 @@ import '../../../core/models/color_model.dart';
 import '../../../core/models/size_model.dart';
 
 class ListModel {
-  ListModel({
-    this.listType,
-    this.listTypeId,
-    this.languageId,
-    this.minPrice,
-    this.maxPrice,
-    this.sortBy,
-    this.keyword,
-    this.brandsIDs,
-    this.categoryIDs,
-    this.colorIDs,
-    this.sizeIDs,
-    this.featureValues,
-    this.hasDiscount,
-    this.storeId,
-    this.zoneId,
-    this.pageIndex,
-    this.rowCount,
-    this.sortProp,
-    this.sortDir,
-  });
+  ListModel(
+      {this.listType,
+      this.listTypeId,
+      this.languageId,
+      this.minPrice,
+      this.maxPrice,
+      this.sortBy,
+      this.keyword,
+      this.brandsIDs,
+      this.categoryIDs,
+      this.colorIDs,
+      this.sizeIDs,
+      this.featureValues,
+      this.hasDiscount,
+      this.storeId,
+      this.zoneId,
+      this.pageIndex,
+      this.rowCount,
+      this.sortProp,
+      this.sortDir,
+      this.customerId});
 
   String? listType;
   int? listTypeId;
@@ -45,6 +45,7 @@ class ListModel {
   int? rowCount;
   String? sortProp;
   String? sortDir;
+  int? customerId;
 
   factory ListModel.fromJson(Map<String, dynamic> json) => ListModel(
         listType: json["listType"],
@@ -77,6 +78,7 @@ class ListModel {
         rowCount: json["rowCount"],
         sortProp: json["sortProp"],
         sortDir: json["sortDir"],
+        customerId: json["CustomerID"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -105,6 +107,7 @@ class ListModel {
         "storeID": storeId,
         "zoneID": zoneId,
         "pageIndex": pageIndex,
+        "CustomerID": customerId,
         "rowCount": rowCount,
         "sortProp": sortProp,
         "sortDir": sortDir,
