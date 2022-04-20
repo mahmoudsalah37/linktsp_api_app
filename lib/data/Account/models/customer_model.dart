@@ -4,8 +4,8 @@ class CustomerModel {
   String? lastName;
   String? mobile;
   String? email;
-  Null? isActive;
-  Null? zoneID;
+  bool? isActive;
+  int? zoneID;
   int? gender;
 
   CustomerModel(
