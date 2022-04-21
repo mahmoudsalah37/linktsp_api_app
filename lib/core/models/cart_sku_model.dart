@@ -6,24 +6,30 @@ class CartSkuModel {
     required this.qty,
     this.id,
     this.skuExtras = const <ExtraDto>[],
+    this.skuOptions = const <ExtraDto>[],
   });
   int? skuid;
   int? id;
 
   int? qty;
   List<ExtraDto> skuExtras;
+  List<ExtraDto> skuOptions;
 
   factory CartSkuModel.fromJson(Map<String, dynamic> json) => CartSkuModel(
-      skuid: json["skuid"],
-      qty: json["qty"],
-      id: json["id"],
-      skuExtras: List<ExtraDto>.from(
-          json["skuExtras"].map((x) => ExtraDto.fromJson(x))));
+        skuid: json["skuid"],
+        qty: json["qty"],
+        id: json["id"],
+        skuExtras: List<ExtraDto>.from(
+            json["skuExtras"].map((x) => ExtraDto.fromJson(x))),
+        skuOptions: List<ExtraDto>.from(
+            json["skuOptions"].map((x) => ExtraDto.fromJson(x))),
+      );
 
   Map<String, dynamic> toJson() => {
         "skuid": skuid,
         "qty": qty,
         "id": id,
         "skuExtras": List<dynamic>.from(skuExtras.map((x) => x.toJson())),
+        "skuOptions": List<dynamic>.from(skuOptions.map((x) => x.toJson())),
       };
 }
