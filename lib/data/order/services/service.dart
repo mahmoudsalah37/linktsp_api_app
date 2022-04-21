@@ -1,5 +1,6 @@
 import 'package:linktsp_api/core/models/order_model.dart';
 
+import '../../../core/models/demo_order_model.dart';
 import '../../default_api.dart';
 import '../../exception_api.dart';
 import '../../result_model.dart';
@@ -37,6 +38,25 @@ class OrderServiceImp implements OrderService {
   }
 
   @override
+  Future<List<DemoOrderDetailsModel>> demoGetUsersOrders({
+    required int userId,
+    required int storeId,
+  }) async {
+    final respose = await defaultApi.getData(
+      path: 'profile/order/UserOrders',
+      version: 3,
+      queryParameters: {"userID": userId, "storeid": storeId},
+    );
+    final result = ApiReturnResult.fromJSON(respose.data);
+    if (result.code == 200) {
+      return List<DemoOrderDetailsModel>.from(
+          result.data.map((model) => DemoOrderDetailsModel.fromJson(model)));
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
+  }
+
+  @override
   Future<TrackOrderModel> trackOrder({required String orderCode}) async {
     final respose = await defaultApi.getData(
       path: 'profile/order/$orderCode/track',
@@ -52,6 +72,11 @@ class OrderServiceImp implements OrderService {
 
 abstract class OrderService {
   Future<List<OrderModel>> getOrders({required int customerId});
+  Future<List<DemoOrderDetailsModel>> demoGetUsersOrders({
+    required int userId,
+    required int storeId,
+  });
+
   Future<OrderDetailsModel> getOrderDetails(
       {required String orderCode, int version = 1});
 
