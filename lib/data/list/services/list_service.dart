@@ -3,6 +3,7 @@ import 'package:linktsp_api/data/list/models/new_list_model.dart' as new_model;
 import '../../default_api.dart';
 import '../../exception_api.dart';
 import '../../result_model.dart';
+import '../models/demo_list_data_model.dart';
 
 class ListServiceImp implements ListService {
   ListServiceImp({required this.defaultApi});
@@ -21,6 +22,24 @@ class ListServiceImp implements ListService {
     final result = ApiReturnResult.fromJSON(respose.data);
     if (result.code == 200) {
       return FilterDataModel.fromJson(result.data);
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
+  }
+
+  @override
+  Future<DemoNewListingDataModel> demoGetListingWithCategory({
+    required ListModel listModel,
+    int version = 3,
+  }) async {
+    final respose = await defaultApi.postData(
+      path: 'List/list',
+      version: version,
+      data: listModel,
+    );
+    final result = ApiReturnResult.fromJSON(respose.data);
+    if (result.code == 200) {
+      return DemoNewListingDataModel.fromJson(result.data);
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
@@ -91,6 +110,11 @@ class ListServiceImp implements ListService {
 }
 
 abstract class ListService {
+  Future<DemoNewListingDataModel> demoGetListingWithCategory({
+    required ListModel listModel,
+    int version = 3,
+  });
+
   /// Get list of products by category id
   Future<new_model.NewListingDataModel> getListingWithCategory({
     required ListModel listModel,
