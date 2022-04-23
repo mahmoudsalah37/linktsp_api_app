@@ -208,6 +208,29 @@ class CartServiceImp implements CartService {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
   }
+
+  @override
+  Future<void> demoGetCartSummaryWithDiscount({
+    required List<CartSkuModel> cartSkuModel,
+    required int customerId,
+    required double discountPercentage,
+    int? zoneId,
+  }) async {
+    await defaultApi.postData(
+        data: cartSkuModel.map((e) => e.toJson()).toList(),
+        path: 'Profile/cart/Add',
+        queryParameters: {
+          "CustomerID": customerId,
+          "DiscountPercent": customerId,
+          "ZoneID": zoneId,
+        });
+    // final result = ApiReturnResult.fromJSON(response.data);
+    // if (result.code == 200) {
+    //   return result.data ?? true;
+    // } else {
+    //   throw ExceptionApi(code: result.code, message: result.error?.first);
+    // }
+  }
 }
 
 abstract class CartService {
@@ -245,4 +268,10 @@ abstract class CartService {
 
   /// Called to get zones with coverage area and coordinates
   Future<List<ZoneDetailsModel>> getZoneDetails({int version = 1});
+  Future<void> demoGetCartSummaryWithDiscount({
+    required List<CartSkuModel> cartSkuModel,
+    required int customerId,
+    required double discountPercentage,
+    int? zoneId,
+  });
 }
