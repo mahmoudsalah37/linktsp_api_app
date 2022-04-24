@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:linktsp_api/core/models/cart_sku_model.dart';
 import 'package:linktsp_api/core/models/order_model.dart';
 
 import '../../../core/models/demo_order_model.dart';
@@ -52,6 +53,30 @@ class OrderServiceImp implements OrderService {
     if (result.code == 200) {
       return List<DemoOrderDetailsModel>.from(
           result.data.map((model) => DemoOrderDetailsModel.fromJson(model)));
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
+  }
+
+  @override
+  Future<String> demoSaveOrder({
+    required List<CartSkuModel> cartItems,
+    required int customerId,
+  }) async {
+    final respose = await defaultApi.postData(
+      path: 'profile/order/UserOrders',
+      version: 3,
+      data: {"cartItems": cartItems},
+      queryParameters: {
+        "CustomerID": customerId,
+        "ShipmentAddressID": 0,
+        "LoyaltyPointsRedeemed": 0,
+        "orderSource": "CallCenter",
+      },
+    );
+    final result = ApiReturnResult.fromJSON(respose.data);
+    if (result.code == 200) {
+      return result.data;
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
@@ -126,6 +151,9 @@ abstract class OrderService {
 
   Future<bool> demoChangeOrderStatus(
       {required int orderNumber, required int orderStatus});
+
+  Future<String> demoSaveOrder(
+      {required List<CartSkuModel> cartItems, required int customerId});
 
   Future<OrderDetailsModel> getOrderDetails(
       {required String orderCode, int version = 1});
