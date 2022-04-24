@@ -291,3 +291,48 @@ class DemoTrackOrderItemModel {
         "status": status,
       };
 }
+
+enum OrderStatus {
+  noAction,
+  store,
+  shipper,
+  customer,
+  cancelled,
+  partialReturn,
+  fullyReturn,
+  confirmed,
+  readyToShip,
+  storeConfirmed,
+  New,
+  completed,
+  prepare,
+  preparing,
+  prepared,
+  assignPicker,
+  picked,
+  readyToDelivery,
+  assignToDelivery
+}
+
+class DemoOrdersGroupedWithStatus {
+  DemoOrdersGroupedWithStatus({
+    required this.orderStatus,
+    required this.orders,
+  });
+  int orderStatus;
+  List<DemoOrderDetailsModel>? orders;
+
+  factory DemoOrdersGroupedWithStatus.fromJson(Map<String, dynamic> json) =>
+      DemoOrdersGroupedWithStatus(
+        orderStatus: json["orderStatus"],
+        orders: List<DemoOrderDetailsModel>.from(
+            json["orders"].map((x) => DemoOrderDetailsModel.fromJson(x))),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "orderStatus": orderStatus,
+        "orders": orders == null
+            ? null
+            : List<dynamic>.from(orders!.map((x) => x.toJson())),
+      };
+}
