@@ -64,7 +64,7 @@ class OrderServiceImp implements OrderService {
     required int customerId,
   }) async {
     final respose = await defaultApi.postData(
-      path: 'profile/order/UserOrders',
+      path: 'profile/order/saveorder',
       version: 3,
       data: {"cartItems": cartItems},
       queryParameters: {
