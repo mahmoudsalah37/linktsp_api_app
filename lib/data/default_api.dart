@@ -1,6 +1,9 @@
+// ignore_for_file: empty_constructor_bodies
+
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:dio_logger/dio_logger.dart';
 
 import 'exception_api.dart';
 
@@ -13,6 +16,8 @@ class DefaultApiImp implements DefaultApi {
     'authorization': 'Bearer $_token',
   };
   final dio = Dio();
+  // final dio = Dio()..interceptors.add(dioLoggerInterceptor);
+
   DefaultApiImp() {
     dio.options.baseUrl = _domin;
     dio.options.headers = _defaultHeaders;

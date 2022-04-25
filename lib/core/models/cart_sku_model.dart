@@ -33,3 +33,26 @@ class CartSkuModel {
         "skuOptions": List<dynamic>.from(skuOptions.map((x) => x.toJson())),
       };
 }
+
+
+
+class DemoCartSkuModel {
+  DemoCartSkuModel({
+    required this.skuid,
+    required this.qty,
+    
+  });
+  int? skuid;
+  int? qty;
+  
+
+  factory DemoCartSkuModel.fromJson(Map<String, dynamic> json) => DemoCartSkuModel(
+        skuid: json["skuid"],
+        qty: json["quantity"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "skuid": skuid,
+        "quantity": qty,
+      };
+}
