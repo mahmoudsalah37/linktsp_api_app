@@ -246,10 +246,14 @@ class AccountServicesImp implements AccountService {
   }
 
   @override
-  Future<bool?> notificationsToken({required String deviceToken}) async {
+  Future<bool?> notificationsToken(
+      {int? customerID, required String deviceToken}) async {
     final response = await defaultApi.getData(
         path: 'Notification/Token',
-        queryParameters: {"deviceToken": deviceToken});
+        queryParameters: {
+          "customerID": customerID,
+          "deviceToken": deviceToken
+        });
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
       return result.data ?? true;
@@ -324,7 +328,8 @@ abstract class AccountService {
   Future<bool?> unSubscribe({required String email});
 
   /// Send firebase device token to server
-  Future<bool?> notificationsToken({required String deviceToken});
+  Future<bool?> notificationsToken(
+      {int? customerID, required String deviceToken});
   Future<List<CustomerModel>> customersSearch(
       {required String keyword, int version = 3});
 }

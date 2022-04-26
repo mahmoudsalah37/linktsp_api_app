@@ -3,6 +3,7 @@ import 'package:linktsp_api/core/models/cart_sku_model.dart';
 import 'package:linktsp_api/core/models/cart_summary_model.dart';
 import 'package:linktsp_api/core/models/preorder_message_model.dart';
 import 'package:linktsp_api/core/models/zone_details_model.dart';
+import 'package:linktsp_api/data/cart/models/cart_model_v3.dart';
 import 'package:linktsp_api/data/default_api.dart';
 import 'package:linktsp_api/data/exception_api.dart';
 import 'package:linktsp_api/data/result_model.dart';
@@ -231,6 +232,19 @@ class CartServiceImp implements CartService {
     //   throw ExceptionApi(code: result.code, message: result.error?.first);
     // }
   }
+
+  @override
+  Future<CartModelV3> guestCartUpdateV3(
+      {required List<CartSkuModel> cartSkuModel}) async {
+    final response = await defaultApi.postData(
+        data: cartSkuModel, path: "Cart/guest/cart/update", version: 3);
+    final result = ApiReturnResult.fromJSON(response.data);
+    if (result.code == 200) {
+      return CartModelV3.fromJson(result.data);
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
+  }
 }
 
 abstract class CartService {
@@ -274,4 +288,7 @@ abstract class CartService {
     required double discountPercentage,
     int? zoneId,
   });
+
+  Future<CartModelV3> guestCartUpdateV3(
+      {required List<CartSkuModel> cartSkuModel});
 }

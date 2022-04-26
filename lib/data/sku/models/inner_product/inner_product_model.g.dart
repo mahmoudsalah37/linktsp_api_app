@@ -38,7 +38,6 @@ _$_InnerProductModel _$$_InnerProductModelFromJson(Map<String, dynamic> json) =>
       isShowSizeChart: json['showSizeChart'] as bool? ?? false,
       sizeGuide: json['sizeChartImageURL'] as String?,
       showOneClickOrder: json['showOneClickOrder'] as bool? ?? false,
-      preOrder: json['preOrder'] as bool? ?? false,
       isAddedtoWishlist: json['isWishList'] as bool? ?? false,
       minDeliveryPeriod: json['minDeliveryPeriod'] as int? ?? 0,
       maxDeliveryPeriod: json['maxDeliveryPeriod'] as int? ?? 0,
@@ -88,7 +87,6 @@ Map<String, dynamic> _$$_InnerProductModelToJson(
       'showSizeChart': instance.isShowSizeChart,
       'sizeChartImageURL': instance.sizeGuide,
       'showOneClickOrder': instance.showOneClickOrder,
-      'preOrder': instance.preOrder,
       'isWishList': instance.isAddedtoWishlist,
       'minDeliveryPeriod': instance.minDeliveryPeriod,
       'maxDeliveryPeriod': instance.maxDeliveryPeriod,
@@ -182,6 +180,7 @@ Map<String, dynamic> _$$_ColorModelToJson(_$_ColorModel instance) =>
 
 _$_SkuModel _$$_SkuModelFromJson(Map<String, dynamic> json) => _$_SkuModel(
       id: json['id'] as int?,
+      preOrder: json['preOrder'] as bool? ?? false,
       skuCode: json['sku'] as String? ?? '',
       availabilityDate: json['availabilityDate'] as String? ?? '',
       defaultPrice: (json['price'] as num?)?.toDouble() ?? 0,
@@ -221,6 +220,7 @@ _$_SkuModel _$$_SkuModelFromJson(Map<String, dynamic> json) => _$_SkuModel(
 Map<String, dynamic> _$$_SkuModelToJson(_$_SkuModel instance) =>
     <String, dynamic>{
       'id': instance.id,
+      'preOrder': instance.preOrder,
       'sku': instance.skuCode,
       'availabilityDate': instance.availabilityDate,
       'price': instance.defaultPrice,

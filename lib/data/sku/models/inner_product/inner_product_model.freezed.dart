@@ -49,8 +49,6 @@ class _$InnerProductModelTearOff {
           String? sizeGuide,
       @JsonKey(name: 'showOneClickOrder')
           bool showOneClickOrder = false,
-      @JsonKey(name: 'preOrder')
-          bool preOrder = false,
       @JsonKey(name: 'isWishList')
           bool isAddedtoWishlist = false,
       @JsonKey(name: 'minDeliveryPeriod')
@@ -91,7 +89,6 @@ class _$InnerProductModelTearOff {
       isShowSizeChart: isShowSizeChart,
       sizeGuide: sizeGuide,
       showOneClickOrder: showOneClickOrder,
-      preOrder: preOrder,
       isAddedtoWishlist: isAddedtoWishlist,
       minDeliveryPeriod: minDeliveryPeriod,
       maxDeliveryPeriod: maxDeliveryPeriod,
@@ -144,8 +141,6 @@ mixin _$InnerProductModel {
   String? get sizeGuide => throw _privateConstructorUsedError;
   @JsonKey(name: 'showOneClickOrder')
   bool get showOneClickOrder => throw _privateConstructorUsedError;
-  @JsonKey(name: 'preOrder')
-  bool get preOrder => throw _privateConstructorUsedError;
   @JsonKey(name: 'isWishList')
   bool get isAddedtoWishlist => throw _privateConstructorUsedError;
   @JsonKey(name: 'minDeliveryPeriod')
@@ -211,8 +206,6 @@ abstract class $InnerProductModelCopyWith<$Res> {
           String? sizeGuide,
       @JsonKey(name: 'showOneClickOrder')
           bool showOneClickOrder,
-      @JsonKey(name: 'preOrder')
-          bool preOrder,
       @JsonKey(name: 'isWishList')
           bool isAddedtoWishlist,
       @JsonKey(name: 'minDeliveryPeriod')
@@ -268,7 +261,6 @@ class _$InnerProductModelCopyWithImpl<$Res>
     Object? isShowSizeChart = freezed,
     Object? sizeGuide = freezed,
     Object? showOneClickOrder = freezed,
-    Object? preOrder = freezed,
     Object? isAddedtoWishlist = freezed,
     Object? minDeliveryPeriod = freezed,
     Object? maxDeliveryPeriod = freezed,
@@ -335,10 +327,6 @@ class _$InnerProductModelCopyWithImpl<$Res>
       showOneClickOrder: showOneClickOrder == freezed
           ? _value.showOneClickOrder
           : showOneClickOrder // ignore: cast_nullable_to_non_nullable
-              as bool,
-      preOrder: preOrder == freezed
-          ? _value.preOrder
-          : preOrder // ignore: cast_nullable_to_non_nullable
               as bool,
       isAddedtoWishlist: isAddedtoWishlist == freezed
           ? _value.isAddedtoWishlist
@@ -452,8 +440,6 @@ abstract class _$InnerProductModelCopyWith<$Res>
           String? sizeGuide,
       @JsonKey(name: 'showOneClickOrder')
           bool showOneClickOrder,
-      @JsonKey(name: 'preOrder')
-          bool preOrder,
       @JsonKey(name: 'isWishList')
           bool isAddedtoWishlist,
       @JsonKey(name: 'minDeliveryPeriod')
@@ -513,7 +499,6 @@ class __$InnerProductModelCopyWithImpl<$Res>
     Object? isShowSizeChart = freezed,
     Object? sizeGuide = freezed,
     Object? showOneClickOrder = freezed,
-    Object? preOrder = freezed,
     Object? isAddedtoWishlist = freezed,
     Object? minDeliveryPeriod = freezed,
     Object? maxDeliveryPeriod = freezed,
@@ -580,10 +565,6 @@ class __$InnerProductModelCopyWithImpl<$Res>
       showOneClickOrder: showOneClickOrder == freezed
           ? _value.showOneClickOrder
           : showOneClickOrder // ignore: cast_nullable_to_non_nullable
-              as bool,
-      preOrder: preOrder == freezed
-          ? _value.preOrder
-          : preOrder // ignore: cast_nullable_to_non_nullable
               as bool,
       isAddedtoWishlist: isAddedtoWishlist == freezed
           ? _value.isAddedtoWishlist
@@ -671,8 +652,6 @@ class _$_InnerProductModel implements _InnerProductModel {
           this.sizeGuide,
       @JsonKey(name: 'showOneClickOrder')
           this.showOneClickOrder = false,
-      @JsonKey(name: 'preOrder')
-          this.preOrder = false,
       @JsonKey(name: 'isWishList')
           this.isAddedtoWishlist = false,
       @JsonKey(name: 'minDeliveryPeriod')
@@ -743,9 +722,6 @@ class _$_InnerProductModel implements _InnerProductModel {
   @JsonKey(name: 'showOneClickOrder')
   final bool showOneClickOrder;
   @override
-  @JsonKey(name: 'preOrder')
-  final bool preOrder;
-  @override
   @JsonKey(name: 'isWishList')
   final bool isAddedtoWishlist;
   @override
@@ -787,7 +763,7 @@ class _$_InnerProductModel implements _InnerProductModel {
 
   @override
   String toString() {
-    return 'InnerProductModel(id: $id, code: $code, brands: $brands, title: $title, averageRating: $averageRating, sizes: $sizes, colors: $colors, skus: $skus, details: $details, description: $description, isShowSizeChart: $isShowSizeChart, sizeGuide: $sizeGuide, showOneClickOrder: $showOneClickOrder, preOrder: $preOrder, isAddedtoWishlist: $isAddedtoWishlist, minDeliveryPeriod: $minDeliveryPeriod, maxDeliveryPeriod: $maxDeliveryPeriod, periodName: $periodName, deliveryNote: $deliveryNote, bogoPromoText: $bogoPromoText, review: $review, features: $features, categories: $categories, recentItems: $recentItems, relatedItems: $relatedItems, isEnableAddReview: $isEnableAddReview, allPricesIncludeVATDetails: $allPricesIncludeVATDetails)';
+    return 'InnerProductModel(id: $id, code: $code, brands: $brands, title: $title, averageRating: $averageRating, sizes: $sizes, colors: $colors, skus: $skus, details: $details, description: $description, isShowSizeChart: $isShowSizeChart, sizeGuide: $sizeGuide, showOneClickOrder: $showOneClickOrder, isAddedtoWishlist: $isAddedtoWishlist, minDeliveryPeriod: $minDeliveryPeriod, maxDeliveryPeriod: $maxDeliveryPeriod, periodName: $periodName, deliveryNote: $deliveryNote, bogoPromoText: $bogoPromoText, review: $review, features: $features, categories: $categories, recentItems: $recentItems, relatedItems: $relatedItems, isEnableAddReview: $isEnableAddReview, allPricesIncludeVATDetails: $allPricesIncludeVATDetails)';
   }
 
   @override
@@ -812,7 +788,6 @@ class _$_InnerProductModel implements _InnerProductModel {
             const DeepCollectionEquality().equals(other.sizeGuide, sizeGuide) &&
             const DeepCollectionEquality()
                 .equals(other.showOneClickOrder, showOneClickOrder) &&
-            const DeepCollectionEquality().equals(other.preOrder, preOrder) &&
             const DeepCollectionEquality()
                 .equals(other.isAddedtoWishlist, isAddedtoWishlist) &&
             const DeepCollectionEquality()
@@ -855,7 +830,6 @@ class _$_InnerProductModel implements _InnerProductModel {
         const DeepCollectionEquality().hash(isShowSizeChart),
         const DeepCollectionEquality().hash(sizeGuide),
         const DeepCollectionEquality().hash(showOneClickOrder),
-        const DeepCollectionEquality().hash(preOrder),
         const DeepCollectionEquality().hash(isAddedtoWishlist),
         const DeepCollectionEquality().hash(minDeliveryPeriod),
         const DeepCollectionEquality().hash(maxDeliveryPeriod),
@@ -910,8 +884,6 @@ abstract class _InnerProductModel implements InnerProductModel {
           String? sizeGuide,
       @JsonKey(name: 'showOneClickOrder')
           bool showOneClickOrder,
-      @JsonKey(name: 'preOrder')
-          bool preOrder,
       @JsonKey(name: 'isWishList')
           bool isAddedtoWishlist,
       @JsonKey(name: 'minDeliveryPeriod')
@@ -981,9 +953,6 @@ abstract class _InnerProductModel implements InnerProductModel {
   @override
   @JsonKey(name: 'showOneClickOrder')
   bool get showOneClickOrder;
-  @override
-  @JsonKey(name: 'preOrder')
-  bool get preOrder;
   @override
   @JsonKey(name: 'isWishList')
   bool get isAddedtoWishlist;
@@ -2098,6 +2067,8 @@ class _$SkuModelTearOff {
   _SkuModel call(
       {@JsonKey(name: 'id')
           int? id,
+      @JsonKey(name: 'preOrder')
+          bool preOrder = false,
       @JsonKey(name: 'sku')
           String skuCode = '',
       @JsonKey(name: 'availabilityDate')
@@ -2128,6 +2099,7 @@ class _$SkuModelTearOff {
           List<ExtraDto?> options = const <ExtraDto?>[]}) {
     return _SkuModel(
       id: id,
+      preOrder: preOrder,
       skuCode: skuCode,
       availabilityDate: availabilityDate,
       defaultPrice: defaultPrice,
@@ -2157,6 +2129,8 @@ const $SkuModel = _$SkuModelTearOff();
 mixin _$SkuModel {
   @JsonKey(name: 'id')
   int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'preOrder')
+  bool get preOrder => throw _privateConstructorUsedError;
   @JsonKey(name: 'sku')
   String get skuCode => throw _privateConstructorUsedError;
   @JsonKey(name: 'availabilityDate')
@@ -2198,6 +2172,7 @@ abstract class $SkuModelCopyWith<$Res> {
       _$SkuModelCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'preOrder') bool preOrder,
       @JsonKey(name: 'sku') String skuCode,
       @JsonKey(name: 'availabilityDate') String availabilityDate,
       @JsonKey(name: 'price') double defaultPrice,
@@ -2225,6 +2200,7 @@ class _$SkuModelCopyWithImpl<$Res> implements $SkuModelCopyWith<$Res> {
   @override
   $Res call({
     Object? id = freezed,
+    Object? preOrder = freezed,
     Object? skuCode = freezed,
     Object? availabilityDate = freezed,
     Object? defaultPrice = freezed,
@@ -2245,6 +2221,10 @@ class _$SkuModelCopyWithImpl<$Res> implements $SkuModelCopyWith<$Res> {
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
+      preOrder: preOrder == freezed
+          ? _value.preOrder
+          : preOrder // ignore: cast_nullable_to_non_nullable
+              as bool,
       skuCode: skuCode == freezed
           ? _value.skuCode
           : skuCode // ignore: cast_nullable_to_non_nullable
@@ -2312,6 +2292,7 @@ abstract class _$SkuModelCopyWith<$Res> implements $SkuModelCopyWith<$Res> {
   @override
   $Res call(
       {@JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'preOrder') bool preOrder,
       @JsonKey(name: 'sku') String skuCode,
       @JsonKey(name: 'availabilityDate') String availabilityDate,
       @JsonKey(name: 'price') double defaultPrice,
@@ -2340,6 +2321,7 @@ class __$SkuModelCopyWithImpl<$Res> extends _$SkuModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
+    Object? preOrder = freezed,
     Object? skuCode = freezed,
     Object? availabilityDate = freezed,
     Object? defaultPrice = freezed,
@@ -2360,6 +2342,10 @@ class __$SkuModelCopyWithImpl<$Res> extends _$SkuModelCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
+      preOrder: preOrder == freezed
+          ? _value.preOrder
+          : preOrder // ignore: cast_nullable_to_non_nullable
+              as bool,
       skuCode: skuCode == freezed
           ? _value.skuCode
           : skuCode // ignore: cast_nullable_to_non_nullable
@@ -2426,6 +2412,8 @@ class _$_SkuModel implements _SkuModel {
   const _$_SkuModel(
       {@JsonKey(name: 'id')
           this.id,
+      @JsonKey(name: 'preOrder')
+          this.preOrder = false,
       @JsonKey(name: 'sku')
           this.skuCode = '',
       @JsonKey(name: 'availabilityDate')
@@ -2461,6 +2449,9 @@ class _$_SkuModel implements _SkuModel {
   @override
   @JsonKey(name: 'id')
   final int? id;
+  @override
+  @JsonKey(name: 'preOrder')
+  final bool preOrder;
   @override
   @JsonKey(name: 'sku')
   final String skuCode;
@@ -2506,7 +2497,7 @@ class _$_SkuModel implements _SkuModel {
 
   @override
   String toString() {
-    return 'SkuModel(id: $id, skuCode: $skuCode, availabilityDate: $availabilityDate, defaultPrice: $defaultPrice, finalPrice: $finalPrice, colorId: $colorId, sizeId: $sizeId, images: $images, discounts: $discounts, hasDiscount: $hasDiscount, maxQuantity: $maxQuantity, isAvaliable: $isAvaliable, quantityInStock: $quantityInStock, extras: $extras, options: $options)';
+    return 'SkuModel(id: $id, preOrder: $preOrder, skuCode: $skuCode, availabilityDate: $availabilityDate, defaultPrice: $defaultPrice, finalPrice: $finalPrice, colorId: $colorId, sizeId: $sizeId, images: $images, discounts: $discounts, hasDiscount: $hasDiscount, maxQuantity: $maxQuantity, isAvaliable: $isAvaliable, quantityInStock: $quantityInStock, extras: $extras, options: $options)';
   }
 
   @override
@@ -2515,6 +2506,7 @@ class _$_SkuModel implements _SkuModel {
         (other.runtimeType == runtimeType &&
             other is _SkuModel &&
             const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.preOrder, preOrder) &&
             const DeepCollectionEquality().equals(other.skuCode, skuCode) &&
             const DeepCollectionEquality()
                 .equals(other.availabilityDate, availabilityDate) &&
@@ -2542,6 +2534,7 @@ class _$_SkuModel implements _SkuModel {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(preOrder),
       const DeepCollectionEquality().hash(skuCode),
       const DeepCollectionEquality().hash(availabilityDate),
       const DeepCollectionEquality().hash(defaultPrice),
@@ -2571,6 +2564,7 @@ class _$_SkuModel implements _SkuModel {
 abstract class _SkuModel implements SkuModel {
   const factory _SkuModel(
       {@JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'preOrder') bool preOrder,
       @JsonKey(name: 'sku') String skuCode,
       @JsonKey(name: 'availabilityDate') String availabilityDate,
       @JsonKey(name: 'price') double defaultPrice,
@@ -2591,6 +2585,9 @@ abstract class _SkuModel implements SkuModel {
   @override
   @JsonKey(name: 'id')
   int? get id;
+  @override
+  @JsonKey(name: 'preOrder')
+  bool get preOrder;
   @override
   @JsonKey(name: 'sku')
   String get skuCode;

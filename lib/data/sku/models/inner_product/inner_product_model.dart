@@ -21,7 +21,6 @@ class InnerProductModel with _$InnerProductModel {
     @Default(false) @JsonKey(name: 'showSizeChart') bool isShowSizeChart,
     @JsonKey(name: 'sizeChartImageURL') String? sizeGuide,
     @Default(false) @JsonKey(name: 'showOneClickOrder') bool showOneClickOrder,
-    @Default(false) @JsonKey(name: 'preOrder') bool preOrder,
     @Default(false) @JsonKey(name: 'isWishList') bool isAddedtoWishlist,
     @Default(0) @JsonKey(name: 'minDeliveryPeriod') int minDeliveryPeriod,
     @Default(0) @JsonKey(name: 'maxDeliveryPeriod') int maxDeliveryPeriod,
@@ -118,6 +117,7 @@ class ColorModel with _$ColorModel {
 class SkuModel with _$SkuModel {
   const factory SkuModel({
     @JsonKey(name: 'id') int? id,
+    @Default(false) @JsonKey(name: 'preOrder') bool preOrder,
     @Default('') @JsonKey(name: 'sku') String skuCode,
     @Default('') @JsonKey(name: 'availabilityDate') String availabilityDate,
     @Default(0) @JsonKey(name: 'price') double defaultPrice,
