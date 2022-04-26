@@ -60,13 +60,13 @@ class OrderServiceImp implements OrderService {
 
   @override
   Future<String> demoSaveOrder({
-    required List<CartSkuModel> cartItems,
+    required List<DemoCartSkuModel> cartItems,
     required int customerId,
   }) async {
     final respose = await defaultApi.postData(
       path: 'profile/order/saveorder',
       version: 3,
-      data: {"cartItems": cartItems},
+      data: cartItems,
       queryParameters: {
         "CustomerID": customerId,
         "ShipmentAddressID": 0,
@@ -153,7 +153,7 @@ abstract class OrderService {
       {required int orderNumber, required int orderStatus});
 
   Future<String> demoSaveOrder(
-      {required List<CartSkuModel> cartItems, required int customerId});
+      {required List<DemoCartSkuModel> cartItems, required int customerId});
 
   Future<OrderDetailsModel> getOrderDetails(
       {required String orderCode, int version = 1});
