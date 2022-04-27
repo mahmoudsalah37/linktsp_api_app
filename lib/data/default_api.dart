@@ -3,7 +3,6 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:dio_logger/dio_logger.dart';
 
 import 'exception_api.dart';
 

@@ -7,6 +7,7 @@ import 'package:linktsp_api/data/exception_api.dart';
 import 'package:linktsp_api/data/result_model.dart';
 
 import '../models/customer_model.dart';
+import '../models/register_model_v3.dart';
 
 class AccountServicesImp implements AccountService {
   AccountServicesImp({required this.defaultApi});
@@ -60,6 +61,22 @@ class AccountServicesImp implements AccountService {
     final result = ApiReturnResult.fromJSON(response.data);
     if (result.code == 200) {
       return UserModel.fromJson(result.data);
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
+  }
+
+  @override
+  Future<RegisterModelV3> registerV3(
+      {required RegisterModelV3 registerModel}) async {
+    final response = await defaultApi.postData(
+      data: registerModel,
+      path: 'New/account/register',
+      version: 3,
+    );
+    final result = ApiReturnResult.fromJSON(response.data);
+    if (result.code == 200) {
+      return RegisterModelV3.fromJson(result.data);
     } else {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
@@ -296,6 +313,7 @@ abstract class AccountService {
       required String deviceId});
 
   Future<UserModel> register({required RegisterModel registerModel});
+  Future<RegisterModelV3> registerV3({required RegisterModelV3 registerModel});
   Future<UserModel> updateProfile({required UserModel userModel});
   Future<UserModel> getProfileDetails(
       {UserModel? userModel, required int customerId});
