@@ -151,25 +151,25 @@ class ProductDiscountList {
 }
 
 class Summary {
-  int? total;
-  int? subTotal;
-  int? totalShipment;
-  int? couponValue;
+  double? total;
+  double? subTotal;
+  double? totalShipment;
+  double? couponValue;
   dynamic couponType;
   dynamic couponCode;
   bool? hasCoupon;
   bool? hasPersonalDiscount;
   dynamic personalDiscount;
-  int? personalDiscountValue;
-  int? originalSubTotal;
-  int? discountValue;
+  double? personalDiscountValue;
+  double? originalSubTotal;
+  double? discountValue;
   bool? hasCartAmountTriggeredDiscount;
   dynamic cartAmountTriggeredDiscount;
-  int? cartAmountTriggeredDiscountValue;
+  double? cartAmountTriggeredDiscountValue;
   bool? hasProfileBasedTriggeredDiscount;
   dynamic profileBasedTriggeredDiscountName;
   dynamic profileBasedTriggeredDiscount;
-  int? profileBasedTriggeredDiscountValue;
+  double? profileBasedTriggeredDiscountValue;
   bool? hasFreeShipment;
   bool? hasCartGift;
   bool? hasDiscount;
@@ -178,12 +178,12 @@ class Summary {
   int? amountOfLoyaltyPointsGained;
   dynamic customerLoyaltyPoints;
   int? loyaltyPointsRedeemed;
-  int? amountOfMoneyConverted;
+  double? amountOfMoneyConverted;
   bool? hasLoyaltyPoints;
   bool? loyaltyEnabled;
   dynamic configLoyaltyPointsToMoney;
-  int? taxPercentage;
-  int? taxValue;
+  double? taxPercentage;
+  double? taxValue;
   bool? preOrder;
   dynamic availabilityDate;
   int? minDeliveryPeriod;
@@ -192,7 +192,7 @@ class Summary {
   String? deliveryNote;
   bool? displayTax;
   dynamic loyaltyPointMultiplier;
-  int? loyaltyPointEquivalentAmount;
+  double? loyaltyPointEquivalentAmount;
 
   Summary({
     total,
