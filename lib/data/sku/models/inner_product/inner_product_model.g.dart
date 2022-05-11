@@ -69,6 +69,7 @@ _$_InnerProductModel _$$_InnerProductModelFromJson(Map<String, dynamic> json) =>
       isEnableAddReview: json['allowRating'] as bool? ?? false,
       allPricesIncludeVATDetails:
           json['allPricesIincludeVATDetails'] as String? ?? '',
+      promoText: json['promoText'] as String? ?? '',
     );
 
 Map<String, dynamic> _$$_InnerProductModelToJson(
@@ -100,6 +101,7 @@ Map<String, dynamic> _$$_InnerProductModelToJson(
       'relatedItems': instance.relatedItems,
       'allowRating': instance.isEnableAddReview,
       'allPricesIincludeVATDetails': instance.allPricesIncludeVATDetails,
+      'promoText': instance.promoText,
     };
 
 _$_ReviewUserCommentModel _$$_ReviewUserCommentModelFromJson(

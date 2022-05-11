@@ -44,6 +44,8 @@ class InnerProductModel with _$InnerProductModel {
     @Default('')
     @JsonKey(name: 'allPricesIincludeVATDetails')
         String allPricesIncludeVATDetails,
+    // promoText
+    @Default('') @JsonKey(name: 'promoText') String promoText,
   }) = _InnerProductModel;
 
   factory InnerProductModel.fromJson(Map<String, dynamic> json) =>

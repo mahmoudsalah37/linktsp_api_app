@@ -74,7 +74,9 @@ class _$InnerProductModelTearOff {
       @JsonKey(name: 'allowRating')
           bool isEnableAddReview = false,
       @JsonKey(name: 'allPricesIincludeVATDetails')
-          String allPricesIncludeVATDetails = ''}) {
+          String allPricesIncludeVATDetails = '',
+      @JsonKey(name: 'promoText')
+          String promoText = ''}) {
     return _InnerProductModel(
       id: id,
       code: code,
@@ -102,6 +104,7 @@ class _$InnerProductModelTearOff {
       relatedItems: relatedItems,
       isEnableAddReview: isEnableAddReview,
       allPricesIncludeVATDetails: allPricesIncludeVATDetails,
+      promoText: promoText,
     );
   }
 
@@ -166,7 +169,10 @@ mixin _$InnerProductModel {
   @JsonKey(name: 'allowRating')
   bool get isEnableAddReview => throw _privateConstructorUsedError;
   @JsonKey(name: 'allPricesIincludeVATDetails')
-  String get allPricesIncludeVATDetails => throw _privateConstructorUsedError;
+  String get allPricesIncludeVATDetails =>
+      throw _privateConstructorUsedError; // promoText
+  @JsonKey(name: 'promoText')
+  String get promoText => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -231,7 +237,9 @@ abstract class $InnerProductModelCopyWith<$Res> {
       @JsonKey(name: 'allowRating')
           bool isEnableAddReview,
       @JsonKey(name: 'allPricesIincludeVATDetails')
-          String allPricesIncludeVATDetails});
+          String allPricesIncludeVATDetails,
+      @JsonKey(name: 'promoText')
+          String promoText});
 
   $BrandModelCopyWith<$Res>? get brands;
   $ReviewUserCommentModelCopyWith<$Res>? get review;
@@ -274,6 +282,7 @@ class _$InnerProductModelCopyWithImpl<$Res>
     Object? relatedItems = freezed,
     Object? isEnableAddReview = freezed,
     Object? allPricesIncludeVATDetails = freezed,
+    Object? promoText = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -380,6 +389,10 @@ class _$InnerProductModelCopyWithImpl<$Res>
           ? _value.allPricesIncludeVATDetails
           : allPricesIncludeVATDetails // ignore: cast_nullable_to_non_nullable
               as String,
+      promoText: promoText == freezed
+          ? _value.promoText
+          : promoText // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 
@@ -465,7 +478,9 @@ abstract class _$InnerProductModelCopyWith<$Res>
       @JsonKey(name: 'allowRating')
           bool isEnableAddReview,
       @JsonKey(name: 'allPricesIincludeVATDetails')
-          String allPricesIncludeVATDetails});
+          String allPricesIncludeVATDetails,
+      @JsonKey(name: 'promoText')
+          String promoText});
 
   @override
   $BrandModelCopyWith<$Res>? get brands;
@@ -512,6 +527,7 @@ class __$InnerProductModelCopyWithImpl<$Res>
     Object? relatedItems = freezed,
     Object? isEnableAddReview = freezed,
     Object? allPricesIncludeVATDetails = freezed,
+    Object? promoText = freezed,
   }) {
     return _then(_InnerProductModel(
       id: id == freezed
@@ -618,6 +634,10 @@ class __$InnerProductModelCopyWithImpl<$Res>
           ? _value.allPricesIncludeVATDetails
           : allPricesIncludeVATDetails // ignore: cast_nullable_to_non_nullable
               as String,
+      promoText: promoText == freezed
+          ? _value.promoText
+          : promoText // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -677,7 +697,9 @@ class _$_InnerProductModel implements _InnerProductModel {
       @JsonKey(name: 'allowRating')
           this.isEnableAddReview = false,
       @JsonKey(name: 'allPricesIincludeVATDetails')
-          this.allPricesIncludeVATDetails = ''});
+          this.allPricesIncludeVATDetails = '',
+      @JsonKey(name: 'promoText')
+          this.promoText = ''});
 
   factory _$_InnerProductModel.fromJson(Map<String, dynamic> json) =>
       _$$_InnerProductModelFromJson(json);
@@ -760,10 +782,13 @@ class _$_InnerProductModel implements _InnerProductModel {
   @override
   @JsonKey(name: 'allPricesIincludeVATDetails')
   final String allPricesIncludeVATDetails;
+  @override // promoText
+  @JsonKey(name: 'promoText')
+  final String promoText;
 
   @override
   String toString() {
-    return 'InnerProductModel(id: $id, code: $code, brands: $brands, title: $title, averageRating: $averageRating, sizes: $sizes, colors: $colors, skus: $skus, details: $details, description: $description, isShowSizeChart: $isShowSizeChart, sizeGuide: $sizeGuide, showOneClickOrder: $showOneClickOrder, isAddedtoWishlist: $isAddedtoWishlist, minDeliveryPeriod: $minDeliveryPeriod, maxDeliveryPeriod: $maxDeliveryPeriod, periodName: $periodName, deliveryNote: $deliveryNote, bogoPromoText: $bogoPromoText, review: $review, features: $features, categories: $categories, recentItems: $recentItems, relatedItems: $relatedItems, isEnableAddReview: $isEnableAddReview, allPricesIncludeVATDetails: $allPricesIncludeVATDetails)';
+    return 'InnerProductModel(id: $id, code: $code, brands: $brands, title: $title, averageRating: $averageRating, sizes: $sizes, colors: $colors, skus: $skus, details: $details, description: $description, isShowSizeChart: $isShowSizeChart, sizeGuide: $sizeGuide, showOneClickOrder: $showOneClickOrder, isAddedtoWishlist: $isAddedtoWishlist, minDeliveryPeriod: $minDeliveryPeriod, maxDeliveryPeriod: $maxDeliveryPeriod, periodName: $periodName, deliveryNote: $deliveryNote, bogoPromoText: $bogoPromoText, review: $review, features: $features, categories: $categories, recentItems: $recentItems, relatedItems: $relatedItems, isEnableAddReview: $isEnableAddReview, allPricesIncludeVATDetails: $allPricesIncludeVATDetails, promoText: $promoText)';
   }
 
   @override
@@ -811,7 +836,8 @@ class _$_InnerProductModel implements _InnerProductModel {
             const DeepCollectionEquality()
                 .equals(other.isEnableAddReview, isEnableAddReview) &&
             const DeepCollectionEquality().equals(
-                other.allPricesIncludeVATDetails, allPricesIncludeVATDetails));
+                other.allPricesIncludeVATDetails, allPricesIncludeVATDetails) &&
+            const DeepCollectionEquality().equals(other.promoText, promoText));
   }
 
   @override
@@ -842,7 +868,8 @@ class _$_InnerProductModel implements _InnerProductModel {
         const DeepCollectionEquality().hash(recentItems),
         const DeepCollectionEquality().hash(relatedItems),
         const DeepCollectionEquality().hash(isEnableAddReview),
-        const DeepCollectionEquality().hash(allPricesIncludeVATDetails)
+        const DeepCollectionEquality().hash(allPricesIncludeVATDetails),
+        const DeepCollectionEquality().hash(promoText)
       ]);
 
   @JsonKey(ignore: true)
@@ -909,7 +936,9 @@ abstract class _InnerProductModel implements InnerProductModel {
       @JsonKey(name: 'allowRating')
           bool isEnableAddReview,
       @JsonKey(name: 'allPricesIincludeVATDetails')
-          String allPricesIncludeVATDetails}) = _$_InnerProductModel;
+          String allPricesIncludeVATDetails,
+      @JsonKey(name: 'promoText')
+          String promoText}) = _$_InnerProductModel;
 
   factory _InnerProductModel.fromJson(Map<String, dynamic> json) =
       _$_InnerProductModel.fromJson;
@@ -992,6 +1021,9 @@ abstract class _InnerProductModel implements InnerProductModel {
   @override
   @JsonKey(name: 'allPricesIincludeVATDetails')
   String get allPricesIncludeVATDetails;
+  @override // promoText
+  @JsonKey(name: 'promoText')
+  String get promoText;
   @override
   @JsonKey(ignore: true)
   _$InnerProductModelCopyWith<_InnerProductModel> get copyWith =>
