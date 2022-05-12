@@ -46,6 +46,7 @@ class InnerProductModel with _$InnerProductModel {
         String allPricesIncludeVATDetails,
     // promoText
     @Default('') @JsonKey(name: 'promoText') String promoText,
+    @Default(false) @JsonKey(name: 'preOrder') bool preOrder,
   }) = _InnerProductModel;
 
   factory InnerProductModel.fromJson(Map<String, dynamic> json) =>
@@ -119,7 +120,6 @@ class ColorModel with _$ColorModel {
 class SkuModel with _$SkuModel {
   const factory SkuModel({
     @JsonKey(name: 'id') int? id,
-    @Default(false) @JsonKey(name: 'preOrder') bool preOrder,
     @Default('') @JsonKey(name: 'sku') String skuCode,
     @Default('') @JsonKey(name: 'availabilityDate') String availabilityDate,
     @Default(0) @JsonKey(name: 'price') double defaultPrice,
