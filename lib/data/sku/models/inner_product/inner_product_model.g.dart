@@ -71,6 +71,9 @@ _$_InnerProductModel _$$_InnerProductModelFromJson(Map<String, dynamic> json) =>
           json['allPricesIincludeVATDetails'] as String? ?? '',
       promoText: json['promoText'] as String? ?? '',
       preOrder: json['preOrder'] as bool? ?? false,
+      availabilityDate: json['availabilityDate'] == null
+          ? null
+          : DateTime.parse(json['availabilityDate'] as String),
     );
 
 Map<String, dynamic> _$$_InnerProductModelToJson(
@@ -104,6 +107,7 @@ Map<String, dynamic> _$$_InnerProductModelToJson(
       'allPricesIincludeVATDetails': instance.allPricesIncludeVATDetails,
       'promoText': instance.promoText,
       'preOrder': instance.preOrder,
+      'availabilityDate': instance.availabilityDate?.toIso8601String(),
     };
 
 _$_ReviewUserCommentModel _$$_ReviewUserCommentModelFromJson(
@@ -185,7 +189,6 @@ Map<String, dynamic> _$$_ColorModelToJson(_$_ColorModel instance) =>
 _$_SkuModel _$$_SkuModelFromJson(Map<String, dynamic> json) => _$_SkuModel(
       id: json['id'] as int?,
       skuCode: json['sku'] as String? ?? '',
-      availabilityDate: json['availabilityDate'] as String? ?? '',
       defaultPrice: (json['price'] as num?)?.toDouble() ?? 0,
       finalPrice: (json['finalPrice'] as num?)?.toDouble() ?? 0,
       colorId: json['colorID'] as int?,
@@ -224,7 +227,6 @@ Map<String, dynamic> _$$_SkuModelToJson(_$_SkuModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'sku': instance.skuCode,
-      'availabilityDate': instance.availabilityDate,
       'price': instance.defaultPrice,
       'finalPrice': instance.finalPrice,
       'colorID': instance.colorId,
