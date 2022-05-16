@@ -7,11 +7,11 @@ void main() async {
   await LinkTspApi.init(domain: domain, admin: admin);
   final LinkTspApi linkTspApi = LinkTspApi();
   const String productCode = 'ADI-60237';
-  ItemReview itemReview = ItemReview(
-      customerId: 31,
-      description: 'منتج سئ للغاية',
-      productCode: productCode,
-      rating: 4);
+  // ItemReview itemReview = ItemReview(
+  //     customerId: 31,
+  //     description: 'منتج سئ للغاية',
+  //     productCode: productCode,
+  //     rating: 4);
   group('review service test: ', () {
     test('check add rate success', () async {
       try {

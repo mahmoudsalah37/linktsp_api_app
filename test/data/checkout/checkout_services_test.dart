@@ -5,7 +5,7 @@ import '../../const.dart';
 
 void main() async {
   await LinkTspApi.init(domain: domain, admin: admin);
-  LinkTspApi linkTspApi = LinkTspApi();
+  // LinkTspApi linkTspApi = LinkTspApi();
 
   group('checkout', () {
     // test('cancel order', () async {

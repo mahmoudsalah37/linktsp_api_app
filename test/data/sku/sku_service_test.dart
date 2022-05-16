@@ -9,8 +9,8 @@ void main() async {
   const String productCode = 'ERJZT05137';
   const String relatedItemsEnum = 'WhoViewedThisViewedThat';
   const int customerId = 31;
-  const int skuid = 11165;
-  const String skuCode = 'ERJZT05137-BPZ0-XS';
+  // const int skuid = 11165;
+  // const String skuCode = 'ERJZT05137-BPZ0-XS';
   group('sku service test: ', () {
     test('check get inner product sliders success', () async {
       final result = await linkTspApi.sku.getInnerProductSliders(

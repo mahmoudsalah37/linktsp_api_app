@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:linktsp_api/core/models/admin_model.dart';
 import 'package:linktsp_api/core/utils/injection_container.dart';
 
@@ -58,7 +59,9 @@ class LinkTspApi implements _LinkTspApiAbstract {
 
     final token = await TokenServiceImp()
         .getToken(domin: domain, version: version, admin: admin);
-    print("token: $token");
+    if (kDebugMode) {
+      print("token: $token");
+    }
     DefaultApiImp.init(domin: domain, token: token, lang: lang, zoneid: zoneid);
   }
 

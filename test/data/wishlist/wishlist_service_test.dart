@@ -6,10 +6,10 @@ import '../../const.dart';
 void main() async {
   await LinkTspApi.init(domain: domain, admin: admin);
   final LinkTspApi linkTspApi = LinkTspApi();
-  const String productCode = 'ERJZT05137';
+  // const String productCode = 'ERJZT05137';
   const int customerId = 31;
   const int skuid = 11165;
-  const String skuCode = 'ERJZT05137-BPZ0-XS';
+  // const String skuCode = 'ERJZT05137-BPZ0-XS';
   group('wishlist service test: ', () {
     test('test add to wishlist success', () async {
       final result = await linkTspApi.wishlist

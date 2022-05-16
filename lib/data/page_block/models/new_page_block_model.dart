@@ -386,24 +386,23 @@ class Product {
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id == null ? null : id,
-        "productCode": productCode == null ? null : productCode,
-        "promoText": promoText == null ? null : promoText,
-        "bogoPromoText": bogoPromoText == null ? null : bogoPromoText,
-        "price": price == null ? null : price,
-        "finalPrice": finalPrice == null ? null : finalPrice,
-        "discountValue": discountValue == null ? null : discountValue,
-        "discountType": discountType == null ? null : discountType,
-        "isAddedtoWishlist":
-            isAddedtoWishlist == null ? null : isAddedtoWishlist,
-        "isOutOfStock": isOutOfStock == null ? null : isOutOfStock,
-        "preOrder": preOrder == null ? null : preOrder,
+        "id": id,
+        "productCode": productCode,
+        "promoText": promoText,
+        "bogoPromoText": bogoPromoText,
+        "price": price,
+        "finalPrice": finalPrice,
+        "discountValue": discountValue,
+        "discountType": discountType,
+        "isAddedtoWishlist": isAddedtoWishlist,
+        "isOutOfStock": isOutOfStock,
+        "preOrder": preOrder,
         "availabilityDate": availabilityDate == null
             ? null
             : availabilityDate!.toIso8601String(),
         "croppedImageURL": croppedImageUrl,
-        "enableCropping": enableCropping == null ? null : enableCropping,
-        "colorOptions": colorOptions == null ? null : colorOptions,
+        "enableCropping": enableCropping,
+        "colorOptions": colorOptions,
         "colorID": colorId == null ? null : colorId,
         "sizeID": sizeId == null ? null : sizeId,
         "size": size == null ? null : size,

@@ -1,4 +1,3 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:linktsp_api/core/models/cart_sku_model.dart';
 import 'package:linktsp_api/core/models/order_model.dart';
 
