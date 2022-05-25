@@ -184,6 +184,40 @@ class CheckOutServicesImp implements CheckOutService {
   }
 
   @override
+  Future<String> confirmDemo({
+    required int customerId,
+    int? paymentOptionId,
+    int? zoneID,
+    int? addressId,
+    required int loyaltyPoints,
+    required double finalAmount,
+    int? storeId,
+    required String shipmentMethods,
+    required String source,
+  }) async {
+    final response = await defaultApi.postData(
+      path: 'checkout/confirm',
+      queryParameters: {
+        "PaymentOptionID": paymentOptionId,
+        "CustomerID": customerId,
+        "ZoneID": zoneID,
+        "AddressID": addressId,
+        "PickStoreID": storeId,
+        "LoyaltyPointsRedeemed": loyaltyPoints,
+        "FinalAmount": finalAmount,
+        "ShipmentMethods": shipmentMethods,
+        'source': source,
+      },
+    );
+    final result = ApiReturnResult.fromJSON(response.data);
+    if (result.code == 200) {
+      return result.data;
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
+  }
+
+  @override
   Future<PaymentFrameModel> confirmOrder(
       {required int customerId,
       int? paymentOptionId,
@@ -466,4 +500,15 @@ abstract class CheckOutService {
   Future<bool> validateSameDayDeliveryTime();
   // return message in confirmation screen
   Future<String> confirmationOrderMessage({required String orderCode});
+  Future<String> confirmDemo({
+    required int customerId,
+    int? paymentOptionId,
+    int? zoneID,
+    int? addressId,
+    required int loyaltyPoints,
+    required double finalAmount,
+    int? storeId,
+    required String shipmentMethods,
+    required String source,
+  });
 }
