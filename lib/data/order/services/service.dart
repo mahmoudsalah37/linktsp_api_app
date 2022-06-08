@@ -82,6 +82,30 @@ class OrderServiceImp implements OrderService {
   }
 
   @override
+  Future<String> confirmPOSOrder(
+      {required List<DemoCartSkuModel> cartItems,
+      required int customerId,
+      required double discountAmount}) async {
+    final respose = await defaultApi.postData(
+      path: 'CheckOut/checkout/ConfirmPOSOrder',
+      version: 3,
+      data: cartItems,
+      queryParameters: {
+        "CustomerID": customerId,
+        "ShipmentAddressID": 0,
+        "LoyaltyPointsRedeemed": 0,
+        "discountAmount": discountAmount,
+      },
+    );
+    final result = ApiReturnResult.fromJSON(respose.data);
+    if (result.code == 200) {
+      return result.data['code'];
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
+  }
+
+  @override
   Future<List<DemoOrderDetailsModel>> demoGetAllOrders() async {
     final respose = await defaultApi.getData(
       path: 'profile/order/GetAllOrders',
@@ -153,7 +177,10 @@ abstract class OrderService {
 
   Future<String> demoSaveOrder(
       {required List<DemoCartSkuModel> cartItems, required int customerId});
-
+  Future<String> confirmPOSOrder(
+      {required List<DemoCartSkuModel> cartItems,
+      required int customerId,
+      required double discountAmount});
   Future<OrderDetailsModel> getOrderDetails(
       {required String orderCode, int version = 1});
 
