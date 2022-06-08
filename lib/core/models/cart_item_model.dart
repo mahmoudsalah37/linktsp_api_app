@@ -1,5 +1,9 @@
 import 'package:linktsp_api/data/list/models/new_list_model.dart';
+import 'package:copy_with_extension/copy_with_extension.dart';
 
+part 'cart_item_model.g.dart';
+
+@CopyWith()
 class CartItemModel {
   CartItemModel({
     this.maxQty,

@@ -1,3 +1,8 @@
+import 'package:copy_with_extension/copy_with_extension.dart';
+
+part 'summary_model.g.dart';
+
+@CopyWith()
 class Summary {
   Summary({
     this.title,
