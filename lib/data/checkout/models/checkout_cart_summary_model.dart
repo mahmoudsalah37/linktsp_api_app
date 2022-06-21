@@ -130,6 +130,7 @@ class PaymentOptionsModel {
     this.cashLimitMsg,
     this.image,
     this.currencySymbol,
+    this.allowPreOrder,
   });
 
   int? id;
@@ -141,7 +142,7 @@ class PaymentOptionsModel {
   dynamic cashLimitMsg;
   String? image;
   String? currencySymbol;
-
+  bool? allowPreOrder;
   factory PaymentOptionsModel.fromJson(Map<String, dynamic> json) =>
       PaymentOptionsModel(
         id: json["id"],
@@ -153,6 +154,7 @@ class PaymentOptionsModel {
         cashLimitMsg: json["cashLimitMsg"],
         image: json["image"],
         currencySymbol: json["currencySymbol"],
+        allowPreOrder: json["allowPreOrder"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -165,6 +167,7 @@ class PaymentOptionsModel {
         "cashLimitMsg": cashLimitMsg,
         "image": image,
         "currencySymbol": currencySymbol,
+        "allowPreOrder": allowPreOrder,
       };
 }
 
