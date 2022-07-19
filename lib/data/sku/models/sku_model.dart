@@ -16,55 +16,56 @@ String productDetailsModelToJson(ProductDetailsModel data) =>
     json.encode(data.toJson());
 
 class ProductDetailsModel {
-  ProductDetailsModel({
-    this.details,
-    this.shortDescription,
-    this.colorId,
-    this.sizeId,
-    this.categories,
-    this.brand,
-    this.isAddedtoWishlist,
-    this.imageList,
-    this.maxQty,
-    this.reviewVisibility,
-    this.showOneClickOrder,
-    this.minDeliveryPeriod,
-    this.maxDeliveryPeriod,
-    this.periodName,
-    this.deliveryNote,
-    this.remaining,
-    this.productCode,
-    this.skuCode,
-    this.colorOptions,
-    this.features,
-    this.productRecentTwoReview =
-        const ProductRecentTwoReview(items: [], length: 0, reviewsCount: 0),
-    this.rating,
-    this.sizes,
-    this.colors,
-    this.preOrder,
-    this.availabilityDate,
-    this.id,
-    this.productId,
-    this.imageUrl,
-    this.imageThumbUrl,
-    this.title,
-    this.seoTitle,
-    this.isOutOfStock,
-    this.price,
-    this.finalPrice,
-    this.hasDiscount,
-    this.discountValue,
-    this.discountType,
-    this.promoText,
-    this.bogoPromoText,
-    this.croppedImageUrl,
-    this.enableCropping,
-    this.size,
-    this.colorHexaCode,
-    this.color,
-    this.brandName,
-  });
+  ProductDetailsModel(
+      {this.details,
+      this.shortDescription,
+      this.colorId,
+      this.sizeId,
+      this.categories,
+      this.brand,
+      this.isAddedtoWishlist,
+      this.imageList,
+      this.maxQty,
+      this.reviewVisibility,
+      this.showOneClickOrder,
+      this.minDeliveryPeriod,
+      this.maxDeliveryPeriod,
+      this.periodName,
+      this.deliveryNote,
+      this.remaining,
+      this.productCode,
+      this.skuCode,
+      this.colorOptions,
+      this.features,
+      this.productRecentTwoReview =
+          const ProductRecentTwoReview(items: [], length: 0, reviewsCount: 0),
+      this.rating,
+      this.sizes,
+      this.colors,
+      this.preOrder,
+      this.availabilityDate,
+      this.id,
+      this.productId,
+      this.imageUrl,
+      this.imageThumbUrl,
+      this.title,
+      this.seoTitle,
+      this.isOutOfStock,
+      this.price,
+      this.finalPrice,
+      this.hasDiscount,
+      this.discountValue,
+      this.discountType,
+      this.promoText,
+      this.bogoPromoText,
+      this.croppedImageUrl,
+      this.enableCropping,
+      this.size,
+      this.colorHexaCode,
+      this.color,
+      this.brandName,
+      this.message,
+      this.status});
 
   final String? details;
   final String? shortDescription;
@@ -112,6 +113,8 @@ class ProductDetailsModel {
   final String? colorHexaCode;
   final String? color;
   final String? brandName;
+  final int? status;
+  final String? message;
 
   factory ProductDetailsModel.fromJson(Map<String, dynamic> json) =>
       ProductDetailsModel(
@@ -167,6 +170,8 @@ class ProductDetailsModel {
         colorHexaCode: json["colorHexaCode"],
         color: json["color"],
         brandName: json["brandName"],
+        message: json["message"],
+        status: json["status"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -217,6 +222,8 @@ class ProductDetailsModel {
         "colorHexaCode": colorHexaCode,
         "color": color,
         "brandName": brandName,
+        "message": message,
+        "status": status,
       };
 }
 
