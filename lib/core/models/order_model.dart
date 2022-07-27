@@ -51,6 +51,9 @@ class OrderDetailsModel {
     this.orderNo,
     this.productsCount,
     this.total,
+    this.subTotal,
+    this.shipmentCost,
+    this.codFee,
     this.orderStatus,
   });
 
@@ -66,6 +69,9 @@ class OrderDetailsModel {
   int? productsCount;
   double? total;
   String? orderStatus;
+  double? subTotal;
+  double? codFee;
+  double? shipmentCost;
 
   factory OrderDetailsModel.fromJson(Map<String, dynamic> json) =>
       OrderDetailsModel(
@@ -85,6 +91,12 @@ class OrderDetailsModel {
         orderNo: json["orderNo"],
         productsCount: json["productsCount"],
         total: json["total"] == null ? null : json["total"]!.toDouble(),
+        subTotal:
+            json["subTotal"] == null ? null : json["subTotal"]!.toDouble(),
+        codFee: json["codFee"] == null ? null : json["codFee"]!.toDouble(),
+        shipmentCost: json["shipmentCost"] == null
+            ? null
+            : json["shipmentCost"]!.toDouble(),
         orderStatus: json["orderStatus"],
       );
 
@@ -102,6 +114,9 @@ class OrderDetailsModel {
         "orderNo": orderNo,
         "productsCount": productsCount,
         "total": total,
+        "subTotal": subTotal,
+        "codFee": codFee,
+        "shipmentCost": shipmentCost,
         "orderStatus": orderStatus,
       };
 }
