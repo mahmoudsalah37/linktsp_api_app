@@ -110,6 +110,7 @@ class OrderItem {
   OrderItem({
     this.qty,
     this.id,
+    this.skuId,
     this.productId,
     this.productCode,
     this.imageUrl,
@@ -137,6 +138,7 @@ class OrderItem {
 
   int? qty;
   int? id;
+  int? skuId;
   int? productId;
   String? productCode;
   String? imageUrl;
@@ -164,6 +166,7 @@ class OrderItem {
   factory OrderItem.fromJson(Map<String, dynamic> json) => OrderItem(
         qty: json["qty"],
         id: json["id"],
+        skuId: json["skuId"],
         productId: json["productID"],
         productCode: json["productCode"],
         imageUrl: json["imageUrl"],
@@ -198,6 +201,7 @@ class OrderItem {
   Map<String, dynamic> toJson() => {
         "qty": qty,
         "id": id,
+        "skuId": skuId,
         "productID": productId,
         "productCode": productCode,
         "imageUrl": imageUrl,
