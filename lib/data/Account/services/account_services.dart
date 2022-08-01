@@ -298,6 +298,36 @@ class AccountServicesImp implements AccountService {
           code: response.statusCode, message: response.statusMessage);
     }
   }
+
+  @override
+  Future<bool?> delete({required int customerId, int version = 3}) async {
+    final response = await defaultApi.getData(
+      path: 'New/account/delete',
+      version: version,
+      queryParameters: {"CustomerID": customerId},
+    );
+    final result = ApiReturnResult.fromJSON(response.data);
+    if (result.code == 200) {
+      return result.data ?? true;
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
+  }
+
+  @override
+  Future<bool?> deactivate({required int customerId, int version = 3}) async {
+    final response = await defaultApi.getData(
+      path: 'New/account/deactivate',
+      version: version,
+      queryParameters: {"CustomerID": customerId},
+    );
+    final result = ApiReturnResult.fromJSON(response.data);
+    if (result.code == 200) {
+      return result.data ?? true;
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
+  }
 }
 
 abstract class AccountService {
@@ -305,6 +335,8 @@ abstract class AccountService {
   ///
   /// Password must be more than 8 chacracters
   Future<UserModel> login({required String password, required String email});
+  Future<bool?> delete({required int customerId, int version = 3});
+  Future<bool?> deactivate({required int customerId, int version = 3});
 
   /// login and send device id (firebase device id)
   Future<UserModel> newLogin(
