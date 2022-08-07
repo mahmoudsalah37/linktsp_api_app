@@ -30,6 +30,19 @@ class SettingWebServicesImp implements SettingWebService {
       throw ExceptionApi(code: result.code, message: result.error?.first);
     }
   }
+
+  @override
+  Future<List<Configurations>> getConfigs({int version = 3}) async {
+    final response = await defaultApi.getData(
+        path: 'setting/Configuration', version: version);
+    final result = ApiReturnResult.fromJSON(response.data);
+    if (result.code == 200) {
+      return List<Configurations>.from(
+          result.data.map((model) => Configurations.fromJson(model)));
+    } else {
+      throw ExceptionApi(code: result.code, message: result.error?.first);
+    }
+  }
 }
 
 abstract class SettingWebService {
@@ -40,4 +53,7 @@ abstract class SettingWebService {
 
   /// It's return terms and conditions of the app.
   Future<String> getServiceAgreement();
+
+  /// It's return Configs of the app.
+  Future<List<Configurations>> getConfigs({int version = 3});
 }

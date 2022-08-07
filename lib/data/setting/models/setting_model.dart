@@ -46,3 +46,30 @@ class Version {
         "serial": serial,
       };
 }
+
+class Configurations {
+  Configurations(
+      {this.systemConfigID,
+      this.systemConfigName,
+      this.value,
+      this.fieldTypeID});
+
+  int? systemConfigID;
+  String? systemConfigName;
+  String? value;
+  String? fieldTypeID;
+
+  factory Configurations.fromJson(Map<String, dynamic> json) => Configurations(
+        systemConfigID: json["systemConfigID"],
+        systemConfigName: json["systemConfigName"],
+        value: json["value"],
+        fieldTypeID: json["fieldTypeID"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "systemConfigID": systemConfigID,
+        "systemConfigName": systemConfigName,
+        "value": value,
+        "fieldTypeID": fieldTypeID,
+      };
+}
