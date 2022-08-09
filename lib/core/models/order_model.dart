@@ -140,6 +140,7 @@ class OrderItem {
     this.discountType,
     this.promoText,
     this.bogoPromoText,
+    this.freeBOGO,
     this.croppedImageUrl,
     this.enableCropping,
     this.size,
@@ -170,6 +171,7 @@ class OrderItem {
   String? bogoPromoText;
   String? croppedImageUrl;
   bool? enableCropping;
+  bool? freeBOGO;
   String? size;
   int? sizeId;
   String? colorHexaCode;
@@ -193,6 +195,7 @@ class OrderItem {
         finalPrice:
             json["finalPrice"] == null ? null : json["finalPrice"]!.toDouble(),
         hasDiscount: json["hasDiscount"],
+        freeBOGO: json["freeBOGO"],
         discountValue: json["discountValue"],
         discountType: json["discountType"],
         promoText: json["promoText"],
@@ -225,6 +228,7 @@ class OrderItem {
         "seoTitle": seoTitle,
         "isOutOfStock": isOutOfStock,
         "price": price,
+        "freeBOGO": freeBOGO,
         "finalPrice": finalPrice,
         "hasDiscount": hasDiscount,
         "discountValue": discountValue,
